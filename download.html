@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download 7 Hills Pooja Store App — Official Android APK & Web App</title>
-  <meta name="description" content="Download the official 7 Hills Pooja Store Android App (.APK) or open the web app. Pure temple pooja samagri, Telugu ritual kits, brass idols & fast Hyderabad delivery.">
+  <title>7 Hills Pooja Store — Official Mobile App</title>
+  <meta name="description" content="Install the official 7 Hills Pooja Store App on your phone. Pure temple pooja samagri, Telugu ritual kits, brass idols & guaranteed Hyderabad doorstep delivery.">
   <meta name="theme-color" content="#5C0612">
   <link rel="icon" type="image/svg+xml" href="app-icon.svg">
-  <link rel="apple-touch-icon" href="playstore-icon-512.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,7 +45,6 @@
       line-height: 1.5;
     }
 
-    /* Ambient Background Elements */
     .ambient-glow {
       position: absolute;
       top: 0;
@@ -59,7 +58,6 @@
       z-index: 0;
     }
 
-    /* Header Nav */
     .nav-bar {
       position: sticky;
       top: 0;
@@ -137,7 +135,6 @@
       color: #1A0306;
     }
 
-    /* Hero Section */
     .hero-section {
       position: relative;
       z-index: 1;
@@ -291,7 +288,6 @@
       color: var(--gold-light);
     }
 
-    /* QR Scan Card */
     .qr-card-box {
       display: inline-flex;
       align-items: center;
@@ -326,7 +322,6 @@
       opacity: 0.9;
     }
 
-    /* Phone Mockup Frame */
     .mockup-container {
       display: flex;
       justify-content: center;
@@ -369,7 +364,6 @@
       display: block;
     }
 
-    /* Features Grid */
     .section-container {
       max-width: 1140px;
       margin: 0 auto;
@@ -431,7 +425,6 @@
       line-height: 1.5;
     }
 
-    /* 3 Step Installation Guide */
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -465,7 +458,6 @@
       line-height: 1.5;
     }
 
-    /* Footer */
     .footer {
       border-top: 1px solid rgba(245, 158, 11, 0.25);
       background: #0D0103;
@@ -489,11 +481,56 @@
     .footer-links a:hover {
       text-decoration: underline;
     }
+
+    /* Install Dialog Modal for instructions */
+    .install-instructions-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .install-card {
+      background: #2D050B;
+      border: 2px solid var(--gold-main);
+      border-radius: 20px;
+      padding: 24px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      color: #FFF;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    }
+    .install-card h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    .install-card p {
+      font-size: 13.5px;
+      color: #FEEBC8;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .btn-modal-action {
+      background: var(--gold-main);
+      color: #1A0306;
+      font-weight: 800;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Ambient Glow -->
   <div class="ambient-glow"></div>
 
   <!-- Header Nav -->
@@ -505,7 +542,7 @@
         </div>
         <div class="brand-text">
           <h1>7 Hills Pooja Store</h1>
-          <p>Official Android Release</p>
+          <p>Official Mobile Release</p>
         </div>
       </a>
       <div class="nav-actions">
@@ -523,37 +560,37 @@
       <div class="hero-content">
         <div class="hero-badge">
           <span class="pulse-dot"></span>
-          <span>Official Android Release • v1.0.0</span>
+          <span>Official App Release • v1.0.0</span>
         </div>
         <h2 class="hero-title">Experience Tirumala's Sacred Pooja Store on Your Phone</h2>
         <p class="hero-sub">
-          Download the official 7 Hills Pooja Store app. Access pure &amp; consecrated pooja samagri, authentic Telugu ritual kits, brass idols, and guaranteed doorstep delivery across Hyderabad.
+          Install the official 7 Hills Pooja Store app on your smartphone. Access pure &amp; consecrated pooja samagri, authentic Telugu ritual kits, brass idols, and guaranteed doorstep delivery across Hyderabad.
         </p>
 
         <!-- CTA Buttons -->
         <div class="cta-group">
-          <a href="/download/7HillsPoojaStore-App.apk" class="btn-download-primary" download="7HillsPoojaStore-App.apk">
+          <button type="button" class="btn-download-primary" id="btn-main-install" onclick="startAppInstall()">
             <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <div class="btn-meta">
-              <span class="btn-text-main">Download Android APK</span>
-              <span class="btn-text-sub">Version 1.0.0 • 175 KB • Safe Direct Download</span>
+              <span class="btn-text-main">Install App on Phone</span>
+              <span class="btn-text-sub">1-Tap Direct Install • 100% Safe &amp; Official</span>
             </div>
-          </a>
+          </button>
 
           <a href="/" class="btn-webapp-secondary">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            <span>Open Web App (PWA)</span>
+            <span>Open Web Store</span>
           </a>
         </div>
 
         <!-- QR Scan Box -->
         <div class="qr-card-box">
           <div class="qr-thumb">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fmissed-district-wyoming-dividend.trycloudflare.com%2Fdownload%2F7HillsPoojaStore-App.apk" alt="Scan to Download App">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fmissed-district-wyoming-dividend.trycloudflare.com%2F" alt="Scan to Install App">
           </div>
           <div class="qr-meta">
             <h4>Scan with Phone Camera</h4>
-            <p>Scan this QR code on any Android smartphone to download the app immediately.</p>
+            <p>Scan this QR code with any smartphone to open and install the app instantly.</p>
           </div>
         </div>
       </div>
@@ -572,27 +609,27 @@
     <!-- 3-Step Installation Guide -->
     <section class="section-container" style="background: rgba(0,0,0,0.25); border-radius: var(--radius-lg); margin-top: 20px;">
       <div class="section-header">
-        <h2 class="section-title">How to Install on Android in 3 Steps</h2>
-        <p class="section-sub">Simple, fast, and no Google Play Store account required.</p>
+        <h2 class="section-title">How to Install on Your Phone in 3 Steps</h2>
+        <p class="section-sub">Simple, instant, and works on all Android and iPhone devices.</p>
       </div>
 
       <div class="steps-grid">
         <div class="step-card">
           <span class="step-num">01</span>
-          <h3>Tap "Download APK"</h3>
-          <p>Click the download button above on your Android smartphone to get <code>7HillsPoojaStore-App.apk</code>.</p>
+          <h3>Tap "Install App on Phone"</h3>
+          <p>Click the golden install button above on your smartphone browser (Chrome, Edge, or Safari).</p>
         </div>
 
         <div class="step-card">
           <span class="step-num">02</span>
-          <h3>Tap "Download anyway"</h3>
-          <p>If your phone warns *"File might be harmful"*, tap **Download anyway**. This is standard for direct APK packages.</p>
+          <h3>Tap "Install" or "Add to Home Screen"</h3>
+          <p>Confirm the prompt on your screen to add the official 7 Hills Pooja Store app to your home screen.</p>
         </div>
 
         <div class="step-card">
           <span class="step-num">03</span>
-          <h3>Tap "Open" &amp; "Install"</h3>
-          <p>Tap Open when the download finishes, click Install, and launch 7 Hills Pooja Store directly from your home screen!</p>
+          <h3>Launch &amp; Receive Blessings</h3>
+          <p>Open 7 Hills Pooja Store right from your phone's app list with full-screen experience and 15% launch savings!</p>
         </div>
       </div>
     </section>
@@ -632,11 +669,27 @@
     </section>
   </main>
 
+  <!-- Install Instructions Modal -->
+  <div class="install-instructions-modal" id="install-modal">
+    <div class="install-card">
+      <div style="width:60px; height:60px; margin:0 auto 14px auto; background:#FFFBEB; border-radius:14px; padding:6px; border:1.5px solid var(--gold-main);">
+        <img src="app-icon.svg" style="width:100%; height:100%; object-fit:contain;" alt="7 Hills Logo">
+      </div>
+      <h3 id="install-modal-title">Install 7 Hills Pooja Store</h3>
+      <p id="install-modal-desc">
+        To install the app on your phone:
+      </p>
+      <div id="install-steps-content" style="text-align:left; background:rgba(0,0,0,0.3); border-radius:10px; padding:12px; margin-bottom:18px; font-size:13px; color:#FDE68A; line-height:1.6;">
+      </div>
+      <button type="button" class="btn-modal-action" onclick="document.getElementById('install-modal').style.display='none'">Got it</button>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-links">
       <a href="/">Open Store</a>
-      <a href="/download/7HillsPoojaStore-App.apk">Download APK</a>
+      <a href="javascript:void(0)" onclick="startAppInstall()">Install App</a>
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms of Service</a>
       <a href="/partner">Partner Portal</a>
@@ -646,5 +699,53 @@
     <p style="margin-top: 4px; color: #B45309; font-size: 11.5px;">Store Helpline: +91 90979 99939 • Hyderabad, Telangana</p>
   </footer>
 
+  <script>
+    let deferredPrompt = null;
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      console.log('beforeinstallprompt active on download page');
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredPrompt = null;
+      alert('7 Hills Pooja Store App has been successfully installed on your phone!');
+    });
+
+    function startAppInstall() {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choice) => {
+          if (choice.outcome === 'accepted') {
+            console.log('User installed 7 Hills app');
+          }
+          deferredPrompt = null;
+        });
+        return;
+      }
+
+      // Detect OS
+      const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      const isAndroid = /Android/.test(navigator.userAgent);
+      const modal = document.getElementById('install-modal');
+      const steps = document.getElementById('install-steps-content');
+
+      if (isIos) {
+        steps.innerHTML = '1. Tap the <strong>Share</strong> icon (square with arrow ↑) at the bottom of Safari.<br>2. Scroll down and tap <strong>Add to Home Screen (⊞)</strong>.<br>3. Tap <strong>Add</strong> in the top right.';
+        modal.style.display = 'flex';
+      } else if (isAndroid) {
+        steps.innerHTML = '1. Tap the <strong>3 dots (⋮)</strong> in Chrome at the top-right corner.<br>2. Tap <strong>Install app</strong> or <strong>Add to Home screen</strong>.<br>3. The official 7 Hills app icon will appear on your phone home screen!';
+        modal.style.display = 'flex';
+      } else {
+        // Desktop or other browser
+        window.location.href = '/';
+      }
+    }
+  </script>
 </body>
 </html>

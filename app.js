@@ -5517,9 +5517,9 @@ function executeNativeInstall() {
   } else {
     const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
     if (isIos) {
-      alert("To install 7 Hills Pooja Store on iPhone / iPad:\n1. Tap the Share icon (square with arrow) at the bottom.\n2. Tap 'Add to Home Screen'.");
+      alert("To install 7 Hills Pooja Store on iPhone / iPad:\n1. Tap the Share button (square with arrow ↑) at the bottom.\n2. Tap 'Add to Home Screen (⊞)'.");
     } else {
-      window.location.href = '/download/7HillsPoojaStore-App.apk';
+      alert("To install 7 Hills Pooja Store on your phone:\n1. Tap the 3 dots (⋮) in Chrome at top-right.\n2. Tap 'Install app' or 'Add to Home screen'.\n3. The app icon will appear directly on your home screen!");
     }
   }
 }

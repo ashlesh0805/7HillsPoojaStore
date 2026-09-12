@@ -1,23 +1,31 @@
-{
+﻿{
+  "id": "/",
   "name": "7 Hills Pooja Store",
   "short_name": "7 Hills Pooja",
-  "start_url": "./index.html",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#FBF8F2",
   "theme_color": "#7A0C1A",
-  "description": "7 Hills Pooja Store — Authentic Pooja & Devotional Items beside Prasannanjaneya Temple, LB Nagar, Hyderabad. Positive Energy in Every Item.",
-  "orientation": "portrait-primary",
+  "description": "7 Hills Pooja Store — Authentic Pooja & Devotional Items beside Prasannanjaneya Temple, LB Nagar, Hyderabad.",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "./app-icon.svg",
-      "sizes": "192x192 512x512",
-      "type": "image/svg+xml",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "./infinity-logo.jpg",
+      "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
     }
   ]
 }
