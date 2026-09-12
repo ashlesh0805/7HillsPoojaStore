@@ -1,0 +1,196 @@
+[
+  {
+    "id": "god-idols",
+    "name": "God Idols & Murti",
+    "icon": "idols",
+    "keywords": [
+      "idol",
+      "statue",
+      "ganesha",
+      "lakshmi",
+      "krishna",
+      "hanuman",
+      "shiva",
+      "nandi",
+      "buddha",
+      "murti",
+      "lingam"
+    ],
+    "description": "Pure brass, marble-finish, crystal and metal sacred murtis infused with positive divine energy.",
+    "image": "IMAGE (47).JPG"
+  },
+  {
+    "id": "diyas-lamps",
+    "name": "Diyas & Brass Lamps",
+    "icon": "lamps",
+    "keywords": [
+      "diya",
+      "lamp",
+      "deepam",
+      "aarti",
+      "lantern",
+      "kuthuvilakku"
+    ],
+    "description": "Traditional Akhand diyas, peacock hanging lamps, pancha aarti stands, and brass oil deepams.",
+    "image": "IMAGE (40).JPG"
+  },
+  {
+    "id": "photo-frames",
+    "name": "Sacred Photo Frames",
+    "icon": "frames",
+    "keywords": [
+      "frame",
+      "photo",
+      "picture"
+    ],
+    "description": "Ornate gold leaf, LED-illuminated, and wood-framed deity portraits for your home mandir.",
+    "image": "IMAGE (110).JPG"
+  },
+  {
+    "id": "pooja-samagri",
+    "name": "Pooja Samagri & Essentials",
+    "icon": "samagri",
+    "keywords": [
+      "pooja",
+      "samagri",
+      "essential",
+      "kumkum",
+      "turmeric",
+      "haldi",
+      "camphor",
+      "kapoor",
+      "oil",
+      "wick",
+      "gangajal",
+      "liquid",
+      "spray",
+      "rose water"
+    ],
+    "description": "Pure unadulterated pooja samagri, natural camphor, sacred gangajal, brass lotas, and lamp oils.",
+    "image": "IMAGE (95).JPG"
+  },
+  {
+    "id": "brass-items",
+    "name": "Brass Pooja Items & Kalash",
+    "icon": "brass",
+    "keywords": [
+      "brass",
+      "kalash",
+      "pot",
+      "lota",
+      "vessel",
+      "bowl",
+      "spoon",
+      "bell",
+      "chowki",
+      "box",
+      "container",
+      "uruli",
+      "plate",
+      "thali",
+      "shankh"
+    ],
+    "description": "Temple-grade brass and copper ritual vessels, kalash, carved urulis, bells, and meenakari chowkis.",
+    "image": "IMAGE (60).JPG"
+  },
+  {
+    "id": "malas-rudraksha",
+    "name": "Malas & Rudraksha",
+    "icon": "malas",
+    "keywords": [
+      "mala",
+      "garland",
+      "beads",
+      "rudraksha",
+      "tulsi",
+      "japa"
+    ],
+    "description": "Authentic white & brown Tulsi malas, energized Nepali Rudraksha beads, and counting japa malas.",
+    "image": "IMAGE (209).JPG"
+  },
+  {
+    "id": "decor-garlands",
+    "name": "Decor & Garlands",
+    "icon": "garlands",
+    "keywords": [
+      "decor",
+      "hanging",
+      "toran",
+      "door",
+      "wall",
+      "sticker",
+      "rangoli",
+      "flower",
+      "garland",
+      "vastram",
+      "cloth",
+      "dhoti",
+      "pancha",
+      "flag",
+      "crown",
+      "mukut",
+      "namam",
+      "eyes",
+      "jhula"
+    ],
+    "description": "Vibrant yellow marigold garlands, sacred deity vastram, silk dhotis, mukut crowns, and door torans.",
+    "image": "IMAGE (79).JPG"
+  },
+  {
+    "id": "wooden-mandirs",
+    "name": "Wooden Pooja Mandirs",
+    "icon": "mandirs",
+    "keywords": [
+      "mandir",
+      "shrine",
+      "temple",
+      "wooden"
+    ],
+    "description": "Masterfully carved wooden shrines and home mandirs with brass bells and storage drawers.",
+    "image": "IMAGE (150).JPG"
+  },
+  {
+    "id": "incense-dhoop",
+    "name": "Incense & Dhoop",
+    "icon": "incense",
+    "keywords": [
+      "agarbatti",
+      "incense",
+      "dhoop",
+      "stick",
+      "cone",
+      "sambrani"
+    ],
+    "description": "Charcoal-free temple grade agarbatti sticks, natural cow dung dhoop, and aromatic sambrani cups.",
+    "image": "IMAGE (134).JPG"
+  },
+  {
+    "id": "festival-kits",
+    "name": "Festival Specials & Kits",
+    "icon": "kits",
+    "keywords": [
+      "kit",
+      "combo",
+      "box",
+      "set",
+      "pack",
+      "festival",
+      "venkateswara"
+    ],
+    "description": "Curated ritual kits for Gruhapravesam, Varalakshmi Vratham, Satyanarayana Vratham, and weddings.",
+    "image": "IMAGE (14).JPG"
+  },
+  {
+    "id": "test-havan-samagri-1789060119030",
+    "name": "Pure Havan & Yagna Samagri (Updated)",
+    "icon": "samagri",
+    "image": "IMAGE (95).JPG",
+    "keywords": [
+      "havan",
+      "yagna",
+      "homa",
+      "samidha"
+    ],
+    "description": "Sacred wood sticks, guggulu, and aromatic herbs for divine homam rituals."
+  }
+]

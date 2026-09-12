@@ -1,0 +1,650 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download 7 Hills Pooja Store App — Official Android APK & Web App</title>
+  <meta name="description" content="Download the official 7 Hills Pooja Store Android App (.APK) or open the web app. Pure temple pooja samagri, Telugu ritual kits, brass idols & fast Hyderabad delivery.">
+  <meta name="theme-color" content="#5C0612">
+  <link rel="icon" type="image/svg+xml" href="app-icon.svg">
+  <link rel="apple-touch-icon" href="playstore-icon-512.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --maroon-dark: #35030A;
+      --maroon-main: #5C0612;
+      --maroon-light: #7E1220;
+      --gold-main: #F59E0B;
+      --gold-light: #FDE68A;
+      --gold-deep: #B45309;
+      --saffron: #E65100;
+      --bg-dark: #1A0306;
+      --bg-card: #27060B;
+      --text-light: #FFFBEB;
+      --text-muted: #FCD34D;
+      --radius-lg: 20px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(circle at top center, #35030A 0%, #1A0306 70%, #0D0103 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Ambient Background Elements */
+    .ambient-glow {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 900px;
+      height: 450px;
+      background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.18) 0%, rgba(92, 6, 18, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Header Nav */
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26, 3, 6, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245, 158, 11, 0.25);
+      padding: 14px 20px;
+    }
+    .nav-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+      border: 1.5px solid var(--gold-main);
+      padding: 4px;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .brand-icon-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .brand-text h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 19px;
+      font-weight: 800;
+      color: #FFFBEB;
+      letter-spacing: 0.5px;
+    }
+    .brand-text p {
+      font-size: 11px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-nav-app {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--gold-main);
+      color: var(--gold-light);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-nav-app:hover {
+      background: var(--gold-main);
+      color: #1A0306;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      z-index: 1;
+      padding: 50px 20px 60px 20px;
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+      align-items: center;
+    }
+    @media (max-width: 900px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 30px;
+        gap: 36px;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--gold-main);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulseGreen 1.8s infinite;
+    }
+    @keyframes pulseGreen {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #FFFBEB 0%, #FDE68A 40%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    @media (max-width: 600px) {
+      .hero-title {
+        font-size: 32px;
+      }
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: #FEEBC8;
+      margin-bottom: 32px;
+      line-height: 1.6;
+      max-width: 580px;
+    }
+    @media (max-width: 900px) {
+      .hero-sub {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px;
+      }
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 900px) {
+      .cta-group {
+        justify-content: center;
+      }
+    }
+
+    .btn-download-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+      color: #1A0306;
+      font-weight: 800;
+      padding: 16px 28px;
+      border-radius: var(--radius-md);
+      border: 1.5px solid #FDE68A;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.35);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-download-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(245, 158, 11, 0.5);
+      filter: brightness(1.06);
+    }
+    .btn-download-primary:active {
+      transform: scale(0.98);
+    }
+    .btn-download-primary .btn-meta {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .btn-download-primary .btn-text-main {
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+    .btn-download-primary .btn-text-sub {
+      font-size: 11px;
+      color: #35030A;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-webapp-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1.5px solid rgba(245, 158, 11, 0.4);
+      color: #FFFBEB;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 16px 24px;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-webapp-secondary:hover {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: var(--gold-main);
+      color: var(--gold-light);
+    }
+
+    /* QR Scan Card */
+    .qr-card-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(43, 6, 12, 0.7);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .qr-thumb {
+      width: 76px;
+      height: 76px;
+      border-radius: 8px;
+      background: #FFF;
+      padding: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .qr-thumb img {
+      width: 100%;
+      height: 100%;
+    }
+    .qr-meta h4 {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--gold-light);
+      margin-bottom: 2px;
+    }
+    .qr-meta p {
+      font-size: 12px;
+      color: #FCD34D;
+      opacity: 0.9;
+    }
+
+    /* Phone Mockup Frame */
+    .mockup-container {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    .phone-device-frame {
+      width: 290px;
+      height: 590px;
+      background: #000;
+      border: 10px solid #2D050B;
+      border-radius: 44px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 30px rgba(245, 158, 11, 0.25);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .phone-speaker-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 18px;
+      background: #000;
+      border-radius: 10px;
+      z-index: 20;
+    }
+    .phone-screen-content {
+      width: 100%;
+      height: 100%;
+      background: #FAF4EB;
+      overflow-y: auto;
+      position: relative;
+    }
+    .phone-screen-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Features Grid */
+    .section-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 800;
+      color: #FFFBEB;
+      margin-bottom: 10px;
+    }
+    .section-sub {
+      color: var(--gold-light);
+      font-size: 15px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .feature-card {
+      background: rgba(39, 6, 11, 0.85);
+      border: 1.5px solid rgba(245, 158, 11, 0.25);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-main);
+    }
+    .feature-icon-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid var(--gold-main);
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .feature-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #FFFBEB;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 13.5px;
+      color: #FCD34D;
+      line-height: 1.5;
+    }
+
+    /* 3 Step Installation Guide */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .step-card {
+      background: linear-gradient(135deg, rgba(63, 2, 10, 0.9) 0%, rgba(39, 6, 11, 0.9) 100%);
+      border: 1.5px solid rgba(245, 158, 11, 0.3);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      position: relative;
+    }
+    .step-num {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 900;
+      color: rgba(245, 158, 11, 0.3);
+    }
+    .step-card h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #FFFBEB;
+      margin-bottom: 8px;
+    }
+    .step-card p {
+      font-size: 13.5px;
+      color: #FEEBC8;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(245, 158, 11, 0.25);
+      background: #0D0103;
+      padding: 40px 20px 30px 20px;
+      text-align: center;
+      color: #FCD34D;
+      font-size: 13px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--gold-light);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glow -->
+  <div class="ambient-glow"></div>
+
+  <!-- Header Nav -->
+  <header class="nav-bar">
+    <div class="nav-container">
+      <a href="/" class="brand-group">
+        <div class="brand-icon-box">
+          <img src="app-icon.svg" alt="7 Hills Pooja Store Logo">
+        </div>
+        <div class="brand-text">
+          <h1>7 Hills Pooja Store</h1>
+          <p>Official Android Release</p>
+        </div>
+      </a>
+      <div class="nav-actions">
+        <a href="/" class="btn-nav-app">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+          <span>Open Store</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Official Android Release • v1.0.0</span>
+        </div>
+        <h2 class="hero-title">Experience Tirumala's Sacred Pooja Store on Your Phone</h2>
+        <p class="hero-sub">
+          Download the official 7 Hills Pooja Store app. Access pure &amp; consecrated pooja samagri, authentic Telugu ritual kits, brass idols, and guaranteed doorstep delivery across Hyderabad.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="cta-group">
+          <a href="/download/7HillsPoojaStore-App.apk" class="btn-download-primary" download="7HillsPoojaStore-App.apk">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <div class="btn-meta">
+              <span class="btn-text-main">Download Android APK</span>
+              <span class="btn-text-sub">Version 1.0.0 • 175 KB • Safe Direct Download</span>
+            </div>
+          </a>
+
+          <a href="/" class="btn-webapp-secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>Open Web App (PWA)</span>
+          </a>
+        </div>
+
+        <!-- QR Scan Box -->
+        <div class="qr-card-box">
+          <div class="qr-thumb">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fmissed-district-wyoming-dividend.trycloudflare.com%2Fdownload%2F7HillsPoojaStore-App.apk" alt="Scan to Download App">
+          </div>
+          <div class="qr-meta">
+            <h4>Scan with Phone Camera</h4>
+            <p>Scan this QR code on any Android smartphone to download the app immediately.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phone Mockup Preview -->
+      <div class="mockup-container">
+        <div class="phone-device-frame">
+          <div class="phone-speaker-notch"></div>
+          <div class="phone-screen-content">
+            <img src="playstore-screenshot-1-home.png" alt="7 Hills Pooja Store App Home Screen">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-Step Installation Guide -->
+    <section class="section-container" style="background: rgba(0,0,0,0.25); border-radius: var(--radius-lg); margin-top: 20px;">
+      <div class="section-header">
+        <h2 class="section-title">How to Install on Android in 3 Steps</h2>
+        <p class="section-sub">Simple, fast, and no Google Play Store account required.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3>Tap "Download APK"</h3>
+          <p>Click the download button above on your Android smartphone to get <code>7HillsPoojaStore-App.apk</code>.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3>Tap "Download anyway"</h3>
+          <p>If your phone warns *"File might be harmful"*, tap **Download anyway**. This is standard for direct APK packages.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3>Tap "Open" &amp; "Install"</h3>
+          <p>Tap Open when the download finishes, click Install, and launch 7 Hills Pooja Store directly from your home screen!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why 7 Hills Pooja Store -->
+    <section class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Why Devotees Choose 7 Hills</h2>
+        <p class="section-sub">Bringing sacred Vedic sanctity and pure pooja essentials to every home.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <h3>Sacred Consecration</h3>
+          <p>100% authentic cow ghee wicks, Bhimseni camphor, natural herbal dhoop, and temple-consecrated items.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+          </div>
+          <h3>100% Secure Online Prepaid</h3>
+          <p>Zero cash hassle. Instant checkout via UPI, Google Pay, PhonePe, Paytm, Debit/Credit Cards &amp; Netbanking.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>Hyderabad Fast Delivery</h3>
+          <p>Dispatched direct to your doorstep in LB Nagar, Kothapet, Dilsukhnagar, and across Greater Hyderabad.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/">Open Store</a>
+      <a href="/download/7HillsPoojaStore-App.apk">Download APK</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+      <a href="/partner">Partner Portal</a>
+      <a href="https://wa.me/919097999939" target="_blank">WhatsApp Helpline</a>
+    </div>
+    <p>© 2026 7 Hills Pooja Store. Dedicated to Sri Venkateswara Swamy. All rights reserved.</p>
+    <p style="margin-top: 4px; color: #B45309; font-size: 11.5px;">Store Helpline: +91 90979 99939 • Hyderabad, Telangana</p>
+  </footer>
+
+</body>
+</html>

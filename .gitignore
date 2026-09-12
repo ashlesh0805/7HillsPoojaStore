@@ -1,0 +1,6 @@
+﻿cloudflared.exe
+temp_apk_build/
+node_modules/
+.DS_Store
+*.log
+7HILLS WEBSITE FOR STOCK ITEMS/

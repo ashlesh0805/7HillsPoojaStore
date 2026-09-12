@@ -1,0 +1,42 @@
+{
+  "packageId": "com.sevenhills.poojastore",
+  "host": "7hillspoojastore.com",
+  "name": "7 Hills Pooja Store",
+  "launcherName": "7 Hills Pooja",
+  "themeColor": "#7A0C1A",
+  "themeColorDark": "#5C0612",
+  "navigationColor": "#7A0C1A",
+  "navigationColorDark": "#5C0612",
+  "navigationDividerColor": "#00000000",
+  "navigationDividerColorDark": "#00000000",
+  "backgroundColor": "#FBF8F2",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "http://localhost:3000/app-icon.svg",
+  "maskableIconUrl": "http://localhost:3000/app-icon.svg",
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "signingKey": {
+    "path": "./7hills-release.keystore",
+    "alias": "7hills"
+  },
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "http://localhost:3000/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "locationDelegation": {
+      "enabled": true
+    },
+    "playBilling": {
+      "enabled": false
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "minSdkVersion": 21,
+  "targetSdkVersion": 34
+}

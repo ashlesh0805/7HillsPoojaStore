@@ -1,0 +1,300 @@
+[
+  {
+    "orderId": "7H-ORD-ONLINE-1789061421813",
+    "customerName": "Ashlesh Devotee",
+    "phone": "9097999939",
+    "paymentMethod": "Razorpay Online (pay_test_online_123)",
+    "paymentStatus": "PAID",
+    "total": 850,
+    "grandTotal": 850,
+    "deliveryMethod": "instant",
+    "deliveryName": "Instant Express",
+    "items": [
+      {
+        "id": "PRD-1",
+        "title": "Pure Brass Diya",
+        "price": 850,
+        "quantity": 1
+      }
+    ],
+    "date": "10/9/2026, 11:00:21 pm",
+    "status": "New Order"
+  },
+  {
+    "orderId": "7H-ORD-65145",
+    "customerName": "Ashlesh Gurram",
+    "date": "8/9/2026, 10:14:31 pm",
+    "status": "Accepted",
+    "stepIndex": 1,
+    "deliveryMethod": "instant",
+    "deliveryName": "Instant Express (within 45 mins)",
+    "expectedDeliveryDate": "Today (Within 45 mins - by 22:59)",
+    "deliveryCost": 200,
+    "address": "Flat 402, Sai Balaji Residency, Near Prasannanjaneya Temple, LB Nagar, Hyderabad - 500074",
+    "phone": "9097999939",
+    "paymentMethod": "Razorpay Online (UPI/Cards)",
+    "rider": {
+      "name": "Suresh Reddy (7 Hills Express)",
+      "phone": "+91 90979 99939",
+      "vehicle": "Bajaj Pulsar (TS 08 HG 8812)",
+      "eta": "35 minutes"
+    },
+    "items": [
+      {
+        "id": "product_1",
+        "title": "Brass Ganesha Pendant/Idol",
+        "price": 589,
+        "quantity": 1,
+        "image": "IMAGE (40).JPG"
+      },
+      {
+        "id": "product_2",
+        "title": "Brass Ganesha Pendant/Idol",
+        "price": 669,
+        "quantity": 1,
+        "image": "IMAGE (40).JPG"
+      }
+    ],
+    "subtotal": 1258,
+    "discount": 0,
+    "couponCode": null,
+    "tax": 63,
+    "total": 1458,
+    "grandTotal": 1458,
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=919097999939&text=*7%20HILLS%20POOJA%20STORE%20%E2%80%94%20NEW%20ORDER%20PLACED*%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A*Order%20ID%3A*%207H-ORD-65145%0A*Customer%3A*%20Ashlesh%20Gurram%0A*Phone%3A*%209097999939%0A*Delivery%20Address%3A*%20Flat%20402%2C%20Sai%20Balaji%20Residency%2C%20Near%20Prasannanjaneya%20Temple%2C%20LB%20Nagar%2C%20Hyderabad%20-%20500074%0A*Expected%20Delivery%3A*%20Today%20(Within%2045%20mins%20-%20by%2022%3A59)%0A*Delivery%20Method%3A*%20Instant%20Express%20(within%2045%20mins)%0A%0A*ITEMS%20ORDERED%3A*%0A1.%20Brass%20Ganesha%20Pendant%2FIdol%20x%201%20%3D%20Rs.%20589%0A2.%20Brass%20Ganesha%20Pendant%2FIdol%20x%201%20%3D%20Rs.%20669%0A------------------------------------%0A*Subtotal%3A*%20Rs.%201258%0A*Discount%3A*%20Rs.%200%0A*Delivery%20Fee%3A*%20Rs.%20200%0A*GRAND%20TOTAL%3A*%20Rs.%201458%0A*Payment%20Method%3A*%20Razorpay%20Online%20(Prepaid)%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A7%20Hills%20Pooja%20Store%0ABeside%20Prasannanjaneya%20Swamy%20Temple%2C%20LB%20Nagar%2C%20Hyderabad%0APositive%20Energy%20in%20Every%20Item."
+  },
+  {
+    "orderId": "7H-ORD-96640",
+    "customerName": "Ashlesh Gurram",
+    "date": "8/9/2026, 10:11:58 pm",
+    "status": "Delivered",
+    "stepIndex": 1,
+    "deliveryMethod": "standard",
+    "deliveryName": "Standard Delivery (2-3 Days)",
+    "expectedDeliveryDate": "Within 24 to 48 Hours",
+    "deliveryCost": 0,
+    "address": "Flat 402, Sai Balaji Residency, Near Prasannanjaneya Temple, LB Nagar, Hyderabad - 500074",
+    "phone": "9097999939",
+    "paymentMethod": "Razorpay Online (UPI/Cards)",
+    "rider": {
+      "name": "Suresh Reddy (7 Hills Express)",
+      "phone": "+91 90979 99939",
+      "vehicle": "Bajaj Pulsar (TS 08 HG 8812)",
+      "eta": "2 hours"
+    },
+    "items": [
+      {
+        "id": "test_item_1788873476052",
+        "title": "Consecrated Astagandha Chandanam Paste (Special)",
+        "price": 999,
+        "quantity": 1,
+        "image": "IMAGE (40).JPG"
+      }
+    ],
+    "subtotal": 999,
+    "discount": 0,
+    "couponCode": null,
+    "tax": 50,
+    "total": 999,
+    "grandTotal": 999,
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=919097999939&text=*7%20HILLS%20POOJA%20STORE%20%E2%80%94%20NEW%20ORDER%20PLACED*%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A*Order%20ID%3A*%207H-ORD-96640%0A*Customer%3A*%20Ashlesh%20Gurram%0A*Phone%3A*%209097999939%0A*Delivery%20Address%3A*%20Flat%20402%2C%20Sai%20Balaji%20Residency%2C%20Near%20Prasannanjaneya%20Temple%2C%20LB%20Nagar%2C%20Hyderabad%20-%20500074%0A*Expected%20Delivery%3A*%20Within%2024%20to%2048%20Hours%0A*Delivery%20Method%3A*%20Standard%20Delivery%20(2-3%20Days)%0A%0A*ITEMS%20ORDERED%3A*%0A1.%20Consecrated%20Astagandha%20Chandanam%20Paste%20(Special)%20x%201%20%3D%20Rs.%20999%0A------------------------------------%0A*Subtotal%3A*%20Rs.%20999%0A*Discount%3A*%20Rs.%200%0A*Delivery%20Fee%3A*%20Rs.%200%0A*GRAND%20TOTAL%3A*%20Rs.%20999%0A*Payment%20Method%3A*%20Razorpay%20Online%20(Prepaid)%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A7%20Hills%20Pooja%20Store%0ABeside%20Prasannanjaneya%20Swamy%20Temple%2C%20LB%20Nagar%2C%20Hyderabad%0APositive%20Energy%20in%20Every%20Item."
+  },
+  {
+    "orderId": "7H-ORD-19215",
+    "customerName": "Ashlesh Gurram",
+    "date": "8/9/2026, 9:57:17 pm",
+    "status": "Accepted",
+    "stepIndex": 1,
+    "deliveryMethod": "standard",
+    "deliveryName": "Standard Delivery (2-3 Days)",
+    "expectedDeliveryDate": "Within 24 to 48 Hours",
+    "deliveryCost": 50,
+    "address": "Level 3, Cyber Gateway, Hitec City, Madhapur, Hyderabad - 500081",
+    "phone": "9097999939",
+    "paymentMethod": "Razorpay Online (UPI/Cards)",
+    "rider": {
+      "name": "Suresh Reddy (7 Hills Express)",
+      "phone": "+91 90979 99939",
+      "vehicle": "Bajaj Pulsar (TS 08 HG 8812)",
+      "eta": "2 hours"
+    },
+    "items": [
+      {
+        "id": "product_24",
+        "title": "Brass Hanging Lamp Chains (Set)",
+        "price": 329,
+        "quantity": 1,
+        "image": "IMAGE (40).JPG"
+      }
+    ],
+    "subtotal": 329,
+    "discount": 0,
+    "couponCode": null,
+    "tax": 16,
+    "total": 379,
+    "grandTotal": 379,
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=919097999939&text=*7%20HILLS%20POOJA%20STORE%20%E2%80%94%20NEW%20ORDER%20PLACED*%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A*Order%20ID%3A*%207H-ORD-19215%0A*Customer%3A*%20Ashlesh%20Gurram%0A*Phone%3A*%209097999939%0A*Delivery%20Address%3A*%20Level%203%2C%20Cyber%20Gateway%2C%20Hitec%20City%2C%20Madhapur%2C%20Hyderabad%20-%20500081%0A*Expected%20Delivery%3A*%20Within%2024%20to%2048%20Hours%0A*Delivery%20Method%3A*%20Standard%20Delivery%20(2-3%20Days)%0A%0A*ITEMS%20ORDERED%3A*%0A1.%20Brass%20Hanging%20Lamp%20Chains%20(Set)%20x%201%20%3D%20Rs.%20329%0A------------------------------------%0A*Subtotal%3A*%20Rs.%20329%0A*Discount%3A*%20Rs.%200%0A*Delivery%20Fee%3A*%20Rs.%2050%0A*GRAND%20TOTAL%3A*%20Rs.%20379%0A*Payment%20Method%3A*%20Razorpay%20Online%20(Prepaid)%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A7%20Hills%20Pooja%20Store%0ABeside%20Prasannanjaneya%20Swamy%20Temple%2C%20LB%20Nagar%2C%20Hyderabad%0APositive%20Energy%20in%20Every%20Item."
+  },
+  {
+    "orderId": "7H-ORD-64334",
+    "customerName": "Ashlesh Gurram",
+    "date": "8/9/2026, 8:38:30 pm",
+    "status": "Accepted",
+    "stepIndex": 1,
+    "deliveryMethod": "instant",
+    "deliveryName": "Instant Express (within 45 mins)",
+    "expectedDeliveryDate": "Today (Within 45 mins - by 09:23 PM)",
+    "deliveryCost": 200,
+    "address": "Flat 402, Sai Balaji Residency, Near Prasannanjaneya Temple, LB Nagar, Hyderabad - 500074",
+    "phone": "9097999939",
+    "paymentMethod": "Razorpay Online (UPI/Cards)",
+    "rider": {
+      "name": "Suresh Reddy (7 Hills Express)",
+      "phone": "+91 90979 99939",
+      "vehicle": "Bajaj Pulsar (TS 08 HG 8812)",
+      "eta": "35 minutes"
+    },
+    "items": [
+      {
+        "id": "product_24",
+        "title": "Brass Hanging Lamp Chains (Set)",
+        "price": 329,
+        "quantity": 1,
+        "image": "IMAGE (40).JPG"
+      }
+    ],
+    "subtotal": 329,
+    "discount": 0,
+    "couponCode": null,
+    "tax": 16,
+    "total": 529,
+    "grandTotal": 529,
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=919097999939&text=*7%20HILLS%20POOJA%20STORE%20%E2%80%94%20NEW%20ORDER%20PLACED*%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A*Order%20ID%3A*%207H-ORD-64334%0A*Customer%3A*%20Ashlesh%20Gurram%0A*Phone%3A*%209097999939%0A*Delivery%20Address%3A*%20Flat%20402%2C%20Sai%20Balaji%20Residency%2C%20Near%20Prasannanjaneya%20Temple%2C%20LB%20Nagar%2C%20Hyderabad%20-%20500074%0A*Expected%20Delivery%3A*%20Today%20(Within%2045%20mins%20-%20by%2009%3A23%20PM)%0A*Delivery%20Method%3A*%20Instant%20Express%20(within%2045%20mins)%0A%0A*ITEMS%20ORDERED%3A*%0A1.%20Brass%20Hanging%20Lamp%20Chains%20(Set)%20x%201%20%3D%20Rs.%20329%0A------------------------------------%0A*Subtotal%3A*%20Rs.%20329%0A*Discount%3A*%20Rs.%200%0A*Delivery%20Fee%3A*%20Rs.%20200%0A*GRAND%20TOTAL%3A*%20Rs.%20529%0A*Payment%20Method%3A*%20Razorpay%20Online%20(Prepaid)%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A7%20Hills%20Pooja%20Store%0ABeside%20Prasannanjaneya%20Swamy%20Temple%2C%20LB%20Nagar%2C%20Hyderabad%0APositive%20Energy%20in%20Every%20Item."
+  },
+  {
+    "orderId": "7H-ORD-ALERT-3901",
+    "customerName": "Devotee Ashlesh",
+    "phone": "9097999939",
+    "address": "Beside Prasannanjaneya Swamy Temple, LB Nagar, Hyderabad",
+    "deliveryName": "Instant Delivery (45 Mins)",
+    "expectedDeliveryDate": "Today (Within 45 mins)",
+    "paymentMethod": "UPI (Paid Online)",
+    "total": 2499,
+    "subtotal": 2499,
+    "items": [
+      {
+        "title": "Handcrafted Brass Ganesha Idol",
+        "price": 1999,
+        "quantity": 1
+      },
+      {
+        "title": "Pure Astagandha Chandanam Paste",
+        "price": 500,
+        "quantity": 1
+      }
+    ],
+    "date": "8/9/2026, 8:22:18 pm",
+    "status": "New Order"
+  },
+  {
+    "orderId": "7H-ORD-TEST-4518",
+    "customerName": "Ashlesh Gurram",
+    "phone": "9097999939",
+    "address": "Beside Prasannanjaneya Swamy Temple, LB Nagar, Hyderabad - 500074",
+    "deliveryMethod": "instant",
+    "deliveryName": "Instant Express (within 45 mins)",
+    "expectedDeliveryDate": "Today (Within 45 mins)",
+    "paymentMethod": "UPI (Paid Online)",
+    "total": 1899,
+    "subtotal": 1899,
+    "items": [
+      {
+        "id": "product_47",
+        "title": "Brass Standing Deity Idol (Lakshmi)",
+        "price": 1899,
+        "quantity": 1
+      }
+    ],
+    "date": "8/9/2026, 6:47:56 pm",
+    "status": "Accepted"
+  },
+  {
+    "orderId": "7H-ORD-94182",
+    "date": "2026-09-06T11:20:00",
+    "status": "Out for Delivery",
+    "stepIndex": 4,
+    "deliveryMethod": "instant",
+    "deliveryName": "Instant Delivery (45 mins)",
+    "deliveryCost": 200,
+    "address": "Flat 402, Sai Balaji Residency, Near Prasannanjaneya Temple, LB Nagar, Hyderabad - 500074",
+    "phone": "90979 99939",
+    "paymentMethod": "UPI (Paid Online)",
+    "rider": {
+      "name": "Ramesh Kumar (7 Hills Express)",
+      "phone": "+91 98480 12345",
+      "vehicle": "Honda Activa (TS 08 EK 4321)",
+      "eta": "18 minutes"
+    },
+    "items": [
+      {
+        "id": "product_47",
+        "title": "Brass Standing Deity Idol (Lakshmi)",
+        "price": 1899,
+        "quantity": 1,
+        "image": "IMAGE (47).JPG"
+      },
+      {
+        "id": "product_40",
+        "title": "Decorative Brass Diya (Peacock/Floral design)",
+        "price": 449,
+        "quantity": 2,
+        "image": "IMAGE (40).JPG"
+      },
+      {
+        "id": "product_79",
+        "title": "Artificial Yellow Marigold & White Jasmine Garland",
+        "price": 249,
+        "quantity": 2,
+        "image": "IMAGE (79).JPG"
+      }
+    ],
+    "subtotal": 3295,
+    "discount": 330,
+    "couponCode": "DIVINE10",
+    "tax": 148,
+    "grandTotal": 3313
+  },
+  {
+    "orderId": "7H-ORD-88210",
+    "date": "2026-08-25T15:45:00",
+    "status": "Delivered",
+    "stepIndex": 5,
+    "deliveryMethod": "standard",
+    "deliveryName": "2–3 Business Days",
+    "deliveryCost": 0,
+    "address": "Flat 402, Sai Balaji Residency, Near Prasannanjaneya Temple, LB Nagar, Hyderabad - 500074",
+    "phone": "90979 99939",
+    "paymentMethod": "Razorpay Online (UPI/Cards)",
+    "items": [
+      {
+        "id": "product_110",
+        "title": "Ganesha Photo Frame (Gold & Orange)",
+        "price": 899,
+        "quantity": 1,
+        "image": "IMAGE (110).JPG"
+      },
+      {
+        "id": "product_209",
+        "title": "Rudraksha Mala",
+        "price": 349,
+        "quantity": 1,
+        "image": "IMAGE (209).JPG"
+      }
+    ],
+    "subtotal": 1248,
+    "discount": 100,
+    "couponCode": "FIRST7",
+    "tax": 57,
+    "grandTotal": 1205
+  }
+]

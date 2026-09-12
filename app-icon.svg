@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Velvet Maroon Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A040D"/>
+      <stop offset="50%" stop-color="#7A0C1A"/>
+      <stop offset="100%" stop-color="#2D0206"/>
+    </linearGradient>
+
+    <!-- Rich Divine Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="25%" stop-color="#FDE68A"/>
+      <stop offset="60%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+
+    <!-- Hill Gradient -->
+    <linearGradient id="hillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="50%" stop-color="#B45309"/>
+      <stop offset="100%" stop-color="#78350F"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="divineGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base with Rounded App Icon Corners -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+
+  <!-- Sacred Geometric Aura Rings -->
+  <circle cx="256" cy="256" r="216" fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-dasharray="8 8" opacity="0.4"/>
+  <circle cx="256" cy="256" r="202" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" opacity="0.7"/>
+
+  <!-- Radiating Sun Aura behind Gopuram -->
+  <g stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.35">
+    <line x1="256" y1="210" x2="170" y2="110"/>
+    <line x1="256" y1="210" x2="210" y2="95"/>
+    <line x1="256" y1="210" x2="256" y2="90"/>
+    <line x1="256" y1="210" x2="302" y2="95"/>
+    <line x1="256" y1="210" x2="342" y2="110"/>
+  </g>
+
+  <!-- ============================================== -->
+  <!-- THE 7 SACRED HILLS OF TIRUMALA (Base Mountain) -->
+  <!-- ============================================== -->
+  <!-- Hills Background Silhouette Base -->
+  <path d="M70 330 Q95 295 125 310 Q155 285 185 300 Q215 270 240 288 Q256 265 272 288 Q297 270 327 300 Q357 285 387 310 Q417 295 442 330 L442 342 L70 342 Z" fill="#5C0612" opacity="0.6"/>
+
+  <!-- Contoured Peaks of the 7 Hills -->
+  <!-- Peak 1 (Seshadri - Far Left) -->
+  <path d="M70 335 C88 298, 116 298, 134 326" stroke="url(#hillGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Peak 2 (Neeladri) -->
+  <path d="M120 326 C142 286, 172 286, 192 318" stroke="url(#hillGrad)" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+  <!-- Peak 3 (Garudadri) -->
+  <path d="M178 318 C200 276, 226 278, 246 306" stroke="url(#hillGrad)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- Peak 4 (Venkatadri - Central Sacred Mount under Gopuram) -->
+  <path d="M216 306 C236 264, 276 264, 296 306" stroke="url(#goldGrad)" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  <!-- Peak 5 (Narayanadri) -->
+  <path d="M266 306 C286 278, 312 276, 334 318" stroke="url(#hillGrad)" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+  <!-- Peak 6 (Vrishabhadri) -->
+  <path d="M320 318 C340 286, 370 286, 392 326" stroke="url(#hillGrad)" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+  <!-- Peak 7 (Anjanadri - Far Right) -->
+  <path d="M378 326 C396 298, 424 298, 442 335" stroke="url(#hillGrad)" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Sacred Ground Baseline -->
+  <line x1="68" y1="340" x2="444" y2="340" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- ============================================== -->
+  <!-- MAJESTIC TIRUMALA TEMPLE GOPURAM ARCHITECTURE  -->
+  <!-- ============================================== -->
+  <!-- 3 Golden Kalasams (Summit Spires) -->
+  <g stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round">
+    <line x1="256" y1="102" x2="256" y2="126"/>
+    <line x1="230" y1="114" x2="230" y2="132"/>
+    <line x1="282" y1="114" x2="282" y2="132"/>
+  </g>
+  <circle cx="256" cy="102" r="4.5" fill="#FFFBEB" filter="url(#divineGlow)"/>
+  <circle cx="230" cy="114" r="3.5" fill="#FDE68A"/>
+  <circle cx="282" cy="114" r="3.5" fill="#FDE68A"/>
+
+  <!-- Shikhara Dome (Barrel Vault / Sala) -->
+  <path d="M214 138 C224 122, 288 122, 298 138 Z" fill="url(#goldGrad)" stroke="#B45309" stroke-width="2"/>
+  <line x1="206" y1="142" x2="306" y2="142" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Gopuram Tier 1 (Upper Tala) -->
+  <path d="M218 146 L210 178 L302 178 L294 146 Z" fill="#5C0612" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <rect x="249" y="152" width="14" height="18" rx="2" fill="url(#goldGrad)"/>
+  <line x1="198" y1="182" x2="314" y2="182" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Gopuram Tier 2 (Middle Tala) -->
+  <path d="M206 186 L194 226 L318 226 L306 186 Z" fill="#5C0612" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <!-- Decorative Pilasters / Niches -->
+  <line x1="226" y1="190" x2="226" y2="222" stroke="url(#goldGrad)" stroke-width="2"/>
+  <rect x="248" y="192" width="16" height="22" rx="2" fill="url(#goldGrad)"/>
+  <line x1="286" y1="190" x2="286" y2="222" stroke="url(#goldGrad)" stroke-width="2"/>
+  <line x1="184" y1="230" x2="328" y2="230" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Gopuram Tier 3 (Lower Tala) -->
+  <path d="M192 234 L178 280 L334 280 L320 234 Z" fill="#5C0612" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <line x1="214" y1="238" x2="214" y2="276" stroke="url(#goldGrad)" stroke-width="2"/>
+  <rect x="246" y="240" width="20" height="26" rx="2" fill="url(#goldGrad)"/>
+  <line x1="298" y1="238" x2="298" y2="276" stroke="url(#goldGrad)" stroke-width="2"/>
+  <line x1="168" y1="284" x2="344" y2="284" stroke="url(#goldGrad)" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- Gopuram Sanctum Gateway (Dwaram) -->
+  <path d="M236 338 V298 C236 288, 276 288, 276 298 V338" fill="#FFFBEB" fill-opacity="0.35" stroke="url(#goldGrad)" stroke-width="3"/>
+  <!-- Divine Sanctum Idol Light -->
+  <circle cx="256" cy="308" r="5" fill="#FFFBEB" filter="url(#divineGlow)"/>
+
+  <!-- ============================================== -->
+  <!-- BRAND TYPOGRAPHY                               -->
+  <!-- ============================================== -->
+  <text x="256" y="422" text-anchor="middle" font-family="'Cinzel', Georgia, serif" font-size="28" font-weight="700" fill="url(#goldGrad)" letter-spacing="3">7 HILLS POOJA</text>
+  <text x="256" y="454" text-anchor="middle" font-family="'Outfit', sans-serif" font-size="16" font-weight="600" fill="#FDE68A" letter-spacing="2">HYDERABAD</text>
+</svg>

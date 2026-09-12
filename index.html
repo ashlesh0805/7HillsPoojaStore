@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>7 Hills Pooja Store — Positive Energy in Every Item</title>
+  
+  <!-- SEO & PWA Metadata -->
+  <meta name="description" content="7 Hills Pooja Store offers authentic, temple-grade brass idols, diyas, pooja samagri kits, sacred photo frames, malas, and festive items. Located beside Prasannanjaneya Swamy Temple, LB Nagar, Hyderabad.">
+  <meta name="keywords" content="7 Hills Pooja Store, pooja store hyderabad, brass idols, diyas, pooja samagri, LB nagar pooja items, sacred photo frames, rudraksha mala">
+  <meta name="author" content="7 Hills Pooja Store">
+  <meta name="theme-color" content="#7A0C1A">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="7 Hills Pooja Store">
+  <link rel="icon" type="image/svg+xml" href="app-icon.svg">
+  <link rel="apple-touch-icon" href="app-icon.svg">
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="7 Hills Pooja Store — Positive Energy in Every Item">
+  <meta property="og:description" content="Discover premium, authentic pooja items, god idols, handcrafted brass lamps, and pooja kits at 7 Hills Pooja Store. Fast delivery across Hyderabad.">
+  
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "7 Hills Pooja Store",
+    "description": "Positive Energy in Every Item. Authentic pooja and devotional store.",
+    "telephone": "+91-9097999939",
+    "email": "vasusaiselection@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Beside Prasannanjaneya Swamy Temple, LB Nagar Main Road",
+      "addressLocality": "LB Nagar, Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500074",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Su 08:00-22:00",
+    "priceRange": "₹"
+  }
+  </script>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="index.css">
+  <!-- Fuse.js for fuzzy search -->
+  <script src="https://unpkg.com/fuse.js@6.6.2/dist/fuse.min.js"></script>
+  <!-- Razorpay Payment Gateway Standard Checkout -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="mobile-app-body">
+
+  <!-- Desktop View Mode Switcher (Floating badge) -->
+  <div class="desktop-mode-switch" id="desktop-mode-switch">
+    <button type="button" class="mode-switch-btn" id="btn-toggle-viewport" onclick="toggleViewportMode()" title="Toggle View Mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+      <span id="viewport-mode-label">Mobile App View</span>
+    </button>
+  </div>
+
+  <!-- Simulated Mobile Push Notification Banner (for OTP & Order Alerts) -->
+  <div id="app-notification-banner" class="app-notification-banner" role="alert" aria-live="assertive">
+    <div class="notification-banner-content">
+      <div class="notification-banner-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+      </div>
+      <div class="notification-banner-text">
+        <strong id="notification-banner-title">7 Hills Pooja Store</strong>
+        <p id="notification-banner-msg">Your verification code is <strong>7777</strong>.</p>
+      </div>
+      <button type="button" class="notification-banner-close" onclick="closeNotificationBanner()" aria-label="Dismiss">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MAIN MOBILE APP SHELL CONTAINER            -->
+  <!-- ========================================== -->
+  <div class="mobile-app-shell" id="mobile-app-shell">
+
+    <!-- Top Pre-Launch & App Install Notice -->
+    <aside class="prelaunch-banner" id="prelaunch-banner">
+      <div class="prelaunch-container">
+        <div class="prelaunch-pill">
+          <span class="pulsing-status-dot"></span>
+          <span>FUNCTIONING SOON</span>
+        </div>
+        <div class="prelaunch-msg">
+          <strong>7 Hills Pooja Store App is Functioning Soon!</strong>
+          <span class="prelaunch-subtext">Install today on your phone for Early Access &amp; Special Pooja Blessings.</span>
+        </div>
+        <div class="prelaunch-actions">
+          <button type="button" class="btn-prelaunch-install" onclick="triggerAppInstall()" id="btn-prelaunch-install" title="Install App to Home Screen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Install App</span>
+          </button>
+          <a href="/download/7HillsPoojaStore-App.apk" class="btn-prelaunch-download" download="7HillsPoojaStore-App.apk" title="Direct APK Download">
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"/><path d="m17 8-5 5-5-5"/><path d="M20 21H4"/></svg>
+            <span>Download APK</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 1. Top Quick-Commerce Location & Support Bar -->
+    <div class="app-top-utility-bar">
+      <div class="utility-loc-box" id="btn-open-location-modal" title="Change Location">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="util-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div class="util-loc-text">
+          <span class="util-loc-hint">Deliver to</span>
+          <strong class="util-loc-name" id="header-delivery-location-text">LB Nagar, Hyderabad</strong>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </div>
+
+      <div class="utility-actions">
+        <!-- Direct WhatsApp Support -->
+        <a href="https://wa.me/919097999939?text=Hello%207%20Hills%20Pooja%20Store%2C%20I%20need%20assistance%20with%20pooja%20samagri" target="_blank" class="util-btn util-btn-whatsapp" title="WhatsApp Support" aria-label="WhatsApp Support">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          <span>Chat</span>
+        </a>
+        <!-- Direct Phone Call -->
+        <a href="tel:9097999939" class="util-btn" title="Call Store" aria-label="Call Store">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. Main Mobile App Navigation Header -->
+    <header class="app-nav-header" id="app-nav-header">
+      <!-- Root view top bar -->
+      <div class="nav-header-root" id="nav-header-root">
+        <button type="button" class="icon-btn" id="btn-open-mobile-drawer" aria-label="Open Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+
+        <a href="#/" class="app-brand-title">
+          <div class="brand-flame-icon" title="7 Hills of Tirumala with Gopuram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 40 40" fill="none" aria-label="7 Hills of Tirumala with Gopuram">
+              <!-- Divine Rays -->
+              <path d="M20 18 L14 7 M20 18 L20 6 M20 18 L26 7" stroke="#FDE68A" stroke-width="0.8" stroke-dasharray="1 1" opacity="0.4"/>
+              <!-- 7 Hills Background -->
+              <path d="M0 34 Q3 28 6 30 Q9 26 12 28 Q15 24 18 27 Q20 22 22 27 Q25 24 28 28 Q31 26 34 30 Q37 28 40 34 L40 38 L0 38 Z" fill="#92400E" opacity="0.35"/>
+              <!-- 7 Hills of Tirumala Peaks -->
+              <path d="M0 35 C2 30, 5 30, 7 34" stroke="#F59E0B" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M5 34 C8 28.5, 11 28.5, 13 33" stroke="#F59E0B" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M10 33 C13 26.5, 16 27, 18 31" stroke="#F59E0B" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M15 31 C18 25, 22 25, 25 31" stroke="#FFFBEB" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M22 31 C24 27, 27 26.5, 30 33" stroke="#F59E0B" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M27 33 C29 28.5, 32 28.5, 35 34" stroke="#F59E0B" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M33 34 C35 30, 38 30, 40 35" stroke="#F59E0B" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M0 36.5 L40 36.5" stroke="#D97706" stroke-width="1.4"/>
+              <!-- 3 Kalasams at Summit -->
+              <path d="M20 4.5 L20 7 M17 6 L17 8 M23 6 L23 8" stroke="#FDE68A" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="20" cy="4.5" r="0.8" fill="#FFFBEB"/>
+              <circle cx="17" cy="6" r="0.7" fill="#FDE68A"/>
+              <circle cx="23" cy="6" r="0.7" fill="#FDE68A"/>
+              <!-- Shikhara Dome -->
+              <path d="M15 8.5 C16 7, 24 7, 25 8.5 Z" fill="#FCD34D" stroke="#D97706" stroke-width="0.8"/>
+              <line x1="14" y1="9" x2="26" y2="9" stroke="#FDE68A" stroke-width="1.2" stroke-linecap="round"/>
+              <!-- Tier 1 -->
+              <path d="M15.5 9.5 L14.5 13 L25.5 13 L24.5 9.5 Z" fill="#5C0612" fill-opacity="0.3" stroke="#FCD34D" stroke-width="1.1"/>
+              <rect x="19" y="10.5" width="2" height="2.5" rx="0.5" fill="#FDE68A"/>
+              <line x1="13" y1="13.5" x2="27" y2="13.5" stroke="#FCD34D" stroke-width="1.3" stroke-linecap="round"/>
+              <!-- Tier 2 -->
+              <path d="M14 14 L12.8 18.5 L27.2 18.5 L26 14 Z" fill="#5C0612" fill-opacity="0.3" stroke="#FCD34D" stroke-width="1.1"/>
+              <line x1="16.5" y1="14.5" x2="16.5" y2="18" stroke="#FCD34D" stroke-width="0.9"/>
+              <rect x="19" y="15" width="2" height="3" rx="0.5" fill="#FDE68A"/>
+              <line x1="23.5" y1="14.5" x2="23.5" y2="18" stroke="#FCD34D" stroke-width="0.9"/>
+              <line x1="11.5" y1="19" x2="28.5" y2="19" stroke="#FCD34D" stroke-width="1.4" stroke-linecap="round"/>
+              <!-- Tier 3 & Dwaram -->
+              <path d="M12.5 19.5 L11.2 25 L28.8 25 L27.5 19.5 Z" fill="#5C0612" fill-opacity="0.3" stroke="#FCD34D" stroke-width="1.1"/>
+              <path d="M17.5 25.5 V21 C17.5 19.8, 22.5 19.8, 22.5 21 V25.5" fill="#FFFBEB" fill-opacity="0.4" stroke="#FDE68A" stroke-width="1.2"/>
+              <circle cx="20" cy="22.5" r="1.2" fill="#FFFBEB"/>
+              <line x1="10" y1="25.5" x2="30" y2="25.5" stroke="#FCD34D" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="brand-text-block">
+            <span class="brand-name">7 Hills Pooja Store</span>
+            <span class="brand-sub">Positive Energy in Every Item.</span>
+          </div>
+        </a>
+
+        <div class="nav-right-actions">
+          <!-- Language Selector -->
+          <button type="button" class="icon-btn header-lang-btn" id="btn-lang-toggle" onclick="openLanguageModal()" title="Language / భాష" aria-label="Change Language">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-cur-badge" id="current-lang-code">EN</span>
+          </button>
+
+          <!-- Warm Temple Dark Mode Toggle -->
+          <button type="button" class="icon-btn header-theme-btn" id="btn-theme-toggle" onclick="toggleThemeMode()" title="Toggle Warm Temple Dark Mode" aria-label="Toggle Theme">
+            <span id="theme-toggle-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </span>
+          </button>
+
+          <!-- Wishlist -->
+          <a href="#/wishlist" class="icon-btn" title="Wishlist" aria-label="Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <span class="badge-count" id="header-wishlist-badge" style="display: none;">0</span>
+          </a>
+
+          <!-- Cart Button (Opens Slide-up Drawer) -->
+          <button type="button" class="icon-btn header-cart-trigger" onclick="openCartDrawer()" title="Shopping Cart" aria-label="Cart">
+            <div class="cart-icon-animated-wrap" id="header-cart-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              <span class="badge-count cart-badge-bounce" id="header-cart-badge" style="display: none;">0</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Sub-page dynamic back header (Shown on PDP, Cart, Checkout, Orders, etc.) -->
+      <div class="nav-header-sub" id="nav-header-sub" style="display: none;">
+        <button type="button" class="icon-btn" id="btn-header-back" onclick="handleHeaderBack()" aria-label="Back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+
+        <h2 class="sub-header-title" id="sub-header-title">Product Details</h2>
+
+        <div class="nav-right-actions">
+          <button type="button" class="icon-btn header-cart-trigger" onclick="openCartDrawer()" title="Cart" aria-label="Cart">
+            <div class="cart-icon-animated-wrap" id="sub-header-cart-icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+              <span class="badge-count cart-badge-bounce" id="sub-header-cart-badge" style="display: none;">0</span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. Integrated Mobile Quick-Search Pill -->
+      <div class="app-search-wrapper" id="app-search-wrapper">
+        <div class="search-pill-box">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="search-lens-icon"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          <input 
+            type="text" 
+            id="mobile-search-input" 
+            class="app-search-input" 
+            placeholder="Search pooja samagri, brass idols, diyas..."
+            autocomplete="off"
+          >
+          <button type="button" class="search-inline-btn" id="mobile-btn-voice-search" aria-label="Voice Search" title="Voice Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+          </button>
+          <button type="button" class="search-inline-btn" id="mobile-btn-image-search" aria-label="Image Search" title="Photo Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          </button>
+        </div>
+
+        <!-- Autocomplete Suggestions Panel -->
+        <div class="search-suggestions-panel" id="search-suggestions-panel" style="display: none;"></div>
+      </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- 4. MAIN APPLICATION SCROLLABLE MOUNT ROOT  -->
+    <!-- ========================================== -->
+    <main class="app-scroll-container" id="app-root">
+      <div style="text-align: center; padding: 60px 20px;">
+        <div class="loading-spinner"></div>
+        <p style="color: var(--text-muted); font-size: 13px; margin-top: 14px;">Loading 7 Hills Pooja Store...</p>
+      </div>
+    </main>
+
+    <!-- Mini Floating Cart Bar (Swiggy / Blinkit style sticky pill) -->
+    <div class="floating-cart-bar" id="floating-cart-bar" onclick="openCartDrawer()" role="button" aria-label="View Shopping Cart">
+      <div class="floating-cart-left">
+        <div class="floating-cart-pill">
+          <span id="floating-cart-count">1 Item</span>
+          <span class="floating-cart-sep">•</span>
+          <strong id="floating-cart-total">₹0</strong>
+        </div>
+        <span class="floating-cart-hint">Delivering to LB Nagar</span>
+      </div>
+      <div class="floating-cart-right">
+        <span>View Cart</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- 5. FIXED MOBILE BOTTOM NAVIGATION          -->
+    <!-- ========================================== -->
+    <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Bottom Navigation">
+      <a href="#/" class="mobile-nav-tab active" id="tab-mob-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span class="nav-tab-label" data-i18n="nav_home">Home</span>
+      </a>
+      <a href="#/categories" class="mobile-nav-tab" id="tab-mob-categories">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+        <span class="nav-tab-label" data-i18n="nav_categories">Categories</span>
+      </a>
+      <a href="javascript:void(0)" class="mobile-nav-tab tab-cart-highlight" id="tab-mob-cart" onclick="openCartDrawer()">
+        <div class="cart-tab-icon-wrap" id="bottom-cart-icon-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span class="badge-count cart-badge-bounce" id="mobile-bottom-cart-badge" style="display: none;">0</span>
+        </div>
+        <span class="nav-tab-label" data-i18n="nav_cart">Cart</span>
+      </a>
+      <a href="#/orders" class="mobile-nav-tab" id="tab-mob-orders">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+        <span class="nav-tab-label" data-i18n="nav_orders">Orders</span>
+      </a>
+      <a href="#/profile" class="mobile-nav-tab" id="tab-mob-profile">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span class="nav-tab-label" data-i18n="nav_profile">Profile</span>
+      </a>
+    </nav>
+
+  </div> <!-- End .mobile-app-shell -->
+
+  <!-- ========================================== -->
+  <!-- 6. SIDE DRAWER MENU (ZERO EMOJIS)          -->
+  <!-- ========================================== -->
+  <div class="mobile-drawer-overlay" id="mobile-drawer-overlay">
+    <div class="mobile-drawer-content">
+      <div class="drawer-header">
+        <div class="drawer-user-info">
+          <div class="drawer-avatar">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7h20L12 2z"/><path d="M4 7v10"/><path d="M8 7v10"/><path d="M16 7v10"/><path d="M20 7v10"/><path d="M2 17h20v4H2v-4z"/><circle cx="12" cy="11" r="2"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 700; color: #FFF;">7 Hills Pooja Store</h3>
+            <p style="font-size: 11px; color: var(--accent-gold-light);">Positive Energy in Every Item.</p>
+          </div>
+        </div>
+        <button type="button" class="drawer-close-btn" id="btn-close-drawer" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <ul class="drawer-menu-list">
+        <li class="drawer-menu-item">
+          <a href="#/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/entry" style="color: var(--primary-maroon); font-weight: 700;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/></svg>
+            <span>Onboarding Flow (QR & OTP)</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/categories">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+            <span>All Categories</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/deals">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+            <span>Festive Deals & Offers</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/orders">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            <span>My Orders</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/track">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-5l-3-4h-5v10"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
+            <span>Track Live Order</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <span>My Wishlist</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/profile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Profile & Addresses</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/sankalpam">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            <span>Digital Sankalpam & Ritual Kits</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/stotram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            <span>Sacred Stotrams & Temple Chimes</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/appointment">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+            <span>Pooja Kit Consultation</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/about">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><path d="M12 2v3"/></svg>
+            <span>About 7 Hills Pooja Store</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item">
+          <a href="#/contact">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>Contact & Store Visit</span>
+          </a>
+        </li>
+        <li class="drawer-menu-item" style="margin-top: 10px; border-top: 1px dashed var(--border-light); padding-top: 10px;">
+          <a href="/partner" target="_blank" style="color: var(--accent-gold); font-weight: 700;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>7 Hills Pooja Store Partner (Store Login)</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="drawer-footer-box">
+        <strong>7 Hills Pooja Store</strong>
+        <p>Beside Prasannanjaneya Swamy Temple, LB Nagar Main Road, Hyderabad - 500074.</p>
+        <p style="margin-top: 6px;">Phone: 90979 99939 | 8:00 AM – 10:00 PM</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 7. MODALS & BOTTOM SHEETS (ZERO EMOJIS)    -->
+  <!-- ========================================== -->
+  
+  <!-- Location Bottom Sheet Modal -->
+  <div class="mobile-drawer-overlay" id="location-modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size: 16px; font-weight: 700; color: var(--primary-maroon);">Select Delivery Location</h3>
+        <button type="button" id="btn-close-location-modal" class="modal-close-btn" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
+        Fast pooja delivery calculations around LB Nagar and Greater Hyderabad.
+      </p>
+      <div style="margin-bottom: 14px;">
+        <button type="button" class="btn btn-primary" id="btn-detect-gps-location" style="width: 100%; justify-content: center; padding: 12px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Detect Current Location (GPS)</span>
+        </button>
+      </div>
+      <div style="text-align: center; font-size: 11px; color: var(--text-muted); margin: 12px 0; text-transform: uppercase;">or enter address</div>
+      <div style="display: flex; gap: 8px;">
+        <input type="text" id="input-manual-location" class="form-control" style="font-size: 13px;" placeholder="e.g. LB Nagar, Kothapet, Dilsukhnagar">
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-save-manual-location">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Voice Search Modal -->
+  <div class="mobile-drawer-overlay" id="voice-modal-overlay">
+    <div class="modal-card" style="text-align: center; background: #2A0408; color: #FFF; border: 1.5px solid var(--accent-gold);">
+      <div class="voice-pulse-circle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+      </div>
+      <h3 style="color: var(--accent-gold); font-size: 18px; margin-bottom: 6px;">Listening for Items...</h3>
+      <p id="voice-modal-status-text" style="font-size: 14px; color: #FAF8F5; margin-bottom: 16px;">Speak now: e.g. "Brass Ganesha" or "Diyas"</p>
+      <button type="button" class="btn btn-secondary btn-sm" id="btn-cancel-voice" style="background: rgba(255,255,255,0.1); color: #FFF; border-color: rgba(255,255,255,0.3);">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Image Search Modal -->
+  <div class="mobile-drawer-overlay" id="image-search-modal-overlay">
+    <div class="modal-card" style="text-align: center;">
+      <div class="modal-header">
+        <h3 style="font-size: 16px; font-weight: 700; color: var(--primary-maroon);">Visual Photo Search</h3>
+        <button type="button" id="btn-close-image-modal" class="modal-close-btn" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 16px;">
+        Upload a photo of any Diya, Idol, Frame, or Samagri to match items in stock.
+      </p>
+      <div style="border: 2px dashed var(--border-medium); border-radius: var(--radius-md); padding: 24px; margin-bottom: 16px; background: var(--bg-cream);" id="image-drop-area">
+        <div style="margin-bottom: 10px; color: var(--primary-maroon);">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        </div>
+        <input type="file" id="image-upload-input" accept="image/*" style="display: none;">
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-trigger-file-input">Select Photo</button>
+        <p id="image-selected-filename" style="font-size: 12px; color: var(--primary-maroon); margin-top: 8px; font-weight: 600; display: none;"></p>
+      </div>
+      <button type="button" class="btn btn-primary" id="btn-execute-image-search" style="width: 100%; justify-content: center;" disabled>Scan & Find Matches</button>
+    </div>
+  </div>
+
+  <!-- =================================================== -->
+  <!-- 8. SLIDE-UP CART BOTTOM SHEET DRAWER (SWIGGY/ZOMATO) -->
+  <!-- =================================================== -->
+  <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="handleDrawerBackdropClick(event)">
+    <div class="cart-drawer-sheet" id="cart-drawer-sheet" role="dialog" aria-modal="true" aria-label="Your Pooja Cart" onclick="event.stopPropagation()">
+      <!-- Swipe-to-dismiss Drag Notch -->
+      <div class="cart-drawer-handle-bar" id="cart-drawer-handle-bar">
+        <span class="cart-drawer-notch"></span>
+      </div>
+
+      <!-- Drawer Header -->
+      <div class="cart-drawer-header">
+        <div class="cart-drawer-header-left">
+          <h3 class="cart-drawer-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+            <span>My Pooja Cart</span>
+            <span class="cart-drawer-count-badge" id="cart-drawer-badge">0</span>
+          </h3>
+          <span class="cart-drawer-subtitle">7 Hills Pooja Store • Beside Prasannanjaneya Temple</span>
+        </div>
+        <button type="button" class="btn-drawer-close" onclick="closeCartDrawer()" aria-label="Close Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Scrollable Cart Content Area -->
+      <div class="cart-drawer-body" id="cart-drawer-body">
+        <!-- Rendered dynamically by app.js: items or empty state -->
+      </div>
+
+      <!-- Sticky Bottom Footer with Collapsible Bill Details & Checkout CTA -->
+      <div class="cart-drawer-footer" id="cart-drawer-footer" style="display: none;">
+        <!-- Collapsible Bill Breakdown Summary -->
+        <div class="cart-bill-collapsible" id="cart-bill-collapsible">
+          <div class="cart-bill-header" onclick="toggleDrawerBillDetails()">
+            <div class="cart-bill-header-left">
+              <span class="bill-header-title">Bill Breakdown</span>
+              <span class="bill-header-savings" id="drawer-bill-savings">You Save ₹0</span>
+            </div>
+            <div class="cart-bill-header-right">
+              <span id="drawer-bill-expand-label">View Details</span>
+              <svg id="drawer-bill-chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="cart-bill-details" id="cart-bill-details" style="display: none;">
+            <div class="bill-line"><span>Item Subtotal</span><strong id="drawer-bill-subtotal">₹0</strong></div>
+            <div class="bill-line discount"><span>Temple Festival Discount</span><strong id="drawer-bill-discount">-₹0</strong></div>
+            <div class="bill-line"><span>Delivery Fee (Hyderabad)</span><strong id="drawer-bill-delivery">₹49</strong></div>
+            <div class="bill-line"><span>Pooja Packaging & Sanctity</span><strong>FREE</strong></div>
+          </div>
+        </div>
+
+        <!-- Sticky Pinned Proceed to Checkout Button -->
+        <button type="button" class="btn-drawer-checkout" onclick="proceedToCheckoutFromDrawer(event)">
+          <div class="drawer-checkout-left">
+            <span class="drawer-checkout-total" id="drawer-checkout-total">₹0</span>
+            <span class="drawer-checkout-sub">TOTAL TO PAY</span>
+          </div>
+          <div class="drawer-checkout-right">
+            <span>Proceed to Checkout</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swipe-to-Delete Undo Snackbar -->
+  <div class="undo-snackbar" id="undo-snackbar" role="alert" aria-live="assertive" style="display: none;">
+    <div class="undo-snackbar-content">
+      <span class="undo-snackbar-msg" id="undo-snackbar-msg">Item removed from cart</span>
+      <button type="button" class="btn-undo-action" id="btn-undo-cart" onclick="executeCartUndo()">UNDO</button>
+    </div>
+  </div>
+
+  <!-- AR Deity Mandir Placement Preview Modal -->
+  <div class="mobile-drawer-overlay" id="ar-modal-overlay">
+    <div class="ar-preview-modal-card">
+      <div class="ar-modal-header">
+        <div class="ar-modal-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V4h4"/><path d="M20 8V4h-4"/><path d="M4 16v4h4"/><path d="M20 16v4h-4"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>View in My Mandir (AR Preview)</span>
+        </div>
+        <button type="button" class="modal-close-btn" onclick="closeArModal()" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <p class="ar-modal-hint">Preview sacred murti placement and size directly against your home mandir altar.</p>
+      <div class="ar-viewport" id="ar-viewport">
+        <video id="ar-video-stream" autoplay playsinline muted style="display: none;"></video>
+        <div class="ar-mandir-canvas-bg" id="ar-canvas-bg"></div>
+        <div class="ar-deity-draggable" id="ar-deity-draggable">
+          <img id="ar-deity-img" src="image-coming-soon.svg" alt="Deity Idol">
+          <div class="ar-deity-halo"></div>
+        </div>
+        <div class="ar-scale-indicator" id="ar-scale-indicator">10 inches (approx. 25 cm)</div>
+      </div>
+      <div class="ar-controls-bar">
+        <label for="ar-scale-slider">Idol Height Scale:</label>
+        <input type="range" id="ar-scale-slider" min="6" max="24" value="10" oninput="updateArIdolScale(this.value)">
+      </div>
+      <div class="ar-actions-row">
+        <button type="button" class="btn btn-secondary btn-sm" id="btn-toggle-ar-camera" onclick="toggleArCamera()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          <span id="btn-ar-camera-label">Use Phone Camera</span>
+        </button>
+        <button type="button" class="btn btn-primary btn-sm" onclick="captureArSnapshot()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Capture Mandir Photo</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consumable Auto-Restock Subscription Modal -->
+  <div class="mobile-drawer-overlay" id="subscription-modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size: 16px; font-weight: 700; color: var(--primary-maroon); display: flex; align-items: center; gap: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>
+          <span>Pooja Essentials Auto-Restock</span>
+        </h3>
+        <button type="button" class="modal-close-btn" onclick="closeSubscriptionModal()" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">
+        Never run out of pure cow ghee wicks, Bhimseni camphor, or dhoop. Freshly packed and dispatched before every Amavasya / Purnima.
+      </p>
+      <div class="sub-product-box" id="sub-product-box">
+        <strong id="sub-product-name" style="font-size: 13px; color: var(--text-main); display: block;">Pure Cow Ghee Diya Wicks</strong>
+        <span id="sub-product-price" style="font-size: 12px; color: var(--primary-maroon); font-weight: 700;">₹199 / delivery</span>
+      </div>
+      <div style="margin: 14px 0;">
+        <label style="font-size: 12px; font-weight: 700; display: block; margin-bottom: 6px;">Delivery Frequency:</label>
+        <div class="sub-freq-options">
+          <label class="sub-freq-radio"><input type="radio" name="sub-frequency" value="15" checked> <span>Every 15 Days (Bi-weekly)</span></label>
+          <label class="sub-freq-radio"><input type="radio" name="sub-frequency" value="30"> <span>Every Month (Before Purnima)</span></label>
+        </div>
+      </div>
+      <div style="background: var(--bg-cream); border: 1px solid var(--accent-gold); border-radius: 8px; padding: 10px; margin-bottom: 16px; font-size: 11.5px; color: var(--text-secondary);">
+        <strong>Extra 10% Devotee Savings</strong> applied automatically on every scheduled restock. Pause or cancel anytime in your profile.
+      </div>
+      <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="confirmSubscription()">
+        Confirm Auto-Restock Subscription
+      </button>
+    </div>
+  </div>
+
+  <!-- Floating App Install Floater for Mobile / Web -->
+  <aside class="sticky-app-floater" id="sticky-app-floater">
+    <div class="sticky-floater-inner">
+      <div class="floater-brand">
+        <img src="app-icon.svg" alt="7 Hills App Logo" class="floater-icon">
+        <div class="floater-info">
+          <div class="floater-title">7 Hills Pooja Store</div>
+          <div class="floater-badge"><span class="pulse-amber"></span> Functioning Soon • Tap to Install</div>
+        </div>
+      </div>
+      <div class="floater-btns">
+        <button type="button" class="btn-floater-install" onclick="triggerAppInstall()" id="btn-floater-install" title="Install App to Phone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Install</span>
+        </button>
+        <a href="/download/7HillsPoojaStore-App.apk" class="btn-floater-download" download="7HillsPoojaStore-App.apk" title="Download APK Directly">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"/><path d="m17 8-5 5-5-5"/><path d="M20 21H4"/></svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Pre-Launch & Functioning Soon Modal -->
+  <div class="prelaunch-modal-overlay" id="prelaunch-modal-overlay" style="display: none;">
+    <div class="prelaunch-modal-card">
+      <button type="button" class="prelaunch-modal-close" onclick="closePrelaunchModal()" aria-label="Close modal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div class="prelaunch-modal-header">
+        <div class="prelaunch-modal-emblem">
+          <img src="app-icon.svg" alt="7 Hills Pooja Store Emblem">
+        </div>
+        <div class="prelaunch-status-pill">
+          <span class="pulsing-status-dot"></span> FUNCTIONING SOON
+        </div>
+        <h2 class="prelaunch-modal-title">7 Hills Pooja Store</h2>
+        <p class="prelaunch-modal-desc">
+          Authentic Tirumala temple samagri, brass idols, and pure Vedic pooja kits delivering to your doorstep soon!
+        </p>
+      </div>
+
+      <div class="prelaunch-modal-body">
+        <div class="prelaunch-perk-box">
+          <div class="perk-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <div>
+              <strong>Early Access Blessing</strong>
+              <p>Install the App today and get 15% OFF automatically applied on launch day.</p>
+            </div>
+          </div>
+          <div class="perk-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <div>
+              <strong>Priority Doorstep Dispatch</strong>
+              <p>Early app installs receive first priority batch allocation when orders open.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direct Install & Download Options -->
+        <div class="prelaunch-action-stack">
+          <button type="button" class="btn-modal-install-primary" onclick="executeNativeInstall()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Install App on Phone (1-Tap)</span>
+          </button>
+
+          <a href="/download/7HillsPoojaStore-App.apk" class="btn-modal-download-secondary" download="7HillsPoojaStore-App.apk">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10"/><path d="m17 8-5 5-5-5"/><path d="M20 21H4"/></svg>
+            <span>Direct Download APK Package</span>
+          </a>
+        </div>
+
+        <!-- Notify Me / Pre-registration Field -->
+        <div class="prelaunch-notify-box">
+          <label class="notify-label" for="prelaunch-phone-input">Notify Me on WhatsApp / SMS When Orders Open:</label>
+          <div class="notify-input-group">
+            <div class="country-prefix">+91</div>
+            <input type="tel" id="prelaunch-phone-input" class="notify-input" placeholder="10-digit mobile number" maxlength="10">
+            <button type="button" class="btn-notify-submit" onclick="submitPreRegistration()">
+              Notify Me
+            </button>
+          </div>
+          <div id="prelaunch-feedback-msg" class="notify-feedback"></div>
+        </div>
+      </div>
+
+      <div class="prelaunch-modal-footer">
+        <small>Lord Venkateswara Swamy blessings • Store Helpline: +91 90979 99939</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Language Selection Modal -->
+  <div class="mobile-drawer-overlay" id="lang-modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-size: 16px; font-weight: 700; color: var(--primary-maroon); display: flex; align-items: center; gap: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>Choose App Language / భాష</span>
+        </h3>
+        <button type="button" class="modal-close-btn" onclick="closeLanguageModal()" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="lang-selection-list">
+        <button type="button" class="lang-opt-btn active" onclick="setAppLanguage('en')" id="lang-btn-en">
+          <div>
+            <strong>English</strong>
+            <small>Default devotional store interface</small>
+          </div>
+          <span class="lang-check">&#10003;</span>
+        </button>
+        <button type="button" class="lang-opt-btn" onclick="setAppLanguage('te')" id="lang-btn-te">
+          <div>
+            <strong>తెలుగు (Telugu)</strong>
+            <small>హైదరాబాద్ మరియు తెలుగు భక్తుల పూజా వివరాలు</small>
+          </div>
+          <span class="lang-check">&#10003;</span>
+        </button>
+        <button type="button" class="lang-opt-btn" onclick="setAppLanguage('hi')" id="lang-btn-hi">
+          <div>
+            <strong>हिंदी (Hindi)</strong>
+            <small>मंदिर पूजा सामग्री एवं देव मूर्तियां</small>
+          </div>
+          <span class="lang-check">&#10003;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Loading Core Scripts -->
+  <script src="icons.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 500" width="1024" height="500">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A040D"/>
+      <stop offset="45%" stop-color="#7A0C1A"/>
+      <stop offset="100%" stop-color="#2D0206"/>
+    </linearGradient>
+
+    <!-- Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3C4"/>
+      <stop offset="35%" stop-color="#F59E0B"/>
+      <stop offset="70%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+
+    <!-- Saffron Flame Gradient -->
+    <linearGradient id="flameGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#DC2626"/>
+      <stop offset="50%" stop-color="#EA580C"/>
+      <stop offset="85%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FEF08A"/>
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="1024" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Subtle Sacred Geometric Border Pattern -->
+  <rect x="20" y="20" width="984" height="460" rx="16" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="6 6" opacity="0.4"/>
+  <rect x="28" y="28" width="968" height="444" rx="12" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.6"/>
+
+  <!-- Left Side: Large Sacred 7 Hills of Tirumala with Golden Gopuram -->
+  <g transform="translate(180, 240)">
+    <!-- Aura Rings -->
+    <circle cx="0" cy="-20" r="140" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3"/>
+    <circle cx="0" cy="-20" r="115" fill="none" stroke="url(#goldGrad)" stroke-width="2" opacity="0.5"/>
+
+    <!-- Radiating Sun Rays -->
+    <g stroke="url(#goldGrad)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.4">
+      <line x1="0" y1="-30" x2="-60" y2="-120"/>
+      <line x1="0" y1="-30" x2="-30" y2="-135"/>
+      <line x1="0" y1="-30" x2="0" y2="-140"/>
+      <line x1="0" y1="-30" x2="30" y2="-135"/>
+      <line x1="0" y1="-30" x2="60" y2="-120"/>
+    </g>
+
+    <!-- 7 Hills Background Base -->
+    <path d="M-110 50 Q-95 25 -75 35 Q-55 15 -35 25 Q-15 -2 0 12 Q15 -2 35 25 Q55 15 75 35 Q95 25 110 50 Z" fill="#5C0612" opacity="0.6"/>
+
+    <!-- 7 Sacred Hills Peaks -->
+    <path d="M-110 55 C-98 30, -78 30, -68 48" stroke="url(#goldGrad)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <path d="M-72 48 C-58 20, -36 20, -22 42" stroke="url(#goldGrad)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M-30 42 C-16 12, 2 14, 16 34" stroke="url(#goldGrad)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <!-- Central Venkatadri Peak -->
+    <path d="M-22 34 C-8 4, 8 4, 22 34" stroke="#FFFBEB" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+    <path d="M16 34 C30 14, 48 12, 62 42" stroke="url(#goldGrad)" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+    <path d="M54 42 C68 20, 90 20, 104 48" stroke="url(#goldGrad)" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+    <path d="M96 48 C106 30, 126 30, 138 55" stroke="url(#goldGrad)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+    <line x1="-115" y1="58" x2="142" y2="58" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Majestic Gopuram -->
+    <!-- 3 Kalasams at Summit -->
+    <g stroke="url(#goldGrad)" stroke-width="2.2" stroke-linecap="round">
+      <line x1="0" y1="-128" x2="0" y2="-110"/>
+      <line x1="-18" y1="-120" x2="-18" y2="-106"/>
+      <line x1="18" y1="-120" x2="18" y2="-106"/>
+    </g>
+    <circle cx="0" cy="-128" r="3.5" fill="#FFFBEB" filter="url(#goldGlow)"/>
+    <circle cx="-18" cy="-120" r="2.8" fill="#FDE68A"/>
+    <circle cx="18" cy="-120" r="2.8" fill="#FDE68A"/>
+
+    <!-- Shikhara Dome -->
+    <path d="M-28 -102 C-20 -115, 20 -115, 28 -102 Z" fill="url(#goldGrad)" stroke="#B45309" stroke-width="1.5"/>
+    <line x1="-34" y1="-100" x2="34" y2="-100" stroke="url(#goldGrad)" stroke-width="2.6" stroke-linecap="round"/>
+
+    <!-- Tier 1 -->
+    <path d="M-24 -96 L-30 -72 L30 -72 L24 -96 Z" fill="#5C0612" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2"/>
+    <rect x="-5" y="-90" width="10" height="14" rx="1.5" fill="url(#goldGrad)"/>
+    <line x1="-38" y1="-70" x2="38" y2="-70" stroke="url(#goldGrad)" stroke-width="2.8" stroke-linecap="round"/>
+
+    <!-- Tier 2 -->
+    <path d="M-34 -66 L-42 -36 L42 -36 L34 -66 Z" fill="#5C0612" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2"/>
+    <line x1="-20" y1="-62" x2="-20" y2="-40" stroke="url(#goldGrad)" stroke-width="1.6"/>
+    <rect x="-6" y="-62" width="12" height="18" rx="1.5" fill="url(#goldGrad)"/>
+    <line x1="20" y1="-62" x2="20" y2="-40" stroke="url(#goldGrad)" stroke-width="1.6"/>
+    <line x1="-48" y1="-34" x2="48" y2="-34" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Tier 3 -->
+    <path d="M-44 -30 L-54 8 L54 8 L44 -30 Z" fill="#5C0612" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2"/>
+    <line x1="-26" y1="-26" x2="-26" y2="4" stroke="url(#goldGrad)" stroke-width="1.8"/>
+    <rect x="-8" y="-26" width="16" height="22" rx="2" fill="url(#goldGrad)"/>
+    <line x1="26" y1="-26" x2="26" y2="4" stroke="url(#goldGrad)" stroke-width="1.8"/>
+    <line x1="-58" y1="12" x2="58" y2="12" stroke="url(#goldGrad)" stroke-width="3.2" stroke-linecap="round"/>
+
+    <!-- Sanctum Gateway (Dwaram) -->
+    <path d="M-15 56 V24 C-15 16, 15 16, 15 24 V56" fill="#FFFBEB" fill-opacity="0.35" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <circle cx="0" cy="30" r="4" fill="#FFFBEB" filter="url(#goldGlow)"/>
+  </g>
+
+  <!-- Right Side: Content & Branding -->
+  <g transform="translate(380, 100)">
+    <!-- Top Eyebrow Badge -->
+    <g transform="translate(0, 30)">
+      <rect x="0" y="0" width="280" height="30" rx="15" fill="rgba(253, 230, 138, 0.15)" stroke="url(#goldGrad)" stroke-width="1"/>
+      <text x="140" y="20" text-anchor="middle" font-family="'Cinzel', serif, system-ui" font-size="12" font-weight="700" fill="#FDE68A" letter-spacing="2">SRI PRASANNANJANEYA TEMPLE</text>
+    </g>
+
+    <!-- Main Title: 7 HILLS POOJA STORE -->
+    <text x="0" y="115" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="52" font-weight="800" fill="url(#goldGrad)" letter-spacing="1.5">
+      7 HILLS POOJA STORE
+    </text>
+
+    <!-- Subtitle -->
+    <text x="2" y="160" font-family="'Outfit', system-ui, sans-serif" font-size="22" font-weight="600" fill="#FFF" letter-spacing="0.5">
+      Sacred Pooja Samagri, Handcrafted Idols &amp; Ritual Articles
+    </text>
+
+    <!-- Tagline Chips -->
+    <g transform="translate(2, 200)">
+      <!-- Chip 1: Express Delivery -->
+      <g>
+        <rect x="0" y="0" width="170" height="36" rx="8" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="1.2"/>
+        <text x="85" y="23" text-anchor="middle" font-family="'Outfit', system-ui, sans-serif" font-size="13" font-weight="700" fill="#34D399">Express Hyderabad</text>
+      </g>
+      <!-- Chip 2: 100% Pure & Sanctified -->
+      <g transform="translate(182, 0)">
+        <rect x="0" y="0" width="165" height="36" rx="8" fill="rgba(245, 158, 11, 0.2)" stroke="#F59E0B" stroke-width="1.2"/>
+        <text x="82" y="23" text-anchor="middle" font-family="'Outfit', system-ui, sans-serif" font-size="13" font-weight="700" fill="#FDE68A">100% Vedic Pure</text>
+      </g>
+      <!-- Chip 3: Pre-Register Now -->
+      <g transform="translate(359, 0)">
+        <rect x="0" y="0" width="175" height="36" rx="8" fill="rgba(255, 255, 255, 0.15)" stroke="#FFFFFF" stroke-width="1.2"/>
+        <text x="87" y="23" text-anchor="middle" font-family="'Outfit', system-ui, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Pre-Register on Play</text>
+      </g>
+    </g>
+
+    <!-- Footer Location Info -->
+    <g transform="translate(2, 275)">
+      <text x="0" y="0" font-family="'Outfit', system-ui, sans-serif" font-size="14" font-weight="500" fill="#E2E8F0">
+        Beside Sri Prasannanjaneya Swamy Temple, LB Nagar, Hyderabad - 500074
+      </text>
+      <text x="0" y="24" font-family="'Outfit', system-ui, sans-serif" font-size="13" font-weight="600" fill="#FDE68A">
+        Devotee Helpline: +91 90979 99939 • Positive Energy in Every Item
+      </text>
+    </g>
+  </g>
+</svg>

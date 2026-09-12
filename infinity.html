@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Institutions and Technologies — Code. Learn. Build. Succeed.</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+    :root {
+      /* Light Mode Colors */
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-accent: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      
+      --color-blue: #00d2ff;
+      --color-pink: #ff007f;
+      --color-blue-dark: #008eb3;
+      --color-pink-dark: #cc0066;
+      
+      --border-color: #e2e8f0;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      --hero-glow: radial-gradient(circle, rgba(0, 210, 255, 0.08) 0%, rgba(255, 0, 127, 0.08) 100%);
+      --transition-speed: 0.3s;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+    }
+
+    [data-theme="dark"] {
+      /* Dark Mode Colors */
+      --bg-primary: #090d16;
+      --bg-secondary: #0f172a;
+      --bg-accent: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      
+      --border-color: #334155;
+      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --hero-glow: radial-gradient(circle, rgba(0, 210, 255, 0.15) 0%, rgba(255, 0, 127, 0.15) 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: 'Montserrat', sans-serif;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* --- NAVIGATION --- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      transition: background-color var(--transition-speed), border-color var(--transition-speed);
+    }
+
+    [data-theme="dark"] header {
+      background-color: rgba(9, 13, 22, 0.85);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .logo-img-mini {
+      height: 40px;
+      width: auto;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .logo-text {
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 14px;
+      transition: color var(--transition-speed);
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-blue), var(--color-pink));
+      transition: width var(--transition-speed);
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s, background var(--transition-speed);
+      text-decoration: none;
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-pink) 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(255, 0, 127, 0.2);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 20px rgba(255, 0, 127, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--bg-accent);
+      border-color: var(--text-primary);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 20px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: background-color var(--transition-speed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--bg-accent);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    /* --- HERO SECTION --- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: 130px 20px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--hero-glow);
+      transition: background var(--transition-speed);
+      overflow: hidden;
+    }
+
+    .hero-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content {
+      z-index: 10;
+    }
+
+    .badge-hub {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-pink);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(0.9); opacity: 0.7; }
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span.gradient {
+      background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 35px;
+      max-width: 550px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    /* Image Display Card */
+    .hero-image-area {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .large-image-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    [data-theme="dark"] .large-image-card {
+      background: #ffffff; /* Keep white card to blend seamlessly with white logo background */
+      box-shadow: 0 20px 50px rgba(0, 210, 255, 0.15), 0 0 40px rgba(255, 0, 127, 0.1);
+      border: 1.5px solid var(--border-color);
+    }
+
+    .large-image-card:hover {
+      transform: translateY(-5px) rotate(1deg);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .large-image-card::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: calc(var(--radius-lg) + 4px);
+      background: linear-gradient(135deg, var(--color-blue), var(--color-pink));
+      z-index: -1;
+      opacity: 0.6;
+      filter: blur(8px);
+      transition: opacity 0.3s;
+    }
+
+    .large-image-card:hover::before {
+      opacity: 1;
+      filter: blur(12px);
+    }
+
+    .main-hero-img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--card-shadow);
+      padding: 12px 20px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 20;
+    }
+
+    .fb-1 {
+      top: -20px;
+      left: -20px;
+      animation: float-1 4s ease-in-out infinite;
+    }
+
+    .fb-2 {
+      bottom: -20px;
+      right: -20px;
+      animation: float-2 4s ease-in-out infinite;
+    }
+
+    .fb-icon {
+      font-size: 20px;
+      background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .fb-text {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    @keyframes float-1 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes float-2 {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    /* --- SECTION COMMON --- */
+    section {
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+
+    .section-header h2 {
+      font-size: 36px;
+      font-weight: 900;
+      margin-bottom: 15px;
+    }
+
+    .section-header h2 span.gradient {
+      background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-pink) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    /* --- DIVISIONS SECTION --- */
+    .divisions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .division-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.3s, border-color 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .division-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .div-icon-box {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 25px;
+      color: #ffffff;
+    }
+
+    .inst-icon {
+      background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
+      box-shadow: 0 4px 15px rgba(0, 210, 255, 0.2);
+    }
+
+    .tech-icon {
+      background: linear-gradient(135deg, var(--color-pink) 0%, var(--color-pink-dark) 100%);
+      box-shadow: 0 4px 15px rgba(255, 0, 127, 0.2);
+    }
+
+    .division-card h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .division-card p {
+      color: var(--text-secondary);
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .div-features-list {
+      list-style: none;
+      margin-bottom: 35px;
+      flex-grow: 1;
+    }
+
+    .div-features-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .div-features-list li i {
+      font-size: 14px;
+    }
+
+    .inst-list i { color: var(--color-blue); }
+    .tech-list i { color: var(--color-pink); }
+
+    /* --- INTERACTIVE PROGRAMS / SERVICES SECTION --- */
+    .explore-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .tab-btn {
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 30px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-secondary);
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-pink) 100%);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 15px rgba(255, 0, 127, 0.2);
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-item {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--card-accent, var(--color-blue));
+    }
+
+    .card-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      border-color: var(--card-accent, var(--color-blue));
+    }
+
+    .card-item h4 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .card-item p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--card-accent, var(--color-blue));
+    }
+
+    .card-meta span {
+      background-color: var(--bg-accent);
+      padding: 4px 12px;
+      border-radius: 12px;
+      color: var(--text-primary);
+    }
+
+    /* --- CODING ARENA / TERMINAL SIMULATION --- */
+    .terminal-section {
+      background-color: var(--bg-accent);
+    }
+
+    .terminal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .terminal-window {
+      background-color: #0b0f19;
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      border: 1px solid #1e293b;
+      overflow: hidden;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .terminal-header {
+      background-color: #121824;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background-color: #ef4444; }
+    .dot-yellow { background-color: #f59e0b; }
+    .dot-green { background-color: #10b981; }
+
+    .terminal-title {
+      font-size: 12px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .terminal-body {
+      padding: 20px;
+      font-size: 13px;
+      color: #f8fafc;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .code-lines {
+      color: #38bdf8;
+    }
+
+    .code-keyword { color: #f472b6; }
+    .code-string { color: #facc15; }
+    .code-comment { color: #64748b; font-style: italic; }
+    .code-func { color: #4ade80; }
+
+    .interactive-line {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-top: 15px;
+      border-top: 1px solid #1e293b;
+      padding-top: 15px;
+    }
+
+    .prompt-symbol {
+      color: #ff007f;
+      font-weight: 700;
+    }
+
+    .terminal-input {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-family: inherit;
+      font-size: inherit;
+      width: 100%;
+      outline: none;
+    }
+
+    .terminal-output {
+      margin-top: 10px;
+      color: #10b981;
+      font-weight: 600;
+      min-height: 40px;
+    }
+
+    /* --- WHY CHOOSE US / KEY METRICS --- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      text-align: center;
+      box-shadow: var(--card-shadow);
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    }
+
+    .feature-icon-wrapper {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background-color: var(--bg-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 24px;
+      color: var(--color-blue);
+      position: relative;
+    }
+
+    .feature-card:nth-child(even) .feature-icon-wrapper {
+      color: var(--color-pink);
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* --- TESTIMONIALS --- */
+    .testimonial-carousel {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding: 20px;
+    }
+
+    .testimonial-slide {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      display: none;
+    }
+
+    .testimonial-slide.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .quote-icon {
+      font-size: 40px;
+      color: var(--color-blue);
+      margin-bottom: 20px;
+      opacity: 0.3;
+    }
+
+    .testimonial-text {
+      font-size: 18px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text-primary);
+      margin-bottom: 30px;
+    }
+
+    .student-info h4 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .student-info p {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .carousel-btn {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+
+    .carousel-btn:hover {
+      background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-pink) 100%);
+      color: #ffffff;
+      border-color: transparent;
+      transform: scale(1.05);
+    }
+
+    /* --- CONTACT SECTION --- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-details {
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--color-blue);
+      flex-shrink: 0;
+    }
+
+    .contact-item:nth-child(2) .contact-icon {
+      color: var(--color-pink);
+    }
+
+    .contact-item h4 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .contact-item p {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s;
+      font-size: 16px;
+    }
+
+    .social-btn:hover {
+      background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-pink) 100%);
+      color: #ffffff;
+      border-color: transparent;
+      transform: translateY(-3px);
+    }
+
+    .contact-form {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 14px;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--color-blue);
+      background-color: var(--bg-secondary);
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: 800;
+      margin-top: 10px;
+    }
+
+    .form-status {
+      margin-top: 15px;
+      font-size: 13px;
+      text-align: center;
+      display: none;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 60px 20px 30px;
+      transition: background-color var(--transition-speed);
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
+    }
+
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-logo p {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 300px;
+    }
+
+    .footer-col h4 {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-blue), var(--color-pink));
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* --- RESPONSIVE STYLES --- */
+    @media (max-width: 992px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 40px;
+      }
+      
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero p {
+        margin: 0 auto 35px;
+      }
+
+      .hero-image-area {
+        order: -1;
+      }
+
+      .divisions-grid, .terminal-grid, .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .contact-info {
+        gap: 30px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--bg-secondary);
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        gap: 30px;
+        transition: left 0.3s ease;
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+      }
+
+      .nav-links.open {
+        left: 0;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+        margin-right: 15px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- --- HEADER NAVIGATION --- -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo-container">
+        <img src="infinity-logo.jpg" alt="Infinity Mini Logo" class="logo-img-mini">
+        <span class="logo-text">INFINITY</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#divisions">Divisions</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#terminal">Arena</a></li>
+        <li><a href="#about">Why Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="#contact" class="btn btn-primary">Join Us</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- --- HERO SECTION --- -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="badge-hub">
+          <div class="badge-dot"></div>
+          <span>ACADEMIC INSTITUTIONS & TECH LABS</span>
+        </div>
+        <h1>
+          Shape the Future of <br>
+          <span class="gradient">Education & Technology</span>
+        </h1>
+        <p>
+          Welcome to Infinity. We blend elite technical coaching with custom software solutions. 
+          Whether you want to launch a tech career, master advanced concepts, or build high-performance 
+          software for your business, we make the path infinite.
+        </p>
+        <div class="hero-cta">
+          <a href="#divisions" class="btn btn-primary">Explore Divisions</a>
+          <a href="#contact" class="btn btn-outline">Schedule Consultation</a>
+        </div>
+      </div>
+
+      <div class="hero-image-area">
+        <div class="large-image-card">
+          <img src="infinity-logo.jpg" alt="Infinity Logo" class="main-hero-img">
+          
+          <div class="floating-badge fb-1">
+            <span class="fb-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+            <span class="fb-text">Elite Coaching</span>
+          </div>
+
+          <div class="floating-badge fb-2">
+            <span class="fb-icon"><i class="fa-solid fa-laptop-code"></i></span>
+            <span class="fb-text">Tech Solutions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- DIVISIONS SECTION --- -->
+  <section id="divisions" class="divisions-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Our Dual <span class="gradient">Powerhouses</span></h2>
+        <p>Infinity bridges the gap between structured educational institutions and cutting-edge industrial technology systems.</p>
+      </div>
+
+      <div class="divisions-grid">
+        <!-- Division 1: Institutions -->
+        <div class="division-card">
+          <div class="div-icon-box inst-icon">
+            <i class="fa-solid fa-university"></i>
+          </div>
+          <h3>Infinity Institutions</h3>
+          <p>
+            An elite learning institute fostering academic brilliance and practical software craftsmanship. We specialize in bootcamps, developer bootcamps, and technical curriculum designed for modern tech.
+          </p>
+          <ul class="div-features-list inst-list">
+            <li><i class="fa-solid fa-circle-check"></i> Hands-on coding-focused classrooms</li>
+            <li><i class="fa-solid fa-circle-check"></i> Industry-aligned bootcamps</li>
+            <li><i class="fa-solid fa-circle-check"></i> Guided placement & mentorship</li>
+            <li><i class="fa-solid fa-circle-check"></i> Interactive projects and case studies</li>
+          </ul>
+          <a href="#programs" class="btn btn-outline" onclick="switchTab('institutions')">Browse Courses</a>
+        </div>
+
+        <!-- Division 2: Technologies -->
+        <div class="division-card">
+          <div class="div-icon-box tech-icon">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <h3>Infinity Technologies</h3>
+          <p>
+            A high-performance technology lab engineering digital products. We build modern custom software, web platforms, and mobile apps, and deploy advanced artificial intelligence solutions.
+          </p>
+          <ul class="div-features-list tech-list">
+            <li><i class="fa-solid fa-circle-check"></i> Custom web & mobile engineering</li>
+            <li><i class="fa-solid fa-circle-check"></i> Artificial Intelligence & Automation</li>
+            <li><i class="fa-solid fa-circle-check"></i> Cloud infrastructure & security setup</li>
+            <li><i class="fa-solid fa-circle-check"></i> Agile IT staff augmentation</li>
+          </ul>
+          <a href="#programs" class="btn btn-outline" onclick="switchTab('technologies')">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- INTERACTIVE PROGRAMS / SERVICES SECTION --- -->
+  <section id="programs" class="programs-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Explore Our <span class="gradient">Offerings</span></h2>
+        <p>Select a track below to see how Infinity can accelerate your educational growth or power your technical needs.</p>
+      </div>
+
+      <div class="explore-tabs">
+        <button class="tab-btn active" id="tabBtnInst" onclick="switchTab('institutions')">Educational Tracks</button>
+        <button class="tab-btn" id="tabBtnTech" onclick="switchTab('technologies')">Technology Solutions</button>
+      </div>
+
+      <!-- Tab: Institutions (Education) -->
+      <div class="tab-content active" id="tabInst" style="--card-accent: var(--color-blue);">
+        <div class="card-item">
+          <h4>Full Stack Web Development</h4>
+          <p>Master HTML5, CSS3, JavaScript, React, Node.js, and SQL/NoSQL databases through live building.</p>
+          <div class="card-meta">
+            <span>6 Months</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <h4>Python, AI & Data Science</h4>
+          <p>Dive deep into Python scripting, machine learning modeling, data analytics, and neural networks.</p>
+          <div class="card-meta">
+            <span>4 Months</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <h4>Data Structures & Algorithms</h4>
+          <p>Excel in technical interviews at top-tier firms. Thorough preparation on recursion, trees, graphs, and dynamic programming.</p>
+          <div class="card-meta">
+            <span>3 Months</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <h4>Cloud Architecture & DevOps</h4>
+          <p>Learn AWS, Google Cloud, Docker, Kubernetes, and CI/CD automation pipelines from scratch.</p>
+          <div class="card-meta">
+            <span>4 Months</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Technologies (Services) -->
+      <div class="tab-content" id="tabTech" style="--card-accent: var(--color-pink);">
+        <div class="card-item">
+          <h4>Enterprise Web Platforms</h4>
+          <p>High-speed, scalable, SEO-friendly custom platforms designed using React, Next.js, and backend clouds.</p>
+          <div class="card-meta">
+            <span>Development</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <h4>Mobile App Engineering</h4>
+          <p>Premium native and cross-platform mobile apps for iOS and Android built on Flutter/React Native.</p>
+          <div class="card-meta">
+            <span>Mobile</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <h4>Custom AI & NLP Models</h4>
+          <p>Automate workflows, build custom chatbots, and gain insights with bespoke machine learning layers.</p>
+          <div class="card-meta">
+            <span>AI Solutions</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="card-item">
+          <h4>Cloud Setup & Migration</h4>
+          <p>Migrate legacy data systems securely to robust cloud structures with modern safety practices.</p>
+          <div class="card-meta">
+            <span>Cloud IT</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- TERMINAL SIMULATION SECTION --- -->
+  <section id="terminal" class="terminal-section">
+    <div class="section-container">
+      <div class="terminal-grid">
+        <div>
+          <div class="badge-hub" style="margin-bottom: 20px;">
+            <span style="color: var(--color-pink);"><i class="fa-solid fa-terminal"></i></span>
+            <span style="margin-left: 5px;">INTERACTIVE CODE ARENA</span>
+          </div>
+          <h2 style="font-size: 36px; font-weight: 900; margin-bottom: 20px;">Practice & Code <br><span class="gradient">On the Go</span></h2>
+          <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 15px;">
+            We believe in learning by doing. Type commands into our interactive terminal to see how our environment 
+            interprets commands. Test your basic parameters and experience the Infinity Institutions ecosystem.
+          </p>
+          <p style="color: var(--text-secondary); font-size: 14px;">
+            <strong>Try typing these commands:</strong><br>
+            • <code style="background-color: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; font-family: monospace;">help</code> - Show available options<br>
+            • <code style="background-color: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; font-family: monospace;">courses</code> - List our primary curriculum<br>
+            • <code style="background-color: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; font-family: monospace;">quote</code> - Get a motivational quote for coding
+          </p>
+        </div>
+
+        <div class="terminal-window">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">bash - infinity-sandbox.sh</div>
+            <div style="width: 40px;"></div>
+          </div>
+          <div class="terminal-body">
+            <div>
+              <span class="code-comment">// Welcome to Infinity Interactive Terminal v1.0.2</span><br>
+              <span class="code-comment">// Initializing educational systems... Done.</span><br>
+              <br>
+              <span>Type a command below to begin interacting.</span>
+            </div>
+
+            <div>
+              <div class="terminal-output" id="terminalOutput"></div>
+              <div class="interactive-line">
+                <span class="prompt-symbol">infinity:~$</span>
+                <input type="text" class="terminal-input" id="terminalInput" placeholder="type command here..." autofocus autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- WHY US SECTION --- -->
+  <section id="about" class="why-us-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Why Choose <span class="gradient">Infinity</span></h2>
+        <p>We are dedicated to producing results. Here is what makes our academy and tech labs stand out from the rest.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <h3>Expert Mentorship</h3>
+          <p>Learn directly from active, high-level developers and researchers who build enterprise solutions daily.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <i class="fa-solid fa-cubes"></i>
+          </div>
+          <h3>Practical Projects</h3>
+          <p>No boring theories. You build real applications, launch databases, and work on real client briefs.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+          <h3>Dedicated Placement</h3>
+          <p>Resume workshops, mock interviews, and strong corporate tie-ups to land your dream placement.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <h3>Future Ready</h3>
+          <p>Our curriculum updates instantly to accommodate modern libraries, frameworks, and AI paradigms.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- TESTIMONIALS SECTION --- -->
+  <section class="testimonials-section" style="background-color: var(--bg-accent);">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Student & Client <span class="gradient">Success Stories</span></h2>
+        <p>Hear from the minds we have trained and the companies we have empowered to build advanced systems.</p>
+      </div>
+
+      <div class="testimonial-carousel">
+        <div class="testimonial-slide active" id="slide1">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+          <p class="testimonial-text">
+            "The curriculum at Infinity Institutions is unmatched. I transitioned from mechanical engineering to a Full-Stack developer role at a leading tech firm in under 6 months. The mentors were always there to guide me."
+          </p>
+          <div class="student-info">
+            <h4>Rahul Sharma</h4>
+            <p>Alumni, Full-Stack Web Development</p>
+          </div>
+        </div>
+
+        <div class="testimonial-slide" id="slide2">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+          <p class="testimonial-text">
+            "Infinity Technologies delivered our custom customer portal on schedule. Their engineering quality, focus on security, and visual execution exceeded our expectations. Truly a top-tier partner."
+          </p>
+          <div class="student-info">
+            <h4>Sarah Jenkins</h4>
+            <p>CTO, Elevate Logistics</p>
+          </div>
+        </div>
+
+        <div class="testimonial-slide" id="slide3">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+          <p class="testimonial-text">
+            "The Python and Machine Learning track helped me get into neural networks. Doing projects with real APIs helped me understand complex deployment workflows, which other bootcamps rarely show."
+          </p>
+          <div class="student-info">
+            <h4>Abhishek Reddy</h4>
+            <p>Alumni, Python & AI Engineer</p>
+          </div>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn" onclick="prevSlide()" aria-label="Previous Slide">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+          <button class="carousel-btn" onclick="nextSlide()" aria-label="Next Slide">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- CONTACT SECTION --- -->
+  <section id="contact" class="contact-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Get in <span class="gradient">Touch</span></h2>
+        <p>Ready to start learning or launch your next tech project? Write to us and our specialist will respond within 24 hours.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div>
+            <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 20px;">Let's Create Something <span class="gradient">Infinite</span></h3>
+            <p style="color: var(--text-secondary); margin-bottom: 30px; font-size: 14px;">
+              Contact us for course details, corporate training sponsorships, software development requests, or general careers inquiries.
+            </p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div>
+                <h4>Main Campus & Lab</h4>
+                <p>3rd Floor, Infinity Tower, Hitech City, Hyderabad, India</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+              <div>
+                <h4>Electronic Mail</h4>
+                <p>info@infinityinstitutions.com<br>support@infinitytechnologies.dev</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon"><i class="fa-solid fa-phone-volume"></i></div>
+              <div>
+                <h4>Contact Number</h4>
+                <p>+91 (40) 4567-8910<br>+91 98765 43210</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="font-size: 14px; font-weight: 800; margin-bottom: 12px;">Follow our updates:</h4>
+            <div class="social-links">
+              <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="social-btn"><i class="fa-brands fa-github"></i></a>
+              <a href="#" class="social-btn"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form id="infoForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="formName">Full Name</label>
+                <input type="text" id="formName" class="form-input" placeholder="e.g. John Doe" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formEmail">Email Address</label>
+                <input type="email" id="formEmail" class="form-input" placeholder="e.g. name@domain.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="formPhone">Phone Number</label>
+                <input type="tel" id="formPhone" class="form-input" placeholder="e.g. +91 9999999999" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="formInterest">What are you looking for?</label>
+                <select id="formInterest" class="form-input" style="height: 48px;" required>
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="education">Infinity Course Enrollment</option>
+                  <option value="development">Software/IT Solution Request</option>
+                  <option value="corporate">Corporate Training Partnerships</option>
+                  <option value="career">Career / Job opportunities</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="formMsg">Your Message</label>
+              <textarea id="formMsg" class="form-input" placeholder="Please elaborate on your requirements..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit-btn">Send Message <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i></button>
+            <div class="form-status" id="formStatus"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- FOOTER --- -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <a href="#" class="logo-container">
+          <img src="infinity-logo.jpg" alt="Infinity Mini Logo" class="logo-img-mini">
+          <span class="logo-text">INFINITY</span>
+        </a>
+        <p>Bridging academic training pathways and high-performance commercial software creation under one unified vision.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#divisions">Our Divisions</a></li>
+          <li><a href="#programs">Courses & Services</a></li>
+          <li><a href="#terminal">Coding Arena</a></li>
+          <li><a href="#contact">Contact Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal & Tech</h4>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Security Audits</a></li>
+          <li><a href="#">System Status</a></li>
+          <li><a href="#">Alumni Portal</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 Infinity Institutions and Technologies. All rights reserved.</div>
+      <div>Designed with &hearts; by Antigravity</div>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    const themeIcon = themeToggleBtn.querySelector('i');
+
+    // Check saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+      if (theme === 'dark') {
+        themeIcon.className = 'fa-solid fa-sun';
+      } else {
+        themeIcon.className = 'fa-solid fa-moon';
+      }
+    }
+
+    // Responsive Mobile Menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const icon = menuToggle.querySelector('i');
+      if (navLinks.classList.contains('open')) {
+        icon.className = 'fa-solid fa-xmark';
+      } else {
+        icon.className = 'fa-solid fa-bars';
+      }
+    });
+
+    // Close menu when link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuToggle.querySelector('i').className = 'fa-solid fa-bars';
+        
+        // Active link switching
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    // Active link highlighting on scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const scrollPos = window.scrollY + 100;
+
+      sections.forEach(section => {
+        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+          const id = section.getAttribute('id');
+          document.querySelectorAll('.nav-links a').forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === `#${id}`) {
+              a.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+
+    // Tab Switching for Offerings
+    function switchTab(tabName) {
+      const btnInst = document.getElementById('tabBtnInst');
+      const btnTech = document.getElementById('tabBtnTech');
+      const tabInst = document.getElementById('tabInst');
+      const tabTech = document.getElementById('tabTech');
+
+      if (tabName === 'institutions') {
+        btnInst.classList.add('active');
+        btnTech.classList.remove('active');
+        tabInst.classList.add('active');
+        tabTech.classList.remove('active');
+      } else {
+        btnTech.classList.add('active');
+        btnInst.classList.remove('active');
+        tabTech.classList.add('active');
+        tabInst.classList.remove('active');
+      }
+    }
+
+    // Terminal Interactive Simulation
+    const terminalInput = document.getElementById('terminalInput');
+    const terminalOutput = document.getElementById('terminalOutput');
+
+    terminalInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const cmd = terminalInput.value.trim().toLowerCase();
+        terminalInput.value = '';
+        
+        let response = '';
+        if (cmd === 'help') {
+          response = 'Available commands: <br>• <strong>courses</strong> - List active education paths<br>• <strong>quote</strong> - Coding wisdom<br>• <strong>clear</strong> - Clear shell console<br>• <strong>contact</strong> - Show campus connection coordinates';
+        } else if (cmd === 'courses') {
+          response = 'Infinity Academy Courses:<br>1. Full Stack Web Engineering (6 Months)<br>2. Python, Machine Learning & AI (4 Months)<br>3. Data Structures & Algorithms Core (3 Months)<br>4. Cloud Architecture & Operations (4 Months)';
+        } else if (cmd === 'quote') {
+          const quotes = [
+            '"Talk is cheap. Show me the code." — Linus Torvalds',
+            '"Programs must be written for people to read, and only incidentally for machines to execute." — Abelson & Sussman',
+            '"Simplicity is the soul of efficiency." — Austin Freeman',
+            '"The only way to learn a new programming language is by writing programs in it." — Dennis Ritchie'
+          ];
+          response = quotes[Math.floor(Math.random() * quotes.length)];
+        } else if (cmd === 'clear') {
+          terminalOutput.innerHTML = '';
+          return;
+        } else if (cmd === 'contact') {
+          response = 'Call: +91 40 4567 8910 | Email: admissions@infinityinstitutions.com';
+        } else if (cmd === '') {
+          response = '';
+        } else {
+          response = `bash: command not found: ${cmd}. Type "help" for options.`;
+        }
+
+        if (terminalOutput.innerHTML !== '') {
+          terminalOutput.innerHTML += '<br><br>';
+        }
+        terminalOutput.innerHTML += `<span style="color: #ff007f;">infinity:~$</span> ${cmd}<br>${response}`;
+        
+        // Scroll terminal to bottom
+        const terminalBody = document.querySelector('.terminal-body');
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+      }
+    });
+
+    // Testimonial Carousel
+    let currentSlide = 1;
+    const totalSlides = 3;
+
+    function showSlide(slideNum) {
+      document.querySelectorAll('.testimonial-slide').forEach(slide => {
+        slide.classList.remove('active');
+      });
+      document.getElementById(`slide${slideNum}`).classList.add('active');
+    }
+
+    function nextSlide() {
+      currentSlide = currentSlide === totalSlides ? 1 : currentSlide + 1;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = currentSlide === 1 ? totalSlides : currentSlide - 1;
+      showSlide(currentSlide);
+    }
+
+    // Contact Form Submission (Mock simulation)
+    const infoForm = document.getElementById('infoForm');
+    const formStatus = document.getElementById('formStatus');
+
+    infoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('formName').value;
+      const submitBtn = infoForm.querySelector('button[type="submit"]');
+      
+      submitBtn.innerHTML = 'Sending... <i class="fa-solid fa-spinner fa-spin" style="margin-left: 8px;"></i>';
+      submitBtn.disabled = true;
+
+      // Simulate network request
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Message Sent! <i class="fa-solid fa-circle-check" style="margin-left: 8px;"></i>';
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#10b981';
+        formStatus.innerHTML = `Thank you, ${name}! Your inquiry has been received. Our team will contact you shortly.`;
+        
+        infoForm.reset();
+        
+        setTimeout(() => {
+          submitBtn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i>';
+          submitBtn.disabled = false;
+        }, 3000);
+
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
