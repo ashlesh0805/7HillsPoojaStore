@@ -4602,59 +4602,118 @@ function renderStotramView() {
 // ==========================================
 async function syncProductsFromBackend() {
   try {
-    const [prodRes, catRes] = await Promise.all([
+    let [prodRes, catRes] = await Promise.all([
       fetch('/api/products').catch(() => null),
       fetch('/api/categories').catch(() => null)
     ]);
 
-    // 1. Sync Categories dynamically
+    let backendCategories = null;
     if (catRes && catRes.ok) {
-      const backendCategories = await catRes.json();
-      if (Array.isArray(backendCategories) && backendCategories.length > 0) {
-        STORE.categories = backendCategories;
+      try { backendCategories = await catRes.json(); } catch (e) {}
+    }
+    if (!Array.isArray(backendCategories) || backendCategories.length === 0) {
+      const fallbackCat = await fetch('/categories.json').catch(() => null);
+      if (fallbackCat && fallbackCat.ok) {
+        try { backendCategories = await fallbackCat.json(); } catch (e) {}
+      }
+    }
+    if (Array.isArray(backendCategories) && backendCategories.length > 0) {
+      STORE.categories = backendCategories;
+    }
+
+    // Overlay localStorage custom categories & deletions
+    try {
+      const delCats = JSON.parse(localStorage.getItem('7hills_deleted_categories') || '[]');
+      const customCats = JSON.parse(localStorage.getItem('7hills_custom_categories') || '[]');
+      if (Array.isArray(delCats) && delCats.length > 0) {
+        STORE.categories = STORE.categories.filter(c => !delCats.includes(c.id));
+      }
+      if (Array.isArray(customCats) && customCats.length > 0) {
+        customCats.forEach(cc => {
+          if (delCats.includes(cc.id)) return;
+          const idx = STORE.categories.findIndex(c => c.id === cc.id);
+          if (idx >= 0) STORE.categories[idx] = { ...STORE.categories[idx], ...cc };
+          else STORE.categories.push(cc);
+        });
+      }
+    } catch (e) {}
+
+    // 2. Sync Products dynamically
+    let backendProducts = null;
+    if (prodRes && prodRes.ok) {
+      try { backendProducts = await prodRes.json(); } catch (e) {}
+    }
+    if (!Array.isArray(backendProducts) || backendProducts.length === 0) {
+      const fallbackProd = await fetch('/products.json').catch(() => null);
+      if (fallbackProd && fallbackProd.ok) {
+        try { backendProducts = await fallbackProd.json(); } catch (e) {}
       }
     }
 
-    // 2. Sync Products dynamically
-    if (prodRes && prodRes.ok) {
-      const backendProducts = await prodRes.json();
-      if (Array.isArray(backendProducts) && backendProducts.length > 0) {
-        STORE.products = backendProducts.map(p => {
-          // Resolve category ID
-          let catId = p.categoryId;
-          if (!catId) {
-            const matchedCat = STORE.categories.find(c => c.name === p.category || c.id === p.category);
-            catId = matchedCat ? matchedCat.id : (p.category === 'idols' ? 'god-idols' : p.category === 'lamps' ? 'diyas-lamps' : p.category === 'frames' ? 'photo-frames' : p.category === 'samagri' ? 'pooja-samagri' : p.category === 'malas' ? 'rudraksha-malas' : p.category === 'garlands' ? 'garlands-vastram' : p.category === 'mandirs' ? 'pooja-mandirs' : p.category === 'incense' ? 'dhoop-incense' : p.category === 'kits' ? 'pooja-kits' : 'pooja-samagri');
-          }
+    // Merge with localStorage custom products, deletions, and stock overrides
+    let workingProducts = Array.isArray(backendProducts) && backendProducts.length > 0 ? backendProducts : (STORE.products || []);
+    try {
+      const delProds = new Set(JSON.parse(localStorage.getItem('7hills_deleted_products') || '[]'));
+      const customProds = JSON.parse(localStorage.getItem('7hills_custom_products') || '[]');
+      const stockOv = JSON.parse(localStorage.getItem('7hills_stock_overrides') || '{}');
 
-          // Stock Privacy: Customer ONLY sees boolean inStock. Exact stock count is never exposed.
-          const isItemInStock = p.inStock !== false && (p.stockQty === undefined || Number(p.stockQty) > 0);
+      workingProducts = workingProducts.filter(p => !delProds.has(p.id));
 
-          return {
-            id: p.id,
-            title: p.title,
-            category: p.category || 'Pooja Samagri',
-            categoryId: catId,
-            price: Number(p.price) || 299,
-            mrp: Number(p.mrp) || Math.round(Number(p.price) * 1.3),
-            discount: Math.round(((Number(p.mrp || p.price * 1.3) - Number(p.price)) / Number(p.mrp || p.price * 1.3)) * 100) || 15,
-            rating: p.rating || 4.8,
-            reviewsCount: p.reviewsCount || 42,
-            inStock: isItemInStock,
-            weight: p.weight || '500g',
-            description: p.description || 'Authentic temple-grade item for sacred rituals.',
-            images: [p.image ? (p.image.startsWith('http') ? p.image : p.image) : 'IMAGE (40).JPG'],
-            highlights: p.highlights || ['100% Temple Grade', 'Consecrated & Pure', 'Fast LB Nagar Dispatch']
-          };
+      if (Array.isArray(customProds)) {
+        customProds.forEach(cp => {
+          if (delProds.has(cp.id)) return;
+          const idx = workingProducts.findIndex(p => p.id === cp.id);
+          if (idx >= 0) workingProducts[idx] = { ...workingProducts[idx], ...cp };
+          else workingProducts.unshift(cp);
         });
+      }
 
-        if (typeof Fuse !== 'undefined') {
-          STORE.fuse = new Fuse(STORE.products, {
-            keys: ['title', 'category', 'description'],
-            threshold: 0.35,
-            ignoreLocation: true
-          });
+      workingProducts = workingProducts.map(p => {
+        if (stockOv[p.id]) {
+          return {
+            ...p,
+            inStock: stockOv[p.id].inStock !== undefined ? stockOv[p.id].inStock : p.inStock,
+            stockQty: stockOv[p.id].stockQty !== undefined ? stockOv[p.id].stockQty : p.stockQty
+          };
         }
+        return p;
+      });
+    } catch (e) {}
+
+    if (Array.isArray(workingProducts) && workingProducts.length > 0) {
+      STORE.products = workingProducts.map(p => {
+        let catId = p.categoryId;
+        if (!catId) {
+          const matchedCat = STORE.categories.find(c => c.name === p.category || c.id === p.category);
+          catId = matchedCat ? matchedCat.id : (p.category === 'idols' ? 'god-idols' : p.category === 'lamps' ? 'diyas-lamps' : p.category === 'frames' ? 'photo-frames' : p.category === 'samagri' ? 'pooja-samagri' : p.category === 'malas' ? 'rudraksha-malas' : p.category === 'garlands' ? 'garlands-vastram' : p.category === 'mandirs' ? 'pooja-mandirs' : p.category === 'incense' ? 'dhoop-incense' : p.category === 'kits' ? 'pooja-kits' : 'pooja-samagri');
+        }
+
+        const isItemInStock = p.inStock !== false && (p.stockQty === undefined || Number(p.stockQty) > 0);
+
+        return {
+          id: p.id,
+          title: p.title,
+          category: p.category || 'Pooja Samagri',
+          categoryId: catId,
+          price: Number(p.price) || 299,
+          mrp: Number(p.mrp) || Math.round(Number(p.price) * 1.3),
+          discount: Math.round(((Number(p.mrp || p.price * 1.3) - Number(p.price)) / Number(p.mrp || p.price * 1.3)) * 100) || 15,
+          rating: p.rating || 4.8,
+          reviewsCount: p.reviewsCount || 42,
+          inStock: isItemInStock,
+          weight: p.weight || '500g',
+          description: p.description || 'Authentic temple-grade item for sacred rituals.',
+          images: [p.image ? (p.image.startsWith('http') ? p.image : p.image) : 'IMAGE (40).JPG'],
+          highlights: p.highlights || ['100% Temple Grade', 'Consecrated & Pure', 'Fast LB Nagar Dispatch']
+        };
+      });
+
+      if (typeof Fuse !== 'undefined') {
+        STORE.fuse = new Fuse(STORE.products, {
+          keys: ['title', 'category', 'description'],
+          threshold: 0.35,
+          ignoreLocation: true
+        });
       }
     }
   } catch (e) {

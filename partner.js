@@ -14,6 +14,34 @@ let appState = {
 };
 
 // ===================================================
+// STORAGE KEYS & RESILIENT PERSISTENCE HELPERS
+// ===================================================
+const KEY_CUSTOM_PRODUCTS = '7hills_custom_products';
+const KEY_STOCK_OVERRIDES = '7hills_stock_overrides';
+const KEY_DELETED_PRODUCTS = '7hills_deleted_products';
+const KEY_CUSTOM_CATEGORIES = '7hills_custom_categories';
+const KEY_DELETED_CATEGORIES = '7hills_deleted_categories';
+const KEY_ALL_PRODUCTS_CACHE = '7hills_all_products_cache';
+const KEY_ALL_CATEGORIES_CACHE = '7hills_all_categories_cache';
+
+function getLocalJSON(key, fallback) {
+  try {
+    const val = localStorage.getItem(key);
+    return val ? JSON.parse(val) : fallback;
+  } catch (e) {
+    return fallback;
+  }
+}
+
+function setLocalJSON(key, val) {
+  try {
+    localStorage.setItem(key, JSON.stringify(val));
+  } catch (e) {
+    console.warn('localStorage error for ' + key, e);
+  }
+}
+
+// ===================================================
 // 1. PIN AUTHENTICATION
 // ===================================================
 const DEFAULT_PIN = '7777';
@@ -351,11 +379,28 @@ function initAlertModalEvents() {
 // ===================================================
 async function fetchOrders() {
   try {
-    const res = await fetch('/api/orders');
-    if (res.ok) {
-      appState.orders = await res.json();
-      renderOrders();
-      updateStats();
+    const res = await fetch('/api/orders').catch(() => null);
+    if (res && res.ok) {
+      try {
+        const data = await res.json();
+        if (Array.isArray(data)) {
+          appState.orders = data;
+          renderOrders();
+          updateStats();
+          return;
+        }
+      } catch (e) {}
+    }
+    const jsonRes = await fetch('/orders.json').catch(() => null);
+    if (jsonRes && jsonRes.ok) {
+      try {
+        const data = await jsonRes.json();
+        if (Array.isArray(data)) {
+          appState.orders = data;
+          renderOrders();
+          updateStats();
+        }
+      } catch (e) {}
     }
   } catch (e) {
     console.error('Failed to fetch orders:', e);
@@ -465,16 +510,72 @@ function renderOrders() {
 // 6. CATALOG MANAGEMENT (EDITABLE PRODUCTS)
 // ===================================================
 async function fetchProducts() {
+  let serverProducts = [];
   try {
-    const res = await fetch('/api/products');
-    if (res.ok) {
-      appState.products = await res.json();
-      renderCatalog();
-      updateStats();
+    const res = await fetch('/api/products').catch(() => null);
+    if (res && res.ok) {
+      try {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          serverProducts = data;
+        }
+      } catch (e) {}
+    }
+    if (!serverProducts || serverProducts.length === 0) {
+      const jsonRes = await fetch('/products.json').catch(() => null);
+      if (jsonRes && jsonRes.ok) {
+        try {
+          const data = await jsonRes.json();
+          if (Array.isArray(data) && data.length > 0) {
+            serverProducts = data;
+          }
+        } catch (e) {}
+      }
     }
   } catch (e) {
-    console.error('Failed to fetch products:', e);
+    console.warn('Network error fetching products:', e);
   }
+
+  if (!serverProducts || serverProducts.length === 0) {
+    const cached = getLocalJSON(KEY_ALL_PRODUCTS_CACHE, []);
+    if (cached && cached.length > 0) {
+      serverProducts = cached;
+    }
+  } else {
+    setLocalJSON(KEY_ALL_PRODUCTS_CACHE, serverProducts);
+  }
+
+  const deletedIds = new Set(getLocalJSON(KEY_DELETED_PRODUCTS, []));
+  const customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
+  const stockOverrides = getLocalJSON(KEY_STOCK_OVERRIDES, {});
+
+  let merged = serverProducts.filter(p => !deletedIds.has(p.id));
+
+  customProducts.forEach(cp => {
+    if (deletedIds.has(cp.id)) return;
+    const idx = merged.findIndex(p => p.id === cp.id);
+    if (idx >= 0) {
+      merged[idx] = { ...merged[idx], ...cp };
+    } else {
+      merged.unshift(cp);
+    }
+  });
+
+  merged = merged.map(p => {
+    if (stockOverrides[p.id]) {
+      const ov = stockOverrides[p.id];
+      return {
+        ...p,
+        inStock: ov.inStock !== undefined ? ov.inStock : p.inStock,
+        stockQty: ov.stockQty !== undefined ? ov.stockQty : p.stockQty
+      };
+    }
+    return p;
+  });
+
+  appState.products = merged;
+  renderCatalog();
+  updateStats();
 }
 
 function renderCatalog() {
@@ -565,19 +666,29 @@ async function quickAdjustStock(id, delta) {
   prod.stockQty = newStock;
   prod.inStock = newStock > 0;
 
+  // Persist immediately in localStorage
+  const stockOverrides = getLocalJSON(KEY_STOCK_OVERRIDES, {});
+  stockOverrides[id] = { inStock: prod.inStock, stockQty: prod.stockQty };
+  setLocalJSON(KEY_STOCK_OVERRIDES, stockOverrides);
+
+  const customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
+  const cIdx = customProducts.findIndex(p => p.id === id);
+  if (cIdx >= 0) {
+    customProducts[cIdx].stockQty = newStock;
+    customProducts[cIdx].inStock = prod.inStock;
+    setLocalJSON(KEY_CUSTOM_PRODUCTS, customProducts);
+  }
+
+  renderCatalog();
+  showToast(`${prod.title} stock updated: ${newStock} Units`, 'info');
+
   try {
-    const res = await fetch('/api/products', {
+    await fetch('/api/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(prod)
     });
-    if (res.ok) {
-      renderCatalog();
-      showToast(`${prod.title} stock updated: ${newStock} Units`, 'info');
-    }
-  } catch (e) {
-    showToast('Failed to update stock quantity', 'error');
-  }
+  } catch (e) {}
 }
 
 async function toggleProductStock(id) {
@@ -592,19 +703,29 @@ async function toggleProductStock(id) {
     prod.stockQty = 10;
   }
 
+  // Persist immediately in localStorage
+  const stockOverrides = getLocalJSON(KEY_STOCK_OVERRIDES, {});
+  stockOverrides[id] = { inStock: prod.inStock, stockQty: prod.stockQty };
+  setLocalJSON(KEY_STOCK_OVERRIDES, stockOverrides);
+
+  const customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
+  const cIdx = customProducts.findIndex(p => p.id === id);
+  if (cIdx >= 0) {
+    customProducts[cIdx].inStock = prod.inStock;
+    customProducts[cIdx].stockQty = prod.stockQty;
+    setLocalJSON(KEY_CUSTOM_PRODUCTS, customProducts);
+  }
+
+  renderCatalog();
+  showToast(`${prod.title} marked as ${updatedStock ? 'In Stock' : 'Out of Stock'}`, 'info');
+
   try {
-    const res = await fetch('/api/products', {
+    await fetch('/api/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(prod)
     });
-    if (res.ok) {
-      renderCatalog();
-      showToast(`${prod.title} marked as ${updatedStock ? 'In Stock' : 'Out of Stock'}`, 'info');
-    }
-  } catch (e) {
-    showToast('Failed to update stock status', 'error');
-  }
+  } catch (e) {}
 }
 
 function calculateDiscountPreview() {
@@ -738,7 +859,7 @@ function openAddProductModal() {
 }
 
 async function saveProductModal() {
-  const id = document.getElementById('edit-prod-id').value;
+  let id = document.getElementById('edit-prod-id').value;
   const title = document.getElementById('edit-prod-title').value.trim();
   const category = document.getElementById('edit-prod-category').value;
   let inStock = document.getElementById('edit-prod-stock').value === 'true';
@@ -754,6 +875,10 @@ async function saveProductModal() {
   if (!title || isNaN(price)) {
     showToast('Please enter title and valid selling price.', 'error');
     return;
+  }
+
+  if (!id) {
+    id = 'prod_' + Date.now();
   }
 
   // Find category metadata
@@ -773,23 +898,50 @@ async function saveProductModal() {
     description
   };
 
+  // 1. Immediately update in-memory state
+  const idx = appState.products.findIndex(p => p.id === id);
+  if (idx >= 0) {
+    appState.products[idx] = { ...appState.products[idx], ...payload };
+  } else {
+    appState.products.unshift(payload);
+  }
+
+  // 2. Persist to localStorage
+  const customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
+  const cIdx = customProducts.findIndex(p => p.id === id);
+  if (cIdx >= 0) {
+    customProducts[cIdx] = { ...customProducts[cIdx], ...payload };
+  } else {
+    customProducts.unshift(payload);
+  }
+  setLocalJSON(KEY_CUSTOM_PRODUCTS, customProducts);
+
+  // Update stock overrides
+  const stockOverrides = getLocalJSON(KEY_STOCK_OVERRIDES, {});
+  stockOverrides[id] = { inStock, stockQty };
+  setLocalJSON(KEY_STOCK_OVERRIDES, stockOverrides);
+
+  // Remove from deleted list if present
+  let deletedIds = getLocalJSON(KEY_DELETED_PRODUCTS, []);
+  if (deletedIds.includes(id)) {
+    deletedIds = deletedIds.filter(d => d !== id);
+    setLocalJSON(KEY_DELETED_PRODUCTS, deletedIds);
+  }
+
+  // 3. Close modal & re-render immediately
+  document.getElementById('product-modal-overlay').style.display = 'none';
+  renderCatalog();
+  updateStats();
+  showToast(`Product "${title}" saved! Available Stock: ${stockQty} Units`, 'success');
+
+  // 4. Background server sync (never fails user flow)
   try {
-    const res = await fetch('/api/products', {
+    await fetch('/api/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-
-    if (res.ok) {
-      document.getElementById('product-modal-overlay').style.display = 'none';
-      showToast(`Product "${title}" saved! Available Stock: ${stockQty} Units`, 'success');
-      fetchProducts();
-    } else {
-      showToast('Error saving product', 'error');
-    }
-  } catch (e) {
-    showToast('Failed to connect to server', 'error');
-  }
+  } catch (e) {}
 }
 
 async function deleteProduct(id) {
@@ -800,35 +952,91 @@ async function deleteProduct(id) {
     return;
   }
 
+  // 1. Remove from in-memory state
+  appState.products = appState.products.filter(p => p.id !== id);
+
+  // 2. Mark in deleted list
+  const deletedIds = getLocalJSON(KEY_DELETED_PRODUCTS, []);
+  if (!deletedIds.includes(id)) {
+    deletedIds.push(id);
+    setLocalJSON(KEY_DELETED_PRODUCTS, deletedIds);
+  }
+
+  // 3. Remove from custom products
+  let customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
+  customProducts = customProducts.filter(p => p.id !== id);
+  setLocalJSON(KEY_CUSTOM_PRODUCTS, customProducts);
+
+  renderCatalog();
+  updateStats();
+  showToast(`Deleted "${title}" from catalog`, 'info');
+
   try {
-    const res = await fetch('/api/products', {
+    await fetch('/api/products', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id })
     });
-    if (res.ok) {
-      showToast(`Deleted "${title}"`, 'info');
-      fetchProducts();
-    }
-  } catch (e) {
-    showToast('Error deleting product', 'error');
-  }
+  } catch (e) {}
 }
 
 // ===================================================
 // 6B. CATEGORIES MANAGEMENT (DYNAMIC CRUD & LIVE SYNC)
 // ===================================================
 async function fetchCategories() {
+  let serverCategories = [];
   try {
-    const res = await fetch('/api/categories');
-    if (res.ok) {
-      appState.categories = await res.json();
-      renderCategories();
-      populateCategoryDropdowns();
+    const res = await fetch('/api/categories').catch(() => null);
+    if (res && res.ok) {
+      try {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          serverCategories = data;
+        }
+      } catch (e) {}
+    }
+    if (!serverCategories || serverCategories.length === 0) {
+      const jsonRes = await fetch('/categories.json').catch(() => null);
+      if (jsonRes && jsonRes.ok) {
+        try {
+          const data = await jsonRes.json();
+          if (Array.isArray(data) && data.length > 0) {
+            serverCategories = data;
+          }
+        } catch (e) {}
+      }
     }
   } catch (e) {
-    console.error('Failed to fetch categories:', e);
+    console.warn('Network error fetching categories:', e);
   }
+
+  if (!serverCategories || serverCategories.length === 0) {
+    const cached = getLocalJSON(KEY_ALL_CATEGORIES_CACHE, []);
+    if (cached && cached.length > 0) {
+      serverCategories = cached;
+    }
+  } else {
+    setLocalJSON(KEY_ALL_CATEGORIES_CACHE, serverCategories);
+  }
+
+  const deletedIds = new Set(getLocalJSON(KEY_DELETED_CATEGORIES, []));
+  const customCategories = getLocalJSON(KEY_CUSTOM_CATEGORIES, []);
+
+  let merged = serverCategories.filter(c => !deletedIds.has(c.id));
+
+  customCategories.forEach(cc => {
+    if (deletedIds.has(cc.id)) return;
+    const idx = merged.findIndex(c => c.id === cc.id);
+    if (idx >= 0) {
+      merged[idx] = { ...merged[idx], ...cc };
+    } else {
+      merged.push(cc);
+    }
+  });
+
+  appState.categories = merged;
+  renderCategories();
+  populateCategoryDropdowns();
 }
 
 function renderCategories() {
@@ -976,23 +1184,45 @@ async function saveCategoryModal() {
     description: description || `Authentic ${name} for sacred Hindu rituals.`
   };
 
+  // 1. In-memory update
+  const idx = appState.categories.findIndex(c => c.id === id);
+  if (idx >= 0) {
+    appState.categories[idx] = { ...appState.categories[idx], ...payload };
+  } else {
+    appState.categories.push(payload);
+  }
+
+  // 2. Persist to localStorage
+  const customCategories = getLocalJSON(KEY_CUSTOM_CATEGORIES, []);
+  const cIdx = customCategories.findIndex(c => c.id === id);
+  if (cIdx >= 0) {
+    customCategories[cIdx] = { ...customCategories[cIdx], ...payload };
+  } else {
+    customCategories.push(payload);
+  }
+  setLocalJSON(KEY_CUSTOM_CATEGORIES, customCategories);
+
+  // Remove from deleted list if present
+  let deletedIds = getLocalJSON(KEY_DELETED_CATEGORIES, []);
+  if (deletedIds.includes(id)) {
+    deletedIds = deletedIds.filter(d => d !== id);
+    setLocalJSON(KEY_DELETED_CATEGORIES, deletedIds);
+  }
+
+  // 3. Close modal & re-render
+  document.getElementById('category-modal-overlay').style.display = 'none';
+  renderCategories();
+  populateCategoryDropdowns();
+  showToast(`Category "${name}" saved! Active in catalog.`, 'success');
+
+  // 4. Background server sync
   try {
-    const res = await fetch('/api/categories', {
+    await fetch('/api/categories', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-
-    if (res.ok) {
-      document.getElementById('category-modal-overlay').style.display = 'none';
-      showToast(`Category "${name}" saved! Impacting live app.`, 'success');
-      await fetchCategories();
-    } else {
-      showToast('Error saving category', 'error');
-    }
-  } catch (e) {
-    showToast('Failed to connect to server', 'error');
-  }
+  } catch (e) {}
 }
 
 async function deleteCategory(id) {
@@ -1003,22 +1233,32 @@ async function deleteCategory(id) {
     return;
   }
 
+  // 1. In-memory removal
+  appState.categories = appState.categories.filter(c => c.id !== id);
+
+  // 2. Mark in deleted categories
+  const deletedIds = getLocalJSON(KEY_DELETED_CATEGORIES, []);
+  if (!deletedIds.includes(id)) {
+    deletedIds.push(id);
+    setLocalJSON(KEY_DELETED_CATEGORIES, deletedIds);
+  }
+
+  // 3. Remove from custom categories
+  let customCategories = getLocalJSON(KEY_CUSTOM_CATEGORIES, []);
+  customCategories = customCategories.filter(c => c.id !== id);
+  setLocalJSON(KEY_CUSTOM_CATEGORIES, customCategories);
+
+  renderCategories();
+  populateCategoryDropdowns();
+  showToast(`Deleted category "${name}"`, 'info');
+
   try {
-    const res = await fetch('/api/categories', {
+    await fetch('/api/categories', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id })
     });
-
-    if (res.ok) {
-      showToast(`Deleted category "${name}"`, 'info');
-      await fetchCategories();
-    } else {
-      showToast('Error deleting category', 'error');
-    }
-  } catch (e) {
-    showToast('Failed to delete category', 'error');
-  }
+  } catch (e) {}
 }
 
 // ===================================================
@@ -1182,6 +1422,19 @@ function loadAllData() {
   fetchCategories();
   fetchAppointments();
 }
+
+
+function exportCatalogJson() {
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(appState.products, null, 2));
+  const dlAnchorElem = document.createElement('a');
+  dlAnchorElem.setAttribute("href", dataStr);
+  dlAnchorElem.setAttribute("download", "products.json");
+  document.body.appendChild(dlAnchorElem);
+  dlAnchorElem.click();
+  dlAnchorElem.remove();
+  showToast(`Exported ${appState.products.length} products to products.json!`, 'success');
+}
+window.exportCatalogJson = exportCatalogJson;
 
 // Expose functions to global scope
 window.updateOrderStatus = updateOrderStatus;
