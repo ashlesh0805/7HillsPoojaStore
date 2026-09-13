@@ -378,52 +378,70 @@ function initAlertModalEvents() {
 // 5. ORDERS MANAGEMENT & DISPATCH
 // ===================================================
 async function fetchOrders() {
+  let serverOrders = [];
   try {
     const res = await fetch('/api/orders').catch(() => null);
     if (res && res.ok) {
       try {
         const data = await res.json();
-        if (Array.isArray(data)) {
-          appState.orders = data;
-          renderOrders();
-          updateStats();
-          return;
-        }
+        if (Array.isArray(data)) serverOrders = data;
       } catch (e) {}
     }
-    const jsonRes = await fetch('/orders.json').catch(() => null);
-    if (jsonRes && jsonRes.ok) {
-      try {
-        const data = await jsonRes.json();
-        if (Array.isArray(data)) {
-          appState.orders = data;
-          renderOrders();
-          updateStats();
-        }
-      } catch (e) {}
+    if (serverOrders.length === 0) {
+      const jsonRes = await fetch('/orders.json').catch(() => null);
+      if (jsonRes && jsonRes.ok) {
+        try {
+          const data = await jsonRes.json();
+          if (Array.isArray(data)) serverOrders = data;
+        } catch (e) {}
+      }
     }
   } catch (e) {
     console.error('Failed to fetch orders:', e);
   }
+
+  // Merge localStorage orders (from customer app placed on this device/browser)
+  const localOrders = getLocalJSON('7hills_orders', []);
+  const mergedOrders = [...serverOrders];
+  localOrders.forEach(lo => {
+    const idx = mergedOrders.findIndex(o => o.orderId === lo.orderId);
+    if (idx >= 0) {
+      mergedOrders[idx] = { ...mergedOrders[idx], ...lo };
+    } else {
+      mergedOrders.unshift(lo);
+    }
+  });
+
+  appState.orders = mergedOrders;
+  renderOrders();
+  updateStats();
 }
 
 async function updateOrderStatus(orderId, newStatus) {
+  const ord = appState.orders.find(o => o.orderId === orderId);
+  if (ord) {
+    ord.status = newStatus;
+    // Update local orders storage so customer tracking updates immediately
+    const localOrders = getLocalJSON('7hills_orders', []);
+    const lIdx = localOrders.findIndex(o => o.orderId === orderId);
+    if (lIdx >= 0) {
+      localOrders[lIdx].status = newStatus;
+    } else {
+      localOrders.unshift(ord);
+    }
+    setLocalJSON('7hills_orders', localOrders);
+    renderOrders();
+    updateStats();
+    showToast(`Order status updated to: ${newStatus}`, 'info');
+  }
+
   try {
-    const res = await fetch('/api/orders/status', {
+    await fetch('/api/orders/status', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ orderId, status: newStatus })
     });
-    if (res.ok) {
-      const ord = appState.orders.find(o => o.orderId === orderId);
-      if (ord) ord.status = newStatus;
-      renderOrders();
-      updateStats();
-      showToast(`Order status updated to: ${newStatus}`, 'info');
-    }
-  } catch (e) {
-    showToast('Failed to update status', 'error');
-  }
+  } catch (e) {}
 }
 
 function renderOrders() {
@@ -1265,15 +1283,42 @@ async function deleteCategory(id) {
 // 7. APPOINTMENTS MANAGEMENT
 // ===================================================
 async function fetchAppointments() {
+  let serverAppts = [];
   try {
-    const res = await fetch('/api/appointments');
-    if (res.ok) {
-      appState.appointments = await res.json();
-      renderAppointments();
+    const res = await fetch('/api/appointments').catch(() => null);
+    if (res && res.ok) {
+      try {
+        const data = await res.json();
+        if (Array.isArray(data)) serverAppts = data;
+      } catch (e) {}
+    }
+    if (serverAppts.length === 0) {
+      const jsonRes = await fetch('/appointments.json').catch(() => null);
+      if (jsonRes && jsonRes.ok) {
+        try {
+          const data = await jsonRes.json();
+          if (Array.isArray(data)) serverAppts = data;
+        } catch (e) {}
+      }
     }
   } catch (e) {
     console.error('Failed to fetch appointments:', e);
   }
+
+  // Merge localStorage appointments
+  const localAppts = getLocalJSON('7hills_appointments', []);
+  const mergedAppts = [...serverAppts];
+  localAppts.forEach(la => {
+    const idx = mergedAppts.findIndex(a => a.id === la.id);
+    if (idx >= 0) {
+      mergedAppts[idx] = { ...mergedAppts[idx], ...la };
+    } else {
+      mergedAppts.unshift(la);
+    }
+  });
+
+  appState.appointments = mergedAppts;
+  renderAppointments();
 }
 
 function renderAppointments() {
@@ -1289,33 +1334,37 @@ function renderAppointments() {
     return;
   }
 
-  container.innerHTML = appState.appointments.map(appt => `
+  container.innerHTML = appState.appointments.map(appt => {
+    const rawPhone = (appt.phone || '9097999939').replace(/[^0-9]/g, '');
+    const cleanPhone = rawPhone.length === 10 ? ('91' + rawPhone) : rawPhone;
+    return `
     <div class="order-card">
       <div class="order-card-header">
         <div>
           <div class="order-id-title">${appt.name || 'Devotee'}</div>
-          <div class="order-time-stamp">Booked: ${appt.date || 'Recent'}</div>
+          <div class="order-time-stamp">Booked: ${appt.date || 'Recent'} ${appt.time ? '(' + appt.time + ')' : ''}</div>
         </div>
         <span class="order-status-badge accepted">Consultation</span>
       </div>
 
       <div class="order-customer-box">
         <div><strong>Phone:</strong> ${appt.phone || '90979 99939'}</div>
-        <div><strong>Gotram:</strong> ${appt.gotram || 'Shiva / Kashyapa'}</div>
-        <div><strong>Pooja Required:</strong> ${appt.poojaType || 'Satyanarayana Swamy Vratam'}</div>
-        <div><strong>Preferred Date/Time:</strong> ${appt.preferredTime || 'Morning Muhurtham'}</div>
+        <div><strong>Pooja / Purpose:</strong> ${appt.poojaType || appt.purpose || 'Store Consultation'}</div>
+        <div><strong>Preferred Date/Time:</strong> ${appt.preferredTime || (appt.date + (appt.time ? ' at ' + appt.time : ''))}</div>
+        ${appt.notes ? `<div style="margin-top:4px; font-style:italic;"><strong>Notes:</strong> ${appt.notes}</div>` : ''}
       </div>
 
       <div class="order-card-actions">
         <a href="tel:${appt.phone || '9097999939'}" class="btn-order-action btn-order-status">
           Call Devotee
         </a>
-        <a href="https://wa.me/91${appt.phone || '9097999939'}?text=Namaste%20from%207%20Hills%20Pooja%20Store%2C%20regarding%20your%20pooja%20consultation" target="_blank" class="btn-order-action btn-order-whatsapp">
+        <a href="https://wa.me/${cleanPhone}?text=Namaste%20from%207%20Hills%20Pooja%20Store%2C%20regarding%20your%20pooja%20consultation" target="_blank" class="btn-order-action btn-order-whatsapp">
           WhatsApp Devotee
         </a>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 // ===================================================
