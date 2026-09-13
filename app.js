@@ -4170,7 +4170,36 @@ function handleAppointmentBooking(e) {
   const date = document.getElementById('appt-date')?.value;
   const time = document.getElementById('appt-time')?.value;
   const name = document.getElementById('appt-name')?.value;
+  const phone = document.getElementById('appt-phone')?.value || '90979 99939';
+  const notes = document.getElementById('appt-notes')?.value || '';
   const apptId = `7H-APT-${Math.floor(1000 + Math.random() * 9000)}`;
+
+  const newAppt = {
+    id: apptId,
+    name,
+    phone,
+    date,
+    time,
+    preferredTime: `${date} at ${time}`,
+    purpose,
+    poojaType: purpose,
+    notes,
+    createdAt: new Date().toISOString()
+  };
+
+  try {
+    const appts = JSON.parse(localStorage.getItem('7hills_appointments') || '[]');
+    appts.unshift(newAppt);
+    localStorage.setItem('7hills_appointments', JSON.stringify(appts));
+  } catch (err) {}
+
+  try {
+    fetch('/api/appointments', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newAppt)
+    }).catch(err => console.warn('Appointment API sync error:', err));
+  } catch (e) {}
 
   showToast(`Appointment <strong>${apptId}</strong> confirmed for ${name} on ${date} at ${time}!`);
   
