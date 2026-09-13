@@ -2,8 +2,16 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/server.js"
+      "source": "/partner",
+      "destination": "/partner.html"
+    },
+    {
+      "source": "/partner-download",
+      "destination": "/partner-download.html"
+    },
+    {
+      "source": "/download",
+      "destination": "/partner-download.html"
     }
   ]
 }
