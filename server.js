@@ -123,7 +123,15 @@ function resolveFilePath(reqUrl) {
     return path.join(BASE_DIR, 'download.html');
   }
 
-  // App Package & APK download routing
+  // Partner App Download Landing Page routing
+  if (decodedUrl === '/partner-download' || decodedUrl === '/partner-download/' || decodedUrl === '/download-partner' || decodedUrl === '/download-partner/' || decodedUrl === '/partner/download' || decodedUrl === '/partner/download/') {
+    return path.join(BASE_DIR, 'partner-download.html');
+  }
+
+  // App Package download routing
+  if (decodedUrl === '/download/7HillsPoojaStore-Partner.zip' || decodedUrl === '/7HillsPoojaStore-Partner.zip') {
+    return path.join(BASE_DIR, '7HillsPoojaStore-Partner.zip');
+  }
   if (decodedUrl === '/download/7HillsPoojaStore-App.apk' || decodedUrl === '/download/app.apk' || decodedUrl === '/7HillsPoojaStore-App.apk' || decodedUrl === '/app.apk') {
     return path.join(BASE_DIR, '7HillsPoojaStore-App.apk');
   }
