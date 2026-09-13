@@ -241,36 +241,7 @@ function updateFloatingCartBar() {
   }
 }
 
-// Sacred Temple Bell Chime (Synthesized via Web Audio API, 0 external audio files needed)
-function playSacredTempleBell() {
-  try {
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) return;
-    const ctx = new AudioCtx();
-    const now = ctx.currentTime;
-    const freqs = [784, 1176, 1568, 2352];
-    const gains = [0.22, 0.12, 0.06, 0.03];
-
-    freqs.forEach((f, i) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(f, now);
-      gain.gain.setValueAtTime(gains[i], now);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + 1.1);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start(now);
-      osc.stop(now + 1.1);
-    });
-
-    if (navigator.vibrate) {
-      navigator.vibrate(25);
-    }
-  } catch (e) {
-    // Audio gesture policy fallback
-  }
-}
+// Sacred Temple Bell Chime is defined in audio section
 
 // Slide-Up Bottom Sheet Cart Drawer Controls
 function openCartDrawer() {
