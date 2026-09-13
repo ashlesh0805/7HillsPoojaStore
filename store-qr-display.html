@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7 Hills Pooja Store - Official Mobile App</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #120204;
+      color: #FFFBEB;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      margin: 0;
+    }
+    .standee-card {
+      background: radial-gradient(circle at top, #35030A 0%, #1A0306 70%, #0D0103 100%);
+      border: 3px solid #F59E0B;
+      border-radius: 28px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.7), 0 0 30px rgba(245, 158, 11, 0.25);
+      max-width: 480px;
+      width: 100%;
+      padding: 36px 28px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .emblem-box {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 14px;
+      border-radius: 20px;
+      background: #FFFBEB;
+      border: 2px solid #F59E0B;
+      padding: 6px;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+    .emblem-box img { width: 100%; height: 100%; object-fit: contain; }
+    .title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #FFFBEB;
+      letter-spacing: 1px;
+      margin: 0 0 4px;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #FDE68A;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      margin: 0 0 16px;
+    }
+    .domain-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid #F59E0B;
+      color: #FDE68A;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .scan-badge {
+      display: block;
+      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+      color: #35030A;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 8px 22px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 auto 16px;
+      max-width: 280px;
+    }
+    .qr-container {
+      background: #FFFFFF;
+      padding: 16px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      display: inline-block;
+      margin-bottom: 20px;
+      border: 3px solid #F59E0B;
+    }
+    .qr-container img { width: 220px; height: 220px; display: block; border-radius: 8px; }
+    .instructions {
+      background: rgba(255, 251, 235, 0.06);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #FEF3C7;
+      text-align: left;
+    }
+    .instructions ol { margin: 0; padding-left: 20px; }
+    .instructions li { margin-bottom: 4px; }
+    .helpline {
+      font-size: 14px;
+      color: #FDE68A;
+      font-weight: 600;
+    }
+    .helpline a { color: #FFFBEB; text-decoration: none; font-weight: 700; }
+    .print-btn-bar { margin-top: 24px; }
+    .btn {
+      background: linear-gradient(135deg, #F59E0B, #D97706);
+      color: #35030A;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    @media print {
+      body { background: #FFFFFF; color: #000; padding: 0; }
+      .print-btn-bar { display: none !important; }
+      .standee-card {
+        border: 2px solid #5C0612;
+        box-shadow: none;
+        background: #FFFFFF;
+        color: #000;
+        max-width: 100%;
+      }
+      .title { color: #5C0612; }
+      .subtitle { color: #B45309; }
+      .domain-badge { background: #FFF; border-color: #5C0612; color: #5C0612; }
+      .instructions { background: #FDF2E9; color: #35030A; border: 1px solid #B45309; }
+      .helpline { color: #5C0612; }
+      .helpline a { color: #5C0612; }
+    }
+  </style>
+</head>
+<body>
+  <div class="standee-card">
+    <div class="emblem-box">
+      <img src="icon-192.png" alt="7 Hills Tirumala Gopuram Emblem">
+    </div>
+    <h1 class="title">7 HILLS POOJA STORE</h1>
+    <p class="subtitle">Official Mobile App</p>
+    <div class="domain-badge">www.7hillspoojastore.com</div>
+    <div class="scan-badge">Scan With Phone Camera</div>
+    <div class="qr-container">
+      <img src="7hillspoojastore-official-qr.png" alt="Scan to Install 7 Hills Pooja Store App">
+    </div>
+    <div class="instructions">
+      <ol>
+        <li>Open phone <strong>Camera</strong> or <strong>Google Lens</strong> and scan QR.</li>
+        <li>Tap the official <strong>7hillspoojastore.com</strong> link.</li>
+        <li>Tap <strong>"Install App on Phone"</strong> to add our official app to your device!</li>
+      </ol>
+    </div>
+    <div class="helpline">
+      Store Helpline: <a href="tel:+919097999939">+91 90979 99939</a>
+    </div>
+  </div>
+  <div class="print-btn-bar">
+    <button class="btn" onclick="window.print()">Print Official Standee (Ctrl + P)</button>
+  </div>
+</body>
+</html>
