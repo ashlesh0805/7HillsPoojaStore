@@ -665,4 +665,10 @@ function startServer(portToTry) {
   });
 }
 
-startServer(PORT);
+if (require.main === module) {
+  startServer(PORT);
+}
+
+module.exports = (req, res) => {
+  server.emit('request', req, res);
+};
