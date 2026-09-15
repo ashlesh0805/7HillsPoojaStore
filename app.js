@@ -143,8 +143,19 @@ function saveAddresses() {
 }
 
 function getProductImageUrl(imgName) {
-  // All photos in pre-launch mode display the sacred "Image Coming Soon" vector badge
-  return 'image-coming-soon.svg';
+  if (!imgName) return 'image-coming-soon.svg';
+  if (typeof imgName === 'string') {
+    if (imgName.startsWith('data:') || imgName.startsWith('blob:') || imgName.startsWith('http://') || imgName.startsWith('https://')) {
+      return imgName;
+    }
+    if (imgName.startsWith('uploads/') || imgName.startsWith('/uploads/')) {
+      return imgName.startsWith('/') ? imgName : `/${imgName}`;
+    }
+    if (imgName.startsWith('7HILLS') || imgName.startsWith('/7HILLS')) {
+      return imgName;
+    }
+  }
+  return imgName || 'image-coming-soon.svg';
 }
 
 // ==========================================
@@ -415,8 +426,7 @@ function proceedToCheckoutFromDrawer(event) {
     event.stopPropagation();
   }
   closeCartDrawer();
-  // Pre-launch mode: Prompt users to install the app first!
-  openPrelaunchModal();
+  window.location.hash = '#/checkout';
 }
 
 // Touch swipe gestures on cart drawer items
@@ -2174,7 +2184,7 @@ function buyNowPdp(prodId) {
   const display = document.getElementById('pdp-qty-display');
   const q = display ? parseInt(display.textContent) : 1;
   addToCart(prodId, q, false);
-  openPrelaunchModal();
+  window.location.hash = '#/checkout';
 }
 
 function addBundleToCart(mainId, otherIds) {
@@ -4732,7 +4742,7 @@ async function syncProductsFromBackend() {
           inStock: isItemInStock,
           weight: p.weight || '500g',
           description: p.description || 'Authentic temple-grade item for sacred rituals.',
-          images: [p.image ? (p.image.startsWith('http') ? p.image : p.image) : 'IMAGE (40).JPG'],
+          images: [p.image || (Array.isArray(p.images) && p.images[0] ? p.images[0] : (typeof p.images === 'string' ? p.images : 'image-coming-soon.svg'))],
           highlights: p.highlights || ['100% Temple Grade', 'Consecrated & Pure', 'Fast LB Nagar Dispatch']
         };
       });
@@ -5533,20 +5543,54 @@ function toggleViewportMode() {
 // ==========================================
 let deferredInstallPrompt = null;
 
+function isRunningStandaloneOrInstalled() {
+  return window.matchMedia('(display-mode: standalone)').matches ||
+         window.matchMedia('(display-mode: fullscreen)').matches ||
+         window.matchMedia('(display-mode: minimal-ui)').matches ||
+         window.navigator.standalone === true ||
+         document.referrer.includes('android-app://') ||
+         localStorage.getItem('7hills_app_installed') === 'true';
+}
+
+function checkAppInstalled() {
+  if (isRunningStandaloneOrInstalled()) {
+    document.body.classList.add('app-installed');
+    const floater = document.getElementById('sticky-app-floater');
+    if (floater) floater.style.display = 'none';
+    const banner = document.getElementById('prelaunch-banner');
+    if (banner) banner.style.display = 'none';
+    const modal = document.getElementById('prelaunch-modal-overlay');
+    if (modal) modal.style.display = 'none';
+  }
+}
+
+function dismissAppFloater() {
+  localStorage.setItem('7hills_floater_dismissed', 'true');
+  const floater = document.getElementById('sticky-app-floater');
+  if (floater) floater.style.display = 'none';
+}
+
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredInstallPrompt = e;
-  console.log('[7 Hills PWA] beforeinstallprompt captured and ready');
+  if (isRunningStandaloneOrInstalled() || localStorage.getItem('7hills_floater_dismissed') === 'true') {
+    return;
+  }
   const floater = document.getElementById('sticky-app-floater');
   if (floater) floater.style.display = 'block';
 });
 
 window.addEventListener('appinstalled', () => {
-  console.log('[7 Hills PWA] 7 Hills Pooja Store app installed successfully');
+  localStorage.setItem('7hills_app_installed', 'true');
+  document.body.classList.add('app-installed');
   deferredInstallPrompt = null;
-  showToast('7 Hills Pooja Store App installed on your device! Har Har Mahadev.');
   const floater = document.getElementById('sticky-app-floater');
   if (floater) floater.style.display = 'none';
+  const banner = document.getElementById('prelaunch-banner');
+  if (banner) banner.style.display = 'none';
+  const modal = document.getElementById('prelaunch-modal-overlay');
+  if (modal) modal.style.display = 'none';
+  showToast('7 Hills Pooja Store App installed on your device!');
 });
 
 function triggerAppInstall() {
@@ -5554,12 +5598,17 @@ function triggerAppInstall() {
     deferredInstallPrompt.prompt();
     deferredInstallPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
+        localStorage.setItem('7hills_app_installed', 'true');
+        document.body.classList.add('app-installed');
         showToast('Installing 7 Hills Pooja Store App...');
       }
       deferredInstallPrompt = null;
     });
   } else {
-    openPrelaunchModal();
+    // If already installed or no prompt, do not block user
+    if (!isRunningStandaloneOrInstalled()) {
+      openPrelaunchModal();
+    }
   }
 }
 
@@ -5653,6 +5702,9 @@ document.addEventListener('DOMContentLoaded', () => {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(() => {});
   }
+
+  // Check if app is installed / running in standalone mode to hide all install popups
+  checkAppInstalled();
 
   // Router listener
   window.addEventListener('hashchange', handleRouting);
@@ -5762,6 +5814,8 @@ if (typeof window !== 'undefined') {
   window.openPrelaunchModal = openPrelaunchModal;
   window.closePrelaunchModal = closePrelaunchModal;
   window.submitPreRegistration = submitPreRegistration;
+  window.dismissAppFloater = dismissAppFloater;
+  window.checkAppInstalled = checkAppInstalled;
 }
 
 

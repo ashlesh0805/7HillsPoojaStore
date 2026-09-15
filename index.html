@@ -653,10 +653,13 @@
           <div class="floater-badge"><span class="pulse-amber"></span> Functioning Soon • Tap to Install</div>
         </div>
       </div>
-      <div class="floater-btns">
+      <div class="floater-btns" style="display:flex; align-items:center; gap:8px;">
         <button type="button" class="btn-floater-install" onclick="triggerAppInstall()" id="btn-floater-install" title="Install App to Phone">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           <span>Install App</span>
+        </button>
+        <button type="button" onclick="dismissAppFloater()" title="Dismiss" aria-label="Dismiss install banner" style="background:none; border:none; color:rgba(255,255,255,0.7); cursor:pointer; font-size:18px; line-height:1; padding:4px;">
+          &times;
         </button>
       </div>
     </div>

@@ -5269,6 +5269,21 @@ body.mobile-app-body {
   color: #92400E;
 }
 
+/* Completely hide all install banners, floaters, and modals when app is installed/standalone */
+@media all and (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui) {
+  .sticky-app-floater,
+  .prelaunch-banner,
+  .prelaunch-modal-overlay {
+    display: none !important;
+  }
+}
+
+body.app-installed .sticky-app-floater,
+body.app-installed .prelaunch-banner,
+body.app-installed .prelaunch-modal-overlay {
+  display: none !important;
+}
+
 
 
 

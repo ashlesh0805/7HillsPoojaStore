@@ -774,6 +774,40 @@ function calculateDiscountPreview() {
   }
 }
 
+function compressPhoto(file, maxDimension = 800, quality = 0.75) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        let width = img.width;
+        let height = img.height;
+        if (width > height) {
+          if (width > maxDimension) {
+            height = Math.round((height * maxDimension) / width);
+            width = maxDimension;
+          }
+        } else {
+          if (height > maxDimension) {
+            width = Math.round((width * maxDimension) / height);
+            height = maxDimension;
+          }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.onerror = reject;
+      img.src = e.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 function initMediaUploadHandlers() {
   const btnCamera = document.getElementById('btn-trigger-camera');
   const btnGallery = document.getElementById('btn-trigger-gallery');
@@ -795,34 +829,27 @@ function initMediaUploadHandlers() {
   async function handleImageSelected(file) {
     if (!file) return;
 
-    // Show local preview immediately
-    const reader = new FileReader();
-    reader.onload = async (event) => {
-      const base64Data = event.target.result;
-      if (previewImg) previewImg.src = base64Data;
+    showToast('Optimizing photo...', 'info');
+    try {
+      // Compress to lightweight JPEG (<50KB) so it saves instantly in localStorage without quota errors
+      const compressedDataUrl = await compressPhoto(file, 800, 0.75);
+      if (previewImg) previewImg.src = compressedDataUrl;
+      if (imageInput) imageInput.value = compressedDataUrl;
+      showToast('Photo attached & ready to save!', 'success');
 
-      // Upload to server
-      try {
-        showToast('Uploading photo...', 'info');
-        const res = await fetch('/api/upload', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ filename: file.name, data: base64Data })
-        });
-        const json = await res.json();
-        if (json.success) {
+      // Attempt background upload to API
+      fetch('/api/upload', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: file.name, data: compressedDataUrl })
+      }).then(r => r.json()).then(json => {
+        if (json && json.url && !json.url.startsWith('data:')) {
           if (imageInput) imageInput.value = json.url;
-          showToast('Photo uploaded & saved!', 'success');
-        } else {
-          // Fallback to storing data URI if server upload fails
-          if (imageInput) imageInput.value = base64Data;
         }
-      } catch (err) {
-        if (imageInput) imageInput.value = base64Data;
-        showToast('Photo captured locally', 'info');
-      }
-    };
-    reader.readAsDataURL(file);
+      }).catch(() => {});
+    } catch (err) {
+      showToast('Could not process photo', 'error');
+    }
   }
 }
 
@@ -841,13 +868,14 @@ function openEditProductModal(id) {
   document.getElementById('edit-prod-stock-qty').value = stockUnits;
   document.getElementById('edit-prod-price').value = prod.price || '';
   document.getElementById('edit-prod-mrp').value = prod.mrp || Math.round((prod.price || 100) * 1.3);
-  document.getElementById('edit-prod-image').value = prod.image || '';
+  const currentImg = prod.image || (Array.isArray(prod.images) && prod.images[0] ? prod.images[0] : '');
+  document.getElementById('edit-prod-image').value = currentImg;
   document.getElementById('edit-prod-desc').value = prod.description || '';
 
   // Update preview image
   const previewImg = document.getElementById('edit-prod-preview');
   if (previewImg) {
-    const imgSrc = prod.image ? (prod.image.startsWith('http') || prod.image.startsWith('uploads/') || prod.image.startsWith('data:') ? prod.image : `7HILLS WEBSITE FOR STOCK ITEMS/${prod.image}`) : 'image-coming-soon.svg';
+    const imgSrc = currentImg ? (currentImg.startsWith('http') || currentImg.startsWith('uploads/') || currentImg.startsWith('data:') ? currentImg : `7HILLS WEBSITE FOR STOCK ITEMS/${currentImg}`) : 'image-coming-soon.svg';
     previewImg.src = imgSrc;
   }
 
