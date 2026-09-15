@@ -4788,6 +4788,115 @@ body.mobile-app-body {
   text-align: center;
 }
 
+/* ===================================================
+   100% FREE DIRECT UPI PAYMENT GATEWAY STYLES
+   Merchant UPI: 9989885363-1@okbizaxis (Axis Bank)
+   =================================================== */
+.upi-payment-card {
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+}
+.upi-payment-card:hover {
+  border-color: var(--primary-maroon) !important;
+}
+.upi-payment-card.active-method {
+  border-color: var(--primary-maroon) !important;
+  background: #FFFDF9 !important;
+  box-shadow: 0 3px 12px rgba(122, 12, 26, 0.08);
+}
+.btn-upi-app {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  user-select: none;
+}
+.btn-upi-app:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0.96;
+}
+.btn-upi-app:active {
+  transform: scale(0.98);
+}
+.btn-upi-gpay:hover {
+  background: #F0F7FF !important;
+}
+.btn-upi-phonepe:hover {
+  background: #F8F0FF !important;
+}
+.btn-upi-paytm:hover {
+  background: #F0F6FF !important;
+}
+.btn-upi-generic:hover {
+  background: #E2E8F0 !important;
+}
+
+/* UPI Checkout Confirmation Modal */
+.upi-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  animation: rzpFadeIn 0.2s ease-out;
+}
+.upi-modal-card {
+  background: #FFF;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 18px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: rzpSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1.5px solid var(--accent-gold);
+}
+.upi-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #F1F5F9;
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFFFFF 100%);
+}
+.upi-modal-body {
+  padding: 20px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.upi-modal-footer {
+  padding: 14px 20px;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  text-align: center;
+}
+.upi-confirm-btn {
+  width: 100%;
+  border: none;
+  background: linear-gradient(135deg, #15803D 0%, #16A34A 100%);
+  color: #FFFFFF;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+.upi-confirm-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+.upi-confirm-btn:active {
+  transform: scale(0.98);
+}
+
 /* ==========================================================================
    PRE-LAUNCH / FUNCTIONING SOON & APP INSTALLATION COMPONENTS
    ========================================================================== */
@@ -5267,6 +5376,21 @@ body.mobile-app-body {
   text-align: center;
   font-size: 11px;
   color: #92400E;
+}
+
+/* Completely hide all install banners, floaters, and modals when app is installed/standalone */
+@media all and (display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui) {
+  .sticky-app-floater,
+  .prelaunch-banner,
+  .prelaunch-modal-overlay {
+    display: none !important;
+  }
+}
+
+body.app-installed .sticky-app-floater,
+body.app-installed .prelaunch-banner,
+body.app-installed .prelaunch-modal-overlay {
+  display: none !important;
 }
 
 
