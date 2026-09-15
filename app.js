@@ -27,7 +27,7 @@ const STORE = {
   fuse: null,
   imageBasePath: '7HILLS WEBSITE FOR STOCK ITEMS/',
   viewMode: localStorage.getItem('7hills_view_mode') || 'grid',
-  selectedPaymentMethod: 'RAZORPAY',
+  selectedPaymentMethod: localStorage.getItem('7hills_payment_method') || 'UPI',
   subscriptions: []
 };
 
@@ -2694,66 +2694,177 @@ function renderCheckoutView() {
             </div>
           </div>
 
-          <!-- Step 3: Payment Method (100% Online & Prepaid) -->
+          <!-- Step 3: Payment Method (100% Free Direct UPI & Cash on Delivery) -->
           <div class="swiggy-checkout-card">
             <div class="swiggy-header-row">
               <h2 class="swiggy-step-title">
-                ${getIcon('shield-check', 16)} 3. Payment Method: 100% Secure Online
+                ${getIcon('shield-check', 16)} 3. Payment Method
               </h2>
-              <span id="active-payment-pill" style="font-size: 11px; color: var(--primary-maroon); font-weight: 700;">
-                Prepaid Dispatch Active
+              <span id="active-payment-pill" style="font-size: 11px; ${STORE.selectedPaymentMethod === 'COD' ? 'color: #854D0E; background: #FEF9C3;' : 'color: #047857; background: #D1FAE5;'} font-weight: 700; padding: 3px 8px; border-radius: 12px; border: 1px solid var(--border-subtle);">
+                ${STORE.selectedPaymentMethod === 'COD' ? 'Cash on Delivery Active' : '0% Extra Fee • Direct to Merchant'}
               </span>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 12px;">
-              <!-- Official Payment Method: Pay Online via Razorpay -->
+              <!-- Option 1: Instant Direct UPI (0% Commission, Direct to Axis Bank) -->
               <div 
-                class="razorpay-method-card active-method" 
-                id="method-card-razorpay" 
-                style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border: 2px solid var(--primary-maroon); border-radius: var(--radius-md); background: #FFF9F5;"
+                class="upi-payment-card ${STORE.selectedPaymentMethod !== 'COD' ? 'active-method' : ''}" 
+                id="method-card-upi" 
+                onclick="selectPaymentMode('UPI')"
+                style="display: flex; flex-direction: column; gap: 10px; padding: 16px; border: 2px solid ${STORE.selectedPaymentMethod !== 'COD' ? 'var(--primary-maroon)' : 'var(--border-subtle)'}; border-radius: var(--radius-md); background: ${STORE.selectedPaymentMethod !== 'COD' ? '#FFFDF9' : '#FFFFFF'}; cursor: pointer;"
               >
                 <div style="display: flex; align-items: flex-start; gap: 12px;">
                   <input 
                     type="radio" 
                     name="payment-method" 
-                    id="pay-radio-rzp"
-                    value="RAZORPAY" 
-                    checked 
-                    style="margin-top: 4px; accent-color: var(--primary-maroon); width: 18px; height: 18px; flex-shrink: 0;"
+                    id="pay-radio-upi"
+                    value="UPI" 
+                    ${STORE.selectedPaymentMethod !== 'COD' ? 'checked' : ''} 
+                    onchange="selectPaymentMode('UPI')"
+                    style="margin-top: 4px; accent-color: var(--primary-maroon); width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;"
                   >
                   <div style="flex: 1; min-width: 0;">
                     <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
                       <div style="display: flex; align-items: center; gap: 8px;">
-                        <strong style="color: var(--text-main); font-size: 15px;">Razorpay Secure Payment Gateway</strong>
-                        <span style="background: var(--primary-maroon); color: #FFF; font-size: 9.5px; font-weight: 700; padding: 2px 7px; border-radius: 4px;">FAST & INSTANT</span>
+                        <strong style="color: var(--primary-maroon); font-size: 15px;">Instant Direct UPI Payment</strong>
+                        <span style="background: #16A34A; color: #FFF; font-size: 9.5px; font-weight: 700; padding: 2px 7px; border-radius: 4px;">0% FEE • FASTEST</span>
                       </div>
-                      <span style="font-size: 11px; color: var(--success); font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
-                        ${getIcon('shield-check', 13)} 100% Pre-paid Protected
+                      <span style="font-size: 11px; color: #16A34A; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
+                        ${getIcon('shield-check', 13)} Verified Axis Bank Merchant
                       </span>
                     </div>
                     <p style="font-size: 12px; color: var(--text-secondary); margin: 6px 0 10px; line-height: 1.4;">
-                      Instant digital payment via <strong>UPI</strong> (Google Pay, PhonePe, Paytm, CRED), <strong>Credit / Debit Cards</strong>, and <strong>NetBanking</strong>.
+                      Pay directly to <strong>7 Hills Pooja Store</strong> using Google Pay, PhonePe, Paytm, CRED, BHIM, or Any Bank UPI app. No extra gateway fees!
                     </p>
-                    <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center;">
-                      <span class="pay-chip">Google Pay</span>
-                      <span class="pay-chip">PhonePe</span>
-                      <span class="pay-chip">Paytm</span>
-                      <span class="pay-chip">CRED</span>
+                    <div style="display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 10px;">
+                      <span class="pay-chip" style="color: #0F9D58; font-weight: 700;">● Google Pay</span>
+                      <span class="pay-chip" style="color: #5f259f; font-weight: 700;">● PhonePe</span>
+                      <span class="pay-chip" style="color: #002970; font-weight: 700;">● Paytm</span>
+                      <span class="pay-chip">CRED UPI</span>
                       <span class="pay-chip">BHIM UPI</span>
-                      <span class="pay-chip">Visa / Mastercard / RuPay</span>
-                      <span class="pay-chip">50+ Banks NetBanking</span>
+                      <span class="pay-chip">Any Bank UPI</span>
                     </div>
+
+                    <!-- Interactive UPI Box -->
+                    <div id="upi-details-box" style="display: ${STORE.selectedPaymentMethod !== 'COD' ? 'block' : 'none'}; background: #FFFFFF; border: 1.5px dashed var(--accent-gold); border-radius: 12px; padding: 12px; margin-top: 4px;">
+                      <!-- Merchant UPI ID Row -->
+                      <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-cream); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 8px 12px; margin-bottom: 12px;">
+                        <div>
+                          <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Merchant UPI ID (Axis Bank)</span>
+                          <strong id="merchant-upi-text" style="font-size: 13px; color: var(--primary-maroon); font-family: monospace; letter-spacing: 0.5px;">9989885363-1@okbizaxis</strong>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-secondary" onclick="event.stopPropagation(); copyMerchantUpi()" id="copy-upi-btn" style="padding: 4px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;">
+                          ${getIcon('copy', 12)} <span>Copy</span>
+                        </button>
+                      </div>
+
+                      <!-- QR Code + 1-Tap Mobile Actions -->
+                      <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+                        <div style="text-align: center;">
+                          <div style="background: #FFF; padding: 6px; border: 2px solid var(--accent-gold); border-radius: 10px; display: inline-block; box-shadow: 0 4px 12px rgba(122,12,26,0.06);">
+                            <img 
+                              src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=6&data=${encodeURIComponent(`upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=Order%207HillsPooja`)}"
+                              alt="Scan & Pay ₹${grandTotal} with any UPI App"
+                              style="width: 140px; height: 140px; display: block;"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 600;">Scan with GPay / PhonePe / Paytm</div>
+                          <div style="font-size: 13px; font-weight: 800; color: var(--primary-maroon); margin-top: 2px;">Amount to Pay: ₹${grandTotal}</div>
+                        </div>
+
+                        <!-- 1-Tap Mobile UPI Launcher Buttons -->
+                        <div style="width: 100%;" onclick="event.stopPropagation();">
+                          <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 6px; text-transform: uppercase;">
+                            Or Tap to Open UPI App Directly:
+                          </span>
+                          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+                            <a 
+                              href="gpay://upi/pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=Order%207HillsPooja" 
+                              class="btn-upi-app btn-upi-gpay"
+                              style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: 8px; background: #FFF; border: 1.5px solid #4285F4; color: #1E293B; font-weight: 700; font-size: 11.5px; text-decoration: none;"
+                            >
+                              <span style="color: #4285F4; font-weight: 900;">G</span>Pay
+                            </a>
+                            <a 
+                              href="phonepe://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=Order%207HillsPooja" 
+                              class="btn-upi-app btn-upi-phonepe"
+                              style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: 8px; background: #FFF; border: 1.5px solid #5f259f; color: #5f259f; font-weight: 700; font-size: 11.5px; text-decoration: none;"
+                            >
+                              PhonePe
+                            </a>
+                            <a 
+                              href="paytmmp://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=Order%207HillsPooja" 
+                              class="btn-upi-app btn-upi-paytm"
+                              style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: 8px; background: #FFF; border: 1.5px solid #002970; color: #002970; font-weight: 700; font-size: 11.5px; text-decoration: none;"
+                            >
+                              Paytm
+                            </a>
+                            <a 
+                              href="upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=Order%207HillsPooja" 
+                              class="btn-upi-app btn-upi-generic"
+                              style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px; border-radius: 8px; background: #F8FAFC; border: 1.5px solid var(--border-medium); color: var(--text-main); font-weight: 700; font-size: 11.5px; text-decoration: none;"
+                            >
+                              Any UPI App
+                            </a>
+                          </div>
+
+                          <!-- Optional UTR Input Field -->
+                          <div style="margin-top: 10px;">
+                            <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 3px;">
+                              UPI Reference / UTR Number (Optional after paying):
+                            </label>
+                            <input 
+                              type="text" 
+                              id="checkout-upi-utr" 
+                              class="input-field" 
+                              placeholder="e.g. 12-digit UTR from payment receipt" 
+                              style="width: 100%; font-size: 12px; padding: 7px 10px; box-sizing: border-box;"
+                            />
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
 
-              <!-- Store Policy Notice: No Cash On Delivery -->
-              <div style="background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: var(--radius-md); padding: 12px 14px; display: flex; align-items: flex-start; gap: 10px;">
+              <!-- Option 2: Cash on Delivery (COD) -->
+              <div 
+                class="upi-payment-card ${STORE.selectedPaymentMethod === 'COD' ? 'active-method' : ''}" 
+                id="method-card-cod" 
+                onclick="selectPaymentMode('COD')"
+                style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border: 1.5px solid ${STORE.selectedPaymentMethod === 'COD' ? 'var(--primary-maroon)' : 'var(--border-subtle)'}; border-radius: var(--radius-md); background: ${STORE.selectedPaymentMethod === 'COD' ? '#FFFDF9' : '#FFFFFF'}; cursor: pointer;"
+              >
+                <input 
+                  type="radio" 
+                  name="payment-method" 
+                  id="pay-radio-cod"
+                  value="COD" 
+                  ${STORE.selectedPaymentMethod === 'COD' ? 'checked' : ''} 
+                  onchange="selectPaymentMode('COD')"
+                  style="margin-top: 4px; accent-color: var(--primary-maroon); width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;"
+                >
+                <div style="flex: 1; min-width: 0;">
+                  <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <strong style="color: var(--text-main); font-size: 14px;">Cash on Delivery (COD)</strong>
+                    <span style="font-size: 11px; color: var(--text-muted); font-weight: 600;">Pay at doorstep</span>
+                  </div>
+                  <p style="font-size: 11.5px; color: var(--text-secondary); margin: 3px 0 0; line-height: 1.35;">
+                    Pay cash in hand to our temple delivery partner upon arrival at your doorstep.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Store Policy Guarantee Notice -->
+              <div style="background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: var(--radius-md); padding: 10px 14px; display: flex; align-items: flex-start; gap: 10px;">
                 <div style="color: var(--primary-maroon); margin-top: 1px; flex-shrink: 0;">
                   ${getIcon('shield-check', 16)}
                 </div>
                 <div style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.45;">
-                  <strong style="color: var(--text-main);">100% Prepaid Orders Only:</strong> Cash on Delivery (COD) is not accepted to avoid cash handling and change issues, ensuring your sacred pooja samagri is packed and dispatched immediately without doorstep delays.
+                  <strong style="color: var(--text-main);">Direct 7 Hills Guarantee:</strong> 100% genuine pooja articles handpicked directly from our store beside Prasannanjaneya Swamy Temple, LB Nagar, Hyderabad. Store helpline: <strong>+91 90979 99939</strong>.
                 </div>
               </div>
             </div>
@@ -2821,11 +2932,11 @@ function renderCheckoutView() {
               data-testid="place-order-btn"
               style="margin-top: 14px; padding: 14px 18px; font-size: 15px;"
             >
-              Pay ₹${grandTotal} Online via Razorpay
+              ${STORE.selectedPaymentMethod === 'COD' ? `Place Order (Cash on Delivery) • ₹${grandTotal}` : `Pay ₹${grandTotal} via Direct UPI`}
             </button>
 
             <div id="checkout-btn-subtext" style="font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 6px;">
-              Secured with 256-Bit SSL Encryption by Razorpay • Instant Confirmation
+              ${STORE.selectedPaymentMethod === 'COD' ? `Pay ₹${grandTotal} cash upon delivery • WhatsApp Receipt to +91 90979 99939` : `0% Commission • Paid Directly to 9989885363-1@okbizaxis (Axis Bank) • Instant WhatsApp Receipt`}
             </div>
 
             <div style="margin-top: 12px; text-align: center;">
@@ -2840,7 +2951,7 @@ function renderCheckoutView() {
       <div class="swiggy-sticky-order-bar">
         <div>
           <span id="sticky-pay-mode-label" style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase;">
-            Prepaid Order
+            ${STORE.selectedPaymentMethod === 'COD' ? 'Cash on Delivery' : 'Direct UPI (0% Fee)'}
           </span>
           <strong style="font-size: 18px; color: var(--primary-maroon);">₹${grandTotal}</strong>
         </div>
@@ -2851,7 +2962,7 @@ function renderCheckoutView() {
           onclick="executeOrderPlacement()"
           style="padding: 10px 22px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;"
         >
-          <span>Pay Online</span>
+          <span>${STORE.selectedPaymentMethod === 'COD' ? 'Place COD Order' : 'Pay via UPI'}</span>
           ${getIcon('arrow-right', 15)}
         </button>
       </div>
@@ -2903,9 +3014,93 @@ function setDefaultAddress(addrId) {
   renderCheckoutView();
 }
 
+function copyMerchantUpi() {
+  const upiId = '9989885363-1@okbizaxis';
+  const finishCopy = () => {
+    const btn = document.getElementById('copy-upi-btn');
+    if (btn) btn.innerHTML = `${getIcon('check', 12)} <span>Copied!</span>`;
+    const modalBtn = document.getElementById('modal-copy-upi-btn');
+    if (modalBtn) modalBtn.innerHTML = `${getIcon('check', 12)} <span>Copied!</span>`;
+    showToast('UPI ID 9989885363-1@okbizaxis copied to clipboard!');
+    setTimeout(() => {
+      if (btn) btn.innerHTML = `${getIcon('copy', 12)} <span>Copy</span>`;
+      if (modalBtn) modalBtn.innerHTML = `${getIcon('copy', 12)} <span>Copy</span>`;
+    }, 2500);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(upiId).then(finishCopy).catch(() => {
+      fallbackCopyText(upiId);
+      finishCopy();
+    });
+  } else {
+    fallbackCopyText(upiId);
+    finishCopy();
+  }
+}
+
+function fallbackCopyText(text) {
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    document.execCommand('copy');
+    ta.remove();
+  } catch (e) {
+    console.warn('Clipboard fallback notice:', e);
+  }
+}
+
 function selectPaymentMode(mode) {
-  STORE.selectedPaymentMethod = 'RAZORPAY';
-  localStorage.setItem('7hills_payment_method', 'RAZORPAY');
+  const selectedMode = mode === 'COD' ? 'COD' : 'UPI';
+  STORE.selectedPaymentMethod = selectedMode;
+  localStorage.setItem('7hills_payment_method', selectedMode);
+
+  // Toggle card active states
+  const upiCard = document.getElementById('method-card-upi');
+  const codCard = document.getElementById('method-card-cod');
+  const upiRadio = document.getElementById('pay-radio-upi');
+  const codRadio = document.getElementById('pay-radio-cod');
+  const upiDetails = document.getElementById('upi-details-box');
+  const pill = document.getElementById('active-payment-pill');
+
+  if (upiCard && codCard) {
+    if (selectedMode === 'UPI') {
+      upiCard.classList.add('active-method');
+      upiCard.style.borderColor = 'var(--primary-maroon)';
+      upiCard.style.background = '#FFFDF9';
+      codCard.classList.remove('active-method');
+      codCard.style.borderColor = 'var(--border-subtle)';
+      codCard.style.background = '#FFFFFF';
+      if (upiRadio) upiRadio.checked = true;
+      if (codRadio) codRadio.checked = false;
+      if (upiDetails) upiDetails.style.display = 'block';
+      if (pill) {
+        pill.textContent = '0% Extra Fee • Direct to Merchant';
+        pill.style.color = '#047857';
+        pill.style.background = '#D1FAE5';
+      }
+    } else {
+      codCard.classList.add('active-method');
+      codCard.style.borderColor = 'var(--primary-maroon)';
+      codCard.style.background = '#FFFDF9';
+      upiCard.classList.remove('active-method');
+      upiCard.style.borderColor = 'var(--border-subtle)';
+      upiCard.style.background = '#FFFFFF';
+      if (codRadio) codRadio.checked = true;
+      if (upiRadio) upiRadio.checked = false;
+      if (upiDetails) upiDetails.style.display = 'none';
+      if (pill) {
+        pill.textContent = 'Cash on Delivery Active';
+        pill.style.color = '#854D0E';
+        pill.style.background = '#FEF9C3';
+      }
+    }
+  }
 
   // Calculate live grand total
   const subtotal = STORE.cart.reduce((sum, i) => sum + (i.product.price * i.quantity), 0);
@@ -2926,21 +3121,33 @@ function selectPaymentMode(mode) {
   const stickyLabel = document.getElementById('sticky-pay-mode-label');
 
   if (mainBtn) {
-    mainBtn.innerHTML = `Pay ₹${grandTotal} Online via Razorpay`;
+    if (selectedMode === 'UPI') {
+      mainBtn.innerHTML = `Pay ₹${grandTotal} via Direct UPI`;
+    } else {
+      mainBtn.innerHTML = `Place Order (Cash on Delivery) • ₹${grandTotal}`;
+    }
   }
   if (subtext) {
-    subtext.textContent = 'Secured with 256-Bit SSL Encryption by Razorpay • Instant Confirmation';
+    if (selectedMode === 'UPI') {
+      subtext.textContent = '0% Commission • Paid Directly to 9989885363-1@okbizaxis (Axis Bank) • Instant WhatsApp Receipt';
+    } else {
+      subtext.textContent = `Pay ₹${grandTotal} cash upon delivery • WhatsApp Receipt to +91 90979 99939`;
+    }
   }
   if (stickyBtn) {
-    stickyBtn.innerHTML = `<span>Pay Online</span> ${getIcon('arrow-right', 15)}`;
+    if (selectedMode === 'UPI') {
+      stickyBtn.innerHTML = `<span>Pay via UPI</span> ${getIcon('arrow-right', 15)}`;
+    } else {
+      stickyBtn.innerHTML = `<span>Place COD Order</span> ${getIcon('arrow-right', 15)}`;
+    }
   }
   if (stickyLabel) {
-    stickyLabel.textContent = 'Prepaid Order';
+    stickyLabel.textContent = selectedMode === 'UPI' ? 'Direct UPI (0% Fee)' : 'Cash on Delivery';
   }
 }
 
 function togglePaymentSelection(mode) {
-  selectPaymentMode('RAZORPAY');
+  selectPaymentMode(mode || 'UPI');
 }
 
 function resetPlaceOrderButtons() {
@@ -2994,7 +3201,7 @@ async function executeOrderPlacement() {
     deliveryCost: deliveryFee,
     address: activeAddress ? `${activeAddress.street}, ${activeAddress.area}, ${activeAddress.city} - ${activeAddress.pincode}` : 'LB Nagar, Hyderabad - 500074',
     phone: activeAddress ? activeAddress.phone : '9097999939',
-    paymentMethod: 'Razorpay Online (UPI/Cards/Netbanking)',
+    paymentMethod: STORE.selectedPaymentMethod === 'COD' ? 'Cash on Delivery (COD)' : 'Direct UPI (9989885363-1@okbizaxis)',
     rider: {
       name: "Suresh Reddy (7 Hills Express)",
       phone: "+91 90979 99939",
@@ -3016,158 +3223,110 @@ async function executeOrderPlacement() {
     grandTotal
   };
 
-  initiateRazorpayPayment(newOrder);
-}
-
-async function initiateRazorpayPayment(orderData) {
-  const placeBtns = document.querySelectorAll('[data-testid="place-order-btn"], .swiggy-sticky-order-bar button');
-  placeBtns.forEach(b => {
-    b.disabled = true;
-    b.dataset.origHtml = b.innerHTML;
-    b.innerHTML = `<span>Connecting to Razorpay...</span>`;
-  });
-
-  try {
-    const res = await fetch('/api/razorpay/create-order', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        amount: orderData.grandTotal,
-        receipt: `rcpt_${orderData.orderId}`,
-        notes: {
-          customerName: orderData.customerName,
-          phone: orderData.phone,
-          deliveryMethod: orderData.deliveryMethod
-        }
-      })
-    });
-
-    const orderRes = await res.json();
-    if (!orderRes || !orderRes.orderId) {
-      throw new Error(orderRes?.error || 'Failed to initialize payment gateway');
-    }
-
-    const key = orderRes.key || 'rzp_test_7HillsPoojaStore';
-
-    // Standard Razorpay Checkout JS integration
-    if (typeof window.Razorpay === 'function') {
-      const options = {
-        key: key,
-        amount: orderRes.amount,
-        currency: orderRes.currency || 'INR',
-        name: '7 Hills Pooja Store',
-        description: `Sacred Order - ${orderData.items.length} item(s)`,
-        image: 'app-icon.svg',
-        order_id: (orderRes.isSandbox || !orderRes.orderId.startsWith('order_')) ? undefined : orderRes.orderId,
-        prefill: {
-          name: orderData.customerName,
-          contact: orderData.phone,
-          email: 'devotee@7hillspoojastore.com'
-        },
-        notes: {
-          store: '7 Hills Pooja Store, Beside Prasannanjaneya Swamy Temple, LB Nagar',
-          orderId: orderData.orderId
-        },
-        theme: {
-          color: '#7A0C1A' // Temple Crimson Red
-        },
-        handler: async function (response) {
-          console.log('[Razorpay Payment Success]', response);
-          try {
-            await fetch('/api/razorpay/verify-payment', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id || orderRes.orderId,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature
-              })
-            });
-          } catch (vErr) {
-            console.warn('Verification API notice:', vErr);
-          }
-          finalizeOrderPlacement(orderData, response.razorpay_payment_id || `pay_${Date.now()}`);
-        },
-        modal: {
-          ondismiss: function () {
-            showToast('Payment window closed. Tap Pay Online when you are ready to complete.');
-            resetPlaceOrderButtons();
-          }
-        }
-      };
-
-      const rzp = new window.Razorpay(options);
-      rzp.on('payment.failed', function (response) {
-        console.error('[Razorpay Payment Failed]', response.error);
-        showToast(`Payment failed: ${response.error.description || 'Please retry with UPI, Card, or NetBanking.'}`);
-        resetPlaceOrderButtons();
-      });
-
-      rzp.open();
-    } else {
-      // Offline / CDN fallback modal for flawless presentations
-      openRazorpayFallbackModal(orderData, orderRes, (paymentId) => {
-        finalizeOrderPlacement(orderData, paymentId);
-      });
-    }
-  } catch (err) {
-    console.warn('Razorpay error, opening fallback tester modal:', err);
-    openRazorpayFallbackModal(orderData, { orderId: `order_${Date.now()}`, amount: orderData.grandTotal * 100 }, (paymentId) => {
-      finalizeOrderPlacement(orderData, paymentId);
-    });
+  if (STORE.selectedPaymentMethod === 'COD') {
+    finalizeOrderPlacement(newOrder, 'COD');
+  } else {
+    const typedUtr = document.getElementById('checkout-upi-utr')?.value.trim();
+    openUpiPaymentModal(newOrder, typedUtr);
   }
 }
 
-function openRazorpayFallbackModal(orderData, orderRes, onComplete) {
+function openUpiPaymentModal(orderData, prefilledUtr = '') {
   resetPlaceOrderButtons();
-  const existing = document.getElementById('rzp-fallback-modal');
+  const existing = document.getElementById('upi-payment-modal');
   if (existing) existing.remove();
 
+  const upiUri = `upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${orderData.grandTotal}&cu=INR&tn=${encodeURIComponent(`Order ${orderData.orderId}`)}`;
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data=${encodeURIComponent(upiUri)}`;
+
   const modal = document.createElement('div');
-  modal.id = 'rzp-fallback-modal';
-  modal.className = 'rzp-modal-backdrop';
+  modal.id = 'upi-payment-modal';
+  modal.className = 'upi-modal-backdrop';
   modal.innerHTML = `
-    <div class="rzp-modal-card">
-      <div class="rzp-modal-header">
+    <div class="upi-modal-card">
+      <div class="upi-modal-header">
         <div style="display: flex; align-items: center; gap: 10px;">
-          <div style="width: 36px; height: 36px; border-radius: 8px; background: #7A0C1A; display: flex; align-items: center; justify-content: center; color: #FFF;">
+          <div style="width: 38px; height: 38px; border-radius: 8px; background: var(--primary-maroon); display: flex; align-items: center; justify-content: center; color: #FFF;">
             ${getIcon('shield-check', 20)}
           </div>
           <div>
-            <h3 style="font-size: 15px; font-weight: 700; color: #1A1A1A; margin: 0;">Razorpay Secure Payment</h3>
-            <span style="font-size: 11px; color: #666;">7 Hills Pooja Store • Verified Merchant</span>
+            <h3 style="font-size: 15px; font-weight: 700; color: #1A1A1A; margin: 0;">Direct UPI Payment</h3>
+            <span style="font-size: 11px; color: #047857; font-weight: 700;">7 Hills Pooja Store • Axis Bank Merchant</span>
           </div>
         </div>
-        <button type="button" class="rzp-close-btn" onclick="document.getElementById('rzp-fallback-modal').remove()">&times;</button>
+        <button type="button" class="rzp-close-btn" onclick="document.getElementById('upi-payment-modal').remove()">&times;</button>
       </div>
 
-      <div class="rzp-modal-body">
-        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px; margin-bottom: 16px; text-align: center;">
-          <span style="font-size: 11px; color: #64748B; text-transform: uppercase; font-weight: 600; display: block;">Total Amount to Pay</span>
-          <strong style="font-size: 26px; color: #0F172A; display: block; margin-top: 2px;">₹${orderData.grandTotal}</strong>
-          <span style="font-size: 11px; color: #16A34A; font-weight: 600;">Razorpay Gateway Active</span>
+      <div class="upi-modal-body" style="text-align: center;">
+        <!-- Total Amount -->
+        <div style="background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 12px; padding: 12px; margin-bottom: 14px;">
+          <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block;">Total Order Amount</span>
+          <strong style="font-size: 28px; color: var(--primary-maroon); display: block; margin-top: 2px;">₹${orderData.grandTotal}</strong>
+          <span style="font-size: 11px; color: #16A34A; font-weight: 700;">0% Commission • Direct Bank Settlement</span>
         </div>
 
-        <p style="font-size: 12px; color: #475569; margin-bottom: 14px; text-align: center;">
-          Select your preferred payment method:
-        </p>
+        <!-- Dynamic QR Code -->
+        <div style="display: inline-block; background: #FFF; padding: 8px; border: 2px solid var(--accent-gold); border-radius: 12px; box-shadow: 0 4px 14px rgba(122,12,26,0.1); margin-bottom: 10px;">
+          <img src="${qrUrl}" alt="Scan to Pay ₹${orderData.grandTotal}" style="width: 170px; height: 170px; display: block; border-radius: 6px;" />
+        </div>
+        <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; font-weight: 600;">
+          Scan with Google Pay, PhonePe, Paytm, CRED or any UPI App
+        </div>
 
-        <div style="display: flex; flex-direction: column; gap: 10px;">
-          <button type="button" class="rzp-action-btn" id="btn-rzp-upi" style="background: #0284C7;">
-            <span>${getIcon('check', 16)} Pay ₹${orderData.grandTotal} with Instant UPI (GPay / PhonePe)</span>
-          </button>
-          <button type="button" class="rzp-action-btn" id="btn-rzp-card" style="background: #7A0C1A;">
-            <span>${getIcon('credit-card', 16)} Pay ₹${orderData.grandTotal} with Credit / Debit Card</span>
-          </button>
-          <button type="button" class="rzp-action-btn" id="btn-rzp-net" style="background: #334155;">
-            <span>${getIcon('landmark', 16)} Pay ₹${orderData.grandTotal} via NetBanking</span>
+        <!-- UPI ID Copy Row -->
+        <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-cream); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 8px 12px; margin-bottom: 14px; text-align: left;">
+          <div>
+            <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Merchant UPI ID (Axis Bank)</span>
+            <span style="font-size: 12.5px; font-weight: 700; color: var(--primary-maroon); font-family: monospace;">9989885363-1@okbizaxis</span>
+          </div>
+          <button type="button" class="btn btn-sm btn-secondary" onclick="copyMerchantUpi()" id="modal-copy-upi-btn" style="padding: 4px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;">
+            ${getIcon('copy', 12)} <span>Copy</span>
           </button>
         </div>
+
+        <!-- Mobile 1-Tap App Links -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px;">
+          <a href="gpay://upi/pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${orderData.grandTotal}&cu=INR&tn=${encodeURIComponent(`Order ${orderData.orderId}`)}" class="btn-upi-app btn-upi-gpay" style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 9px; border-radius: 8px; background: #FFF; border: 1.5px solid #4285F4; color: #1E293B; font-weight: 700; font-size: 12px; text-decoration: none;">
+            <span style="color: #4285F4; font-weight: 900;">G</span>Pay App
+          </a>
+          <a href="phonepe://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${orderData.grandTotal}&cu=INR&tn=${encodeURIComponent(`Order ${orderData.orderId}`)}" class="btn-upi-app btn-upi-phonepe" style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 9px; border-radius: 8px; background: #FFF; border: 1.5px solid #5f259f; color: #5f259f; font-weight: 700; font-size: 12px; text-decoration: none;">
+            PhonePe App
+          </a>
+          <a href="paytmmp://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${orderData.grandTotal}&cu=INR&tn=${encodeURIComponent(`Order ${orderData.orderId}`)}" class="btn-upi-app btn-upi-paytm" style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 9px; border-radius: 8px; background: #FFF; border: 1.5px solid #002970; color: #002970; font-weight: 700; font-size: 12px; text-decoration: none;">
+            Paytm App
+          </a>
+          <a href="${upiUri}" class="btn-upi-app btn-upi-generic" style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 9px; border-radius: 8px; background: #F8FAFC; border: 1.5px solid var(--border-medium); color: var(--text-main); font-weight: 700; font-size: 12px; text-decoration: none;">
+            Any UPI App
+          </a>
+        </div>
+
+        <!-- Devotee UTR Confirmation Input -->
+        <div style="text-align: left; margin-bottom: 16px;">
+          <label style="font-size: 11.5px; font-weight: 700; color: var(--text-main); display: block; margin-bottom: 4px;">
+            UPI Ref / UTR No. (12 digits, optional):
+          </label>
+          <input 
+            type="text" 
+            id="modal-upi-utr-input" 
+            class="input-field" 
+            placeholder="e.g. 423871928341" 
+            value="${prefilledUtr || ''}" 
+            style="width: 100%; font-size: 13px; padding: 8px 12px; box-sizing: border-box;"
+          />
+          <span style="font-size: 10.5px; color: var(--text-muted); display: block; margin-top: 3px;">
+            Visible in your UPI app payment receipt after completing payment.
+          </span>
+        </div>
+
+        <!-- Confirm Order Button -->
+        <button type="button" class="upi-confirm-btn" id="btn-confirm-upi-paid">
+          ${getIcon('check', 18)} <span>I Have Paid ₹${orderData.grandTotal} — Confirm Order</span>
+        </button>
       </div>
 
-      <div class="rzp-modal-footer">
-        <span style="font-size: 10.5px; color: #94A3B8; display: flex; align-items: center; justify-content: center; gap: 6px;">
-          ${getIcon('lock', 12)} Secured with 256-Bit SSL Encryption by Razorpay
+      <div class="upi-modal-footer">
+        <span style="font-size: 11px; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 6px;">
+          ${getIcon('shield-check', 13)} Direct Bank Settlement to 7 Hills Pooja Store • Axis Bank
         </span>
       </div>
     </div>
@@ -3175,25 +3334,28 @@ function openRazorpayFallbackModal(orderData, orderRes, onComplete) {
 
   document.body.appendChild(modal);
 
-  const completePayment = (methodLabel) => {
-    const fakePayId = `pay_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
-    showToast(`Payment of ₹${orderData.grandTotal} successful via ${methodLabel}!`);
+  document.getElementById('btn-confirm-upi-paid').onclick = () => {
+    const utrVal = document.getElementById('modal-upi-utr-input')?.value.trim() || prefilledUtr;
     modal.remove();
-    onComplete(fakePayId);
+    finalizeOrderPlacement(orderData, utrVal);
   };
-
-  document.getElementById('btn-rzp-upi').onclick = () => completePayment('UPI (GPay)');
-  document.getElementById('btn-rzp-card').onclick = () => completePayment('Card');
-  document.getElementById('btn-rzp-net').onclick = () => completePayment('NetBanking');
 }
 
-function finalizeOrderPlacement(newOrder, paymentId) {
+function finalizeOrderPlacement(newOrder, payRef) {
   resetPlaceOrderButtons();
 
-  const payId = paymentId || `pay_rzp_${Date.now()}`;
-  newOrder.paymentId = payId;
-  newOrder.paymentMethod = `Razorpay Online (${payId})`;
-  newOrder.paymentStatus = 'PAID';
+  const isCod = (STORE.selectedPaymentMethod === 'COD' || payRef === 'COD');
+  if (isCod) {
+    newOrder.paymentMethod = 'Cash on Delivery (COD)';
+    newOrder.paymentStatus = 'PENDING (Cash on Delivery)';
+    newOrder.paymentId = `cod_${Date.now()}`;
+  } else {
+    const utr = (payRef && payRef !== 'COD') ? payRef : '';
+    newOrder.utr = utr;
+    newOrder.paymentMethod = utr ? `Direct UPI (${utr}) - 9989885363-1@okbizaxis` : 'Direct UPI (9989885363-1@okbizaxis)';
+    newOrder.paymentStatus = 'PAID (Direct UPI)';
+    newOrder.paymentId = utr ? `upi_${utr}` : `upi_${Date.now()}`;
+  }
 
   // Play Sacred Temple Bell Audio Chime
   try {
@@ -3228,9 +3390,11 @@ ${itemsText}
 *GRAND TOTAL:* Rs. ${newOrder.grandTotal}
 *Payment Method:* ${newOrder.paymentMethod}
 *Payment Status:* ${newOrder.paymentStatus}
+${newOrder.utr ? `*UPI Reference (UTR):* ${newOrder.utr}\n` : ''}*Merchant UPI:* 9989885363-1@okbizaxis (Axis Bank)
 ====================================
 7 Hills Pooja Store
 Beside Prasannanjaneya Swamy Temple, LB Nagar, Hyderabad
+Store Helpline: +91 90979 99939
 Positive Energy in Every Item.`;
 
   const waUrl = `https://api.whatsapp.com/send?phone=919097999939&text=${encodeURIComponent(waMessage)}`;
@@ -5805,9 +5969,9 @@ if (typeof window !== 'undefined') {
   window.closeNotificationBanner = closeNotificationBanner;
   window.handleHeaderBack = handleHeaderBack;
   window.toggleViewportMode = toggleViewportMode;
-  window.initiateRazorpayPayment = initiateRazorpayPayment;
+  window.copyMerchantUpi = copyMerchantUpi;
+  window.openUpiPaymentModal = openUpiPaymentModal;
   window.finalizeOrderPlacement = finalizeOrderPlacement;
-  window.openRazorpayFallbackModal = openRazorpayFallbackModal;
   // Pre-Launch & PWA App Installation
   window.triggerAppInstall = triggerAppInstall;
   window.executeNativeInstall = executeNativeInstall;
