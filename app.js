@@ -2743,67 +2743,45 @@ function renderCheckoutView() {
                     </div>
 
                     <!-- Interactive Mobile Payment Box -->
-                    <div id="upi-details-box" style="background: #FFFFFF; border: 1.5px dashed var(--accent-gold); border-radius: 12px; padding: 14px; margin-top: 4px;">
+                    <div id="upi-details-box" style="background: #FFFFFF; border: 1.5px dashed var(--accent-gold); border-radius: 12px; padding: 16px; margin-top: 4px;">
                       
-                      <!-- Row 1: UPI ID with Copy button -->
-                      <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 10px 14px; margin-bottom: 8px;">
+                      <!-- Step-by-Step Payment Banner -->
+                      <div style="background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 12px; margin-bottom: 12px;">
+                        <div style="font-size: 11.5px; font-weight: 800; color: var(--primary-maroon); text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+                          ${getIcon('shield-check', 14)} Direct UPI Transfer (Zero Gateway Charges)
+                        </div>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.45;">
+                          Pay directly to <strong>7 Hills Pooja Store</strong> using Google Pay, PhonePe, or Paytm by mobile number or QR code below.
+                        </p>
+                      </div>
+
+                      <!-- Option 1: Pay to Mobile Number (Google Pay / PhonePe / Paytm) -->
+                      <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 12px 14px; margin-bottom: 10px;">
                         <div>
-                          <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Merchant UPI ID</span>
-                          <strong id="merchant-upi-text" style="font-size: 14px; color: var(--primary-maroon); font-family: monospace; letter-spacing: 0.3px;">9989885363-1@okbizaxis</strong>
+                          <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 800;">Option 1: Pay to Mobile Number</span>
+                          <strong id="merchant-phone-text" style="font-size: 18px; color: var(--primary-maroon); font-family: monospace; letter-spacing: 0.5px;">9989885363</strong>
+                          <div style="font-size: 11px; color: #047857; font-weight: 700; margin-top: 2px;">Google Pay • PhonePe • Paytm</div>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-secondary" onclick="event.stopPropagation(); copyMerchantPhone()" id="copy-phone-btn" style="padding: 7px 14px; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
+                          ${getIcon('copy', 13)} <span>Copy Number</span>
+                        </button>
+                      </div>
+
+                      <!-- Option 2: Merchant UPI ID -->
+                      <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 10px 14px; margin-bottom: 14px;">
+                        <div>
+                          <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 800;">Option 2: Merchant UPI ID</span>
+                          <strong id="merchant-upi-text" style="font-size: 14px; color: var(--primary-maroon); font-family: monospace;">9989885363-1@okbizaxis</strong>
                           <div style="font-size: 10.5px; color: #047857; font-weight: 600; margin-top: 2px;">7 Hills Pooja Store • Axis Bank</div>
                         </div>
                         <button type="button" class="btn btn-sm btn-secondary" onclick="event.stopPropagation(); copyMerchantUpi()" id="copy-upi-btn" style="padding: 6px 12px; font-size: 11.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
-                          ${getIcon('copy', 12)} <span>Copy UPI</span>
+                          ${getIcon('copy', 12)} <span>Copy UPI ID</span>
                         </button>
                       </div>
 
-                      <!-- Row 2: Mobile Number with Copy button -->
-                      <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 10px 14px; margin-bottom: 12px;">
-                        <div>
-                          <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Pay to Mobile Number</span>
-                          <strong id="merchant-phone-text" style="font-size: 15px; color: var(--primary-maroon); font-family: monospace; letter-spacing: 0.5px;">9989885363</strong>
-                          <div style="font-size: 10.5px; color: #047857; font-weight: 600; margin-top: 2px;">PhonePe • Google Pay • Paytm</div>
-                        </div>
-                        <button type="button" class="btn btn-sm btn-secondary" onclick="event.stopPropagation(); copyMerchantPhone()" id="copy-phone-btn" style="padding: 6px 12px; font-size: 11.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
-                          ${getIcon('copy', 12)} <span>Copy Number</span>
-                        </button>
-                      </div>
-
-                      <!-- 1-Tap Direct UPI App Buttons -->
-                      <div style="margin-bottom: 14px;" onclick="event.stopPropagation();">
-                        <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 6px; text-transform: uppercase;">
-                          1-Tap Pay via App:
-                        </span>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                          <a 
-                            href="phonepe://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=7HillsPoojaStore" 
-                            style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; border-radius: 8px; background: #5f259f; color: #FFFFFF; font-weight: 700; font-size: 12px; text-decoration: none; text-align: center; box-shadow: 0 2px 6px rgba(95,37,159,0.25);"
-                          >
-                            <span>PhonePe</span>
-                          </a>
-                          <a 
-                            href="paytmmp://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=7HillsPoojaStore" 
-                            style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; border-radius: 8px; background: #002970; color: #FFFFFF; font-weight: 700; font-size: 12px; text-decoration: none; text-align: center; box-shadow: 0 2px 6px rgba(0,41,112,0.25);"
-                          >
-                            <span>Paytm</span>
-                          </a>
-                          <a 
-                            href="tez://upi/pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=7HillsPoojaStore" 
-                            style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; border-radius: 8px; background: #0F9D58; color: #FFFFFF; font-weight: 700; font-size: 12px; text-decoration: none; text-align: center; box-shadow: 0 2px 6px rgba(15,157,88,0.25);"
-                          >
-                            <span>Google Pay</span>
-                          </a>
-                          <a 
-                            href="upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=7HillsPoojaStore" 
-                            style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; border-radius: 8px; background: #047857; color: #FFFFFF; font-weight: 700; font-size: 12px; text-decoration: none; text-align: center; box-shadow: 0 2px 6px rgba(4,120,87,0.25);"
-                          >
-                            <span>Any UPI App</span>
-                          </a>
-                        </div>
-                      </div>
-
-                      <!-- QR Code Section -->
-                      <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; padding-top: 6px; border-top: 1px dashed var(--border-subtle);">
+                      <!-- Option 3: QR Code Section -->
+                      <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; padding-top: 10px; border-top: 1px dashed var(--border-subtle);">
+                        <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 800;">Option 3: Scan QR Code</span>
                         <div style="text-align: center;">
                           <div style="background: #FFF; padding: 6px; border: 2px solid var(--accent-gold); border-radius: 10px; display: inline-block; box-shadow: 0 4px 12px rgba(122,12,26,0.06);">
                             <img 
@@ -2813,12 +2791,25 @@ function renderCheckoutView() {
                               loading="lazy"
                             />
                           </div>
-                          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 600;">Scan QR with any UPI App</div>
-                          <div style="font-size: 13px; font-weight: 800; color: var(--primary-maroon); margin-top: 2px;">Amount to Pay: ₹${grandTotal}</div>
+                          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 600;">Scan with PhonePe, Google Pay, or Paytm scanner</div>
+                          <div style="font-size: 13.5px; font-weight: 800; color: var(--primary-maroon); margin-top: 2px;">Amount: ₹${grandTotal}</div>
+                        </div>
+
+                        <!-- 1-Tap Universal Mobile Pay Button -->
+                        <div style="width: 100%; margin-top: 6px;" onclick="event.stopPropagation();">
+                          <a 
+                            href="upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=7HillsPoojaStore" 
+                            style="display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 11px; border-radius: 8px; background: linear-gradient(135deg, #047857 0%, #065F46 100%); color: #FFF; font-weight: 700; font-size: 12.5px; text-decoration: none; text-align: center; box-shadow: 0 2px 8px rgba(4,120,87,0.25); box-sizing: border-box;"
+                          >
+                            <span>⚡ Open in Any UPI App</span>
+                          </a>
+                          <div style="font-size: 10.5px; color: var(--text-muted); text-align: center; margin-top: 4px;">
+                            💡 If your bank declines direct web links, simply copy mobile number <strong>9989885363</strong> and pay in your UPI app.
+                          </div>
                         </div>
 
                         <!-- Optional UTR Input Field -->
-                        <div style="width: 100%; margin-top: 4px;">
+                        <div style="width: 100%; margin-top: 8px;">
                           <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 3px;">
                             UPI Reference / UTR Number (Optional):
                           </label>
@@ -3173,142 +3164,7 @@ async function executeOrderPlacement() {
   };
 
   const typedUtr = document.getElementById('checkout-upi-utr')?.value.trim();
-  openUpiPaymentModal(newOrder, typedUtr);
-}
-
-function openUpiPaymentModal(orderData, prefilledUtr = '') {
-  resetPlaceOrderButtons();
-  const existing = document.getElementById('upi-payment-modal');
-  if (existing) existing.remove();
-
-  const upiUri = `upi://pay?pa=9989885363-1@okbizaxis&pn=${encodeURIComponent('7 Hills Pooja Store')}&am=${orderData.grandTotal}&cu=INR&tn=7HillsPoojaStore`;
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data=${encodeURIComponent(upiUri)}`;
-
-  const modal = document.createElement('div');
-  modal.id = 'upi-payment-modal';
-  modal.className = 'upi-modal-backdrop';
-  modal.innerHTML = `
-    <div class="upi-modal-card">
-      <div class="upi-modal-header">
-        <div style="display: flex; align-items: center; gap: 10px;">
-          <div style="width: 38px; height: 38px; border-radius: 8px; background: var(--primary-maroon); display: flex; align-items: center; justify-content: center; color: #FFF;">
-            ${getIcon('shield-check', 20)}
-          </div>
-          <div>
-            <h3 style="font-size: 15px; font-weight: 700; color: #1A1A1A; margin: 0;">Online Payment</h3>
-            <span style="font-size: 11px; color: #047857; font-weight: 700;">7 Hills Pooja Store • Axis Bank UPI</span>
-          </div>
-        </div>
-        <button type="button" class="rzp-close-btn" onclick="document.getElementById('upi-payment-modal').remove()">&times;</button>
-      </div>
-
-      <div class="upi-modal-body" style="text-align: center;">
-        <!-- Total Amount -->
-        <div style="background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 12px; padding: 12px; margin-bottom: 14px;">
-          <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block;">Total Order Amount</span>
-          <strong style="font-size: 28px; color: var(--primary-maroon); display: block; margin-top: 2px;">₹${orderData.grandTotal}</strong>
-          <span style="font-size: 11px; color: #16A34A; font-weight: 700;">100% Online Payment • Instant Dispatch</span>
-        </div>
-
-        <!-- 1-Tap UPI Apps (PhonePe, Paytm, GPay, Any UPI) -->
-        <div style="margin-bottom: 14px;">
-          <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 6px; text-transform: uppercase; text-align: left;">
-            1-Tap Pay via App:
-          </span>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-            <a 
-              href="phonepe://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${orderData.grandTotal}&cu=INR&tn=7HillsPoojaStore"
-              style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; border-radius: 8px; background: #5f259f; color: #FFF; font-weight: 700; font-size: 12px; text-decoration: none; text-align: center; box-shadow: 0 2px 6px rgba(95,37,159,0.25);"
-            >
-              <span>PhonePe</span>
-            </a>
-            <a 
-              href="paytmmp://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${orderData.grandTotal}&cu=INR&tn=7HillsPoojaStore"
-              style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; border-radius: 8px; background: #002970; color: #FFF; font-weight: 700; font-size: 12px; text-decoration: none; text-align: center; box-shadow: 0 2px 6px rgba(0,41,112,0.25);"
-            >
-              <span>Paytm</span>
-            </a>
-            <a 
-              href="tez://upi/pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${orderData.grandTotal}&cu=INR&tn=7HillsPoojaStore"
-              style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; border-radius: 8px; background: #0F9D58; color: #FFF; font-weight: 700; font-size: 12px; text-decoration: none; text-align: center; box-shadow: 0 2px 6px rgba(15,157,88,0.25);"
-            >
-              <span>Google Pay</span>
-            </a>
-            <a 
-              href="${upiUri}"
-              style="display: flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 8px; border-radius: 8px; background: #047857; color: #FFF; font-weight: 700; font-size: 12px; text-decoration: none; text-align: center; box-shadow: 0 2px 6px rgba(4,120,87,0.25);"
-            >
-              <span>Any UPI App</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- UPI ID & Mobile Number Copy Boxes -->
-        <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; text-align: left;">
-          <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 8px 12px;">
-            <div>
-              <span style="font-size: 9.5px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Merchant UPI ID</span>
-              <span style="font-size: 13px; font-weight: 800; color: var(--primary-maroon); font-family: monospace;">9989885363-1@okbizaxis</span>
-            </div>
-            <button type="button" class="btn btn-sm btn-secondary" onclick="copyMerchantUpi()" id="modal-copy-upi-btn" style="padding: 5px 10px; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
-              ${getIcon('copy', 12)} <span>Copy UPI</span>
-            </button>
-          </div>
-          <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 8px 12px;">
-            <div>
-              <span style="font-size: 9.5px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Mobile Number</span>
-              <span style="font-size: 14px; font-weight: 800; color: var(--primary-maroon); font-family: monospace;">9989885363</span>
-            </div>
-            <button type="button" class="btn btn-sm btn-secondary" onclick="copyMerchantPhone()" id="modal-copy-phone-btn" style="padding: 5px 10px; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
-              ${getIcon('copy', 12)} <span>Copy Number</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Dynamic QR Code -->
-        <div style="display: inline-block; background: #FFF; padding: 8px; border: 2px solid var(--accent-gold); border-radius: 12px; box-shadow: 0 4px 14px rgba(122,12,26,0.1); margin-bottom: 8px;">
-          <img src="${qrUrl}" alt="Scan to Pay ₹${orderData.grandTotal}" style="width: 160px; height: 160px; display: block; border-radius: 6px;" />
-        </div>
-        <div style="font-size: 11.5px; color: var(--text-secondary); margin-bottom: 12px; font-weight: 600;">
-          Scan with Google Pay, PhonePe, or Paytm
-        </div>
-
-        <!-- Devotee UTR Confirmation Input -->
-        <div style="text-align: left; margin-bottom: 14px;">
-          <label style="font-size: 11.5px; font-weight: 700; color: var(--text-main); display: block; margin-bottom: 4px;">
-            UPI Ref / UTR No. (12 digits, optional):
-          </label>
-          <input 
-            type="text" 
-            id="modal-upi-utr-input" 
-            class="input-field" 
-            placeholder="e.g. 423871928341" 
-            value="${prefilledUtr || ''}" 
-            style="width: 100%; font-size: 13px; padding: 8px 12px; box-sizing: border-box;"
-          />
-        </div>
-
-        <!-- Confirm Order Button -->
-        <button type="button" class="upi-confirm-btn" id="btn-confirm-upi-paid">
-          ${getIcon('check', 18)} <span>I Have Paid ₹${orderData.grandTotal} — Confirm Order</span>
-        </button>
-      </div>
-
-      <div class="upi-modal-footer">
-        <span style="font-size: 11px; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 6px;">
-          ${getIcon('shield-check', 13)} Store Helpline: +91 90979 99939 • 7 Hills Pooja Store
-        </span>
-      </div>
-    </div>
-  `;
-
-  document.body.appendChild(modal);
-
-  document.getElementById('btn-confirm-upi-paid').onclick = () => {
-    const utrVal = document.getElementById('modal-upi-utr-input')?.value.trim() || prefilledUtr;
-    modal.remove();
-    finalizeOrderPlacement(orderData, utrVal);
-  };
+  finalizeOrderPlacement(newOrder, typedUtr);
 }
 
 function finalizeOrderPlacement(newOrder, payRef) {
@@ -3459,8 +3315,26 @@ function renderOrderConfirmedView(orderId) {
             <span>${order.paymentMethod}</span>
           </div>
           <div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 800; color: var(--primary-maroon); border-top: 1.5px dashed var(--border-medium); padding-top: 8px; margin-top: 8px;">
-            <span>Total Paid / Payable:</span>
+            <span>Total Amount:</span>
             <span>₹${order.total || order.grandTotal}</span>
+          </div>
+        </div>
+
+        <!-- UPI Payment Transfer Card -->
+        <div style="background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: var(--radius-md); padding: 14px; text-align: left; margin-bottom: 20px;">
+          <strong style="font-size: 13px; color: var(--primary-maroon); display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+            ${getIcon('shield-check', 16)} Complete Online Payment via UPI
+          </strong>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 12.5px;">
+            <span>Pay to Mobile (GPay/PhonePe/Paytm):</span>
+            <strong style="font-family: monospace; font-size: 14px; color: var(--primary-maroon);">9989885363</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; margin-bottom: 8px;">
+            <span>Merchant UPI ID (Axis Bank):</span>
+            <strong style="font-family: monospace; font-size: 12.5px; color: var(--primary-maroon);">9989885363-1@okbizaxis</strong>
+          </div>
+          <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">
+            Store Helpline: <strong>+91 90979 99939</strong>. Our LB Nagar store team will dispatch your sacred items immediately upon payment.
           </div>
         </div>
 
@@ -5930,7 +5804,6 @@ if (typeof window !== 'undefined') {
   window.handleHeaderBack = handleHeaderBack;
   window.toggleViewportMode = toggleViewportMode;
   window.copyMerchantUpi = copyMerchantUpi;
-  window.openUpiPaymentModal = openUpiPaymentModal;
   window.finalizeOrderPlacement = finalizeOrderPlacement;
   // Pre-Launch & PWA App Installation
   window.triggerAppInstall = triggerAppInstall;
