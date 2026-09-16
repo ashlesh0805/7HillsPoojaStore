@@ -12,6 +12,18 @@
     {
       "source": "/download",
       "destination": "/download.html"
+    },
+    {
+      "source": "/webhook",
+      "destination": "/api/ekqr"
+    },
+    {
+      "source": "/api/webhook",
+      "destination": "/api/ekqr"
+    },
+    {
+      "source": "/api/ekqr/webhook",
+      "destination": "/api/ekqr"
     }
   ],
   "headers": [
