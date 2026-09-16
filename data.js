@@ -1980,7 +1980,7 @@ window.DEFAULT_ORDERS = [
     deliveryCost: 0,
     address: "Flat 402, Sai Balaji Residency, Near Prasannanjaneya Temple, LB Nagar, Hyderabad - 500074",
     phone: "90979 99939",
-    paymentMethod: "Direct UPI (9989885363-1@okbizaxis)",
+    paymentMethod: "Online Advance (Mobile: 9989885363)",
     items: [
       {
         id: "product_110",

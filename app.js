@@ -2743,16 +2743,17 @@ function renderCheckoutView() {
                       <span class="pay-chip">Any Bank UPI</span>
                     </div>
 
-                    <!-- Interactive UPI Box -->
+                    <!-- Interactive Mobile Payment Box -->
                     <div id="upi-details-box" style="background: #FFFFFF; border: 1.5px dashed var(--accent-gold); border-radius: 12px; padding: 12px; margin-top: 4px;">
-                      <!-- Merchant UPI ID Row -->
-                      <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-cream); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 8px 12px; margin-bottom: 12px;">
+                      <!-- Mobile Number Payment Row -->
+                      <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 10px 14px; margin-bottom: 12px;">
                         <div>
-                          <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Merchant UPI ID (Axis Bank)</span>
-                          <strong id="merchant-upi-text" style="font-size: 13px; color: var(--primary-maroon); font-family: monospace; letter-spacing: 0.5px;">9989885363-1@okbizaxis</strong>
+                          <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Pay to Mobile Number</span>
+                          <strong id="merchant-phone-text" style="font-size: 16px; color: var(--primary-maroon); font-family: monospace; letter-spacing: 0.5px;">9989885363</strong>
+                          <div style="font-size: 10.5px; color: #047857; font-weight: 600; margin-top: 2px;">Google Pay • PhonePe • Paytm • BHIM</div>
                         </div>
-                        <button type="button" class="btn btn-sm btn-secondary" onclick="event.stopPropagation(); copyMerchantUpi()" id="copy-upi-btn" style="padding: 4px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;">
-                          ${getIcon('copy', 12)} <span>Copy</span>
+                        <button type="button" class="btn btn-sm btn-secondary" onclick="event.stopPropagation(); copyMerchantPhone()" id="copy-phone-btn" style="padding: 6px 12px; font-size: 11.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
+                          ${getIcon('copy', 12)} <span>Copy Number</span>
                         </button>
                       </div>
 
@@ -2761,35 +2762,27 @@ function renderCheckoutView() {
                         <div style="text-align: center;">
                           <div style="background: #FFF; padding: 6px; border: 2px solid var(--accent-gold); border-radius: 10px; display: inline-block; box-shadow: 0 4px 12px rgba(122,12,26,0.06);">
                             <img 
-                              src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=6&data=${encodeURIComponent(`upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&mc=5999&tr=7H-${Date.now().toString().slice(-6)}&tn=7HillsPoojaOrder&am=${grandTotal}&cu=INR&mode=02`)}"
+                              src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=6&data=${encodeURIComponent(`upi://pay?pa=9989885363@upi&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR`)}"
                               alt="Scan & Pay ₹${grandTotal} with any UPI App"
                               style="width: 140px; height: 140px; display: block;"
                               loading="lazy"
                             />
                           </div>
-                          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 600;">Scan with GPay / PhonePe / Paytm / CRED</div>
+                          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 600;">Scan QR or Send to 9989885363</div>
                           <div style="font-size: 13px; font-weight: 800; color: var(--primary-maroon); margin-top: 2px;">Amount to Pay: ₹${grandTotal}</div>
                         </div>
 
-                        <!-- 1-Tap Universal Mobile UPI Launcher Button -->
+                        <!-- 1-Tap Universal Mobile Pay Button -->
                         <div style="width: 100%;" onclick="event.stopPropagation();">
                           <a 
-                            href="upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&mc=5999&tr=7H-${Date.now().toString().slice(-6)}&tn=7HillsPoojaOrder&am=${grandTotal}&cu=INR&mode=02" 
+                            href="upi://pay?pa=9989885363@upi&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR" 
                             class="btn-upi-app-primary"
                             style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 11px; border-radius: 9px; background: linear-gradient(135deg, #047857 0%, #065F46 100%); color: #FFFFFF; font-weight: 800; font-size: 13px; text-decoration: none; box-shadow: 0 4px 12px rgba(4,120,87,0.25); box-sizing: border-box;"
                           >
-                            <span>⚡ Pay ₹${grandTotal} via Any UPI App</span>
+                            <span>⚡ Pay ₹${grandTotal} to 9989885363</span>
                           </a>
                           <div style="display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; color: var(--text-muted); margin-top: 6px; font-weight: 600;">
-                            <span>Google Pay</span> • <span>PhonePe</span> • <span>Paytm</span> • <span>CRED</span>
-                          </div>
-
-                          <!-- Verified Merchant Reassurance Notice -->
-                          <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 8px 10px; margin-top: 8px; text-align: left; font-size: 11px; color: #166534; line-height: 1.4;">
-                            <div style="font-weight: 700; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
-                              ${getIcon('shield-check', 13)} Verified Axis Bank Business Merchant
-                            </div>
-                            <div>Zero Risk • If your UPI app asks to confirm, tap <strong>"Continue"</strong> or copy <strong>9989885363-1@okbizaxis</strong> directly in GPay/PhonePe to see our verified merchant badge.</div>
+                            <span>Google Pay</span> • <span>PhonePe</span> • <span>Paytm</span> • <span>BHIM</span>
                           </div>
 
                           <!-- Optional UTR Input Field -->
@@ -2888,11 +2881,11 @@ function renderCheckoutView() {
               data-testid="place-order-btn"
               style="margin-top: 14px; padding: 14px 18px; font-size: 15px;"
             >
-              Pay ₹${grandTotal} Online via Direct UPI
+              Pay ₹${grandTotal} to 9989885363
             </button>
 
             <div id="checkout-btn-subtext" style="font-size: 11px; color: var(--text-muted); text-align: center; margin-top: 6px;">
-              100% Advance Payment Direct to 9989885363-1@okbizaxis (Axis Bank) • Zero Cash Handling
+              100% Advance Online Payment to 9989885363 (Google Pay / PhonePe / Paytm) • Zero Cash Handling
             </div>
 
             <div style="margin-top: 12px; text-align: center;">
@@ -2970,29 +2963,33 @@ function setDefaultAddress(addrId) {
   renderCheckoutView();
 }
 
-function copyMerchantUpi() {
-  const upiId = '9989885363-1@okbizaxis';
+function copyMerchantPhone() {
+  const phone = '9989885363';
   const finishCopy = () => {
-    const btn = document.getElementById('copy-upi-btn');
+    const btn = document.getElementById('copy-phone-btn') || document.getElementById('copy-upi-btn');
     if (btn) btn.innerHTML = `${getIcon('check', 12)} <span>Copied!</span>`;
-    const modalBtn = document.getElementById('modal-copy-upi-btn');
+    const modalBtn = document.getElementById('modal-copy-phone-btn') || document.getElementById('modal-copy-upi-btn');
     if (modalBtn) modalBtn.innerHTML = `${getIcon('check', 12)} <span>Copied!</span>`;
-    showToast('UPI ID 9989885363-1@okbizaxis copied to clipboard!');
+    showToast('Mobile Number 9989885363 copied!');
     setTimeout(() => {
-      if (btn) btn.innerHTML = `${getIcon('copy', 12)} <span>Copy</span>`;
-      if (modalBtn) modalBtn.innerHTML = `${getIcon('copy', 12)} <span>Copy</span>`;
+      if (btn) btn.innerHTML = `${getIcon('copy', 12)} <span>Copy Number</span>`;
+      if (modalBtn) modalBtn.innerHTML = `${getIcon('copy', 12)} <span>Copy Number</span>`;
     }, 2500);
   };
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(upiId).then(finishCopy).catch(() => {
-      fallbackCopyText(upiId);
+    navigator.clipboard.writeText(phone).then(finishCopy).catch(() => {
+      fallbackCopyText(phone);
       finishCopy();
     });
   } else {
-    fallbackCopyText(upiId);
+    fallbackCopyText(phone);
     finishCopy();
   }
+}
+
+function copyMerchantUpi() {
+  copyMerchantPhone();
 }
 
 function fallbackCopyText(text) {
@@ -3034,13 +3031,13 @@ function selectPaymentMode(mode) {
   const stickyLabel = document.getElementById('sticky-pay-mode-label');
 
   if (mainBtn) {
-    mainBtn.innerHTML = `Pay ₹${grandTotal} Online via Direct UPI`;
+    mainBtn.innerHTML = `Pay ₹${grandTotal} to 9989885363`;
   }
   if (subtext) {
-    subtext.textContent = '100% Advance Payment Direct to 9989885363-1@okbizaxis (Axis Bank) • Zero Cash Handling';
+    subtext.textContent = '100% Advance Online Payment to 9989885363 (Google Pay / PhonePe / Paytm) • Zero Cash Handling';
   }
   if (stickyBtn) {
-    stickyBtn.innerHTML = `<span>Pay via UPI</span> ${getIcon('arrow-right', 15)}`;
+    stickyBtn.innerHTML = `<span>Pay ₹${grandTotal}</span> ${getIcon('arrow-right', 15)}`;
   }
   if (stickyLabel) {
     stickyLabel.textContent = 'Prepaid Advance Order';
@@ -3102,7 +3099,7 @@ async function executeOrderPlacement() {
     deliveryCost: deliveryFee,
     address: activeAddress ? `${activeAddress.street}, ${activeAddress.area}, ${activeAddress.city} - ${activeAddress.pincode}` : 'LB Nagar, Hyderabad - 500074',
     phone: activeAddress ? activeAddress.phone : '9097999939',
-    paymentMethod: 'Direct UPI (9989885363-1@okbizaxis)',
+    paymentMethod: 'Online Advance (Mobile: 9989885363)',
     rider: {
       name: "Suresh Reddy (7 Hills Express)",
       phone: "+91 90979 99939",
@@ -3133,8 +3130,7 @@ function openUpiPaymentModal(orderData, prefilledUtr = '') {
   const existing = document.getElementById('upi-payment-modal');
   if (existing) existing.remove();
 
-  const orderRef = orderData.orderId || ('7H-' + Date.now().toString().slice(-6));
-  const upiUri = `upi://pay?pa=9989885363-1@okbizaxis&pn=${encodeURIComponent('7 Hills Pooja Store')}&mc=5999&tr=${encodeURIComponent(orderRef)}&tn=${encodeURIComponent(`Order ${orderRef}`)}&am=${orderData.grandTotal}&cu=INR&mode=02`;
+  const upiUri = `upi://pay?pa=9989885363@upi&pn=${encodeURIComponent('7 Hills Pooja Store')}&am=${orderData.grandTotal}&cu=INR`;
   const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data=${encodeURIComponent(upiUri)}`;
 
   const modal = document.createElement('div');
@@ -3148,8 +3144,8 @@ function openUpiPaymentModal(orderData, prefilledUtr = '') {
             ${getIcon('shield-check', 20)}
           </div>
           <div>
-            <h3 style="font-size: 15px; font-weight: 700; color: #1A1A1A; margin: 0;">Direct UPI Advance Payment</h3>
-            <span style="font-size: 11px; color: #047857; font-weight: 700;">7 Hills Pooja Store • Axis Bank Merchant</span>
+            <h3 style="font-size: 15px; font-weight: 700; color: #1A1A1A; margin: 0;">Online Advance Payment</h3>
+            <span style="font-size: 11px; color: #047857; font-weight: 700;">7 Hills Pooja Store • Direct Mobile Payment</span>
           </div>
         </div>
         <button type="button" class="rzp-close-btn" onclick="document.getElementById('upi-payment-modal').remove()">&times;</button>
@@ -3158,9 +3154,21 @@ function openUpiPaymentModal(orderData, prefilledUtr = '') {
       <div class="upi-modal-body" style="text-align: center;">
         <!-- Total Amount -->
         <div style="background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 12px; padding: 12px; margin-bottom: 14px;">
-          <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block;">Total Advance Amount</span>
+          <span style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block;">Total Order Amount</span>
           <strong style="font-size: 28px; color: var(--primary-maroon); display: block; margin-top: 2px;">₹${orderData.grandTotal}</strong>
-          <span style="font-size: 11px; color: #16A34A; font-weight: 700;">100% Prepaid Order • Direct Bank Settlement</span>
+          <span style="font-size: 11px; color: #16A34A; font-weight: 700;">100% Advance Payment • Instant Dispatch</span>
+        </div>
+
+        <!-- Mobile Number Copy Row -->
+        <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; text-align: left;">
+          <div>
+            <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Send Payment to Mobile Number</span>
+            <span style="font-size: 16px; font-weight: 800; color: var(--primary-maroon); font-family: monospace; letter-spacing: 0.5px;">9989885363</span>
+            <div style="font-size: 10.5px; color: #047857; font-weight: 600; margin-top: 2px;">Google Pay • PhonePe • Paytm • BHIM</div>
+          </div>
+          <button type="button" class="btn btn-sm btn-secondary" onclick="copyMerchantPhone()" id="modal-copy-phone-btn" style="padding: 6px 12px; font-size: 11.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
+            ${getIcon('copy', 12)} <span>Copy Number</span>
+          </button>
         </div>
 
         <!-- Dynamic QR Code -->
@@ -3168,36 +3176,17 @@ function openUpiPaymentModal(orderData, prefilledUtr = '') {
           <img src="${qrUrl}" alt="Scan to Pay ₹${orderData.grandTotal}" style="width: 170px; height: 170px; display: block; border-radius: 6px;" />
         </div>
         <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; font-weight: 600;">
-          Scan with Google Pay, PhonePe, Paytm, CRED or any UPI App
+          Scan with Google Pay, PhonePe, Paytm or send to 9989885363
         </div>
 
-        <!-- UPI ID Copy Row -->
-        <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-cream); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 8px 12px; margin-bottom: 14px; text-align: left;">
-          <div>
-            <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 700;">Merchant UPI ID (Axis Bank)</span>
-            <span style="font-size: 12.5px; font-weight: 700; color: var(--primary-maroon); font-family: monospace;">9989885363-1@okbizaxis</span>
-          </div>
-          <button type="button" class="btn btn-sm btn-secondary" onclick="copyMerchantUpi()" id="modal-copy-upi-btn" style="padding: 4px 10px; font-size: 11px; display: inline-flex; align-items: center; gap: 4px;">
-            ${getIcon('copy', 12)} <span>Copy</span>
-          </button>
-        </div>
-
-        <!-- Mobile 1-Tap Universal App Link -->
-        <div style="margin-bottom: 12px;">
+        <!-- Mobile 1-Tap App Link -->
+        <div style="margin-bottom: 14px;">
           <a href="${upiUri}" class="btn-upi-pay-direct" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; border-radius: 10px; background: linear-gradient(135deg, #047857 0%, #065F46 100%); color: #FFF; font-weight: 800; font-size: 13.5px; text-decoration: none; box-shadow: 0 4px 12px rgba(4,120,87,0.25); box-sizing: border-box;">
-            ${getIcon('shield-check', 18)} <span>⚡ Pay ₹${orderData.grandTotal} via Any UPI App</span>
+            <span>⚡ Pay ₹${orderData.grandTotal} to 9989885363</span>
           </a>
           <div style="display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 11px; color: var(--text-muted); margin-top: 5px; font-weight: 600;">
-            <span>Google Pay</span> • <span>PhonePe</span> • <span>Paytm</span> • <span>CRED</span> • <span>BHIM</span>
+            <span>Google Pay</span> • <span>PhonePe</span> • <span>Paytm</span> • <span>BHIM</span>
           </div>
-        </div>
-
-        <!-- Verified Merchant Security Note -->
-        <div style="background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 8px 12px; margin-bottom: 14px; text-align: left; font-size: 11px; color: #166534; line-height: 1.4;">
-          <div style="font-weight: 700; display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
-            ${getIcon('shield-check', 13)} Axis Bank Merchant (Google Pay for Business)
-          </div>
-          <div>100% Safe • If your UPI app shows a security reminder, tap <strong>"Continue"</strong> or copy <strong>9989885363-1@okbizaxis</strong> directly in GPay/PhonePe to see our verified business tick!</div>
         </div>
 
         <!-- Devotee UTR Confirmation Input -->
@@ -3214,19 +3203,19 @@ function openUpiPaymentModal(orderData, prefilledUtr = '') {
             style="width: 100%; font-size: 13px; padding: 8px 12px; box-sizing: border-box;"
           />
           <span style="font-size: 10.5px; color: var(--text-muted); display: block; margin-top: 3px;">
-            Visible in your UPI app payment receipt after completing payment.
+            Visible in your payment receipt after completing payment.
           </span>
         </div>
 
         <!-- Confirm Order Button -->
         <button type="button" class="upi-confirm-btn" id="btn-confirm-upi-paid">
-          ${getIcon('check', 18)} <span>I Have Paid ₹${orderData.grandTotal} Advance — Confirm Order</span>
+          ${getIcon('check', 18)} <span>I Have Paid ₹${orderData.grandTotal} — Confirm Order</span>
         </button>
       </div>
 
       <div class="upi-modal-footer">
         <span style="font-size: 11px; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 6px;">
-          ${getIcon('shield-check', 13)} Direct Bank Settlement to 7 Hills Pooja Store • Axis Bank
+          ${getIcon('shield-check', 13)} Store Helpline: +91 90979 99939 • 7 Hills Pooja Store
         </span>
       </div>
     </div>
@@ -3246,8 +3235,8 @@ function finalizeOrderPlacement(newOrder, payRef) {
 
   const utr = payRef ? payRef : '';
   newOrder.utr = utr;
-  newOrder.paymentMethod = utr ? `Direct UPI (${utr}) - 9989885363-1@okbizaxis` : 'Direct UPI (9989885363-1@okbizaxis)';
-  newOrder.paymentStatus = 'PAID (Advance Direct UPI)';
+  newOrder.paymentMethod = utr ? `Online Advance (${utr}) - 9989885363` : 'Online Advance - 9989885363';
+  newOrder.paymentStatus = 'PAID (Advance Mobile: 9989885363)';
   newOrder.paymentId = utr ? `upi_${utr}` : `upi_${Date.now()}`;
 
   // Play Sacred Temple Bell Audio Chime
@@ -3283,7 +3272,7 @@ ${itemsText}
 *GRAND TOTAL:* Rs. ${newOrder.grandTotal}
 *Payment Method:* ${newOrder.paymentMethod}
 *Payment Status:* ${newOrder.paymentStatus}
-${newOrder.utr ? `*UPI Reference (UTR):* ${newOrder.utr}\n` : ''}*Merchant UPI:* 9989885363-1@okbizaxis (Axis Bank)
+${newOrder.utr ? `*UPI Reference (UTR):* ${newOrder.utr}\n` : ''}*Payment Mobile:* 9989885363 (Google Pay / PhonePe / Paytm)
 ====================================
 7 Hills Pooja Store
 Beside Prasannanjaneya Swamy Temple, LB Nagar, Hyderabad
