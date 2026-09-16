@@ -5389,7 +5389,10 @@ body.mobile-app-body {
 
 body.app-installed .sticky-app-floater,
 body.app-installed .prelaunch-banner,
-body.app-installed .prelaunch-modal-overlay {
+body.app-installed .prelaunch-modal-overlay,
+body.cart-open .sticky-app-floater,
+body.checkout-active .sticky-app-floater,
+.cart-drawer-open .sticky-app-floater {
   display: none !important;
 }
 
