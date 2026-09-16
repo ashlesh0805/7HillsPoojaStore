@@ -84,11 +84,11 @@
     },
     "items": [
       {
-        "id": "test_item_1788873476052",
-        "title": "Consecrated Astagandha Chandanam Paste (Special)",
-        "price": 999,
+        "id": "product_1",
+        "title": "Brass Ganesha Pendant/Idol",
+        "price": 589,
         "quantity": 1,
-        "image": "IMAGE (40).JPG"
+        "image": "IMAGE (1).JPG"
       }
     ],
     "subtotal": 999,

@@ -1,6 +1,28 @@
 const https = require('https');
+const fs = require('fs');
+const path = require('path');
 
 const EKQR_API_KEY = process.env.EKQR_API_KEY || '1e64b87d-a94c-4dd2-ac78-e9c02df24c21';
+
+function updateOrderStatus(clientTxnId, status, upiTxnId) {
+  try {
+    const filePath = path.join(process.cwd(), 'orders.json');
+    if (fs.existsSync(filePath)) {
+      let content = fs.readFileSync(filePath, 'utf8');
+      if (content.charCodeAt(0) === 0xFEFF) content = content.slice(1);
+      const orders = JSON.parse(content);
+      const order = orders.find(o => o.orderId === clientTxnId);
+      if (order) {
+        order.paymentStatus = 'PAID (Verified via UPI)';
+        order.status = 'Confirmed';
+        if (upiTxnId) order.utr = upiTxnId;
+        fs.writeFileSync(filePath, JSON.stringify(orders, null, 2), 'utf8');
+      }
+    }
+  } catch (e) {
+    console.error('Error updating order status in webhook:', e);
+  }
+}
 
 function ekqrPost(endpoint, data) {
   return new Promise((resolve, reject) => {
@@ -42,15 +64,37 @@ module.exports = async (req, res) => {
 
   const url = req.url || '';
 
-  // 1. Create Order
+  // 1. Handle POST Requests
   if (req.method === 'POST') {
     let body = req.body;
     if (typeof body === 'string') {
-      try { body = JSON.parse(body); } catch (e) {}
+      try {
+        body = JSON.parse(body);
+      } catch (e) {
+        try {
+          const params = new URLSearchParams(body);
+          const parsed = {};
+          for (const [k, v] of params.entries()) {
+            parsed[k] = v;
+          }
+          body = parsed;
+        } catch (err) {}
+      }
     }
     body = body || {};
 
-    // Check if status check requested
+    // A. Handle incoming ekQR Webhook notification
+    if (body.status === 'success' || (body.client_txn_id && (body.upi_txn_id || body.remark))) {
+      const clientTxnId = body.client_txn_id;
+      const upiTxnId = body.upi_txn_id || '';
+      if (clientTxnId) {
+        updateOrderStatus(clientTxnId, 'Confirmed', upiTxnId);
+      }
+      res.setHeader('Content-Type', 'application/json; charset=utf-8');
+      return res.status(200).json({ status: true, message: 'Webhook processed successfully' });
+    }
+
+    // B. Check if status check requested
     if (body.action === 'check_status' || url.includes('/check-status')) {
       const txnId = body.client_txn_id;
       const now = new Date();

@@ -600,9 +600,30 @@ const server = http.createServer(async (req, res) => {
     });
   }
 
-  if ((urlPath === '/api/ekqr/create-order' || urlPath === '/api/ekqr') && req.method === 'POST') {
+  if ((urlPath === '/api/ekqr/create-order' || urlPath === '/api/ekqr' || urlPath === '/api/ekqr/webhook') && req.method === 'POST') {
     try {
       const body = await parseJsonBody(req);
+      
+      // Handle Webhook notification from ekQR
+      if (body.status === 'success' || (body.client_txn_id && (body.upi_txn_id || body.remark))) {
+        const clientTxnId = body.client_txn_id;
+        const upiTxnId = body.upi_txn_id || '';
+        if (clientTxnId) {
+          const orders = readJsonFile(ORDERS_FILE, []);
+          const order = orders.find(o => o.orderId === clientTxnId);
+          if (order) {
+            order.paymentStatus = 'PAID (Verified via UPI)';
+            order.status = 'Confirmed';
+            if (upiTxnId) order.utr = upiTxnId;
+            writeJsonFile(ORDERS_FILE, orders);
+            broadcastEvent('order_updated', order);
+          }
+        }
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ status: true, message: 'Webhook processed successfully' }));
+        return;
+      }
+
       if (body.action === 'check_status') {
         const txnId = body.client_txn_id;
         const now = new Date();
