@@ -568,6 +568,114 @@ const server = http.createServer(async (req, res) => {
   }
 
   // ==========================================
+  // API: ekQR 0% COMMISSION UPI GATEWAY
+  // ==========================================
+  const EKQR_API_KEY = process.env.EKQR_API_KEY || '1e64b87d-a94c-4dd2-ac78-e9c02df24c21';
+
+  function ekqrRequest(pathEndpoint, payload) {
+    return new Promise((resolve, reject) => {
+      const postData = JSON.stringify(payload);
+      const req = https.request({
+        hostname: 'api.ekqr.in',
+        path: pathEndpoint,
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(postData)
+        }
+      }, (apiRes) => {
+        let resData = '';
+        apiRes.on('data', d => { resData += d; });
+        apiRes.on('end', () => {
+          try {
+            resolve(JSON.parse(resData));
+          } catch (e) {
+            resolve({ status: false, msg: 'Invalid JSON response from gateway', raw: resData });
+          }
+        });
+      });
+      req.on('error', reject);
+      req.write(postData);
+      req.end();
+    });
+  }
+
+  if ((urlPath === '/api/ekqr/create-order' || urlPath === '/api/ekqr') && req.method === 'POST') {
+    try {
+      const body = await parseJsonBody(req);
+      if (body.action === 'check_status') {
+        const txnId = body.client_txn_id;
+        const now = new Date();
+        const d = String(now.getDate()).padStart(2, '0') + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + now.getFullYear();
+        const txnDate = body.txn_date || d;
+
+        const result = await ekqrRequest('/api/check_order_status', {
+          key: EKQR_API_KEY,
+          client_txn_id: txnId,
+          txn_date: txnDate
+        });
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify(result));
+        return;
+      }
+
+      const orderId = body.orderId || body.client_txn_id || ('7H-ORD-' + Math.floor(10000 + Math.random() * 90000));
+      const amount = Number(body.amount || body.grandTotal || 1).toFixed(2);
+      const customerName = (body.customerName || 'Devotee').trim();
+      const customerPhone = (body.phone || body.customer_mobile || '9989885363').replace(/[^0-9]/g, '').slice(-10) || '9989885363';
+      const customerEmail = body.customer_email || 'devotee@7hillspoojastore.com';
+      const redirectUrl = body.redirect_url || `https://www.7hillspoojastore.com/#/order-confirmed/${orderId}`;
+
+      const result = await ekqrRequest('/api/create_order', {
+        key: EKQR_API_KEY,
+        client_txn_id: orderId,
+        amount: amount,
+        p_info: '7 Hills Pooja Store Order ' + orderId,
+        customer_name: customerName,
+        customer_email: customerEmail,
+        customer_mobile: customerPhone,
+        redirect_url: redirectUrl
+      });
+
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify(result));
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ status: false, msg: err.message }));
+    }
+    return;
+  }
+
+  if (urlPath === '/api/ekqr/check-status' && req.method === 'POST') {
+    try {
+      const body = await parseJsonBody(req);
+      const txnId = body.client_txn_id;
+      const now = new Date();
+      const d = String(now.getDate()).padStart(2, '0') + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + now.getFullYear();
+      const txnDate = body.txn_date || d;
+
+      const result = await ekqrRequest('/api/check_order_status', {
+        key: EKQR_API_KEY,
+        client_txn_id: txnId,
+        txn_date: txnDate
+      });
+
+      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify(result));
+    } catch (err) {
+      res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ status: false, msg: err.message }));
+    }
+    return;
+  }
+
+  if (urlPath === '/api/ekqr' && req.method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+    res.end(JSON.stringify({ status: true, gateway: 'ekQR 0% Commission UPI Gateway', active: true }));
+    return;
+  }
+
+  // ==========================================
   // API: PRE-REGISTRATION / APP LAUNCH ALERTS
   // ==========================================
   if (urlPath === '/api/preregister') {
