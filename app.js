@@ -3110,12 +3110,12 @@ async function executeOrderPlacement() {
   if (mainBtn) {
     mainBtn.disabled = true;
     mainBtn.dataset.origHtml = mainBtn.innerHTML;
-    mainBtn.innerHTML = `<span style="display:inline-block;width:14px;height:14px;border:2px solid #FFF;border-top-color:transparent;border-radius:50%;animation:spin 0.8s linear infinite;margin-right:8px;vertical-align:middle;"></span> Opening 0% UPI Gateway...`;
+    mainBtn.innerHTML = `<span style="display:inline-block;width:14px;height:14px;border:2px solid #FFF;border-top-color:transparent;border-radius:50%;animation:spin 0.8s linear infinite;margin-right:8px;vertical-align:middle;"></span> Confirming Sacred Order...`;
   }
   if (stickyBtn) {
     stickyBtn.disabled = true;
     stickyBtn.dataset.origHtml = stickyBtn.innerHTML;
-    stickyBtn.innerHTML = `<span>Connecting...</span>`;
+    stickyBtn.innerHTML = `<span>Confirming...</span>`;
   }
 
   const activeAddress = STORE.addresses.find(a => a.isDefault) || STORE.addresses[0];
@@ -3158,7 +3158,7 @@ async function executeOrderPlacement() {
     deliveryCost: deliveryFee,
     address: activeAddress ? `${activeAddress.street}, ${activeAddress.area}, ${activeAddress.city} - ${activeAddress.pincode}` : 'LB Nagar, Hyderabad - 500074',
     phone: activeAddress ? activeAddress.phone : '9097999939',
-    paymentMethod: typedUtr ? `Online Payment (${typedUtr}) - 9989885363-1@okbizaxis` : 'Online Payment (0% Gateway) - 9989885363-1@okbizaxis',
+    paymentMethod: typedUtr ? `Online UPI (${typedUtr}) - 9989885363-1@okbizaxis` : 'Online UPI (Axis Bank: 9989885363-1@okbizaxis)',
     paymentStatus: 'PAID (Online UPI)',
     rider: {
       name: "Suresh Reddy (7 Hills Express)",
@@ -3182,7 +3182,7 @@ async function executeOrderPlacement() {
     utr: typedUtr || ''
   };
 
-  // 1. Build WhatsApp notification
+  // 1. Build WhatsApp message for LB Nagar store at 9097999939
   const itemsText = newOrder.items.map((it, idx) => 
     `${idx + 1}. ${it.title} x ${it.quantity} = Rs. ${it.price * it.quantity}`
   ).join('\n');
@@ -3213,9 +3213,10 @@ Beside Prasannanjaneya Swamy Temple, LB Nagar, Hyderabad
 Store Helpline: +91 90979 99939
 Positive Energy in Every Item.`;
 
-  newOrder.whatsappUrl = `https://api.whatsapp.com/send?phone=919097999939&text=${encodeURIComponent(waMessage)}`;
+  const waUrl = `https://api.whatsapp.com/send?phone=919097999939&text=${encodeURIComponent(waMessage)}`;
+  newOrder.whatsappUrl = waUrl;
 
-  // 2. Pre-save order to local store
+  // 2. Prepend to local orders list
   STORE.orders.unshift(newOrder);
   saveOrders();
 
@@ -3225,7 +3226,7 @@ Positive Energy in Every Item.`;
   saveCart();
   localStorage.removeItem('7hills_coupon');
 
-  // 4. POST to Backend API immediately (triggers Partner App loud buzzer!)
+  // 4. POST to Backend API -> Triggers Partner App Loud Alert Buzzer via SSE!
   try {
     fetch('/api/orders', {
       method: 'POST',
@@ -3243,35 +3244,15 @@ Positive Energy in Every Item.`;
     }
   } catch (e) {}
 
-  // 5. Connect to ekQR 0% Gateway
+  // 5. Open WhatsApp chat with 9097999939
   try {
-    const returnUrl = `${window.location.origin}/#/order-confirmed/${newOrder.orderId}`;
-    const ekqrResp = await fetch('/api/ekqr', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        orderId: newOrder.orderId,
-        amount: grandTotal,
-        customerName: newOrder.customerName,
-        phone: newOrder.phone,
-        redirect_url: returnUrl
-      })
-    });
-
-    if (ekqrResp.ok) {
-      const resData = await ekqrResp.json();
-      if (resData && resData.status && resData.data && resData.data.payment_url) {
-        // Redirect directly to the secure 0% commission UPI gateway page!
-        window.location.href = resData.data.payment_url;
-        return;
-      }
-    }
-  } catch (gwErr) {
-    console.warn('[ekQR Gateway notice]: Proceeding to direct confirmation:', gwErr);
+    window.open(waUrl, '_blank');
+  } catch (e) {
+    console.log('Popup blocked, WhatsApp URL stored on confirmation page');
   }
 
   resetPlaceOrderButtons();
-  showToast(`Order <strong>${newOrder.orderId}</strong> confirmed!`);
+  showToast(`Sacred Order <strong>${newOrder.orderId}</strong> placed! Notifying store.`);
   window.location.hash = `#/order-confirmed/${newOrder.orderId}`;
 }
 
@@ -3312,32 +3293,8 @@ function renderOrderConfirmedView(orderId) {
     return;
   }
 
-  // Gateway Status Verification Check
-  fetch('/api/ekqr', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      action: 'check_status',
-      client_txn_id: order.orderId
-    })
-  })
-  .then(r => r.json())
-  .then(res => {
-    if (res && res.status && res.data && (res.data.status === 'success' || res.data.status === 'COMPLETED')) {
-      order.paymentStatus = 'PAID (Verified via UPI Gateway)';
-      order.status = 'Confirmed';
-      saveOrders();
-      const statusPill = document.getElementById('order-confirmed-pay-badge');
-      if (statusPill) {
-        statusPill.innerHTML = `${getIcon('shield-check', 13)} 100% Online Payment Verified & Received`;
-        statusPill.style.background = '#DCFCE7';
-        statusPill.style.color = '#15803D';
-      }
-    }
-  })
-  .catch(() => {});
-
   const waUrl = order.whatsappUrl || `https://api.whatsapp.com/send?phone=919097999939&text=${encodeURIComponent(`Hello 7 Hills Pooja Store, checking status of order ${order.orderId}`)}`;
+  const amountToPay = order.total || order.grandTotal || 0;
 
   root.innerHTML = `
     <div class="container" style="padding: 24px 16px; max-width: 600px; margin: 0 auto;">
@@ -3353,13 +3310,13 @@ function renderOrderConfirmedView(orderId) {
         <h1 style="font-family: var(--font-heading); font-size: 22px; color: var(--primary-maroon); margin: 6px 0 10px 0;">
           Sacred Order Confirmed!
         </h1>
-        <p style="font-size: 13px; color: var(--text-secondary); margin: 0 auto 20px auto;">
+        <p style="font-size: 13px; color: var(--text-secondary); margin: 0 auto 18px auto;">
           Our LB Nagar store team beside Prasannanjaneya Temple is preparing and packing your sanctified articles.
         </p>
 
         <!-- Payment Status Pill -->
         <div id="order-confirmed-pay-badge" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; background: #DCFCE7; color: #15803D; font-weight: 700; font-size: 12px; margin-bottom: 18px; border: 1px solid #BBF7D0;">
-          ${getIcon('shield-check', 14)} 100% Online Payment Verified & Received
+          ${getIcon('shield-check', 14)} 100% Online UPI Payment (Axis Bank)
         </div>
 
         <!-- WhatsApp Notification Banner Card -->
@@ -3368,7 +3325,7 @@ function renderOrderConfirmedView(orderId) {
             ${getIcon('whatsapp', 28)}
           </div>
           <div style="flex: 1;">
-            <strong style="font-size: 13px; color: #075E54; display: block;">WhatsApp Notification to 9097999939</strong>
+            <strong style="font-size: 13px; color: #075E54; display: block;">WhatsApp Notification Sent to 9097999939</strong>
             <p style="font-size: 11px; color: #2D3748; margin-top: 2px;">Order details dispatched to our LB Nagar store manager.</p>
           </div>
           <a href="${waUrl}" target="_blank" class="btn btn-sm" style="background: #25D366; color: #000; font-weight: 700; border-radius: 20px; padding: 6px 12px; font-size: 11px; text-decoration: none; white-space: nowrap;">
@@ -3396,11 +3353,50 @@ function renderOrderConfirmedView(orderId) {
           </div>
           <div style="display: flex; justify-content: space-between; font-size: 15px; font-weight: 800; color: var(--primary-maroon); border-top: 1.5px dashed var(--border-medium); padding-top: 8px; margin-top: 8px;">
             <span>Total Amount:</span>
-            <span>₹${order.total || order.grandTotal}</span>
+            <span>₹${amountToPay}</span>
           </div>
         </div>
 
-        <!-- Store Helpline Details -->
+        <!-- UPI Payment Transfer Card (0% Fee, Direct to Axis Bank) -->
+        <div style="background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: var(--radius-md); padding: 16px; text-align: left; margin-bottom: 20px;">
+          <strong style="font-size: 13px; color: var(--primary-maroon); display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+            ${getIcon('shield-check', 16)} Complete Payment via UPI (Zero Surcharges)
+          </strong>
+
+          <!-- Pay to Mobile Number -->
+          <div style="display: flex; align-items: center; justify-content: space-between; background: #FFF; border: 1px solid var(--border-medium); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px;">
+            <div>
+              <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block;">Pay to Mobile (GPay / PhonePe / Paytm):</span>
+              <strong style="font-family: monospace; font-size: 16px; color: var(--primary-maroon);">9989885363</strong>
+            </div>
+            <button type="button" class="btn btn-sm btn-secondary" onclick="copyMerchantPhone()" style="padding: 6px 12px; font-size: 11px;">
+              Copy Number
+            </button>
+          </div>
+
+          <!-- Merchant UPI ID -->
+          <div style="display: flex; align-items: center; justify-content: space-between; background: #FFF; border: 1px solid var(--border-medium); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px;">
+            <div>
+              <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block;">Merchant UPI ID (Axis Bank):</span>
+              <strong style="font-family: monospace; font-size: 13px; color: var(--primary-maroon);">9989885363-1@okbizaxis</strong>
+            </div>
+            <button type="button" class="btn btn-sm btn-secondary" onclick="copyMerchantUpi()" style="padding: 6px 12px; font-size: 11px;">
+              Copy UPI
+            </button>
+          </div>
+
+          <!-- QR Code -->
+          <div style="text-align: center; padding-top: 8px; border-top: 1px dashed var(--border-medium);">
+            <img 
+              src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&margin=6&data=${encodeURIComponent(`upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${amountToPay}&cu=INR&tn=${order.orderId}`)}"
+              alt="Scan & Pay ₹${amountToPay}"
+              style="width: 130px; height: 130px; border-radius: 8px; border: 1.5px solid var(--accent-gold); display: inline-block;"
+            />
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Scan with PhonePe, Google Pay, or Paytm</div>
+          </div>
+        </div>
+
+        <!-- Store Details -->
         <div style="background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: var(--radius-md); padding: 14px; text-align: left; margin-bottom: 20px;">
           <div style="font-size: 12.5px; font-weight: 700; color: var(--primary-maroon); margin-bottom: 4px;">
             7 Hills Pooja Store — Hyderabad
