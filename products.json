@@ -1,5 +1,38 @@
 [
   {
+    "id": "matti_pramidalu",
+    "title": "Matti Pramidalu (Traditional Clay Diyas)",
+    "telugu_title": "మట్టి ప్రమిదలు",
+    "images": [
+      "uploads/matti-pramidalu.png"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 35,
+    "mrp": 40,
+    "discount": 13,
+    "rating": 4.9,
+    "reviewCount": 46,
+    "inStock": true,
+    "stockQty": 100,
+    "badge": "Bestseller",
+    "description": "Authentic handcrafted Matti Pramidalu (Natural Clay Diyas) molded from pure organic clay by skilled artisans. Perfect for daily evening deeparadhana, Karthika Masam, Diwali, temple rituals, and bringing sacred positive vibrations into your home mandir.",
+    "specifications": {
+      "Material": "100% Pure Natural Clay (Terracotta)",
+      "Pack": "Traditional Clay Diyas (Pramidalu)",
+      "Ideal For": "Daily Deeparadhana, Karthika Deepam, Diwali, Mandir",
+      "Country of Origin": "India (Handcrafted Local Artisan)",
+      "Recommended Fuel": "Pure Cow Ghee or Sesame (Til) Deepam Oil"
+    },
+    "ritualUsage": "Fill with sacred sesame oil or cow ghee, place a cotton wick (vottu), and light facing East or North for auspicious divine energy, peace, and prosperity.",
+    "relatedIds": [
+      "product_1",
+      "product_2",
+      "product_3"
+    ]
+  },
+  {
     "id": "product_1",
     "title": "Brass Ganesha Pendant/Idol",
     "original_title": "Product 1",
