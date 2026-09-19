@@ -5769,9 +5769,11 @@ document.addEventListener('DOMContentLoaded', () => {
   setupVoiceAndImageSearch();
   setupDrawerAndLocationModal();
 
-  // Register PWA Service Worker
+  // Register PWA Service Worker with immediate update check
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
+    navigator.serviceWorker.register('./sw.js').then((reg) => {
+      reg.update().catch(() => {});
+    }).catch(() => {});
   }
 
   // Check if app is installed / running in standalone mode to hide all install popups

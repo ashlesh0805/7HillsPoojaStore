@@ -1,5 +1,5 @@
 // Service Worker for 7 Hills Pooja Store PWA
-const CACHE_NAME = '7hills-cache-v4';
+const CACHE_NAME = '7hills-cache-v6';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
@@ -14,9 +14,9 @@ const PRECACHE_URLS = [
 ];
 
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      // Precache critical shell assets. Use individual fetches so one failure doesn't abort the entire install
       return Promise.allSettled(
         PRECACHE_URLS.map((url) =>
           fetch(url, { cache: 'reload' })
@@ -28,7 +28,7 @@ self.addEventListener('install', (event) => {
             .catch((err) => console.warn('Pre-cache skip:', url, err))
         )
       );
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
@@ -42,10 +42,16 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Resilient Offline-First Strategy:
-// 1. Navigation (HTML): Try network with 2.5s timeout, fallback to cached /index.html (never show 'site can't be reached')
-// 2. Static Shell Assets: Stale-While-Revalidate (instant load from cache, background refresh)
-// 3. API Requests: Always live network
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
+});
+
+// Resilient Network-First Strategy for HTML Navigation:
+// 1. Navigation (HTML): Always fetch from network first so updates show immediately. Fallback to cache only when offline.
+// 2. Static Shell Assets: Stale-While-Revalidate with background cache update.
+// 3. API Requests: Always live network.
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
   const url = new URL(event.request.url);
@@ -56,44 +62,23 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Navigation requests: Opening the app, refreshing, or clicking internal links
+  // Navigation requests: Always try network first
   if (event.request.mode === 'navigate' || event.request.headers.get('accept')?.includes('text/html')) {
     event.respondWith(
-      new Promise((resolve) => {
-        let settled = false;
-        const timer = setTimeout(() => {
-          if (!settled) {
-            settled = true;
-            caches.match('/index.html').then((cached) => {
-              if (cached) resolve(cached);
-              else caches.match('/').then((rootCached) => resolve(rootCached || fetch(event.request)));
-            });
+      fetch(event.request)
+        .then((networkRes) => {
+          if (networkRes && networkRes.status === 200) {
+            const resClone = networkRes.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, resClone));
           }
-        }, 2500);
-
-        fetch(event.request)
-          .then((networkRes) => {
-            if (!settled) {
-              settled = true;
-              clearTimeout(timer);
-              if (networkRes && networkRes.status === 200) {
-                const resClone = networkRes.clone();
-                caches.open(CACHE_NAME).then((cache) => cache.put(event.request, resClone));
-              }
-              resolve(networkRes);
-            }
-          })
-          .catch(() => {
-            if (!settled) {
-              settled = true;
-              clearTimeout(timer);
-              caches.match('/index.html').then((cached) => {
-                if (cached) resolve(cached);
-                else caches.match('/').then((rootCached) => resolve(rootCached || new Response('Offline', { status: 503 })));
-              });
-            }
+          return networkRes;
+        })
+        .catch(() => {
+          return caches.match('/index.html').then((cached) => {
+            if (cached) return cached;
+            return caches.match('/').then((rootCached) => rootCached || new Response('Offline', { status: 503 }));
           });
-      })
+        })
     );
     return;
   }
