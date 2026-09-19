@@ -154,6 +154,7 @@ function getProductImageUrl(imgName) {
     if (imgName.startsWith('7HILLS') || imgName.startsWith('/7HILLS')) {
       return imgName;
     }
+    return (STORE.imageBasePath || '7HILLS WEBSITE FOR STOCK ITEMS/') + imgName;
   }
   return imgName || 'image-coming-soon.svg';
 }
@@ -800,7 +801,10 @@ function handleRouting() {
     '#/entry': 'Store QR Entry',
     '#/verify-otp': 'Mobile Verification',
     '#/select-location': 'Delivery Location',
-    '#/select-delivery': 'Delivery Speed'
+    '#/select-delivery': 'Delivery Speed',
+    '#/profile': 'My Account',
+    '#/sankalpam': 'Vedic Ritual Kits & Sankalpam',
+    '#/stotram': 'Sacred Stotrams & Daily Mantras'
   };
 
   if (navRoot && navSub) {
@@ -3473,7 +3477,7 @@ function renderOrdersView() {
               <div style="display: flex; gap: 12px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 6px;">
                 ${o.items.map(item => `
                   <div style="display: flex; align-items: center; gap: 10px; background: var(--bg-page); padding: 8px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); min-width: 220px;">
-                    <img src="${getProductImageUrl(item.image)}" style="width: 44px; height: 44px; border-radius: 4px; object-fit: cover;">
+                    <img src="${getProductImageUrl(item.image)}" onerror="this.src='image-coming-soon.svg'" style="width: 44px; height: 44px; border-radius: 4px; object-fit: cover;">
                     <div style="font-size: 12px;">
                       <div style="font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 140px;">${item.title}</div>
                       <span style="color: var(--text-muted);">Qty: ${item.quantity} • ₹${item.price}</span>
