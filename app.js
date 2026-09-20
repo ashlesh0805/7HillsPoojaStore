@@ -2749,10 +2749,44 @@ function renderCheckoutView() {
                     <!-- Interactive Mobile Payment Box -->
                     <div id="upi-details-box" style="background: #FFFFFF; border: 1.5px dashed var(--accent-gold); border-radius: 12px; padding: 16px; margin-top: 4px;">
                       
+                      <!-- Featured Google Pay 1-Tap Pay Card -->
+                      <div style="background: linear-gradient(135deg, #18181B 0%, #09090B 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; border: 1.5px solid #3F3F46; box-shadow: 0 4px 16px rgba(0,0,0,0.18);">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+                          <div style="display: flex; align-items: center; gap: 8px;">
+                            <svg width="24" height="24" viewBox="0 0 48 48" style="flex-shrink: 0;">
+                              <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/>
+                              <path fill="#34A853" d="M6.3 14.7l6.6 4.8C14.5 15.5 18.8 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.3 6.3 14.7z"/>
+                              <path fill="#FBBC05" d="M24 46c5.9 0 11.1-2 15-5.6l-6.9-5.6C29.9 36.4 27.1 37 24 37c-6.1 0-10.7-3.1-11.8-8.5L5.6 33.7C9 41 15.8 46 24 46z"/>
+                              <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1.1 3.2-3.4 5.9-6.7 7.7l6.9 5.6C40.6 37.7 45 31.4 45 24c0-1.3-.2-2.7-.5-4z"/>
+                            </svg>
+                            <span style="color: #FFFFFF; font-weight: 800; font-size: 14.5px; letter-spacing: 0.2px;">Google Pay (GPay)</span>
+                          </div>
+                          <span style="background: #16A34A; color: #FFFFFF; font-size: 10px; font-weight: 800; padding: 2.5px 8px; border-radius: 4px; letter-spacing: 0.3px;">RECOMMENDED</span>
+                        </div>
+                        <button 
+                          type="button" 
+                          class="gpay-checkout-btn" 
+                          onclick="event.stopPropagation(); payViaGooglePay(${grandTotal})"
+                          id="btn-gpay-trigger"
+                          title="Pay ₹${grandTotal} with Google Pay"
+                        >
+                          <svg width="22" height="22" viewBox="0 0 48 48" style="flex-shrink: 0;">
+                            <path fill="#4285F4" d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/>
+                            <path fill="#34A853" d="M6.3 14.7l6.6 4.8C14.5 15.5 18.8 13 24 13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 16.3 2 9.7 7.3 6.3 14.7z"/>
+                            <path fill="#FBBC05" d="M24 46c5.9 0 11.1-2 15-5.6l-6.9-5.6C29.9 36.4 27.1 37 24 37c-6.1 0-10.7-3.1-11.8-8.5L5.6 33.7C9 41 15.8 46 24 46z"/>
+                            <path fill="#EA4335" d="M44.5 20H24v8.5h11.8c-1.1 3.2-3.4 5.9-6.7 7.7l6.9 5.6C40.6 37.7 45 31.4 45 24c0-1.3-.2-2.7-.5-4z"/>
+                          </svg>
+                          <span>Pay ₹${grandTotal} with <strong>Google Pay</strong></span>
+                        </button>
+                        <div style="font-size: 11px; color: #86EFAC; text-align: center; margin-top: 7px; font-weight: 600;">
+                          ⚡ 1-Tap Direct Payment to Axis Bank • Zero Gateway Fees
+                        </div>
+                      </div>
+
                       <!-- Step-by-Step Payment Banner -->
                       <div style="background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 12px; margin-bottom: 12px;">
                         <div style="font-size: 11.5px; font-weight: 800; color: var(--primary-maroon); text-transform: uppercase; margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
-                          ${getIcon('shield-check', 14)} Direct UPI Transfer (Zero Gateway Charges)
+                          ${getIcon('shield-check', 14)} Direct Merchant Settlement (Axis Bank)
                         </div>
                         <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.45;">
                           Pay directly to <strong>7 Hills Pooja Store</strong> using Google Pay, PhonePe, or Paytm by mobile number or QR code below.
@@ -2774,9 +2808,9 @@ function renderCheckoutView() {
                       <!-- Option 2: Merchant UPI ID -->
                       <div style="display: flex; align-items: center; justify-content: space-between; background: #FFFDF9; border: 1.5px solid var(--accent-gold); border-radius: 10px; padding: 10px 14px; margin-bottom: 14px;">
                         <div>
-                          <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 800;">Option 2: Merchant UPI ID</span>
+                          <span style="font-size: 10px; color: var(--text-muted); display: block; text-transform: uppercase; font-weight: 800;">Option 2: Merchant UPI ID (Axis Bank)</span>
                           <strong id="merchant-upi-text" style="font-size: 14px; color: var(--primary-maroon); font-family: monospace;">9989885363-1@okbizaxis</strong>
-                          <div style="font-size: 10.5px; color: #047857; font-weight: 600; margin-top: 2px;">7 Hills Pooja Store • Axis Bank</div>
+                          <div style="font-size: 10.5px; color: #047857; font-weight: 600; margin-top: 2px;">Google Pay for Business • 7 Hills Pooja Store</div>
                         </div>
                         <button type="button" class="btn btn-sm btn-secondary" onclick="event.stopPropagation(); copyMerchantUpi()" id="copy-upi-btn" style="padding: 6px 12px; font-size: 11.5px; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
                           ${getIcon('copy', 12)} <span>Copy UPI ID</span>
@@ -2784,18 +2818,18 @@ function renderCheckoutView() {
                       </div>
 
                       <!-- Option 3: QR Code Section -->
-                      <div style="display: flex; flex-direction: column; gap: 8px; align-items: center; padding-top: 10px; border-top: 1px dashed var(--border-subtle);">
-                        <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 800;">Option 3: Scan QR Code</span>
+                      <div id="checkout-qr-container" style="display: flex; flex-direction: column; gap: 8px; align-items: center; padding-top: 10px; border-top: 1px dashed var(--border-subtle); border-radius: 10px; transition: all 0.3s ease;">
+                        <span style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 800;">Option 3: Scan Google Pay / UPI QR Code</span>
                         <div style="text-align: center;">
                           <div style="background: #FFF; padding: 6px; border: 2px solid var(--accent-gold); border-radius: 10px; display: inline-block; box-shadow: 0 4px 12px rgba(122,12,26,0.06);">
                             <img 
                               src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=6&data=${encodeURIComponent(`upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=7HillsPoojaStore`)}"
-                              alt="Scan & Pay ₹${grandTotal} with any UPI App"
+                              alt="Scan & Pay ₹${grandTotal} with Google Pay or any UPI App"
                               style="width: 140px; height: 140px; display: block;"
                               loading="lazy"
                             />
                           </div>
-                          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 600;">Scan with PhonePe, Google Pay, or Paytm scanner</div>
+                          <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px; font-weight: 600;">Scan with Google Pay, PhonePe, or Paytm scanner</div>
                           <div style="font-size: 13.5px; font-weight: 800; color: var(--primary-maroon); margin-top: 2px;">Amount: ₹${grandTotal}</div>
                         </div>
 
@@ -2805,7 +2839,7 @@ function renderCheckoutView() {
                             href="upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${grandTotal}&cu=INR&tn=7HillsPoojaStore" 
                             style="display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; padding: 11px; border-radius: 8px; background: linear-gradient(135deg, #047857 0%, #065F46 100%); color: #FFF; font-weight: 700; font-size: 12.5px; text-decoration: none; text-align: center; box-shadow: 0 2px 8px rgba(4,120,87,0.25); box-sizing: border-box;"
                           >
-                            <span>⚡ Open in Any UPI App</span>
+                            <span>⚡ Open in Any Other UPI App</span>
                           </a>
                           <div style="font-size: 10.5px; color: var(--text-muted); text-align: center; margin-top: 4px;">
                             💡 If your bank declines direct web links, simply copy mobile number <strong>9989885363</strong> and pay in your UPI app.
@@ -3035,6 +3069,31 @@ function copyMerchantUpi() {
   } else {
     fallbackCopyText(upiId);
     finishCopy();
+  }
+}
+
+function payViaGooglePay(amount) {
+  const upiUri = `upi://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${amount}&cu=INR&tn=7HillsPoojaStore`;
+  const gpayIntent = `intent://pay?pa=9989885363-1@okbizaxis&pn=7%20Hills%20Pooja%20Store&am=${amount}&cu=INR&tn=7HillsPoojaStore#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end`;
+
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isAndroid) {
+    window.location.href = gpayIntent;
+    setTimeout(() => {
+      window.location.href = upiUri;
+    }, 1000);
+  } else if (isIOS) {
+    window.location.href = upiUri;
+  } else {
+    const qrContainer = document.getElementById('checkout-qr-container');
+    if (qrContainer) {
+      qrContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      qrContainer.classList.add('highlight-pulse');
+      setTimeout(() => qrContainer.classList.remove('highlight-pulse'), 2000);
+    }
+    showToast(`Scan the Google Pay QR code below with your phone to pay ₹${amount}`);
   }
 }
 
@@ -5814,6 +5873,9 @@ if (typeof window !== 'undefined') {
   window.setDefaultAddress = setDefaultAddress;
   window.selectPaymentMode = selectPaymentMode;
   window.togglePaymentSelection = togglePaymentSelection;
+  window.payViaGooglePay = payViaGooglePay;
+  window.copyMerchantPhone = copyMerchantPhone;
+  window.copyMerchantUpi = copyMerchantUpi;
   window.handleAppointmentBooking = handleAppointmentBooking;
   window.handleContactSubmit = handleContactSubmit;
   window.resetListingFilters = resetListingFilters;

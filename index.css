@@ -4704,6 +4704,43 @@ body.mobile-app-body {
   white-space: nowrap;
 }
 
+.gpay-checkout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 18px;
+  border-radius: 12px;
+  background: #111111;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid #333333;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.gpay-checkout-btn:hover {
+  background: #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.32);
+}
+.gpay-checkout-btn:active {
+  transform: scale(0.98);
+}
+.highlight-pulse {
+  animation: qrPulse 1s ease 2;
+}
+@keyframes qrPulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+  50% { transform: scale(1.03); box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
 /* Fallback / Test Mode Razorpay Modal */
 .rzp-modal-backdrop {
   position: fixed;
