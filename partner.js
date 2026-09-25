@@ -630,7 +630,8 @@ function renderCatalog() {
     const isInStock = prod.inStock !== false;
     const stockQty = typeof prod.stockQty === 'number' ? prod.stockQty : (isInStock ? 10 : 0);
     const stockClass = stockQty <= 0 ? 'stock-out' : (stockQty <= 3 ? 'stock-low' : 'stock-ok');
-    const imgSource = prod.image ? (prod.image.startsWith('http') || prod.image.startsWith('uploads/') || prod.image.startsWith('data:') ? prod.image : `7HILLS WEBSITE FOR STOCK ITEMS/${prod.image}`) : '';
+    const rawImg = prod.image || (Array.isArray(prod.images) && prod.images[0] ? prod.images[0] : '');
+    const imgSource = rawImg ? (rawImg.startsWith('http') || rawImg.startsWith('uploads/') || rawImg.startsWith('/uploads/') || rawImg.startsWith('data:') ? rawImg : `7HILLS WEBSITE FOR STOCK ITEMS/${rawImg}`) : '';
 
     return `
       <tr data-id="${prod.id}">
@@ -875,7 +876,7 @@ function openEditProductModal(id) {
   // Update preview image
   const previewImg = document.getElementById('edit-prod-preview');
   if (previewImg) {
-    const imgSrc = currentImg ? (currentImg.startsWith('http') || currentImg.startsWith('uploads/') || currentImg.startsWith('data:') ? currentImg : `7HILLS WEBSITE FOR STOCK ITEMS/${currentImg}`) : 'image-coming-soon.svg';
+    const imgSrc = currentImg ? (currentImg.startsWith('http') || currentImg.startsWith('uploads/') || currentImg.startsWith('/uploads/') || currentImg.startsWith('data:') ? currentImg : `7HILLS WEBSITE FOR STOCK ITEMS/${currentImg}`) : 'image-coming-soon.svg';
     previewImg.src = imgSrc;
   }
 
