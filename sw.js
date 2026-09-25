@@ -1,5 +1,5 @@
 // Service Worker for 7 Hills Pooja Store PWA
-const CACHE_NAME = '7hills-cache-v7';
+const CACHE_NAME = '7hills-cache-v8';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
