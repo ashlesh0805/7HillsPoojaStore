@@ -4217,8 +4217,21 @@ function handleContactSubmit(e) {
 }
 
 // ------------------------------------------
-// 5.16.1 24/7 AI CUSTOMER SUPPORT & LIVE AGENT HANDOVER (7780649938)
 // ------------------------------------------
+// 5.16.1 24/7 AI CUSTOMER SUPPORT & SECURE WHATSAPP AGENT HANDOVER
+// ------------------------------------------
+function escapeHtml(text) {
+  if (text == null) return '';
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return String(text).replace(/[&<>"']/g, m => map[m]);
+}
+
 function renderSupportView() {
   const root = document.getElementById('app-root');
   if (!root) return;
@@ -4227,7 +4240,7 @@ function renderSupportView() {
     <div class="container" style="padding: 20px 0 60px;">
       <nav class="breadcrumb-nav">
         <a href="#/">Home</a> <span>›</span>
-        <span style="color: var(--primary-maroon); font-weight: 600;">24/7 AI Support & Live Agent</span>
+        <span style="color: var(--primary-maroon); font-weight: 600;">24/7 Customer Support</span>
       </nav>
 
       <div style="max-width: 660px; margin: 0 auto; background: #FFF; border-radius: 16px; border: 1.5px solid var(--border-subtle); box-shadow: 0 4px 20px rgba(122,12,26,0.06); overflow: hidden;">
@@ -4246,23 +4259,8 @@ function renderSupportView() {
               </div>
             </div>
           </div>
-          <a href="tel:7780649938" style="background: rgba(255,255,255,0.15); color: #FFF; padding: 6px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 5px;">
-            📞 7780649938
-          </a>
-        </div>
-
-        <!-- Quick Live Agent Handover Ribbon -->
-        <div style="background: #FFFDF9; border-bottom: 1.5px solid #FDE68A; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-          <div style="font-size: 12px; color: var(--text-secondary);">
-            Prefer to speak directly? <strong style="color: var(--primary-maroon);">Store Agent: 7780649938</strong>
-          </div>
-          <div style="display: flex; gap: 6px;">
-            <a href="https://wa.me/917780649938?text=Hello%207%20Hills%20Support%2C%20I%20need%20assistance%20with%20pooja%20items" target="_blank" style="background: #25D366; color: #FFF; padding: 5px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-              <span>WhatsApp</span>
-            </a>
-            <a href="tel:7780649938" style="background: var(--primary-maroon); color: #FFF; padding: 5px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-              <span>Call</span>
-            </a>
+          <div style="display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.12); padding: 5px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 600;">
+            <span>⚡ Live Assistance</span>
           </div>
         </div>
 
@@ -4277,7 +4275,7 @@ function renderSupportView() {
             <div style="background: #FFFFFF; border: 1px solid var(--border-subtle); border-radius: 0 14px 14px 14px; padding: 12px 14px; max-width: 82%; box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
               <p style="margin: 0; font-size: 13.5px; line-height: 1.5; color: var(--text-main);">
                 <strong>Namaste! 🙏 Welcome to 7 Hills Pooja Store.</strong><br>
-                I am your 24/7 Divine Assistant. Ask me about our pooja items, 45-min Hyderabad delivery, order status, or type <strong>"connect to agent"</strong> to talk with our store team directly on <strong>7780649938</strong>.
+                I am your 24/7 Divine Assistant. Ask me about our pooja items, 45-min Hyderabad delivery, order status, or if you need personalized assistance, simply type <strong>"connect to agent"</strong> and I will connect you with our store team on WhatsApp.
               </p>
               <div style="font-size: 10.5px; color: var(--text-muted); margin-top: 6px; text-align: right;">Just now</div>
             </div>
@@ -4290,7 +4288,7 @@ function renderSupportView() {
           <button type="button" class="btn btn-sm btn-secondary" onclick="handleSupportChip('Track my order')" style="font-size: 11.5px; border-radius: 16px; padding: 5px 11px;">📦 Track Order</button>
           <button type="button" class="btn btn-sm btn-secondary" onclick="handleSupportChip('Express delivery in Hyderabad')" style="font-size: 11.5px; border-radius: 16px; padding: 5px 11px;">⚡ Express Delivery</button>
           <button type="button" class="btn btn-sm btn-secondary" onclick="handleSupportChip('Store location and timings')" style="font-size: 11.5px; border-radius: 16px; padding: 5px 11px;">📍 Store & Darshan</button>
-          <button type="button" class="btn btn-sm btn-secondary" onclick="handleSupportChip('Connect to live agent')" style="font-size: 11.5px; border-radius: 16px; padding: 5px 11px; background: #FEF3C7; color: #92400E; font-weight: 700; border-color: #FCD34D;">👤 Connect to Agent</button>
+          <button type="button" class="btn btn-sm btn-secondary" onclick="handleSupportChip('Connect to live agent')" style="font-size: 11.5px; border-radius: 16px; padding: 5px 11px; background: #FEF3C7; color: #92400E; font-weight: 700; border-color: #FCD34D;">💬 Connect to Agent</button>
         </div>
 
         <!-- Input Box -->
@@ -4378,33 +4376,25 @@ function handleSupportSend(e) {
 function generateAiSupportReply(userMsg) {
   const lower = userMsg.toLowerCase();
 
-  // Agent / Human / Call handover keywords
-  if (lower.includes('agent') || lower.includes('human') || lower.includes('talk') || lower.includes('speak') || lower.includes('call') || lower.includes('person') || lower.includes('connect') || lower.includes('phone') || lower.includes('number') || lower.includes('7780649938')) {
+  // Agent / Human / Live support handover keywords
+  if (lower.includes('agent') || lower.includes('human') || lower.includes('talk') || lower.includes('speak') || lower.includes('call') || lower.includes('person') || lower.includes('connect') || lower.includes('whatsapp') || lower.includes('executive') || lower.includes('chat') && lower.includes('live')) {
     return `
-      <div style="background: #FFFDF9; border: 1.5px solid #FCD34D; border-radius: 10px; padding: 12px; margin-bottom: 8px;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-          <strong style="color: var(--primary-maroon); font-size: 14px;">Live Support Agent Handover</strong>
-          <span style="background: #22C55E; color: #FFF; font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px;">ACTIVE NOW</span>
+      <div style="background: #FFFDF9; border: 1.5px solid #FCD34D; border-radius: 12px; padding: 14px; margin-bottom: 8px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+          <strong style="color: var(--primary-maroon); font-size: 14px;">Store Support Agent</strong>
+          <span style="background: #22C55E; color: #FFF; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px;">ACTIVE NOW</span>
         </div>
-        <p style="margin: 0 0 10px; font-size: 13px; color: var(--text-secondary); line-height: 1.45;">
-          I am connecting you with our dedicated customer support specialist:
+        <p style="margin: 0 0 12px; font-size: 13px; color: var(--text-secondary); line-height: 1.45;">
+          Our store support executive is ready to assist you directly on WhatsApp for customized pooja samagri kits, special orders, and priority dispatch.
         </p>
-        <div style="background: #FFFFFF; border: 1px solid #E5E7EB; border-radius: 8px; padding: 10px; margin-bottom: 10px;">
-          <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Direct Support Number</div>
-          <div style="font-size: 18px; font-weight: 800; color: var(--primary-maroon); font-family: monospace; letter-spacing: 0.5px;">+91 7780649938</div>
-          <div style="font-size: 11px; color: #047857; margin-top: 2px;">Vasu • Store Support Manager</div>
-        </div>
-        <div style="display: flex; gap: 8px;">
-          <a href="https://wa.me/917780649938?text=Hello%207%20Hills%20Support%2C%20I%20am%20chatting%20on%20your%20website%20and%20need%20help." target="_blank" style="flex: 1; background: #25D366; color: #FFF; text-align: center; padding: 9px; border-radius: 8px; font-weight: 700; font-size: 12.5px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px;">
-            <span>💬 Chat on WhatsApp</span>
-          </a>
-          <a href="tel:7780649938" style="flex: 1; background: var(--primary-maroon); color: #FFF; text-align: center; padding: 9px; border-radius: 8px; font-weight: 700; font-size: 12.5px; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 6px;">
-            <span>📞 Call Agent Directly</span>
+        <div>
+          <a href="https://wa.me/917780649938?text=Hello%207%20Hills%20Store%2C%20I%20would%20like%20to%20connect%20with%20an%20agent%20for%20assistance." target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #FFF; padding: 10px 16px; border-radius: 8px; font-weight: 700; font-size: 13.5px; text-decoration: none; box-shadow: 0 2px 6px rgba(37,211,102,0.3);">
+            <span>💬 Chat with Agent on WhatsApp</span>
           </a>
         </div>
       </div>
-      <p style="margin: 0; font-size: 12px; color: var(--text-muted);">
-        Operating Hours: 8:00 AM – 10:00 PM (All 7 Days). We respond to WhatsApp within 2 minutes!
+      <p style="margin: 0; font-size: 11.5px; color: var(--text-muted);">
+        Operating Hours: 8:00 AM – 10:00 PM (All 7 Days). We respond swiftly on WhatsApp!
       </p>
     `;
   }
@@ -4432,7 +4422,7 @@ function generateAiSupportReply(userMsg) {
         <li><strong>🛵 Same-Day Rapido / Dunzo:</strong> Across Secunderabad, Gachibowli, Kukatpally, Madhapur, Jubilee Hills.</li>
         <li><strong>📦 Standard Delivery:</strong> Free on all orders above ₹499.</li>
       </ul>
-      <p style="margin: 0; font-size: 12px; color: var(--text-muted);">Need emergency pooja samagri? Call <strong>7780649938</strong> for priority dispatch.</p>
+      <p style="margin: 0; font-size: 12px; color: var(--text-muted);">Need emergency pooja samagri? Simply ask to <strong>"connect to agent"</strong> for priority dispatch.</p>
     `;
   }
 
@@ -4453,15 +4443,14 @@ function generateAiSupportReply(userMsg) {
   }
 
   // Diyas / Camphor / Samagri
-  if (lower.includes('diya') || lower.includes('camphor') || lower.includes('karpooram') || lower.includes('pramidalu') || lower.includes('samagri') || lower.includes('item')) {
+  if (lower.includes('diya') || lower.includes('camphor') || lower.includes('karpooram') || lower.includes('pramidalu') || lower.includes('samagri') || lower.includes('item') || lower.includes('agarbatti') || lower.includes('oil') || lower.includes('ghee')) {
     return `
       <p style="margin: 0 0 8px;"><strong>Authentic Pooja Items in Stock:</strong></p>
       <p style="margin: 0 0 10px; color: var(--text-secondary); line-height: 1.45;">
-        We stock pure organic Matti Pramidalu (₹35), Mangal Gouri Pure Camphor (₹25), D-Bell-D Genuine Temple Sindur, Radhey Krishna Pooja Ghee, and authentic temple-grade solid brass lamps and idols.
+        We stock pure organic Matti Pramidalu (₹35), Mangal Gouri Pure Camphor (₹25), D-Bell-D Genuine Temple Sindur, Sudha Cow Ghee, Gopuram Turmeric & Kumkum, and temple-grade pooja samagri.
       </p>
       <div style="display: flex; gap: 8px;">
         <a href="#/categories" class="btn btn-sm btn-primary" style="font-size: 12px; border-radius: 6px;">Browse All Categories</a>
-        <a href="https://wa.me/917780649938?text=Hello%2C%20I%20need%20custom%20pooja%20samagri%20recommendation" target="_blank" class="btn btn-sm btn-secondary" style="font-size: 12px; border-radius: 6px;">Ask Agent for Kit</a>
       </div>
     `;
   }
@@ -4472,11 +4461,10 @@ function generateAiSupportReply(userMsg) {
     <p style="margin: 0 0 10px; color: var(--text-secondary); line-height: 1.45;">
       7 Hills Pooja Store provides authentic, temple-grade devotional items, instant 45-minute express delivery in Hyderabad, and custom Vedic pooja kits.
     </p>
-    <div style="background: #F9FAFB; border-radius: 8px; padding: 10px; border: 1px dashed #D1D5DB; font-size: 12.5px;">
-      Would you like to speak directly with our store support agent? Tap below or call <strong>7780649938</strong>:
-      <div style="margin-top: 8px; display: flex; gap: 8px;">
-        <a href="https://wa.me/917780649938?text=Hello%207%20Hills%20Support%2C%20I%20have%20an%20inquiry%3A%20${encodeURIComponent(userMsg)}" target="_blank" style="background: #25D366; color: #FFF; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 11.5px; text-decoration: none;">WhatsApp Agent</a>
-        <a href="tel:7780649938" style="background: var(--primary-maroon); color: #FFF; padding: 6px 12px; border-radius: 6px; font-weight: 700; font-size: 11.5px; text-decoration: none;">Call 7780649938</a>
+    <div style="background: #FDFBF7; border-radius: 8px; padding: 10px; border: 1px dashed #D1D5DB; font-size: 12.5px;">
+      Need personal assistance with our store team?
+      <div style="margin-top: 8px;">
+        <a href="https://wa.me/917780649938?text=Hello%207%20Hills%20Support%2C%20I%20have%20an%20inquiry%20regarding%20pooja%20items" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #25D366; color: #FFF; padding: 7px 14px; border-radius: 6px; font-weight: 700; font-size: 12px; text-decoration: none;">💬 Connect with WhatsApp Agent</a>
       </div>
     </div>
   `;
