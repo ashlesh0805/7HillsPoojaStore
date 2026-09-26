@@ -7,53 +7,53 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Brand Colors */
-  --primary-maroon: #5C0612;
-  --primary-maroon-dark: #3F020A;
-  --primary-maroon-light: #7E1220;
+  /* Brand Colors — Refined Royal Temple & Devotional Palette */
+  --primary-maroon: #7A1224;          /* Luxurious deep royal temple crimson */
+  --primary-maroon-dark: #560A17;     /* Rich heritage velvet wine */
+  --primary-maroon-light: #9B1C31;    /* Vibrant ceremonial crimson */
   
-  --primary-saffron: #E65100;
-  --primary-saffron-light: #FF8F00;
-  --primary-saffron-hover: #BF360C;
+  --primary-saffron: #D95C14;         /* Warm, rich authentic amber saffron (practical & elegant) */
+  --primary-saffron-light: #F47C36;   /* Soft warm sunrise saffron */
+  --primary-saffron-hover: #B84708;   /* Deep toasted amber */
   
-  --accent-gold: #D4AF37;
-  --accent-gold-light: #F7E7B4;
-  --accent-gold-dark: #9A7B1C;
+  --accent-gold: #C5A059;             /* Brushed champagne temple gold */
+  --accent-gold-light: #F6EED8;       /* Subtle warm gold shimmer */
+  --accent-gold-dark: #8C6D2B;        /* Antique brass gold */
   
-  /* Backgrounds & Surfaces */
-  --bg-page: #FBF8F2;
-  --bg-surface: #FFFFFF;
-  --bg-surface-secondary: #F4EFE6;
-  --bg-cream: #FAF4EB;
+  /* Backgrounds & Surfaces — Clean, crisp & modern */
+  --bg-page: #F8F9FA;                 /* Clean crisp alabaster (no dingy yellowish cast) */
+  --bg-surface: #FFFFFF;              /* Pure clean white surface */
+  --bg-surface-secondary: #F1F3F5;    /* Soft neutral slate-tinted surface */
+  --bg-cream: #F5F3EF;                /* Refined warm ivory whisper */
   
-  /* Text & Neutral Colors */
-  --text-main: #211D1D;
-  --text-secondary: #574F4F;
-  --text-muted: #7D7373;
-  --text-light: #A49B9B;
+  /* Text & Neutral Colors — High legibility & polish */
+  --text-main: #1A1D20;               /* Crisp deep charcoal */
+  --text-secondary: #4A5157;          /* Balanced slate neutral */
+  --text-muted: #6C757D;              /* Clean readable muted tone */
+  --text-light: #9CA3AF;              /* Subtle placeholder / border accent */
   --text-white: #FFFFFF;
   
-  /* Borders & Shadows */
-  --border-subtle: #EBE3D5;
-  --border-medium: #D9CDBC;
-  --border-gold: rgba(212, 175, 55, 0.4);
+  /* Borders & Shadows — Subtle, clean modern card elevations */
+  --border-subtle: #E5E7EB;           /* Clean, modern slate-gray border */
+  --border-medium: #D1D5DB;           /* Crisp structured border */
+  --border-gold: rgba(197, 160, 89, 0.35); /* Subtle champagne gold divider */
   
-  --shadow-xs: 0 1px 3px rgba(63, 2, 10, 0.05);
-  --shadow-sm: 0 2px 8px rgba(63, 2, 10, 0.07);
-  --shadow-md: 0 6px 18px rgba(63, 2, 10, 0.09);
-  --shadow-lg: 0 12px 28px rgba(63, 2, 10, 0.12);
-  --shadow-xl: 0 20px 40px rgba(63, 2, 10, 0.16);
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 6px 16px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 24px rgba(15, 23, 42, 0.10);
+  --shadow-xl: 0 20px 36px rgba(15, 23, 42, 0.12);
   
   /* Functional Colors */
-  --success: #1B5E20;
-  --success-bg: #E8F5E9;
-  --success-border: #A5D6A7;
+  --success: #15803D;
+  --success-bg: #F0FDF4;
+  --success-border: #BBF7D0;
   
-  --danger: #C62828;
-  --danger-bg: #FFEBEE;
+  --danger: #DC2626;
+  --danger-bg: #FEF2F2;
   
-  --warning: #EF6C00;
-  --warning-bg: #FFF3E0;
+  --warning: #D97706;
+  --warning-bg: #FFFBEB;
   
   /* Typography */
   --font-heading: 'Cinzel', serif;
@@ -143,7 +143,7 @@ img {
   font-size: 13px;
   font-weight: 500;
   padding: 7px 0;
-  border-bottom: 1px solid var(--accent-gold);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.28);
 }
 
 .top-bar-inner {
@@ -298,7 +298,7 @@ img {
 .search-form-container:focus-within {
   border-color: var(--primary-saffron);
   background-color: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(230, 81, 0, 0.12);
+  box-shadow: 0 0 0 3px rgba(217, 92, 20, 0.14);
 }
 
 .search-category-select {
@@ -347,7 +347,7 @@ img {
 .search-submit-btn {
   background: linear-gradient(135deg, var(--primary-saffron), var(--primary-saffron-light));
   color: #FFFFFF;
-  box-shadow: 0 2px 6px rgba(230, 81, 0, 0.25);
+  box-shadow: 0 2px 6px rgba(217, 92, 20, 0.22);
 }
 
 .search-submit-btn:hover {
@@ -704,13 +704,13 @@ img {
 .btn-primary {
   background: linear-gradient(135deg, var(--primary-saffron), var(--primary-saffron-light));
   color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(230, 81, 0, 0.28);
+  box-shadow: 0 3px 10px rgba(217, 92, 20, 0.22);
 }
 
 .btn-primary:hover {
   background: var(--primary-saffron-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(230, 81, 0, 0.35);
+  box-shadow: 0 5px 14px rgba(217, 92, 20, 0.28);
 }
 
 .btn-primary:active {
@@ -912,7 +912,7 @@ img {
 }
 
 .card-slider-dot.active {
-  background: #FDE68A;
+  background: var(--accent-gold);
   width: 14px;
   border-radius: 4px;
 }
@@ -922,17 +922,19 @@ img {
   bottom: 26px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(122, 12, 26, 0.88);
-  color: #FDE68A;
+  background: rgba(122, 18, 36, 0.90);
+  color: var(--accent-gold-light);
+  border: 1px solid rgba(197, 160, 89, 0.35);
   font-size: 9.5px;
   font-weight: 700;
-  padding: 2px 8px;
+  padding: 2.5px 9px;
   border-radius: 10px;
   pointer-events: none;
   z-index: 4;
   white-space: nowrap;
-  letter-spacing: 0.2px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.22);
+  backdrop-filter: blur(4px);
   transition: opacity 0.3s ease;
 }
 
@@ -1157,8 +1159,8 @@ img {
 }
 
 .hero-banner-card {
-  background: linear-gradient(135deg, #42060D 0%, #680E1B 45%, #921727 100%);
-  border: 2px solid var(--accent-gold);
+  background: linear-gradient(135deg, var(--primary-maroon-dark) 0%, var(--primary-maroon) 50%, var(--primary-maroon-light) 100%);
+  border: 1.5px solid rgba(197, 160, 89, 0.45);
   border-radius: var(--radius-lg);
   padding: 48px;
   color: #FFFFFF;
@@ -1840,7 +1842,7 @@ img {
   background-color: var(--primary-saffron);
   border-color: var(--primary-saffron);
   color: #FFFFFF;
-  box-shadow: 0 0 0 4px rgba(230, 81, 0, 0.2);
+  box-shadow: 0 0 0 4px rgba(217, 92, 20, 0.18);
 }
 
 /* ==========================================================================
@@ -2474,8 +2476,8 @@ img {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, #5C0612, #8E1526);
-  color: #F4B41A;
+  background: linear-gradient(135deg, var(--primary-maroon-dark), var(--primary-maroon));
+  color: var(--accent-gold);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2791,12 +2793,12 @@ img {
    HYDERABAD VEDIC PANCHANGAM TICKER
 =================================================== */
 .hyderabad-panchangam-ticker {
-  background: linear-gradient(135deg, #3A050B, #5C0612);
-  border: 1px solid var(--accent-gold);
+  background: linear-gradient(135deg, var(--primary-maroon-dark), var(--primary-maroon));
+  border: 1px solid rgba(197, 160, 89, 0.35);
   border-radius: var(--radius-md);
   padding: 12px 14px;
   margin: 12px 0 16px 0;
-  box-shadow: 0 4px 12px rgba(92, 6, 18, 0.15);
+  box-shadow: 0 4px 12px rgba(122, 18, 36, 0.12);
   color: #FFF;
 }
 
@@ -3119,7 +3121,7 @@ body.mobile-app-body {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: rgba(230, 81, 0, 0.12);
+  background: rgba(217, 92, 20, 0.10);
   color: var(--primary-saffron);
   font-size: 11px;
   font-weight: 700;
@@ -3227,7 +3229,7 @@ body.mobile-app-body {
   border-color: var(--primary-saffron);
   background: #FFF;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(230, 81, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(217, 92, 20, 0.16);
   color: var(--primary-saffron);
 }
 
@@ -5258,8 +5260,8 @@ body.mobile-app-body {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  border: 1px solid #F59E0B;
-  background: #3F020A;
+  border: 1px solid var(--accent-gold);
+  background: var(--primary-maroon-dark);
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -5492,15 +5494,15 @@ body.mobile-app-body {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(135deg, #5C0612 0%, #7E1220 50%, #B45309 100%);
+  background: linear-gradient(135deg, var(--primary-maroon-dark) 0%, var(--primary-maroon) 50%, var(--primary-saffron) 100%);
   color: #FFF;
-  border: 1.5px solid #F59E0B;
+  border: 1.5px solid var(--accent-gold);
   border-radius: 10px;
   padding: 13px 20px;
   font-size: 14.5px;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(92, 6, 18, 0.35);
+  box-shadow: 0 4px 14px rgba(122, 18, 36, 0.25);
   transition: transform 0.15s ease, filter 0.15s ease;
 }
 .btn-modal-install-primary:hover {
@@ -5565,7 +5567,7 @@ body.mobile-app-body {
   outline: none;
 }
 .btn-notify-submit {
-  background: #5C0612;
+  background: var(--primary-maroon);
   color: #FFF;
   border: none;
   padding: 9px 14px;
@@ -5575,7 +5577,7 @@ body.mobile-app-body {
   transition: background 0.15s ease;
 }
 .btn-notify-submit:hover {
-  background: #7E1220;
+  background: var(--primary-maroon-light);
 }
 .notify-feedback {
   font-size: 11.5px;
