@@ -4,3 +4,4 @@ node_modules/
 .DS_Store
 *.log
 7HILLS WEBSITE FOR STOCK ITEMS/
+__pycache__/

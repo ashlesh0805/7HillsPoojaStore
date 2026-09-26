@@ -5180,7 +5180,7 @@ window.PRODUCTS = [
       "product_130",
       "product_131",
       "product_132",
-      "matti_pramidalu"
+      "stock_product_1"
     ]
   },
   {
@@ -5218,8 +5218,8 @@ window.PRODUCTS = [
     "relatedIds": [
       "product_131",
       "product_132",
-      "matti_pramidalu",
-      "product_1"
+      "stock_product_1",
+      "stock_product_2"
     ]
   },
   {
@@ -5259,9 +5259,9 @@ window.PRODUCTS = [
     "ritualUsage": "Burn in holder during evening aarti.",
     "relatedIds": [
       "product_132",
-      "matti_pramidalu",
-      "product_1",
-      "product_2"
+      "stock_product_1",
+      "stock_product_2",
+      "stock_product_3"
     ]
   },
   {
@@ -5297,6 +5297,8091 @@ window.PRODUCTS = [
       "Recommended Care": "Store in cool, dry place away from direct moisture."
     },
     "ritualUsage": "Place a few crystals of Bhimseni camphor on heating plate, plug in and switch ON.",
+    "relatedIds": [
+      "stock_product_1",
+      "stock_product_2",
+      "stock_product_3",
+      "stock_product_4"
+    ]
+  },
+  {
+    "id": "stock_product_1",
+    "title": "Product 1 / Product 1",
+    "english_title": "Product 1",
+    "telugu_title": "Product 1",
+    "original_title": "Product 1",
+    "image": "IMAGE (1).JPG",
+    "images": [
+      "IMAGE (1).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 589,
+    "mrp": 700,
+    "discount": 16,
+    "rating": 4.4,
+    "reviewCount": 31,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Brass Ganesha Pendant/Idol created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "9 cm x 7 cm",
+      "Net Weight": "175 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_2",
+      "stock_product_3",
+      "stock_product_4",
+      "stock_product_5"
+    ]
+  },
+  {
+    "id": "stock_product_2",
+    "title": "Product 2 / Product 2",
+    "english_title": "Product 2",
+    "telugu_title": "Product 2",
+    "original_title": "Product 2",
+    "image": "IMAGE (2).JPG",
+    "images": [
+      "IMAGE (2).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 669,
+    "mrp": 810,
+    "discount": 17,
+    "rating": 4.5,
+    "reviewCount": 44,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Brass Ganesha Pendant/Idol. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "10 cm x 8 cm",
+      "Net Weight": "200 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_3",
+      "stock_product_4",
+      "stock_product_5",
+      "stock_product_6"
+    ]
+  },
+  {
+    "id": "stock_product_3",
+    "title": "Product 3 / Product 3",
+    "english_title": "Product 3",
+    "telugu_title": "Product 3",
+    "original_title": "Product 3",
+    "image": "IMAGE (3).JPG",
+    "images": [
+      "IMAGE (3).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 759,
+    "mrp": 930,
+    "discount": 18,
+    "rating": 4.6,
+    "reviewCount": 57,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Silver Circular Coin/Medallion with Lakshmi Ganesha with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "11 cm x 9 cm",
+      "Net Weight": "225 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_4",
+      "stock_product_5",
+      "stock_product_6",
+      "stock_product_7"
+    ]
+  },
+  {
+    "id": "stock_product_4",
+    "title": "Product 4 / Product 4",
+    "english_title": "Product 4",
+    "telugu_title": "Product 4",
+    "original_title": "Product 4",
+    "image": "IMAGE (4).JPG",
+    "images": [
+      "IMAGE (4).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 219,
+    "mrp": 270,
+    "discount": 19,
+    "rating": 4.7,
+    "reviewCount": 70,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Trending",
+    "description": "Authentic sacred Silver Leaf-shaped Coin/Pendant handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "12 cm x 10 cm",
+      "Net Weight": "250 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_5",
+      "stock_product_6",
+      "stock_product_7",
+      "stock_product_8"
+    ]
+  },
+  {
+    "id": "stock_product_5",
+    "title": "Product 5 / Product 5",
+    "english_title": "Product 5",
+    "telugu_title": "Product 5",
+    "original_title": "Product 5",
+    "image": "IMAGE (5).JPG",
+    "images": [
+      "IMAGE (5).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 239,
+    "mrp": 300,
+    "discount": 20,
+    "rating": 4.8,
+    "reviewCount": 83,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Silver Round Coin/Pendant created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "13 cm x 11 cm",
+      "Net Weight": "275 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_6",
+      "stock_product_7",
+      "stock_product_8",
+      "stock_product_9"
+    ]
+  },
+  {
+    "id": "stock_product_6",
+    "title": "Product 6 / Product 6",
+    "english_title": "Product 6",
+    "telugu_title": "Product 6",
+    "original_title": "Product 6",
+    "image": "IMAGE (6).JPG",
+    "images": [
+      "IMAGE (6).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 339,
+    "mrp": 430,
+    "discount": 21,
+    "rating": 4.9,
+    "reviewCount": 96,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Silver V-shaped Namam Marks (Pair). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "14 cm x 12 cm",
+      "Net Weight": "300 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_7",
+      "stock_product_8",
+      "stock_product_9",
+      "stock_product_10"
+    ]
+  },
+  {
+    "id": "stock_product_7",
+    "title": "Product 7 / Product 7",
+    "english_title": "Product 7",
+    "telugu_title": "Product 7",
+    "original_title": "Product 7",
+    "image": "IMAGE (7).JPG",
+    "images": [
+      "IMAGE (7).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 369,
+    "mrp": 470,
+    "discount": 22,
+    "rating": 4.3,
+    "reviewCount": 109,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Authentic",
+    "description": "Hand-finished Silver V-shaped Namam Marks (Set of 3) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "15 cm x 13 cm",
+      "Net Weight": "325 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_8",
+      "stock_product_9",
+      "stock_product_10",
+      "stock_product_11"
+    ]
+  },
+  {
+    "id": "stock_product_8",
+    "title": "Product 8 / Product 8",
+    "english_title": "Product 8",
+    "telugu_title": "Product 8",
+    "original_title": "Product 8",
+    "image": "IMAGE (8).JPG",
+    "images": [
+      "IMAGE (8).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1199,
+    "mrp": 1560,
+    "discount": 23,
+    "rating": 4.4,
+    "reviewCount": 122,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Authentic",
+    "description": "Authentic sacred Silver Idol Eyes (Nethram) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "16 cm x 14 cm",
+      "Net Weight": "350 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_9",
+      "stock_product_10",
+      "stock_product_11",
+      "stock_product_12"
+    ]
+  },
+  {
+    "id": "stock_product_9",
+    "title": "Product 9 / Product 9",
+    "english_title": "Product 9",
+    "telugu_title": "Product 9",
+    "original_title": "Product 9",
+    "image": "IMAGE (9).JPG",
+    "images": [
+      "IMAGE (9).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1279,
+    "mrp": 1680,
+    "discount": 24,
+    "rating": 4.5,
+    "reviewCount": 135,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Silver Idol Eyes and Moustache Set created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "17 cm x 15 cm",
+      "Net Weight": "375 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_10",
+      "stock_product_11",
+      "stock_product_12",
+      "stock_product_13"
+    ]
+  },
+  {
+    "id": "stock_product_10",
+    "title": "Product 10 / Product 10",
+    "english_title": "Product 10",
+    "telugu_title": "Product 10",
+    "original_title": "Product 10",
+    "image": "IMAGE (10).JPG",
+    "images": [
+      "IMAGE (10).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 389,
+    "mrp": 520,
+    "discount": 25,
+    "rating": 4.6,
+    "reviewCount": 148,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Silver Pooja Decoration Pins. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "18 cm x 6 cm",
+      "Net Weight": "400 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_11",
+      "stock_product_12",
+      "stock_product_13",
+      "stock_product_14"
+    ]
+  },
+  {
+    "id": "stock_product_11",
+    "title": "Product 11 / Product 11",
+    "english_title": "Product 11",
+    "telugu_title": "Product 11",
+    "original_title": "Product 11",
+    "image": "IMAGE (11).JPG",
+    "images": [
+      "IMAGE (11).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 489,
+    "mrp": 660,
+    "discount": 26,
+    "rating": 4.7,
+    "reviewCount": 161,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Silver U-shaped Namam Marks with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "19 cm x 7 cm",
+      "Net Weight": "425 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_12",
+      "stock_product_13",
+      "stock_product_14",
+      "stock_product_15"
+    ]
+  },
+  {
+    "id": "stock_product_12",
+    "title": "Product 12 / Product 12",
+    "english_title": "Product 12",
+    "telugu_title": "Product 12",
+    "original_title": "Product 12",
+    "image": "IMAGE (12).JPG",
+    "images": [
+      "IMAGE (12).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 519,
+    "mrp": 710,
+    "discount": 27,
+    "rating": 4.8,
+    "reviewCount": 174,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Trending",
+    "description": "Authentic sacred Silver U-shaped Namam Marks handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "20 cm x 8 cm",
+      "Net Weight": "450 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_13",
+      "stock_product_14",
+      "stock_product_15",
+      "stock_product_16"
+    ]
+  },
+  {
+    "id": "stock_product_13",
+    "title": "Product 13 / Product 13",
+    "english_title": "Product 13",
+    "telugu_title": "Product 13",
+    "original_title": "Product 13",
+    "image": "IMAGE (13).JPG",
+    "images": [
+      "IMAGE (13).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 549,
+    "mrp": 760,
+    "discount": 28,
+    "rating": 4.9,
+    "reviewCount": 187,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Silver U-shaped Namam Marks created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "21 cm x 9 cm",
+      "Net Weight": "475 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_14",
+      "stock_product_15",
+      "stock_product_16",
+      "stock_product_17"
+    ]
+  },
+  {
+    "id": "stock_product_14",
+    "title": "Product 14 / Product 14",
+    "english_title": "Product 14",
+    "telugu_title": "Product 14",
+    "original_title": "Product 14",
+    "image": "IMAGE (14).JPG",
+    "images": [
+      "IMAGE (14).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 159,
+    "mrp": 220,
+    "discount": 29,
+    "rating": 4.3,
+    "reviewCount": 200,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Pooja Kit Box (Combo). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "22 cm x 10 cm",
+      "Net Weight": "500 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_15",
+      "stock_product_16",
+      "stock_product_17",
+      "stock_product_18"
+    ]
+  },
+  {
+    "id": "stock_product_15",
+    "title": "Product 15 / Product 15",
+    "english_title": "Product 15",
+    "telugu_title": "Product 15",
+    "original_title": "Product 15",
+    "image": "IMAGE (15).JPG",
+    "images": [
+      "IMAGE (15).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 179,
+    "mrp": 260,
+    "discount": 30,
+    "rating": 4.4,
+    "reviewCount": 213,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Authentic",
+    "description": "Hand-finished Pooja Kit Box (Combo) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "8 cm x 11 cm",
+      "Net Weight": "525 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_16",
+      "stock_product_17",
+      "stock_product_18",
+      "stock_product_19"
+    ]
+  },
+  {
+    "id": "stock_product_16",
+    "title": "Product 16 / Product 16",
+    "english_title": "Product 16",
+    "telugu_title": "Product 16",
+    "original_title": "Product 16",
+    "image": "IMAGE (16).JPG",
+    "images": [
+      "IMAGE (16).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 209,
+    "mrp": 300,
+    "discount": 31,
+    "rating": 4.5,
+    "reviewCount": 226,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Authentic",
+    "description": "Authentic sacred Silver Surya (Sun) Coins handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "9 cm x 12 cm",
+      "Net Weight": "550 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_17",
+      "stock_product_18",
+      "stock_product_19",
+      "stock_product_20"
+    ]
+  },
+  {
+    "id": "stock_product_17",
+    "title": "Product 17 / Product 17",
+    "english_title": "Product 17",
+    "telugu_title": "Product 17",
+    "original_title": "Product 17",
+    "image": "IMAGE (17).JPG",
+    "images": [
+      "IMAGE (17).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1439,
+    "mrp": 2120,
+    "discount": 32,
+    "rating": 4.6,
+    "reviewCount": 239,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Silver Rectangular Deity Plates created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "10 cm x 13 cm",
+      "Net Weight": "575 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_18",
+      "stock_product_19",
+      "stock_product_20",
+      "stock_product_21"
+    ]
+  },
+  {
+    "id": "stock_product_18",
+    "title": "Product 18 / Product 18",
+    "english_title": "Product 18",
+    "telugu_title": "Product 18",
+    "original_title": "Product 18",
+    "image": "IMAGE (18).JPG",
+    "images": [
+      "IMAGE (18).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 269,
+    "mrp": 400,
+    "discount": 33,
+    "rating": 4.7,
+    "reviewCount": 252,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Silver Trishul (Trident) on Rod. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "11 cm x 14 cm",
+      "Net Weight": "600 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_19",
+      "stock_product_20",
+      "stock_product_21",
+      "stock_product_22"
+    ]
+  },
+  {
+    "id": "stock_product_19",
+    "title": "Product 19 / Product 19",
+    "english_title": "Product 19",
+    "telugu_title": "Product 19",
+    "original_title": "Product 19",
+    "image": "IMAGE (19).JPG",
+    "images": [
+      "IMAGE (19).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 299,
+    "mrp": 450,
+    "discount": 34,
+    "rating": 4.8,
+    "reviewCount": 265,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Silver Trishul (Trident) on Rod with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "12 cm x 15 cm",
+      "Net Weight": "625 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_20",
+      "stock_product_21",
+      "stock_product_22",
+      "stock_product_23"
+    ]
+  },
+  {
+    "id": "stock_product_20",
+    "title": "Product 20 / Product 20",
+    "english_title": "Product 20",
+    "telugu_title": "Product 20",
+    "original_title": "Product 20",
+    "image": "IMAGE (20).JPG",
+    "images": [
+      "IMAGE (20).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 329,
+    "mrp": 510,
+    "discount": 35,
+    "rating": 4.9,
+    "reviewCount": 278,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Trending",
+    "description": "Authentic sacred Golden Rectangular Deity Coins handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "13 cm x 6 cm",
+      "Net Weight": "650 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_21",
+      "stock_product_22",
+      "stock_product_23",
+      "stock_product_24"
+    ]
+  },
+  {
+    "id": "stock_product_21",
+    "title": "Product 21 / Product 21",
+    "english_title": "Product 21",
+    "telugu_title": "Product 21",
+    "original_title": "Product 21",
+    "image": "IMAGE (21).JPG",
+    "images": [
+      "IMAGE (21).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1709,
+    "mrp": 2670,
+    "discount": 36,
+    "rating": 4.3,
+    "reviewCount": 291,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Metal Square Deity Plates (Set of 6) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "14 cm x 7 cm",
+      "Net Weight": "675 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_22",
+      "stock_product_23",
+      "stock_product_24",
+      "stock_product_25"
+    ]
+  },
+  {
+    "id": "stock_product_22",
+    "title": "Product 22 / Product 22",
+    "english_title": "Product 22",
+    "telugu_title": "Product 22",
+    "original_title": "Product 22",
+    "image": "IMAGE (22).JPG",
+    "images": [
+      "IMAGE (22).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 249,
+    "mrp": 400,
+    "discount": 37,
+    "rating": 4.4,
+    "reviewCount": 24,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Brass Hanging Lamp Chain. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "15 cm x 8 cm",
+      "Net Weight": "700 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_23",
+      "stock_product_24",
+      "stock_product_25",
+      "stock_product_26"
+    ]
+  },
+  {
+    "id": "stock_product_23",
+    "title": "Product 23 / Product 23",
+    "english_title": "Product 23",
+    "telugu_title": "Product 23",
+    "original_title": "Product 23",
+    "image": "IMAGE (23).JPG",
+    "images": [
+      "IMAGE (23).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1839,
+    "mrp": 2970,
+    "discount": 38,
+    "rating": 4.5,
+    "reviewCount": 37,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Authentic",
+    "description": "Hand-finished Small Metal Hanging Bell with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "16 cm x 9 cm",
+      "Net Weight": "725 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_24",
+      "stock_product_25",
+      "stock_product_26",
+      "stock_product_27"
+    ]
+  },
+  {
+    "id": "stock_product_24",
+    "title": "Product 24 / Product 24",
+    "english_title": "Product 24",
+    "telugu_title": "Product 24",
+    "original_title": "Product 24",
+    "image": "IMAGE (24).JPG",
+    "images": [
+      "IMAGE (24).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 329,
+    "mrp": 540,
+    "discount": 39,
+    "rating": 4.6,
+    "reviewCount": 50,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Authentic",
+    "description": "Authentic sacred Brass Hanging Lamp Chains (Set) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "17 cm x 10 cm",
+      "Net Weight": "750 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_25",
+      "stock_product_26",
+      "stock_product_27",
+      "stock_product_28"
+    ]
+  },
+  {
+    "id": "stock_product_25",
+    "title": "Product 25 / Product 25",
+    "english_title": "Product 25",
+    "telugu_title": "Product 25",
+    "original_title": "Product 25",
+    "image": "IMAGE (25).JPG",
+    "images": [
+      "IMAGE (25).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 469,
+    "mrp": 550,
+    "discount": 15,
+    "rating": 4.7,
+    "reviewCount": 63,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Circular Metal Bell Stand/Frame created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "18 cm x 11 cm",
+      "Net Weight": "775 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_26",
+      "stock_product_27",
+      "stock_product_28",
+      "stock_product_29"
+    ]
+  },
+  {
+    "id": "stock_product_26",
+    "title": "Product 26 / Product 26",
+    "english_title": "Product 26",
+    "telugu_title": "Product 26",
+    "original_title": "Product 26",
+    "image": "IMAGE (26).JPG",
+    "images": [
+      "IMAGE (26).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 2759,
+    "mrp": 3280,
+    "discount": 16,
+    "rating": 4.8,
+    "reviewCount": 76,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Gold-toned Round Coins (Lakshmi). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "19 cm x 12 cm",
+      "Net Weight": "800 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_27",
+      "stock_product_28",
+      "stock_product_29",
+      "stock_product_30"
+    ]
+  },
+  {
+    "id": "stock_product_27",
+    "title": "Product 27 / Product 27",
+    "english_title": "Product 27",
+    "telugu_title": "Product 27",
+    "original_title": "Product 27",
+    "image": "IMAGE (27).JPG",
+    "images": [
+      "IMAGE (27).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 2849,
+    "mrp": 3430,
+    "discount": 17,
+    "rating": 4.9,
+    "reviewCount": 89,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Silver Elephant Idol (Standing) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "20 cm x 13 cm",
+      "Net Weight": "825 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_28",
+      "stock_product_29",
+      "stock_product_30",
+      "stock_product_31"
+    ]
+  },
+  {
+    "id": "stock_product_28",
+    "title": "Product 28 / Product 28",
+    "english_title": "Product 28",
+    "telugu_title": "Product 28",
+    "original_title": "Product 28",
+    "image": "IMAGE (28).JPG",
+    "images": [
+      "IMAGE (28).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 2939,
+    "mrp": 3580,
+    "discount": 18,
+    "rating": 4.3,
+    "reviewCount": 102,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Trending",
+    "description": "Authentic sacred Silver Elephant Idol (Standing) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "21 cm x 14 cm",
+      "Net Weight": "850 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_29",
+      "stock_product_30",
+      "stock_product_31",
+      "stock_product_32"
+    ]
+  },
+  {
+    "id": "stock_product_29",
+    "title": "Product 29 / Product 29",
+    "english_title": "Product 29",
+    "telugu_title": "Product 29",
+    "original_title": "Product 29",
+    "image": "IMAGE (29).JPG",
+    "images": [
+      "IMAGE (29).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 539,
+    "mrp": 670,
+    "discount": 19,
+    "rating": 4.4,
+    "reviewCount": 115,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Large White Shankh (Conch Shell) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "22 cm x 15 cm",
+      "Net Weight": "875 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_30",
+      "stock_product_31",
+      "stock_product_32",
+      "stock_product_33"
+    ]
+  },
+  {
+    "id": "stock_product_30",
+    "title": "Product 30 / Product 30",
+    "english_title": "Product 30",
+    "telugu_title": "Product 30",
+    "original_title": "Product 30",
+    "image": "IMAGE (30).JPG",
+    "images": [
+      "IMAGE (30).JPG"
+    ],
+    "category": "Wooden Pooja Mandirs",
+    "categoryId": "wooden-mandirs",
+    "categoryIcon": "mandirs",
+    "price": 6489,
+    "mrp": 8110,
+    "discount": 20,
+    "rating": 4.5,
+    "reviewCount": 128,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Miniature Silver Mandir (Temple). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Treated Sheesham Wood & Brass Accents",
+      "Dimensions (approx)": "8 cm x 6 cm",
+      "Net Weight": "900 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_31",
+      "stock_product_32",
+      "stock_product_33",
+      "stock_product_34"
+    ]
+  },
+  {
+    "id": "stock_product_31",
+    "title": "Product 31 / Product 31",
+    "english_title": "Product 31",
+    "telugu_title": "Product 31",
+    "original_title": "Product 31",
+    "image": "IMAGE (31).JPG",
+    "images": [
+      "IMAGE (31).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 679,
+    "mrp": 860,
+    "discount": 21,
+    "rating": 4.6,
+    "reviewCount": 141,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Authentic",
+    "description": "Hand-finished Silver Deity Card/Plate with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "9 cm x 7 cm",
+      "Net Weight": "925 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_32",
+      "stock_product_33",
+      "stock_product_34",
+      "stock_product_35"
+    ]
+  },
+  {
+    "id": "stock_product_32",
+    "title": "Product 32 / Product 32",
+    "english_title": "Product 32",
+    "telugu_title": "Product 32",
+    "original_title": "Product 32",
+    "image": "IMAGE (32).JPG",
+    "images": [
+      "IMAGE (32).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 739,
+    "mrp": 950,
+    "discount": 22,
+    "rating": 4.7,
+    "reviewCount": 154,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Authentic",
+    "description": "Authentic sacred Small White Shankh (Conch Shell) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "10 cm x 8 cm",
+      "Net Weight": "950 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_33",
+      "stock_product_34",
+      "stock_product_35",
+      "stock_product_36"
+    ]
+  },
+  {
+    "id": "stock_product_33",
+    "title": "Product 33 / Product 33",
+    "english_title": "Product 33",
+    "telugu_title": "Product 33",
+    "original_title": "Product 33",
+    "image": "IMAGE (33).JPG",
+    "images": [
+      "IMAGE (33).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 359,
+    "mrp": 470,
+    "discount": 23,
+    "rating": 4.8,
+    "reviewCount": 167,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Golden Pig Figurine (Feng Shui) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "11 cm x 9 cm",
+      "Net Weight": "975 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_34",
+      "stock_product_35",
+      "stock_product_36",
+      "stock_product_37"
+    ]
+  },
+  {
+    "id": "stock_product_34",
+    "title": "Product 34 / Product 34",
+    "english_title": "Product 34",
+    "telugu_title": "Product 34",
+    "original_title": "Product 34",
+    "image": "IMAGE (34).JPG",
+    "images": [
+      "IMAGE (34).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 879,
+    "mrp": 1160,
+    "discount": 24,
+    "rating": 4.9,
+    "reviewCount": 180,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Silver Yantra Plate (Circular). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "12 cm x 10 cm",
+      "Net Weight": "1000 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_35",
+      "stock_product_36",
+      "stock_product_37",
+      "stock_product_38"
+    ]
+  },
+  {
+    "id": "stock_product_35",
+    "title": "Product 35 / Product 35",
+    "english_title": "Product 35",
+    "telugu_title": "Product 35",
+    "original_title": "Product 35",
+    "image": "IMAGE (35).JPG",
+    "images": [
+      "IMAGE (35).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3539,
+    "mrp": 4720,
+    "discount": 25,
+    "rating": 4.3,
+    "reviewCount": 193,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Lakshmi Ganesha Acrylic Frame with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "13 cm x 11 cm",
+      "Net Weight": "1025 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_36",
+      "stock_product_37",
+      "stock_product_38",
+      "stock_product_39"
+    ]
+  },
+  {
+    "id": "stock_product_36",
+    "title": "Product 36 / Product 36",
+    "english_title": "Product 36",
+    "telugu_title": "Product 36",
+    "original_title": "Product 36",
+    "image": "IMAGE (36).JPG",
+    "images": [
+      "IMAGE (36).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3629,
+    "mrp": 4900,
+    "discount": 26,
+    "rating": 4.4,
+    "reviewCount": 206,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Trending",
+    "description": "Authentic sacred Brass Laughing Buddha handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "14 cm x 12 cm",
+      "Net Weight": "1050 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_37",
+      "stock_product_38",
+      "stock_product_39",
+      "stock_product_40"
+    ]
+  },
+  {
+    "id": "stock_product_37",
+    "title": "Product 37 / Product 37",
+    "english_title": "Product 37",
+    "telugu_title": "Product 37",
+    "original_title": "Product 37",
+    "image": "IMAGE (37).JPG",
+    "images": [
+      "IMAGE (37).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3719,
+    "mrp": 5090,
+    "discount": 27,
+    "rating": 4.5,
+    "reviewCount": 219,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Brass Laughing Buddha created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "15 cm x 13 cm",
+      "Net Weight": "1075 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_38",
+      "stock_product_39",
+      "stock_product_40",
+      "stock_product_41"
+    ]
+  },
+  {
+    "id": "stock_product_38",
+    "title": "Product 38 / Product 38",
+    "english_title": "Product 38",
+    "telugu_title": "Product 38",
+    "original_title": "Product 38",
+    "image": "IMAGE (38).JPG",
+    "images": [
+      "IMAGE (38).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 929,
+    "mrp": 1290,
+    "discount": 28,
+    "rating": 4.6,
+    "reviewCount": 232,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Ornamental Brass Hanging Diya with Blue Stone Inlays. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "16 cm x 14 cm",
+      "Net Weight": "1100 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_39",
+      "stock_product_40",
+      "stock_product_41",
+      "stock_product_42"
+    ]
+  },
+  {
+    "id": "stock_product_39",
+    "title": "Product 39 / Product 39",
+    "english_title": "Product 39",
+    "telugu_title": "Product 39",
+    "original_title": "Product 39",
+    "image": "IMAGE (39).JPG",
+    "images": [
+      "IMAGE (39).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 979,
+    "mrp": 1380,
+    "discount": 29,
+    "rating": 4.7,
+    "reviewCount": 245,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Authentic",
+    "description": "Hand-finished Ornamental Brass Diya (Close-up) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "17 cm x 15 cm",
+      "Net Weight": "1125 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_40",
+      "stock_product_41",
+      "stock_product_42",
+      "stock_product_43"
+    ]
+  },
+  {
+    "id": "stock_product_40",
+    "title": "Product 40 / Product 40",
+    "english_title": "Product 40",
+    "telugu_title": "Product 40",
+    "original_title": "Product 40",
+    "image": "IMAGE (40).JPG",
+    "images": [
+      "IMAGE (40).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 169,
+    "mrp": 240,
+    "discount": 30,
+    "rating": 4.8,
+    "reviewCount": 258,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Authentic",
+    "description": "Authentic sacred Decorative Brass Diya (Peacock/Floral design) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "18 cm x 6 cm",
+      "Net Weight": "1150 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_41",
+      "stock_product_42",
+      "stock_product_43",
+      "stock_product_44"
+    ]
+  },
+  {
+    "id": "stock_product_41",
+    "title": "Product 41 / Product 41",
+    "english_title": "Product 41",
+    "telugu_title": "Product 41",
+    "original_title": "Product 41",
+    "image": "IMAGE (41).JPG",
+    "images": [
+      "IMAGE (41).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 209,
+    "mrp": 300,
+    "discount": 31,
+    "rating": 4.9,
+    "reviewCount": 271,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Large Brass Hanging Diya (Prabhavali style) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "19 cm x 7 cm",
+      "Net Weight": "1175 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_42",
+      "stock_product_43",
+      "stock_product_44",
+      "stock_product_45"
+    ]
+  },
+  {
+    "id": "stock_product_42",
+    "title": "Product 42 / Product 42",
+    "english_title": "Product 42",
+    "telugu_title": "Product 42",
+    "original_title": "Product 42",
+    "image": "IMAGE (42).JPG",
+    "images": [
+      "IMAGE (42).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 259,
+    "mrp": 380,
+    "discount": 32,
+    "rating": 4.3,
+    "reviewCount": 284,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Pair of Brass Hanging Lamp Diyas. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "20 cm x 8 cm",
+      "Net Weight": "1200 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_43",
+      "stock_product_44",
+      "stock_product_45",
+      "stock_product_46"
+    ]
+  },
+  {
+    "id": "stock_product_43",
+    "title": "Product 43 / Product 43",
+    "english_title": "Product 43",
+    "telugu_title": "Product 43",
+    "original_title": "Product 43",
+    "image": "IMAGE (43).JPG",
+    "images": [
+      "IMAGE (43).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 299,
+    "mrp": 450,
+    "discount": 33,
+    "rating": 4.4,
+    "reviewCount": 297,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Brass Diya with Prabhavali Backplate with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "21 cm x 9 cm",
+      "Net Weight": "1225 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_44",
+      "stock_product_45",
+      "stock_product_46",
+      "stock_product_47"
+    ]
+  },
+  {
+    "id": "stock_product_44",
+    "title": "Product 44 / Product 44",
+    "english_title": "Product 44",
+    "telugu_title": "Product 44",
+    "original_title": "Product 44",
+    "image": "IMAGE (44).JPG",
+    "images": [
+      "IMAGE (44).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 339,
+    "mrp": 510,
+    "discount": 34,
+    "rating": 4.5,
+    "reviewCount": 30,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Trending",
+    "description": "Authentic sacred Brass Diya with Prabhavali Backplate handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "22 cm x 10 cm",
+      "Net Weight": "1250 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_45",
+      "stock_product_46",
+      "stock_product_47",
+      "stock_product_48"
+    ]
+  },
+  {
+    "id": "stock_product_45",
+    "title": "Product 45 / Product 45",
+    "english_title": "Product 45",
+    "telugu_title": "Product 45",
+    "original_title": "Product 45",
+    "image": "IMAGE (45).JPG",
+    "images": [
+      "IMAGE (45).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 379,
+    "mrp": 580,
+    "discount": 35,
+    "rating": 4.6,
+    "reviewCount": 43,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Brass Five-Petal Floral Diya created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "8 cm x 11 cm",
+      "Net Weight": "1275 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_46",
+      "stock_product_47",
+      "stock_product_48",
+      "stock_product_49"
+    ]
+  },
+  {
+    "id": "stock_product_46",
+    "title": "Product 46 / Product 46",
+    "english_title": "Product 46",
+    "telugu_title": "Product 46",
+    "original_title": "Product 46",
+    "image": "IMAGE (46).JPG",
+    "images": [
+      "IMAGE (46).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1679,
+    "mrp": 2620,
+    "discount": 36,
+    "rating": 4.7,
+    "reviewCount": 56,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Brass Stone-studded Decorative Bowl/Box. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "9 cm x 12 cm",
+      "Net Weight": "1300 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_47",
+      "stock_product_48",
+      "stock_product_49",
+      "stock_product_50"
+    ]
+  },
+  {
+    "id": "stock_product_47",
+    "title": "Product 47 / Product 47",
+    "english_title": "Product 47",
+    "telugu_title": "Product 47",
+    "original_title": "Product 47",
+    "image": "IMAGE (47).JPG",
+    "images": [
+      "IMAGE (47).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1089,
+    "mrp": 1730,
+    "discount": 37,
+    "rating": 4.8,
+    "reviewCount": 69,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Authentic",
+    "description": "Hand-finished Brass Standing Deity Idol (Lakshmi) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "10 cm x 13 cm",
+      "Net Weight": "1325 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_48",
+      "stock_product_49",
+      "stock_product_50",
+      "stock_product_51"
+    ]
+  },
+  {
+    "id": "stock_product_48",
+    "title": "Product 48 / Product 48",
+    "english_title": "Product 48",
+    "telugu_title": "Product 48",
+    "original_title": "Product 48",
+    "image": "IMAGE (48).JPG",
+    "images": [
+      "IMAGE (48).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1179,
+    "mrp": 1900,
+    "discount": 38,
+    "rating": 4.9,
+    "reviewCount": 82,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Authentic",
+    "description": "Authentic sacred Brass Lakshmi Ganesha Idol Set handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "11 cm x 14 cm",
+      "Net Weight": "150 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_49",
+      "stock_product_50",
+      "stock_product_51",
+      "stock_product_52"
+    ]
+  },
+  {
+    "id": "stock_product_49",
+    "title": "Product 49 / Product 49",
+    "english_title": "Product 49",
+    "telugu_title": "Product 49",
+    "original_title": "Product 49",
+    "image": "IMAGE (49).JPG",
+    "images": [
+      "IMAGE (49).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1259,
+    "mrp": 2060,
+    "discount": 39,
+    "rating": 4.3,
+    "reviewCount": 95,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Brass Nataraja (Dancing Shiva) Idol created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "12 cm x 15 cm",
+      "Net Weight": "175 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_50",
+      "stock_product_51",
+      "stock_product_52",
+      "stock_product_53"
+    ]
+  },
+  {
+    "id": "stock_product_50",
+    "title": "Product 50 / Product 50",
+    "english_title": "Product 50",
+    "telugu_title": "Product 50",
+    "original_title": "Product 50",
+    "image": "IMAGE (50).JPG",
+    "images": [
+      "IMAGE (50).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1349,
+    "mrp": 1590,
+    "discount": 15,
+    "rating": 4.4,
+    "reviewCount": 108,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Small Brass Seated Ganesha Idol. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "13 cm x 6 cm",
+      "Net Weight": "200 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_51",
+      "stock_product_52",
+      "stock_product_53",
+      "stock_product_54"
+    ]
+  },
+  {
+    "id": "stock_product_51",
+    "title": "Product 51 / Product 51",
+    "english_title": "Product 51",
+    "telugu_title": "Product 51",
+    "original_title": "Product 51",
+    "image": "IMAGE (51).JPG",
+    "images": [
+      "IMAGE (51).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1439,
+    "mrp": 1710,
+    "discount": 16,
+    "rating": 4.5,
+    "reviewCount": 121,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Brass Nandi Idol with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "14 cm x 7 cm",
+      "Net Weight": "225 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_52",
+      "stock_product_53",
+      "stock_product_54",
+      "stock_product_55"
+    ]
+  },
+  {
+    "id": "stock_product_52",
+    "title": "Product 52 / Product 52",
+    "english_title": "Product 52",
+    "telugu_title": "Product 52",
+    "original_title": "Product 52",
+    "image": "IMAGE (52).JPG",
+    "images": [
+      "IMAGE (52).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 409,
+    "mrp": 490,
+    "discount": 17,
+    "rating": 4.6,
+    "reviewCount": 134,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Trending",
+    "description": "Authentic sacred Silver Oxidized Jhula (Swing) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "15 cm x 8 cm",
+      "Net Weight": "250 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_53",
+      "stock_product_54",
+      "stock_product_55",
+      "stock_product_56"
+    ]
+  },
+  {
+    "id": "stock_product_53",
+    "title": "Product 53 / Product 53",
+    "english_title": "Product 53",
+    "telugu_title": "Product 53",
+    "original_title": "Product 53",
+    "image": "IMAGE (53).JPG",
+    "images": [
+      "IMAGE (53).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1609,
+    "mrp": 1960,
+    "discount": 18,
+    "rating": 4.7,
+    "reviewCount": 147,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Silver Ganesha Prabhavali (Decorative Arch) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "16 cm x 9 cm",
+      "Net Weight": "275 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_54",
+      "stock_product_55",
+      "stock_product_56",
+      "stock_product_57"
+    ]
+  },
+  {
+    "id": "stock_product_54",
+    "title": "Product 54 / Product 54",
+    "english_title": "Product 54",
+    "telugu_title": "Product 54",
+    "original_title": "Product 54",
+    "image": "IMAGE (54).JPG",
+    "images": [
+      "IMAGE (54).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 769,
+    "mrp": 950,
+    "discount": 19,
+    "rating": 4.8,
+    "reviewCount": 160,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Brass Square Lantern / Akhand Diya. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "17 cm x 10 cm",
+      "Net Weight": "300 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_55",
+      "stock_product_56",
+      "stock_product_57",
+      "stock_product_58"
+    ]
+  },
+  {
+    "id": "stock_product_55",
+    "title": "Product 55 / Product 55",
+    "english_title": "Product 55",
+    "telugu_title": "Product 55",
+    "original_title": "Product 55",
+    "image": "IMAGE (55).JPG",
+    "images": [
+      "IMAGE (55).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 809,
+    "mrp": 1010,
+    "discount": 20,
+    "rating": 4.9,
+    "reviewCount": 173,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Authentic",
+    "description": "Hand-finished Brass Prabha Diya (Flower Design) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "18 cm x 11 cm",
+      "Net Weight": "325 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_56",
+      "stock_product_57",
+      "stock_product_58",
+      "stock_product_59"
+    ]
+  },
+  {
+    "id": "stock_product_56",
+    "title": "Product 56 / Product 56",
+    "english_title": "Product 56",
+    "telugu_title": "Product 56",
+    "original_title": "Product 56",
+    "image": "IMAGE (56).JPG",
+    "images": [
+      "IMAGE (56).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 859,
+    "mrp": 1090,
+    "discount": 21,
+    "rating": 4.3,
+    "reviewCount": 186,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Authentic",
+    "description": "Authentic sacred Double Circle Brass Diya Pair handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "19 cm x 12 cm",
+      "Net Weight": "350 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_57",
+      "stock_product_58",
+      "stock_product_59",
+      "stock_product_60"
+    ]
+  },
+  {
+    "id": "stock_product_57",
+    "title": "Product 57 / Product 57",
+    "english_title": "Product 57",
+    "telugu_title": "Product 57",
+    "original_title": "Product 57",
+    "image": "IMAGE (57).JPG",
+    "images": [
+      "IMAGE (57).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 899,
+    "mrp": 1150,
+    "discount": 22,
+    "rating": 4.4,
+    "reviewCount": 199,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Peacock Brass Standing Lamps (Pair) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "20 cm x 13 cm",
+      "Net Weight": "375 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_58",
+      "stock_product_59",
+      "stock_product_60",
+      "stock_product_61"
+    ]
+  },
+  {
+    "id": "stock_product_58",
+    "title": "Product 58 / Product 58",
+    "english_title": "Product 58",
+    "telugu_title": "Product 58",
+    "original_title": "Product 58",
+    "image": "IMAGE (58).JPG",
+    "images": [
+      "IMAGE (58).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 939,
+    "mrp": 1220,
+    "discount": 23,
+    "rating": 4.5,
+    "reviewCount": 212,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Small Traditional Brass Diya. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "21 cm x 14 cm",
+      "Net Weight": "400 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_59",
+      "stock_product_60",
+      "stock_product_61",
+      "stock_product_62"
+    ]
+  },
+  {
+    "id": "stock_product_59",
+    "title": "Product 59 / Product 59",
+    "english_title": "Product 59",
+    "telugu_title": "Product 59",
+    "original_title": "Product 59",
+    "image": "IMAGE (59).JPG",
+    "images": [
+      "IMAGE (59).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 849,
+    "mrp": 1120,
+    "discount": 24,
+    "rating": 4.6,
+    "reviewCount": 225,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Small Decorative Brass Kalash / Container with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "22 cm x 15 cm",
+      "Net Weight": "425 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_60",
+      "stock_product_61",
+      "stock_product_62",
+      "stock_product_63"
+    ]
+  },
+  {
+    "id": "stock_product_60",
+    "title": "Product 60 / Product 60",
+    "english_title": "Product 60",
+    "telugu_title": "Product 60",
+    "original_title": "Product 60",
+    "image": "IMAGE (60).JPG",
+    "images": [
+      "IMAGE (60).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 919,
+    "mrp": 1230,
+    "discount": 25,
+    "rating": 4.7,
+    "reviewCount": 238,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Trending",
+    "description": "Authentic sacred Brass Uruli (Traditional Decorative Bowl) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "8 cm x 6 cm",
+      "Net Weight": "450 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_61",
+      "stock_product_62",
+      "stock_product_63",
+      "stock_product_64"
+    ]
+  },
+  {
+    "id": "stock_product_61",
+    "title": "Product 61 / Product 61",
+    "english_title": "Product 61",
+    "telugu_title": "Product 61",
+    "original_title": "Product 61",
+    "image": "IMAGE (61).JPG",
+    "images": [
+      "IMAGE (61).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 989,
+    "mrp": 1340,
+    "discount": 26,
+    "rating": 4.8,
+    "reviewCount": 251,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Copper Ritual Kalash created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "9 cm x 7 cm",
+      "Net Weight": "475 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_62",
+      "stock_product_63",
+      "stock_product_64",
+      "stock_product_65"
+    ]
+  },
+  {
+    "id": "stock_product_62",
+    "title": "Product 62 / Product 62",
+    "english_title": "Product 62",
+    "telugu_title": "Product 62",
+    "original_title": "Product 62",
+    "image": "IMAGE (62).JPG",
+    "images": [
+      "IMAGE (62).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1049,
+    "mrp": 1440,
+    "discount": 27,
+    "rating": 4.9,
+    "reviewCount": 264,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Large Copper Ritual Kalash. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "10 cm x 8 cm",
+      "Net Weight": "500 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_63",
+      "stock_product_64",
+      "stock_product_65",
+      "stock_product_66"
+    ]
+  },
+  {
+    "id": "stock_product_63",
+    "title": "Product 63 / Product 63",
+    "english_title": "Product 63",
+    "telugu_title": "Product 63",
+    "original_title": "Product 63",
+    "image": "IMAGE (63).JPG",
+    "images": [
+      "IMAGE (63).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 179,
+    "mrp": 250,
+    "discount": 28,
+    "rating": 4.3,
+    "reviewCount": 277,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Authentic",
+    "description": "Hand-finished Black Spray Nozzle Cap with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "11 cm x 9 cm",
+      "Net Weight": "525 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_64",
+      "stock_product_65",
+      "stock_product_66",
+      "stock_product_67"
+    ]
+  },
+  {
+    "id": "stock_product_64",
+    "title": "Product 64 / Product 64",
+    "english_title": "Product 64",
+    "telugu_title": "Product 64",
+    "original_title": "Product 64",
+    "image": "IMAGE (64).JPG",
+    "images": [
+      "IMAGE (64).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 209,
+    "mrp": 290,
+    "discount": 29,
+    "rating": 4.4,
+    "reviewCount": 290,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Authentic",
+    "description": "Authentic sacred Transparent Spray Nozzle Cap handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "12 cm x 10 cm",
+      "Net Weight": "550 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_65",
+      "stock_product_66",
+      "stock_product_67",
+      "stock_product_68"
+    ]
+  },
+  {
+    "id": "stock_product_65",
+    "title": "Product 65 / Product 65",
+    "english_title": "Product 65",
+    "telugu_title": "Product 65",
+    "original_title": "Product 65",
+    "image": "IMAGE (65).JPG",
+    "images": [
+      "IMAGE (65).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1249,
+    "mrp": 1780,
+    "discount": 30,
+    "rating": 4.5,
+    "reviewCount": 23,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Brass Shankh (Conch) with Stand created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "13 cm x 11 cm",
+      "Net Weight": "575 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_66",
+      "stock_product_67",
+      "stock_product_68",
+      "stock_product_69"
+    ]
+  },
+  {
+    "id": "stock_product_66",
+    "title": "Product 66 / Product 66",
+    "english_title": "Product 66",
+    "telugu_title": "Product 66",
+    "original_title": "Product 66",
+    "image": "IMAGE (66).JPG",
+    "images": [
+      "IMAGE (66).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 2739,
+    "mrp": 3970,
+    "discount": 31,
+    "rating": 4.6,
+    "reviewCount": 36,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Brass Lakshmi Ganesha Idol. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "14 cm x 12 cm",
+      "Net Weight": "600 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_67",
+      "stock_product_68",
+      "stock_product_69",
+      "stock_product_70"
+    ]
+  },
+  {
+    "id": "stock_product_67",
+    "title": "Product 67 / Product 67",
+    "english_title": "Product 67",
+    "telugu_title": "Product 67",
+    "original_title": "Product 67",
+    "image": "IMAGE (67).JPG",
+    "images": [
+      "IMAGE (67).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 2829,
+    "mrp": 4160,
+    "discount": 32,
+    "rating": 4.7,
+    "reviewCount": 49,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Black Stone-Finish Shiva Family Idol with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "15 cm x 13 cm",
+      "Net Weight": "625 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_68",
+      "stock_product_69",
+      "stock_product_70",
+      "stock_product_71"
+    ]
+  },
+  {
+    "id": "stock_product_68",
+    "title": "Product 68 / Product 68",
+    "english_title": "Product 68",
+    "telugu_title": "Product 68",
+    "original_title": "Product 68",
+    "image": "IMAGE (68).JPG",
+    "images": [
+      "IMAGE (68).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 2919,
+    "mrp": 4360,
+    "discount": 33,
+    "rating": 4.8,
+    "reviewCount": 62,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Trending",
+    "description": "Authentic sacred Crystal Shiva Lingam with Nandi handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "16 cm x 14 cm",
+      "Net Weight": "650 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_69",
+      "stock_product_70",
+      "stock_product_71",
+      "stock_product_72"
+    ]
+  },
+  {
+    "id": "stock_product_69",
+    "title": "Product 69 / Product 69",
+    "english_title": "Product 69",
+    "telugu_title": "Product 69",
+    "original_title": "Product 69",
+    "image": "IMAGE (69).JPG",
+    "images": [
+      "IMAGE (69).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 2999,
+    "mrp": 4540,
+    "discount": 34,
+    "rating": 4.9,
+    "reviewCount": 75,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Small Colorful Ganesha Statue created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "17 cm x 15 cm",
+      "Net Weight": "675 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_70",
+      "stock_product_71",
+      "stock_product_72",
+      "stock_product_73"
+    ]
+  },
+  {
+    "id": "stock_product_70",
+    "title": "Product 70 / Product 70",
+    "english_title": "Product 70",
+    "telugu_title": "Product 70",
+    "original_title": "Product 70",
+    "image": "IMAGE (70).JPG",
+    "images": [
+      "IMAGE (70).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3089,
+    "mrp": 4750,
+    "discount": 35,
+    "rating": 4.3,
+    "reviewCount": 88,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Small Colorful Krishna Statue. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "18 cm x 6 cm",
+      "Net Weight": "700 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_71",
+      "stock_product_72",
+      "stock_product_73",
+      "stock_product_74"
+    ]
+  },
+  {
+    "id": "stock_product_71",
+    "title": "Product 71 / Product 71",
+    "english_title": "Product 71",
+    "telugu_title": "Product 71",
+    "original_title": "Product 71",
+    "image": "IMAGE (71).JPG",
+    "images": [
+      "IMAGE (71).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3179,
+    "mrp": 4970,
+    "discount": 36,
+    "rating": 4.4,
+    "reviewCount": 101,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Authentic",
+    "description": "Hand-finished White Marble-Finish Ganesha Idol with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "19 cm x 7 cm",
+      "Net Weight": "725 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_72",
+      "stock_product_73",
+      "stock_product_74",
+      "stock_product_75"
+    ]
+  },
+  {
+    "id": "stock_product_72",
+    "title": "Product 72 / Product 72",
+    "english_title": "Product 72",
+    "telugu_title": "Product 72",
+    "original_title": "Product 72",
+    "image": "IMAGE (72).JPG",
+    "images": [
+      "IMAGE (72).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 699,
+    "mrp": 1110,
+    "discount": 37,
+    "rating": 4.5,
+    "reviewCount": 114,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Authentic",
+    "description": "Authentic sacred Brass Pancha Aarti Lamp with Handle handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "20 cm x 8 cm",
+      "Net Weight": "750 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_73",
+      "stock_product_74",
+      "stock_product_75",
+      "stock_product_76"
+    ]
+  },
+  {
+    "id": "stock_product_73",
+    "title": "Product 73 / Product 73",
+    "english_title": "Product 73",
+    "telugu_title": "Product 73",
+    "original_title": "Product 73",
+    "image": "IMAGE (73).JPG",
+    "images": [
+      "IMAGE (73).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1789,
+    "mrp": 2890,
+    "discount": 38,
+    "rating": 4.6,
+    "reviewCount": 127,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Red and Gold Meenakari Chowki (Square Table) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "21 cm x 9 cm",
+      "Net Weight": "775 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_74",
+      "stock_product_75",
+      "stock_product_76",
+      "stock_product_77"
+    ]
+  },
+  {
+    "id": "stock_product_74",
+    "title": "Product 74 / Product 74",
+    "english_title": "Product 74",
+    "telugu_title": "Product 74",
+    "original_title": "Product 74",
+    "image": "IMAGE (74).JPG",
+    "images": [
+      "IMAGE (74).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1859,
+    "mrp": 3050,
+    "discount": 39,
+    "rating": 4.7,
+    "reviewCount": 140,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine White and Gold Meenakari Chowki (Square Table). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "22 cm x 10 cm",
+      "Net Weight": "800 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_75",
+      "stock_product_76",
+      "stock_product_77",
+      "stock_product_78"
+    ]
+  },
+  {
+    "id": "stock_product_75",
+    "title": "Product 75 / Product 75",
+    "english_title": "Product 75",
+    "telugu_title": "Product 75",
+    "original_title": "Product 75",
+    "image": "IMAGE (75).JPG",
+    "images": [
+      "IMAGE (75).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1919,
+    "mrp": 2260,
+    "discount": 15,
+    "rating": 4.8,
+    "reviewCount": 153,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Silver Plated Decorative Wall Panel with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "8 cm x 11 cm",
+      "Net Weight": "825 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_76",
+      "stock_product_77",
+      "stock_product_78",
+      "stock_product_79"
+    ]
+  },
+  {
+    "id": "stock_product_76",
+    "title": "Product 76 / Product 76",
+    "english_title": "Product 76",
+    "telugu_title": "Product 76",
+    "original_title": "Product 76",
+    "image": "IMAGE (76).JPG",
+    "images": [
+      "IMAGE (76).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 779,
+    "mrp": 930,
+    "discount": 16,
+    "rating": 4.9,
+    "reviewCount": 166,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Trending",
+    "description": "Authentic sacred Intricately Carved Wooden Decorative Frame handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "9 cm x 12 cm",
+      "Net Weight": "850 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_77",
+      "stock_product_78",
+      "stock_product_79",
+      "stock_product_80"
+    ]
+  },
+  {
+    "id": "stock_product_77",
+    "title": "Product 77 / Product 77",
+    "english_title": "Product 77",
+    "telugu_title": "Product 77",
+    "original_title": "Product 77",
+    "image": "IMAGE (77).JPG",
+    "images": [
+      "IMAGE (77).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 289,
+    "mrp": 350,
+    "discount": 17,
+    "rating": 4.3,
+    "reviewCount": 179,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Traditional Silk Dhoti/Pancha Set (Blue/Purple Border) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "10 cm x 13 cm",
+      "Net Weight": "875 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_78",
+      "stock_product_79",
+      "stock_product_80",
+      "stock_product_81"
+    ]
+  },
+  {
+    "id": "stock_product_78",
+    "title": "Product 78 / Product 78",
+    "english_title": "Product 78",
+    "telugu_title": "Product 78",
+    "original_title": "Product 78",
+    "image": "IMAGE (78).JPG",
+    "images": [
+      "IMAGE (78).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 319,
+    "mrp": 390,
+    "discount": 18,
+    "rating": 4.4,
+    "reviewCount": 192,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Traditional Silk Dhoti/Pancha Set (Green/Pink Border). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "11 cm x 14 cm",
+      "Net Weight": "900 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_79",
+      "stock_product_80",
+      "stock_product_81",
+      "stock_product_82"
+    ]
+  },
+  {
+    "id": "stock_product_79",
+    "title": "Product 79 / Product 79",
+    "english_title": "Product 79",
+    "telugu_title": "Product 79",
+    "original_title": "Product 79",
+    "image": "IMAGE (79).JPG",
+    "images": [
+      "IMAGE (79).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 719,
+    "mrp": 890,
+    "discount": 19,
+    "rating": 4.5,
+    "reviewCount": 205,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Authentic",
+    "description": "Hand-finished Artificial Yellow Marigold & White Jasmine Garland with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "12 cm x 15 cm",
+      "Net Weight": "925 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_80",
+      "stock_product_81",
+      "stock_product_82",
+      "stock_product_83"
+    ]
+  },
+  {
+    "id": "stock_product_80",
+    "title": "Product 80 / Product 80",
+    "english_title": "Product 80",
+    "telugu_title": "Product 80",
+    "original_title": "Product 80",
+    "image": "IMAGE (80).JPG",
+    "images": [
+      "IMAGE (80).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 759,
+    "mrp": 950,
+    "discount": 20,
+    "rating": 4.6,
+    "reviewCount": 218,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Authentic",
+    "description": "Authentic sacred Artificial Yellow & Pink Floral Garland handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "13 cm x 6 cm",
+      "Net Weight": "950 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_81",
+      "stock_product_82",
+      "stock_product_83",
+      "stock_product_84"
+    ]
+  },
+  {
+    "id": "stock_product_81",
+    "title": "Product 81 / Product 81",
+    "english_title": "Product 81",
+    "telugu_title": "Product 81",
+    "original_title": "Product 81",
+    "image": "IMAGE (81).JPG",
+    "images": [
+      "IMAGE (81).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 1029,
+    "mrp": 1300,
+    "discount": 21,
+    "rating": 4.7,
+    "reviewCount": 231,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted LED Illuminated Venkateswara Frame created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "14 cm x 7 cm",
+      "Net Weight": "975 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_82",
+      "stock_product_83",
+      "stock_product_84",
+      "stock_product_85"
+    ]
+  },
+  {
+    "id": "stock_product_82",
+    "title": "Product 82 / Product 82",
+    "english_title": "Product 82",
+    "telugu_title": "Product 82",
+    "original_title": "Product 82",
+    "image": "IMAGE (82).JPG",
+    "images": [
+      "IMAGE (82).JPG",
+      "IMAGE (82)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 439,
+    "mrp": 560,
+    "discount": 22,
+    "rating": 4.8,
+    "reviewCount": 244,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Pair of Floral Decorated LED Deities. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "15 cm x 8 cm",
+      "Net Weight": "1000 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_83",
+      "stock_product_84",
+      "stock_product_85",
+      "stock_product_86"
+    ]
+  },
+  {
+    "id": "stock_product_83",
+    "title": "Product 83 / Product 83",
+    "english_title": "Product 83",
+    "telugu_title": "Product 83",
+    "original_title": "Product 83",
+    "image": "IMAGE (83).JPG",
+    "images": [
+      "IMAGE (83).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 719,
+    "mrp": 930,
+    "discount": 23,
+    "rating": 4.9,
+    "reviewCount": 257,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Venkateswara Swami Mirror-Finish Box Idol with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "16 cm x 9 cm",
+      "Net Weight": "1025 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_84",
+      "stock_product_85",
+      "stock_product_86",
+      "stock_product_87"
+    ]
+  },
+  {
+    "id": "stock_product_84",
+    "title": "Product 84 / Product 84",
+    "english_title": "Product 84",
+    "telugu_title": "Product 84",
+    "original_title": "Product 84",
+    "image": "IMAGE (84).JPG",
+    "images": [
+      "IMAGE (84).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 1179,
+    "mrp": 1550,
+    "discount": 24,
+    "rating": 4.3,
+    "reviewCount": 270,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Trending",
+    "description": "Authentic sacred Venkateswara Swami Gold Leaf Decorative Frame handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "17 cm x 10 cm",
+      "Net Weight": "1050 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_85",
+      "stock_product_86",
+      "stock_product_87",
+      "stock_product_88"
+    ]
+  },
+  {
+    "id": "stock_product_85",
+    "title": "Product 85 / Product 85",
+    "english_title": "Product 85",
+    "telugu_title": "Product 85",
+    "original_title": "Product 85",
+    "image": "IMAGE (85).JPG",
+    "images": [
+      "IMAGE (85).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 529,
+    "mrp": 710,
+    "discount": 25,
+    "rating": 4.4,
+    "reviewCount": 283,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Strings of Artificial White and Yellow Flowers created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "18 cm x 11 cm",
+      "Net Weight": "1075 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_86",
+      "stock_product_87",
+      "stock_product_88",
+      "stock_product_89"
+    ]
+  },
+  {
+    "id": "stock_product_86",
+    "title": "Product 86 / Product 86",
+    "english_title": "Product 86",
+    "telugu_title": "Product 86",
+    "original_title": "Product 86",
+    "image": "IMAGE (86).JPG",
+    "images": [
+      "IMAGE (86).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 379,
+    "mrp": 510,
+    "discount": 26,
+    "rating": 4.5,
+    "reviewCount": 296,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Artificial Yellow Marigold Garlands. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "19 cm x 12 cm",
+      "Net Weight": "1100 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_87",
+      "stock_product_88",
+      "stock_product_89",
+      "stock_product_90"
+    ]
+  },
+  {
+    "id": "stock_product_87",
+    "title": "Product 87 / Product 87",
+    "english_title": "Product 87",
+    "telugu_title": "Product 87",
+    "original_title": "Product 87",
+    "image": "IMAGE (87).JPG",
+    "images": [
+      "IMAGE (87).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 419,
+    "mrp": 570,
+    "discount": 27,
+    "rating": 4.6,
+    "reviewCount": 29,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Authentic",
+    "description": "Hand-finished Artificial Yellow and Green Marigold Garlands with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "20 cm x 13 cm",
+      "Net Weight": "1125 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_88",
+      "stock_product_89",
+      "stock_product_90",
+      "stock_product_91"
+    ]
+  },
+  {
+    "id": "stock_product_88",
+    "title": "Product 88 / Product 88",
+    "english_title": "Product 88",
+    "telugu_title": "Product 88",
+    "original_title": "Product 88",
+    "image": "IMAGE (88).JPG",
+    "images": [
+      "IMAGE (88).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 459,
+    "mrp": 640,
+    "discount": 28,
+    "rating": 4.7,
+    "reviewCount": 42,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Authentic",
+    "description": "Authentic sacred Artificial Red and Pink Flower Garlands handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "21 cm x 14 cm",
+      "Net Weight": "1150 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_89",
+      "stock_product_90",
+      "stock_product_91",
+      "stock_product_92"
+    ]
+  },
+  {
+    "id": "stock_product_89",
+    "title": "Product 89 / Product 89",
+    "english_title": "Product 89",
+    "telugu_title": "Product 89",
+    "original_title": "Product 89",
+    "image": "IMAGE (89).JPG",
+    "images": [
+      "IMAGE (89).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 489,
+    "mrp": 690,
+    "discount": 29,
+    "rating": 4.8,
+    "reviewCount": 55,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Bundle of Artificial Yellow/Orange Marigold Garlands created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "22 cm x 15 cm",
+      "Net Weight": "1175 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_90",
+      "stock_product_91",
+      "stock_product_92",
+      "stock_product_93"
+    ]
+  },
+  {
+    "id": "stock_product_90",
+    "title": "Product 90 / Product 90",
+    "english_title": "Product 90",
+    "telugu_title": "Product 90",
+    "original_title": "Product 90",
+    "image": "IMAGE (90).JPG",
+    "images": [
+      "IMAGE (90).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 529,
+    "mrp": 760,
+    "discount": 30,
+    "rating": 4.9,
+    "reviewCount": 68,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Large Row of Yellow Artificial Marigold Garlands. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "8 cm x 6 cm",
+      "Net Weight": "1200 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_91",
+      "stock_product_92",
+      "stock_product_93",
+      "stock_product_94"
+    ]
+  },
+  {
+    "id": "stock_product_91",
+    "title": "Product 91 / Product 91",
+    "english_title": "Product 91",
+    "telugu_title": "Product 91",
+    "original_title": "Product 91",
+    "image": "IMAGE (91).JPG",
+    "images": [
+      "IMAGE (91).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 569,
+    "mrp": 820,
+    "discount": 31,
+    "rating": 4.3,
+    "reviewCount": 81,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Artificial Pink Rose and Marigold Garland with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "9 cm x 7 cm",
+      "Net Weight": "1225 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_92",
+      "stock_product_93",
+      "stock_product_94",
+      "stock_product_95"
+    ]
+  },
+  {
+    "id": "stock_product_92",
+    "title": "Product 92 / Product 92",
+    "english_title": "Product 92",
+    "telugu_title": "Product 92",
+    "original_title": "Product 92",
+    "image": "IMAGE (92).JPG",
+    "images": [
+      "IMAGE (92).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 599,
+    "mrp": 880,
+    "discount": 32,
+    "rating": 4.4,
+    "reviewCount": 94,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Trending",
+    "description": "Authentic sacred Artificial Yellow Marigold Garland (Single) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "10 cm x 8 cm",
+      "Net Weight": "1250 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_93",
+      "stock_product_94",
+      "stock_product_95",
+      "stock_product_96"
+    ]
+  },
+  {
+    "id": "stock_product_93",
+    "title": "Product 93 / Product 93",
+    "english_title": "Product 93",
+    "telugu_title": "Product 93",
+    "original_title": "Product 93",
+    "image": "IMAGE (93).JPG",
+    "images": [
+      "IMAGE (93).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 639,
+    "mrp": 950,
+    "discount": 33,
+    "rating": 4.5,
+    "reviewCount": 107,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Bulk Bundle of Assorted Artificial Garlands created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "11 cm x 9 cm",
+      "Net Weight": "1275 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_94",
+      "stock_product_95",
+      "stock_product_96",
+      "stock_product_97"
+    ]
+  },
+  {
+    "id": "stock_product_94",
+    "title": "Product 94 / Product 94",
+    "english_title": "Product 94",
+    "telugu_title": "Product 94",
+    "original_title": "Product 94",
+    "image": "IMAGE (94).JPG",
+    "images": [
+      "IMAGE (94).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 379,
+    "mrp": 570,
+    "discount": 34,
+    "rating": 4.6,
+    "reviewCount": 120,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Artificial White Jasmine and Marigold Strings. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "12 cm x 10 cm",
+      "Net Weight": "1300 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_95",
+      "stock_product_96",
+      "stock_product_97",
+      "stock_product_98"
+    ]
+  },
+  {
+    "id": "stock_product_95",
+    "title": "Product 95 / Product 95",
+    "english_title": "Product 95",
+    "telugu_title": "Product 95",
+    "original_title": "Product 95",
+    "image": "IMAGE (95).JPG",
+    "images": [
+      "IMAGE (95).JPG",
+      "IMAGE (95)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 399,
+    "mrp": 610,
+    "discount": 35,
+    "rating": 4.7,
+    "reviewCount": 133,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Authentic",
+    "description": "Hand-finished Puja Liquids and Rose Water Store Shelf with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "13 cm x 11 cm",
+      "Net Weight": "1325 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_96",
+      "stock_product_97",
+      "stock_product_98",
+      "stock_product_99"
+    ]
+  },
+  {
+    "id": "stock_product_96",
+    "title": "Product 96 / Product 96",
+    "english_title": "Product 96",
+    "telugu_title": "Product 96",
+    "original_title": "Product 96",
+    "image": "IMAGE (96).JPG",
+    "images": [
+      "IMAGE (96).JPG",
+      "IMAGE (96)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 879,
+    "mrp": 1370,
+    "discount": 36,
+    "rating": 4.8,
+    "reviewCount": 146,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Authentic",
+    "description": "Authentic sacred Large Bottles of Ritual Lamp Oil handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "14 cm x 12 cm",
+      "Net Weight": "150 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_97",
+      "stock_product_98",
+      "stock_product_99",
+      "stock_product_100"
+    ]
+  },
+  {
+    "id": "stock_product_97",
+    "title": "Product 97 / Product 97",
+    "english_title": "Product 97",
+    "telugu_title": "Product 97",
+    "original_title": "Product 97",
+    "image": "IMAGE (97).JPG",
+    "images": [
+      "IMAGE (97).JPG",
+      "IMAGE (97)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 919,
+    "mrp": 1460,
+    "discount": 37,
+    "rating": 4.9,
+    "reviewCount": 159,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Assorted Brands of Puja Lamp Oil (Castor/Gingelly) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "15 cm x 13 cm",
+      "Net Weight": "175 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_98",
+      "stock_product_99",
+      "stock_product_100",
+      "stock_product_101"
+    ]
+  },
+  {
+    "id": "stock_product_98",
+    "title": "Product 98 / Product 98",
+    "english_title": "Product 98",
+    "telugu_title": "Product 98",
+    "original_title": "Product 98",
+    "image": "IMAGE (98).JPG",
+    "images": [
+      "IMAGE (98).JPG",
+      "IMAGE (98)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 139,
+    "mrp": 220,
+    "discount": 38,
+    "rating": 4.3,
+    "reviewCount": 172,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Puja Essentials and Oil Bottled Items. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "16 cm x 14 cm",
+      "Net Weight": "200 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_99",
+      "stock_product_100",
+      "stock_product_101",
+      "stock_product_102"
+    ]
+  },
+  {
+    "id": "stock_product_99",
+    "title": "Product 99 / Product 99",
+    "english_title": "Product 99",
+    "telugu_title": "Product 99",
+    "original_title": "Product 99",
+    "image": "IMAGE (99).JPG",
+    "images": [
+      "IMAGE (99).JPG",
+      "IMAGE (99)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 169,
+    "mrp": 280,
+    "discount": 39,
+    "rating": 4.4,
+    "reviewCount": 185,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Store Shelf Display of Incense and Puja Samagri with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "17 cm x 15 cm",
+      "Net Weight": "225 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_100",
+      "stock_product_101",
+      "stock_product_102",
+      "stock_product_103"
+    ]
+  },
+  {
+    "id": "stock_product_100",
+    "title": "Product 100 / Product 100",
+    "english_title": "Product 100",
+    "telugu_title": "Product 100",
+    "original_title": "Product 100",
+    "image": "IMAGE (100).JPG",
+    "images": [
+      "IMAGE (100).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 199,
+    "mrp": 230,
+    "discount": 15,
+    "rating": 4.5,
+    "reviewCount": 198,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Trending",
+    "description": "Authentic sacred Comprehensive Store Shelf with Various Puja Essentials handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "18 cm x 6 cm",
+      "Net Weight": "250 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_101",
+      "stock_product_102",
+      "stock_product_103",
+      "stock_product_104"
+    ]
+  },
+  {
+    "id": "stock_product_101",
+    "title": "Product 101 / Product 101",
+    "english_title": "Product 101",
+    "telugu_title": "Product 101",
+    "original_title": "Product 101",
+    "image": "IMAGE (101).JPG",
+    "images": [
+      "IMAGE (101).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 229,
+    "mrp": 270,
+    "discount": 16,
+    "rating": 4.6,
+    "reviewCount": 211,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Pooja Oil Bottles (Yellow Liquid) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "19 cm x 7 cm",
+      "Net Weight": "275 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_102",
+      "stock_product_103",
+      "stock_product_104",
+      "stock_product_105"
+    ]
+  },
+  {
+    "id": "stock_product_102",
+    "title": "Product 102 / Product 102",
+    "english_title": "Product 102",
+    "telugu_title": "Product 102",
+    "original_title": "Product 102",
+    "image": "IMAGE (102).JPG",
+    "images": [
+      "IMAGE (102).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 259,
+    "mrp": 310,
+    "discount": 17,
+    "rating": 4.7,
+    "reviewCount": 224,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Pooja Oil Bottles (Yellow Liquid). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "20 cm x 8 cm",
+      "Net Weight": "300 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_103",
+      "stock_product_104",
+      "stock_product_105",
+      "stock_product_106"
+    ]
+  },
+  {
+    "id": "stock_product_103",
+    "title": "Product 103 / Product 103",
+    "english_title": "Product 103",
+    "telugu_title": "Product 103",
+    "original_title": "Product 103",
+    "image": "IMAGE (103).JPG",
+    "images": [
+      "IMAGE (103).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 289,
+    "mrp": 350,
+    "discount": 18,
+    "rating": 4.8,
+    "reviewCount": 237,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Authentic",
+    "description": "Hand-finished Blue Gangajal Bottles with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "21 cm x 9 cm",
+      "Net Weight": "325 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_104",
+      "stock_product_105",
+      "stock_product_106",
+      "stock_product_107"
+    ]
+  },
+  {
+    "id": "stock_product_104",
+    "title": "Product 104 / Product 104",
+    "english_title": "Product 104",
+    "telugu_title": "Product 104",
+    "original_title": "Product 104",
+    "image": "IMAGE (104).JPG",
+    "images": [
+      "IMAGE (104).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 2549,
+    "mrp": 3150,
+    "discount": 19,
+    "rating": 4.9,
+    "reviewCount": 250,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Authentic",
+    "description": "Authentic sacred Golden Idol Crown (Mukut) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "22 cm x 10 cm",
+      "Net Weight": "350 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_105",
+      "stock_product_106",
+      "stock_product_107",
+      "stock_product_108"
+    ]
+  },
+  {
+    "id": "stock_product_105",
+    "title": "Product 105 / Product 105",
+    "english_title": "Product 105",
+    "telugu_title": "Product 105",
+    "original_title": "Product 105",
+    "image": "IMAGE (105).JPG",
+    "images": [
+      "IMAGE (105).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 479,
+    "mrp": 600,
+    "discount": 20,
+    "rating": 4.3,
+    "reviewCount": 263,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Decorative Artificial Garland (Marigold & White) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "8 cm x 11 cm",
+      "Net Weight": "375 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_106",
+      "stock_product_107",
+      "stock_product_108",
+      "stock_product_109"
+    ]
+  },
+  {
+    "id": "stock_product_106",
+    "title": "Product 106 / Product 106",
+    "english_title": "Product 106",
+    "telugu_title": "Product 106",
+    "original_title": "Product 106",
+    "image": "IMAGE (106).JPG",
+    "images": [
+      "IMAGE (106).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 519,
+    "mrp": 660,
+    "discount": 21,
+    "rating": 4.4,
+    "reviewCount": 276,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Decorative Artificial Garland (Marigold & White). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "9 cm x 12 cm",
+      "Net Weight": "400 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_107",
+      "stock_product_108",
+      "stock_product_109",
+      "stock_product_110"
+    ]
+  },
+  {
+    "id": "stock_product_107",
+    "title": "Product 107 / Product 107",
+    "english_title": "Product 107",
+    "telugu_title": "Product 107",
+    "original_title": "Product 107",
+    "image": "IMAGE (107).JPG",
+    "images": [
+      "IMAGE (107).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 559,
+    "mrp": 720,
+    "discount": 22,
+    "rating": 4.5,
+    "reviewCount": 289,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Artificial Yellow Marigold Garland with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "10 cm x 13 cm",
+      "Net Weight": "425 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_108",
+      "stock_product_109",
+      "stock_product_110",
+      "stock_product_111"
+    ]
+  },
+  {
+    "id": "stock_product_108",
+    "title": "Product 108 / Product 108",
+    "english_title": "Product 108",
+    "telugu_title": "Product 108",
+    "original_title": "Product 108",
+    "image": "IMAGE (108).JPG",
+    "images": [
+      "IMAGE (108).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 599,
+    "mrp": 780,
+    "discount": 23,
+    "rating": 4.6,
+    "reviewCount": 22,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Trending",
+    "description": "Authentic sacred Artificial Orange Marigold Garland handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "11 cm x 14 cm",
+      "Net Weight": "450 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_109",
+      "stock_product_110",
+      "stock_product_111",
+      "stock_product_112"
+    ]
+  },
+  {
+    "id": "stock_product_109",
+    "title": "Product 109 / Product 109",
+    "english_title": "Product 109",
+    "telugu_title": "Product 109",
+    "original_title": "Product 109",
+    "image": "IMAGE (109).JPG",
+    "images": [
+      "IMAGE (109).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 629,
+    "mrp": 830,
+    "discount": 24,
+    "rating": 4.7,
+    "reviewCount": 35,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Artificial Pink and Yellow Garland created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "12 cm x 15 cm",
+      "Net Weight": "475 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_110",
+      "stock_product_111",
+      "stock_product_112",
+      "stock_product_113"
+    ]
+  },
+  {
+    "id": "stock_product_110",
+    "title": "Product 110 / Product 110",
+    "english_title": "Product 110",
+    "telugu_title": "Product 110",
+    "original_title": "Product 110",
+    "image": "IMAGE (110).JPG",
+    "images": [
+      "IMAGE (110).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3069,
+    "mrp": 4090,
+    "discount": 25,
+    "rating": 4.8,
+    "reviewCount": 48,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Ganesha Photo Frame (Gold & Orange). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "13 cm x 6 cm",
+      "Net Weight": "500 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_111",
+      "stock_product_112",
+      "stock_product_113",
+      "stock_product_114"
+    ]
+  },
+  {
+    "id": "stock_product_111",
+    "title": "Product 111 / Product 111",
+    "english_title": "Product 111",
+    "telugu_title": "Product 111",
+    "original_title": "Product 111",
+    "image": "IMAGE (111).JPG",
+    "images": [
+      "IMAGE (111).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3159,
+    "mrp": 4270,
+    "discount": 26,
+    "rating": 4.9,
+    "reviewCount": 61,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Authentic",
+    "description": "Hand-finished Ganesha Religious Photo Frame with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "14 cm x 7 cm",
+      "Net Weight": "525 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_112",
+      "stock_product_113",
+      "stock_product_114",
+      "stock_product_115"
+    ]
+  },
+  {
+    "id": "stock_product_112",
+    "title": "Product 112 / Product 112",
+    "english_title": "Product 112",
+    "telugu_title": "Product 112",
+    "original_title": "Product 112",
+    "image": "IMAGE (112).JPG",
+    "images": [
+      "IMAGE (112).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3239,
+    "mrp": 4440,
+    "discount": 27,
+    "rating": 4.3,
+    "reviewCount": 74,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Authentic",
+    "description": "Authentic sacred Ganesha Sitting Photo Frame handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "15 cm x 8 cm",
+      "Net Weight": "550 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_113",
+      "stock_product_114",
+      "stock_product_115",
+      "stock_product_116"
+    ]
+  },
+  {
+    "id": "stock_product_113",
+    "title": "Product 113 / Product 113",
+    "english_title": "Product 113",
+    "telugu_title": "Product 113",
+    "original_title": "Product 113",
+    "image": "IMAGE (113).JPG",
+    "images": [
+      "IMAGE (113).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3329,
+    "mrp": 4620,
+    "discount": 28,
+    "rating": 4.4,
+    "reviewCount": 87,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Radha Krishna Religious Photo Frame created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "16 cm x 9 cm",
+      "Net Weight": "575 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_114",
+      "stock_product_115",
+      "stock_product_116",
+      "stock_product_117"
+    ]
+  },
+  {
+    "id": "stock_product_114",
+    "title": "Product 114 / Product 114",
+    "english_title": "Product 114",
+    "telugu_title": "Product 114",
+    "original_title": "Product 114",
+    "image": "IMAGE (114).JPG",
+    "images": [
+      "IMAGE (114).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3419,
+    "mrp": 4820,
+    "discount": 29,
+    "rating": 4.5,
+    "reviewCount": 100,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Ganesha Photo Frame (Black Bordered). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "17 cm x 10 cm",
+      "Net Weight": "600 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_115",
+      "stock_product_116",
+      "stock_product_117",
+      "stock_product_118"
+    ]
+  },
+  {
+    "id": "stock_product_115",
+    "title": "Product 115 / Product 115",
+    "english_title": "Product 115",
+    "telugu_title": "Product 115",
+    "original_title": "Product 115",
+    "image": "IMAGE (115).JPG",
+    "images": [
+      "IMAGE (115).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3499,
+    "mrp": 5000,
+    "discount": 30,
+    "rating": 4.6,
+    "reviewCount": 113,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Ganesha Idol Decorative Frame with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "18 cm x 11 cm",
+      "Net Weight": "625 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_116",
+      "stock_product_117",
+      "stock_product_118",
+      "stock_product_119"
+    ]
+  },
+  {
+    "id": "stock_product_116",
+    "title": "Product 116 / Product 116",
+    "english_title": "Product 116",
+    "telugu_title": "Product 116",
+    "original_title": "Product 116",
+    "image": "IMAGE (116).JPG",
+    "images": [
+      "IMAGE (116).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3589,
+    "mrp": 5200,
+    "discount": 31,
+    "rating": 4.7,
+    "reviewCount": 126,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Trending",
+    "description": "Authentic sacred Ganesha Frame (Wooden Design) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "19 cm x 12 cm",
+      "Net Weight": "650 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_117",
+      "stock_product_118",
+      "stock_product_119",
+      "stock_product_120"
+    ]
+  },
+  {
+    "id": "stock_product_117",
+    "title": "Product 117 / Product 117",
+    "english_title": "Product 117",
+    "telugu_title": "Product 117",
+    "original_title": "Product 117",
+    "image": "IMAGE (117).JPG",
+    "images": [
+      "IMAGE (117).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3679,
+    "mrp": 5410,
+    "discount": 32,
+    "rating": 4.8,
+    "reviewCount": 139,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Lakshmi Ganesha Saraswati Frame created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "20 cm x 13 cm",
+      "Net Weight": "675 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_118",
+      "stock_product_119",
+      "stock_product_120",
+      "stock_product_121"
+    ]
+  },
+  {
+    "id": "stock_product_118",
+    "title": "Product 118 / Product 118",
+    "english_title": "Product 118",
+    "telugu_title": "Product 118",
+    "original_title": "Product 118",
+    "image": "IMAGE (118).JPG",
+    "images": [
+      "IMAGE (118).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 619,
+    "mrp": 920,
+    "discount": 33,
+    "rating": 4.9,
+    "reviewCount": 152,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Lord Venkateshwara (Balaji) Frame. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "21 cm x 14 cm",
+      "Net Weight": "700 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_119",
+      "stock_product_120",
+      "stock_product_121",
+      "stock_product_122"
+    ]
+  },
+  {
+    "id": "stock_product_119",
+    "title": "Product 119 / Product 119",
+    "english_title": "Product 119",
+    "telugu_title": "Product 119",
+    "original_title": "Product 119",
+    "image": "IMAGE (119).JPG",
+    "images": [
+      "IMAGE (119).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3849,
+    "mrp": 5830,
+    "discount": 34,
+    "rating": 4.3,
+    "reviewCount": 165,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Authentic",
+    "description": "Hand-finished Hanuman Ji Sitting Photo Frame with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "22 cm x 15 cm",
+      "Net Weight": "725 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_120",
+      "stock_product_121",
+      "stock_product_122",
+      "stock_product_123"
+    ]
+  },
+  {
+    "id": "stock_product_120",
+    "title": "Product 120 / Product 120",
+    "english_title": "Product 120",
+    "telugu_title": "Product 120",
+    "original_title": "Product 120",
+    "image": "IMAGE (120).JPG",
+    "images": [
+      "IMAGE (120).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 429,
+    "mrp": 660,
+    "discount": 35,
+    "rating": 4.4,
+    "reviewCount": 178,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Authentic",
+    "description": "Authentic sacred Copper Pooja Pots (Lotas) Shelf handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "8 cm x 6 cm",
+      "Net Weight": "750 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_121",
+      "stock_product_122",
+      "stock_product_123",
+      "stock_product_124"
+    ]
+  },
+  {
+    "id": "stock_product_121",
+    "title": "Product 121 / Product 121",
+    "english_title": "Product 121",
+    "telugu_title": "Product 121",
+    "original_title": "Product 121",
+    "image": "IMAGE (121).JPG",
+    "images": [
+      "IMAGE (121).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 109,
+    "mrp": 170,
+    "discount": 36,
+    "rating": 4.5,
+    "reviewCount": 191,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Copper/Brass Kalash and Pooja Vessels created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "9 cm x 7 cm",
+      "Net Weight": "775 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_122",
+      "stock_product_123",
+      "stock_product_124",
+      "stock_product_125"
+    ]
+  },
+  {
+    "id": "stock_product_122",
+    "title": "Product 122 / Product 122",
+    "english_title": "Product 122",
+    "telugu_title": "Product 122",
+    "original_title": "Product 122",
+    "image": "IMAGE (122).JPG",
+    "images": [
+      "IMAGE (122).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 609,
+    "mrp": 970,
+    "discount": 37,
+    "rating": 4.6,
+    "reviewCount": 204,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Brass Idols and Decorative Items Shelf. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "10 cm x 8 cm",
+      "Net Weight": "800 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_123",
+      "stock_product_124",
+      "stock_product_125",
+      "stock_product_126"
+    ]
+  },
+  {
+    "id": "stock_product_123",
+    "title": "Product 123 / Product 123",
+    "english_title": "Product 123",
+    "telugu_title": "Product 123",
+    "original_title": "Product 123",
+    "image": "IMAGE (123).JPG",
+    "images": [
+      "IMAGE (123).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 169,
+    "mrp": 270,
+    "discount": 38,
+    "rating": 4.7,
+    "reviewCount": 217,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Assorted Brass Pooja Accessories with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "11 cm x 9 cm",
+      "Net Weight": "825 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_124",
+      "stock_product_125",
+      "stock_product_126",
+      "stock_product_127"
+    ]
+  },
+  {
+    "id": "stock_product_124",
+    "title": "Product 124 / Product 124",
+    "english_title": "Product 124",
+    "telugu_title": "Product 124",
+    "original_title": "Product 124",
+    "image": "IMAGE (124).JPG",
+    "images": [
+      "IMAGE (124).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 379,
+    "mrp": 620,
+    "discount": 39,
+    "rating": 4.8,
+    "reviewCount": 230,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Trending",
+    "description": "Authentic sacred Brass Deepams and Lamps Collection handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "12 cm x 10 cm",
+      "Net Weight": "850 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_125",
+      "stock_product_126",
+      "stock_product_127",
+      "stock_product_128"
+    ]
+  },
+  {
+    "id": "stock_product_125",
+    "title": "Product 125 / Product 125",
+    "english_title": "Product 125",
+    "telugu_title": "Product 125",
+    "original_title": "Product 125",
+    "image": "IMAGE (125).JPG",
+    "images": [
+      "IMAGE (125).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 869,
+    "mrp": 1020,
+    "discount": 15,
+    "rating": 4.9,
+    "reviewCount": 243,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Large Brass/Wooden Venkateshwara Statue created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "13 cm x 11 cm",
+      "Net Weight": "875 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_126",
+      "stock_product_127",
+      "stock_product_128",
+      "stock_product_129"
+    ]
+  },
+  {
+    "id": "stock_product_126",
+    "title": "Product 126 / Product 126",
+    "english_title": "Product 126",
+    "telugu_title": "Product 126",
+    "original_title": "Product 126",
+    "image": "IMAGE (126).JPG",
+    "images": [
+      "IMAGE (126).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 959,
+    "mrp": 1140,
+    "discount": 16,
+    "rating": 4.3,
+    "reviewCount": 256,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Large Lord Vishnu/Venkateshwara Idol. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "14 cm x 12 cm",
+      "Net Weight": "900 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_127",
+      "stock_product_128",
+      "stock_product_129",
+      "stock_product_130"
+    ]
+  },
+  {
+    "id": "stock_product_127",
+    "title": "Product 127 / Product 127",
+    "english_title": "Product 127",
+    "telugu_title": "Product 127",
+    "original_title": "Product 127",
+    "image": "IMAGE (127).JPG",
+    "images": [
+      "IMAGE (127).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 509,
+    "mrp": 610,
+    "discount": 17,
+    "rating": 4.4,
+    "reviewCount": 269,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Authentic",
+    "description": "Hand-finished Brass Diyas and Oil Lamps Shelf with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "15 cm x 13 cm",
+      "Net Weight": "925 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_128",
+      "stock_product_129",
+      "stock_product_130",
+      "stock_product_131"
+    ]
+  },
+  {
+    "id": "stock_product_128",
+    "title": "Product 128 / Product 128",
+    "english_title": "Product 128",
+    "telugu_title": "Product 128",
+    "original_title": "Product 128",
+    "image": "IMAGE (128).JPG",
+    "images": [
+      "IMAGE (128).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1139,
+    "mrp": 1390,
+    "discount": 18,
+    "rating": 4.5,
+    "reviewCount": 282,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Authentic",
+    "description": "Authentic sacred Silver-plated Ganesha and Lakshmi Idols handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "16 cm x 14 cm",
+      "Net Weight": "950 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_129",
+      "stock_product_130",
+      "stock_product_131",
+      "stock_product_132"
+    ]
+  },
+  {
+    "id": "stock_product_129",
+    "title": "Product 129 / Product 129",
+    "english_title": "Product 129",
+    "telugu_title": "Product 129",
+    "original_title": "Product 129",
+    "image": "IMAGE (129).JPG",
+    "images": [
+      "IMAGE (129).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 1219,
+    "mrp": 1500,
+    "discount": 19,
+    "rating": 4.6,
+    "reviewCount": 295,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Large Brass Statues Collection created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "17 cm x 15 cm",
+      "Net Weight": "975 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_130",
+      "stock_product_131",
+      "stock_product_132",
+      "stock_product_133"
+    ]
+  },
+  {
+    "id": "stock_product_130",
+    "title": "Product 130 / Product 130",
+    "english_title": "Product 130",
+    "telugu_title": "Product 130",
+    "original_title": "Product 130",
+    "image": "IMAGE (130).JPG",
+    "images": [
+      "IMAGE (130).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 369,
+    "mrp": 460,
+    "discount": 20,
+    "rating": 4.7,
+    "reviewCount": 28,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Brass Kumkum and Turmeric Containers. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "18 cm x 6 cm",
+      "Net Weight": "1000 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_131",
+      "stock_product_132",
+      "stock_product_133",
+      "stock_product_134"
+    ]
+  },
+  {
+    "id": "stock_product_131",
+    "title": "Product 131 / Product 131",
+    "english_title": "Product 131",
+    "telugu_title": "Product 131",
+    "original_title": "Product 131",
+    "image": "IMAGE (131).JPG",
+    "images": [
+      "IMAGE (131).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 579,
+    "mrp": 730,
+    "discount": 21,
+    "rating": 4.8,
+    "reviewCount": 41,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Incense Sticks and Dhoop Boxes Shelf with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "19 cm x 7 cm",
+      "Net Weight": "1025 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_132",
+      "stock_product_133",
+      "stock_product_134",
+      "stock_product_135"
+    ]
+  },
+  {
+    "id": "stock_product_132",
+    "title": "Product 132 / Product 132",
+    "english_title": "Product 132",
+    "telugu_title": "Product 132",
+    "original_title": "Product 132",
+    "image": "IMAGE (132).JPG",
+    "images": [
+      "IMAGE (132).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 729,
+    "mrp": 930,
+    "discount": 22,
+    "rating": 4.9,
+    "reviewCount": 54,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Trending",
+    "description": "Authentic sacred Hanging Brass Bells and Lamps handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "20 cm x 8 cm",
+      "Net Weight": "1050 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_133",
+      "stock_product_134",
+      "stock_product_135",
+      "stock_product_136"
+    ]
+  },
+  {
+    "id": "stock_product_133",
+    "title": "Product 133 / Product 133",
+    "english_title": "Product 133",
+    "telugu_title": "Product 133",
+    "original_title": "Product 133",
+    "image": "IMAGE (133).JPG",
+    "images": [
+      "IMAGE (133).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 1379,
+    "mrp": 1790,
+    "discount": 23,
+    "rating": 4.3,
+    "reviewCount": 67,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Religious Photo Frame Stands created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "21 cm x 9 cm",
+      "Net Weight": "1075 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_134",
+      "stock_product_135",
+      "stock_product_136",
+      "stock_product_137"
+    ]
+  },
+  {
+    "id": "stock_product_134",
+    "title": "Product 134 / Product 134",
+    "english_title": "Product 134",
+    "telugu_title": "Product 134",
+    "original_title": "Product 134",
+    "image": "IMAGE (134).JPG",
+    "images": [
+      "IMAGE (134).JPG",
+      "IMAGE (134)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Incense & Dhoop",
+    "categoryId": "incense-dhoop",
+    "categoryIcon": "incense",
+    "price": 119,
+    "mrp": 160,
+    "discount": 24,
+    "rating": 4.4,
+    "reviewCount": 80,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Agarbatti (Incense Sticks) Packets. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "22 cm x 10 cm",
+      "Net Weight": "1100 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_135",
+      "stock_product_136",
+      "stock_product_137",
+      "stock_product_138"
+    ]
+  },
+  {
+    "id": "stock_product_135",
+    "title": "Product 135 / Product 135",
+    "english_title": "Product 135",
+    "telugu_title": "Product 135",
+    "original_title": "Product 135",
+    "image": "IMAGE (135).JPG",
+    "images": [
+      "IMAGE (135).JPG",
+      "IMAGE (135)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Incense & Dhoop",
+    "categoryId": "incense-dhoop",
+    "categoryIcon": "incense",
+    "price": 129,
+    "mrp": 170,
+    "discount": 25,
+    "rating": 4.5,
+    "reviewCount": 93,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Authentic",
+    "description": "Hand-finished Assorted Agarbatti Packets with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "8 cm x 11 cm",
+      "Net Weight": "1125 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_136",
+      "stock_product_137",
+      "stock_product_138",
+      "stock_product_139"
+    ]
+  },
+  {
+    "id": "stock_product_136",
+    "title": "Product 136 / Product 136",
+    "english_title": "Product 136",
+    "telugu_title": "Product 136",
+    "original_title": "Product 136",
+    "image": "IMAGE (136).JPG",
+    "images": [
+      "IMAGE (136).JPG",
+      "IMAGE (136)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Incense & Dhoop",
+    "categoryId": "incense-dhoop",
+    "categoryIcon": "incense",
+    "price": 149,
+    "mrp": 200,
+    "discount": 26,
+    "rating": 4.6,
+    "reviewCount": 106,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Authentic",
+    "description": "Authentic sacred Premium Agarbatti Packets handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "9 cm x 12 cm",
+      "Net Weight": "1150 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_137",
+      "stock_product_138",
+      "stock_product_139",
+      "stock_product_140"
+    ]
+  },
+  {
+    "id": "stock_product_137",
+    "title": "Product 137 / Product 137",
+    "english_title": "Product 137",
+    "telugu_title": "Product 137",
+    "original_title": "Product 137",
+    "image": "IMAGE (137).JPG",
+    "images": [
+      "IMAGE (137).JPG",
+      "IMAGE (137)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Incense & Dhoop",
+    "categoryId": "incense-dhoop",
+    "categoryIcon": "incense",
+    "price": 169,
+    "mrp": 230,
+    "discount": 27,
+    "rating": 4.7,
+    "reviewCount": 119,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Agarbatti and Dhoop Packets created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "10 cm x 13 cm",
+      "Net Weight": "1175 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_138",
+      "stock_product_139",
+      "stock_product_140",
+      "stock_product_141"
+    ]
+  },
+  {
+    "id": "stock_product_138",
+    "title": "Product 138 / Product 138",
+    "english_title": "Product 138",
+    "telugu_title": "Product 138",
+    "original_title": "Product 138",
+    "image": "IMAGE (138).JPG",
+    "images": [
+      "IMAGE (138).JPG",
+      "IMAGE (138)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Incense & Dhoop",
+    "categoryId": "incense-dhoop",
+    "categoryIcon": "incense",
+    "price": 189,
+    "mrp": 260,
+    "discount": 28,
+    "rating": 4.8,
+    "reviewCount": 132,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Agarbatti Packets (Multiple Brands). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "11 cm x 14 cm",
+      "Net Weight": "1200 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_139",
+      "stock_product_140",
+      "stock_product_141",
+      "stock_product_142"
+    ]
+  },
+  {
+    "id": "stock_product_139",
+    "title": "Product 139 / Product 139",
+    "english_title": "Product 139",
+    "telugu_title": "Product 139",
+    "original_title": "Product 139",
+    "image": "IMAGE (139).JPG",
+    "images": [
+      "IMAGE (139).JPG",
+      "IMAGE (139)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 279,
+    "mrp": 390,
+    "discount": 29,
+    "rating": 4.9,
+    "reviewCount": 145,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Temple Grade",
+    "description": "Hand-finished White Pooja Vastram (Cotton Dhotis) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "12 cm x 15 cm",
+      "Net Weight": "1225 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_140",
+      "stock_product_141",
+      "stock_product_142",
+      "stock_product_143"
+    ]
+  },
+  {
+    "id": "stock_product_140",
+    "title": "Product 140 / Product 140",
+    "english_title": "Product 140",
+    "telugu_title": "Product 140",
+    "original_title": "Product 140",
+    "image": "IMAGE (140).JPG",
+    "images": [
+      "IMAGE (140).JPG",
+      "IMAGE (140)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 309,
+    "mrp": 440,
+    "discount": 30,
+    "rating": 4.3,
+    "reviewCount": 158,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Trending",
+    "description": "Authentic sacred Saffron Color Pooja Vastram handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "13 cm x 6 cm",
+      "Net Weight": "1250 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_141",
+      "stock_product_142",
+      "stock_product_143",
+      "stock_product_144"
+    ]
+  },
+  {
+    "id": "stock_product_141",
+    "title": "Product 141 / Product 141",
+    "english_title": "Product 141",
+    "telugu_title": "Product 141",
+    "original_title": "Product 141",
+    "image": "IMAGE (141).JPG",
+    "images": [
+      "IMAGE (141).JPG",
+      "IMAGE (141)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 339,
+    "mrp": 490,
+    "discount": 31,
+    "rating": 4.4,
+    "reviewCount": 171,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted White Cotton Pooja Vastram created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "14 cm x 7 cm",
+      "Net Weight": "1275 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_142",
+      "stock_product_143",
+      "stock_product_144",
+      "stock_product_145"
+    ]
+  },
+  {
+    "id": "stock_product_142",
+    "title": "Product 142 / Product 142",
+    "english_title": "Product 142",
+    "telugu_title": "Product 142",
+    "original_title": "Product 142",
+    "image": "IMAGE (142).JPG",
+    "images": [
+      "IMAGE (142).JPG",
+      "IMAGE (142)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 369,
+    "mrp": 540,
+    "discount": 32,
+    "rating": 4.5,
+    "reviewCount": 184,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Folded Pooja Cotton Cloths. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "15 cm x 8 cm",
+      "Net Weight": "1300 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_143",
+      "stock_product_144",
+      "stock_product_145",
+      "stock_product_146"
+    ]
+  },
+  {
+    "id": "stock_product_143",
+    "title": "Product 143 / Product 143",
+    "english_title": "Product 143",
+    "telugu_title": "Product 143",
+    "original_title": "Product 143",
+    "image": "IMAGE (143).JPG",
+    "images": [
+      "IMAGE (143).JPG",
+      "IMAGE (143)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 399,
+    "mrp": 600,
+    "discount": 33,
+    "rating": 4.6,
+    "reviewCount": 197,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Authentic",
+    "description": "Hand-finished 7 Hills Pooja Store (Entrance View) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "16 cm x 9 cm",
+      "Net Weight": "1325 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_144",
+      "stock_product_145",
+      "stock_product_146",
+      "stock_product_147"
+    ]
+  },
+  {
+    "id": "stock_product_144",
+    "title": "Product 144 / Product 144",
+    "english_title": "Product 144",
+    "telugu_title": "Product 144",
+    "original_title": "Product 144",
+    "image": "IMAGE (144).JPG",
+    "images": [
+      "IMAGE (144).JPG",
+      "IMAGE (144)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 429,
+    "mrp": 650,
+    "discount": 34,
+    "rating": 4.7,
+    "reviewCount": 210,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Authentic",
+    "description": "Authentic sacred 7 Hills Pooja Store (Interior Shop View) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "17 cm x 10 cm",
+      "Net Weight": "150 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_145",
+      "stock_product_146",
+      "stock_product_147",
+      "stock_product_148"
+    ]
+  },
+  {
+    "id": "stock_product_145",
+    "title": "Product 145 / Product 145",
+    "english_title": "Product 145",
+    "telugu_title": "Product 145",
+    "original_title": "Product 145",
+    "image": "IMAGE (145).JPG",
+    "images": [
+      "IMAGE (145).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 759,
+    "mrp": 1170,
+    "discount": 35,
+    "rating": 4.8,
+    "reviewCount": 223,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Hanging Decorative Garlands and Mukuts created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "18 cm x 11 cm",
+      "Net Weight": "175 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_146",
+      "stock_product_147",
+      "stock_product_148",
+      "stock_product_149"
+    ]
+  },
+  {
+    "id": "stock_product_146",
+    "title": "Product 146 / Product 146",
+    "english_title": "Product 146",
+    "telugu_title": "Product 146",
+    "original_title": "Product 146",
+    "image": "IMAGE (146).JPG",
+    "images": [
+      "IMAGE (146).JPG",
+      "IMAGE (146)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 129,
+    "mrp": 200,
+    "discount": 36,
+    "rating": 4.9,
+    "reviewCount": 236,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine 7 Hills Pooja Store (Exterior Billboard). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "19 cm x 12 cm",
+      "Net Weight": "200 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_147",
+      "stock_product_148",
+      "stock_product_149",
+      "stock_product_150"
+    ]
+  },
+  {
+    "id": "stock_product_147",
+    "title": "Product 147 / Product 147",
+    "english_title": "Product 147",
+    "telugu_title": "Product 147",
+    "original_title": "Product 147",
+    "image": "IMAGE (147).JPG",
+    "images": [
+      "IMAGE (147).JPG",
+      "IMAGE (147)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 159,
+    "mrp": 250,
+    "discount": 37,
+    "rating": 4.3,
+    "reviewCount": 249,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Temple Grade",
+    "description": "Hand-finished 7 Hills Pooja Store (Front View) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "20 cm x 13 cm",
+      "Net Weight": "225 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_148",
+      "stock_product_149",
+      "stock_product_150",
+      "stock_product_151"
+    ]
+  },
+  {
+    "id": "stock_product_148",
+    "title": "Product 148 / Product 148",
+    "english_title": "Product 148",
+    "telugu_title": "Product 148",
+    "original_title": "Product 148",
+    "image": "IMAGE (148).JPG",
+    "images": [
+      "IMAGE (148).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 279,
+    "mrp": 450,
+    "discount": 38,
+    "rating": 4.4,
+    "reviewCount": 262,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Trending",
+    "description": "Authentic sacred Close-up of Garlands and Golden Crowns handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "21 cm x 14 cm",
+      "Net Weight": "250 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_149",
+      "stock_product_150",
+      "stock_product_151",
+      "stock_product_152"
+    ]
+  },
+  {
+    "id": "stock_product_149",
+    "title": "Product 149 / Product 149",
+    "english_title": "Product 149",
+    "telugu_title": "Product 149",
+    "original_title": "Product 149",
+    "image": "IMAGE (149).JPG",
+    "images": [
+      "IMAGE (149).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 219,
+    "mrp": 360,
+    "discount": 39,
+    "rating": 4.5,
+    "reviewCount": 275,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Wooden Pooja Mandirs (Shrines) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "22 cm x 15 cm",
+      "Net Weight": "275 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_150",
+      "stock_product_151",
+      "stock_product_152",
+      "stock_product_153"
+    ]
+  },
+  {
+    "id": "stock_product_150",
+    "title": "Product 150 / Product 150",
+    "english_title": "Product 150",
+    "telugu_title": "Product 150",
+    "original_title": "Product 150",
+    "image": "IMAGE (150).JPG",
+    "images": [
+      "IMAGE (150).JPG"
+    ],
+    "category": "Wooden Pooja Mandirs",
+    "categoryId": "wooden-mandirs",
+    "categoryIcon": "mandirs",
+    "price": 7449,
+    "mrp": 8760,
+    "discount": 15,
+    "rating": 4.6,
+    "reviewCount": 288,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Wooden Mandirs for Home Puja. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Treated Sheesham Wood & Brass Accents",
+      "Dimensions (approx)": "8 cm x 6 cm",
+      "Net Weight": "300 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_151",
+      "stock_product_152",
+      "stock_product_153",
+      "stock_product_154"
+    ]
+  },
+  {
+    "id": "stock_product_151",
+    "title": "Product 151 / Product 151",
+    "english_title": "Product 151",
+    "telugu_title": "Product 151",
+    "original_title": "Product 151",
+    "image": "IMAGE (151).JPG",
+    "images": [
+      "IMAGE (151).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 279,
+    "mrp": 330,
+    "discount": 16,
+    "rating": 4.7,
+    "reviewCount": 21,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Authentic",
+    "description": "Hand-finished Wooden Pooja Mandir with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "9 cm x 7 cm",
+      "Net Weight": "325 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_152",
+      "stock_product_153",
+      "stock_product_154",
+      "stock_product_155"
+    ]
+  },
+  {
+    "id": "stock_product_152",
+    "title": "Product 152 / Product 152",
+    "english_title": "Product 152",
+    "telugu_title": "Product 152",
+    "original_title": "Product 152",
+    "image": "IMAGE (152).JPG",
+    "images": [
+      "IMAGE (152).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 309,
+    "mrp": 370,
+    "discount": 17,
+    "rating": 4.8,
+    "reviewCount": 34,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Authentic",
+    "description": "Authentic sacred Wooden Pooja Mandir handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "10 cm x 8 cm",
+      "Net Weight": "350 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_153",
+      "stock_product_154",
+      "stock_product_155",
+      "stock_product_156"
+    ]
+  },
+  {
+    "id": "stock_product_153",
+    "title": "Product 153 / Product 153",
+    "english_title": "Product 153",
+    "telugu_title": "Product 153",
+    "original_title": "Product 153",
+    "image": "IMAGE (153).JPG",
+    "images": [
+      "IMAGE (153).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 339,
+    "mrp": 410,
+    "discount": 18,
+    "rating": 4.9,
+    "reviewCount": 47,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Wooden Pooja Mandir created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "11 cm x 9 cm",
+      "Net Weight": "375 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_154",
+      "stock_product_155",
+      "stock_product_156",
+      "stock_product_157"
+    ]
+  },
+  {
+    "id": "stock_product_154",
+    "title": "Product 154 / Product 154",
+    "english_title": "Product 154",
+    "telugu_title": "Product 154",
+    "original_title": "Product 154",
+    "image": "IMAGE (154).JPG",
+    "images": [
+      "IMAGE (154).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 369,
+    "mrp": 460,
+    "discount": 19,
+    "rating": 4.3,
+    "reviewCount": 60,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Wooden Pooja Mandir. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "12 cm x 10 cm",
+      "Net Weight": "400 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_155",
+      "stock_product_156",
+      "stock_product_157",
+      "stock_product_158"
+    ]
+  },
+  {
+    "id": "stock_product_155",
+    "title": "Product 155 / Product 155",
+    "english_title": "Product 155",
+    "telugu_title": "Product 155",
+    "original_title": "Product 155",
+    "image": "IMAGE (155).JPG",
+    "images": [
+      "IMAGE (155).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 389,
+    "mrp": 490,
+    "discount": 20,
+    "rating": 4.4,
+    "reviewCount": 73,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Wooden Pooja Mandir with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "13 cm x 11 cm",
+      "Net Weight": "425 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_156",
+      "stock_product_157",
+      "stock_product_158",
+      "stock_product_159"
+    ]
+  },
+  {
+    "id": "stock_product_156",
+    "title": "Product 156 / Product 156",
+    "english_title": "Product 156",
+    "telugu_title": "Product 156",
+    "original_title": "Product 156",
+    "image": "IMAGE (156).JPG",
+    "images": [
+      "IMAGE (156).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 419,
+    "mrp": 530,
+    "discount": 21,
+    "rating": 4.5,
+    "reviewCount": 86,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Trending",
+    "description": "Authentic sacred Wooden Pooja Mandir Door handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "14 cm x 12 cm",
+      "Net Weight": "450 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_157",
+      "stock_product_158",
+      "stock_product_159",
+      "stock_product_160"
+    ]
+  },
+  {
+    "id": "stock_product_157",
+    "title": "Product 157 / Product 157",
+    "english_title": "Product 157",
+    "telugu_title": "Product 157",
+    "original_title": "Product 157",
+    "image": "IMAGE (157).JPG",
+    "images": [
+      "IMAGE (157).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 99,
+    "mrp": 130,
+    "discount": 22,
+    "rating": 4.6,
+    "reviewCount": 99,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Wooden Pooja Mandir created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "15 cm x 13 cm",
+      "Net Weight": "475 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_158",
+      "stock_product_159",
+      "stock_product_160",
+      "stock_product_161"
+    ]
+  },
+  {
+    "id": "stock_product_158",
+    "title": "Product 158 / Product 158",
+    "english_title": "Product 158",
+    "telugu_title": "Product 158",
+    "original_title": "Product 158",
+    "image": "IMAGE (158).JPG",
+    "images": [
+      "IMAGE (158).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 129,
+    "mrp": 170,
+    "discount": 23,
+    "rating": 4.7,
+    "reviewCount": 112,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Wooden Pooja Mandir. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "16 cm x 14 cm",
+      "Net Weight": "500 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_159",
+      "stock_product_160",
+      "stock_product_161",
+      "stock_product_162"
+    ]
+  },
+  {
+    "id": "stock_product_159",
+    "title": "Product 159 / Product 159",
+    "english_title": "Product 159",
+    "telugu_title": "Product 159",
+    "original_title": "Product 159",
+    "image": "IMAGE (159).JPG",
+    "images": [
+      "IMAGE (159).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 159,
+    "mrp": 210,
+    "discount": 24,
+    "rating": 4.8,
+    "reviewCount": 125,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Authentic",
+    "description": "Hand-finished Wooden Pooja Mandir Door with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "17 cm x 15 cm",
+      "Net Weight": "525 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_160",
+      "stock_product_161",
+      "stock_product_162",
+      "stock_product_163"
+    ]
+  },
+  {
+    "id": "stock_product_160",
+    "title": "Product 160 / Product 160",
+    "english_title": "Product 160",
+    "telugu_title": "Product 160",
+    "original_title": "Product 160",
+    "image": "IMAGE (160).JPG",
+    "images": [
+      "IMAGE (160).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 459,
+    "mrp": 610,
+    "discount": 25,
+    "rating": 4.9,
+    "reviewCount": 138,
+    "inStock": true,
+    "stockQty": 5,
+    "badge": "Authentic",
+    "description": "Authentic sacred Framed God Photos handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "18 cm x 6 cm",
+      "Net Weight": "550 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_161",
+      "stock_product_162",
+      "stock_product_163",
+      "stock_product_164"
+    ]
+  },
+  {
+    "id": "stock_product_161",
+    "title": "Product 161 / Product 161",
+    "english_title": "Product 161",
+    "telugu_title": "Product 161",
+    "original_title": "Product 161",
+    "image": "IMAGE (161).JPG",
+    "images": [
+      "IMAGE (161).JPG",
+      "IMAGE (161)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 509,
+    "mrp": 690,
+    "discount": 26,
+    "rating": 4.3,
+    "reviewCount": 151,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Framed God Photos created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "19 cm x 7 cm",
+      "Net Weight": "575 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_162",
+      "stock_product_163",
+      "stock_product_164",
+      "stock_product_165"
+    ]
+  },
+  {
+    "id": "stock_product_162",
+    "title": "Product 162 / Product 162",
+    "english_title": "Product 162",
+    "telugu_title": "Product 162",
+    "original_title": "Product 162",
+    "image": "IMAGE (162).JPG",
+    "images": [
+      "IMAGE (162).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 559,
+    "mrp": 770,
+    "discount": 27,
+    "rating": 4.4,
+    "reviewCount": 164,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Framed God Photos. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "20 cm x 8 cm",
+      "Net Weight": "600 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_163",
+      "stock_product_164",
+      "stock_product_165",
+      "stock_product_166"
+    ]
+  },
+  {
+    "id": "stock_product_163",
+    "title": "Product 163 / Product 163",
+    "english_title": "Product 163",
+    "telugu_title": "Product 163",
+    "original_title": "Product 163",
+    "image": "IMAGE (163).JPG",
+    "images": [
+      "IMAGE (163).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 609,
+    "mrp": 850,
+    "discount": 28,
+    "rating": 4.5,
+    "reviewCount": 177,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Framed God Photos with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "21 cm x 9 cm",
+      "Net Weight": "625 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_164",
+      "stock_product_165",
+      "stock_product_166",
+      "stock_product_167"
+    ]
+  },
+  {
+    "id": "stock_product_164",
+    "title": "Product 164 / Product 164",
+    "english_title": "Product 164",
+    "telugu_title": "Product 164",
+    "original_title": "Product 164",
+    "image": "IMAGE (164).JPG",
+    "images": [
+      "IMAGE (164).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 659,
+    "mrp": 930,
+    "discount": 29,
+    "rating": 4.6,
+    "reviewCount": 190,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Trending",
+    "description": "Authentic sacred Framed God Photos handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "22 cm x 10 cm",
+      "Net Weight": "650 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_165",
+      "stock_product_166",
+      "stock_product_167",
+      "stock_product_168"
+    ]
+  },
+  {
+    "id": "stock_product_165",
+    "title": "Product 165 / Product 165",
+    "english_title": "Product 165",
+    "telugu_title": "Product 165",
+    "original_title": "Product 165",
+    "image": "IMAGE (165).JPG",
+    "images": [
+      "IMAGE (165).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1149,
+    "mrp": 1640,
+    "discount": 30,
+    "rating": 4.7,
+    "reviewCount": 203,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Shop Display Shelf (Brass Items) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "8 cm x 11 cm",
+      "Net Weight": "675 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_166",
+      "stock_product_167",
+      "stock_product_168",
+      "stock_product_169"
+    ]
+  },
+  {
+    "id": "stock_product_166",
+    "title": "Product 166 / Product 166",
+    "english_title": "Product 166",
+    "telugu_title": "Product 166",
+    "original_title": "Product 166",
+    "image": "IMAGE (166).JPG",
+    "images": [
+      "IMAGE (166).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1219,
+    "mrp": 1770,
+    "discount": 31,
+    "rating": 4.8,
+    "reviewCount": 216,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Shop Display Shelf (Brass Items). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "9 cm x 12 cm",
+      "Net Weight": "700 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_167",
+      "stock_product_168",
+      "stock_product_169",
+      "stock_product_170"
+    ]
+  },
+  {
+    "id": "stock_product_167",
+    "title": "Product 167 / Product 167",
+    "english_title": "Product 167",
+    "telugu_title": "Product 167",
+    "original_title": "Product 167",
+    "image": "IMAGE (167).JPG",
+    "images": [
+      "IMAGE (167).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1289,
+    "mrp": 1900,
+    "discount": 32,
+    "rating": 4.9,
+    "reviewCount": 229,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Authentic",
+    "description": "Hand-finished Shop Display Shelf (Brass Items) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "10 cm x 13 cm",
+      "Net Weight": "725 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_168",
+      "stock_product_169",
+      "stock_product_170",
+      "stock_product_171"
+    ]
+  },
+  {
+    "id": "stock_product_168",
+    "title": "Product 168 / Product 168",
+    "english_title": "Product 168",
+    "telugu_title": "Product 168",
+    "original_title": "Product 168",
+    "image": "IMAGE (168).JPG",
+    "images": [
+      "IMAGE (168).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 569,
+    "mrp": 850,
+    "discount": 33,
+    "rating": 4.3,
+    "reviewCount": 242,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Authentic",
+    "description": "Authentic sacred Brass Deepam Stand handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "11 cm x 14 cm",
+      "Net Weight": "750 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_169",
+      "stock_product_170",
+      "stock_product_171",
+      "stock_product_172"
+    ]
+  },
+  {
+    "id": "stock_product_169",
+    "title": "Product 169 / Product 169",
+    "english_title": "Product 169",
+    "telugu_title": "Product 169",
+    "original_title": "Product 169",
+    "image": "IMAGE (169).JPG",
+    "images": [
+      "IMAGE (169).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 619,
+    "mrp": 940,
+    "discount": 34,
+    "rating": 4.4,
+    "reviewCount": 255,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Brass Deepam Stand created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "12 cm x 15 cm",
+      "Net Weight": "775 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_170",
+      "stock_product_171",
+      "stock_product_172",
+      "stock_product_173"
+    ]
+  },
+  {
+    "id": "stock_product_170",
+    "title": "Product 170 / Product 170",
+    "english_title": "Product 170",
+    "telugu_title": "Product 170",
+    "original_title": "Product 170",
+    "image": "IMAGE (170).JPG",
+    "images": [
+      "IMAGE (170).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 659,
+    "mrp": 1010,
+    "discount": 35,
+    "rating": 4.5,
+    "reviewCount": 268,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Brass Deepam Stand. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "13 cm x 6 cm",
+      "Net Weight": "800 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_171",
+      "stock_product_172",
+      "stock_product_173",
+      "stock_product_174"
+    ]
+  },
+  {
+    "id": "stock_product_171",
+    "title": "Product 171 / Product 171",
+    "english_title": "Product 171",
+    "telugu_title": "Product 171",
+    "original_title": "Product 171",
+    "image": "IMAGE (171).JPG",
+    "images": [
+      "IMAGE (171).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 699,
+    "mrp": 1090,
+    "discount": 36,
+    "rating": 4.6,
+    "reviewCount": 281,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Brass Deepam Stand with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "14 cm x 7 cm",
+      "Net Weight": "825 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_172",
+      "stock_product_173",
+      "stock_product_174",
+      "stock_product_175"
+    ]
+  },
+  {
+    "id": "stock_product_172",
+    "title": "Product 172 / Product 172",
+    "english_title": "Product 172",
+    "telugu_title": "Product 172",
+    "original_title": "Product 172",
+    "image": "IMAGE (172).JPG",
+    "images": [
+      "IMAGE (172).JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 749,
+    "mrp": 1190,
+    "discount": 37,
+    "rating": 4.7,
+    "reviewCount": 294,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Trending",
+    "description": "Authentic sacred Brass Deepam Stand handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "15 cm x 8 cm",
+      "Net Weight": "850 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_173",
+      "stock_product_174",
+      "stock_product_175",
+      "stock_product_176"
+    ]
+  },
+  {
+    "id": "stock_product_173",
+    "title": "Product 173 / Product 173",
+    "english_title": "Product 173",
+    "telugu_title": "Product 173",
+    "original_title": "Product 173",
+    "image": "IMAGE (173).JPG",
+    "images": [
+      "IMAGE (173).JPG",
+      "IMAGE (173)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Diyas & Brass Lamps",
+    "categoryId": "diyas-lamps",
+    "categoryIcon": "lamps",
+    "price": 789,
+    "mrp": 1270,
+    "discount": 38,
+    "rating": 4.8,
+    "reviewCount": 27,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Brass Deepam Stand created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "16 cm x 9 cm",
+      "Net Weight": "875 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_174",
+      "stock_product_175",
+      "stock_product_176",
+      "stock_product_177"
+    ]
+  },
+  {
+    "id": "stock_product_174",
+    "title": "Product 174 / Product 174",
+    "english_title": "Product 174",
+    "telugu_title": "Product 174",
+    "original_title": "Product 174",
+    "image": "IMAGE (174).JPG",
+    "images": [
+      "IMAGE (174).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 249,
+    "mrp": 410,
+    "discount": 39,
+    "rating": 4.9,
+    "reviewCount": 40,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Brass Haldi Kumkum Container. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "17 cm x 10 cm",
+      "Net Weight": "900 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_175",
+      "stock_product_176",
+      "stock_product_177",
+      "stock_product_178"
+    ]
+  },
+  {
+    "id": "stock_product_175",
+    "title": "Product 175 / Product 175",
+    "english_title": "Product 175",
+    "telugu_title": "Product 175",
+    "original_title": "Product 175",
+    "image": "IMAGE (175).JPG",
+    "images": [
+      "IMAGE (175).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 269,
+    "mrp": 320,
+    "discount": 15,
+    "rating": 4.3,
+    "reviewCount": 53,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Authentic",
+    "description": "Hand-finished Brass Haldi Kumkum Container with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "18 cm x 11 cm",
+      "Net Weight": "925 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_176",
+      "stock_product_177",
+      "stock_product_178",
+      "stock_product_179"
+    ]
+  },
+  {
+    "id": "stock_product_176",
+    "title": "Product 176 / Product 176",
+    "english_title": "Product 176",
+    "telugu_title": "Product 176",
+    "original_title": "Product 176",
+    "image": "IMAGE (176).JPG",
+    "images": [
+      "IMAGE (176).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 299,
+    "mrp": 360,
+    "discount": 16,
+    "rating": 4.4,
+    "reviewCount": 66,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Authentic",
+    "description": "Authentic sacred Brass Haldi Kumkum Container handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "19 cm x 12 cm",
+      "Net Weight": "950 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_177",
+      "stock_product_178",
+      "stock_product_179",
+      "stock_product_180"
+    ]
+  },
+  {
+    "id": "stock_product_177",
+    "title": "Product 177 / Product 177",
+    "english_title": "Product 177",
+    "telugu_title": "Product 177",
+    "original_title": "Product 177",
+    "image": "IMAGE (177).JPG",
+    "images": [
+      "IMAGE (177).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 1959,
+    "mrp": 2360,
+    "discount": 17,
+    "rating": 4.5,
+    "reviewCount": 79,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Shop Display Shelf (Brass Items) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "20 cm x 13 cm",
+      "Net Weight": "975 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_178",
+      "stock_product_179",
+      "stock_product_180",
+      "stock_product_181"
+    ]
+  },
+  {
+    "id": "stock_product_178",
+    "title": "Product 178 / Product 178",
+    "english_title": "Product 178",
+    "telugu_title": "Product 178",
+    "original_title": "Product 178",
+    "image": "IMAGE (178).JPG",
+    "images": [
+      "IMAGE (178).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 329,
+    "mrp": 400,
+    "discount": 18,
+    "rating": 4.6,
+    "reviewCount": 92,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Shop Display Shelf (Brass Items). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "21 cm x 14 cm",
+      "Net Weight": "1000 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_179",
+      "stock_product_180",
+      "stock_product_181",
+      "stock_product_182"
+    ]
+  },
+  {
+    "id": "stock_product_179",
+    "title": "Product 179 / Product 179",
+    "english_title": "Product 179",
+    "telugu_title": "Product 179",
+    "original_title": "Product 179",
+    "image": "IMAGE (179).JPG",
+    "images": [
+      "IMAGE (179).JPG"
+    ],
+    "category": "Brass Pooja Items & Kalash",
+    "categoryId": "brass-items",
+    "categoryIcon": "brass",
+    "price": 389,
+    "mrp": 480,
+    "discount": 19,
+    "rating": 4.7,
+    "reviewCount": 105,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Shop Display Shelf (Brass Items) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "22 cm x 15 cm",
+      "Net Weight": "1025 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_180",
+      "stock_product_181",
+      "stock_product_182",
+      "stock_product_183"
+    ]
+  },
+  {
+    "id": "stock_product_180",
+    "title": "Product 180 / Product 180",
+    "english_title": "Product 180",
+    "telugu_title": "Product 180",
+    "original_title": "Product 180",
+    "image": "IMAGE (180).JPG",
+    "images": [
+      "IMAGE (180).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 1479,
+    "mrp": 1850,
+    "discount": 20,
+    "rating": 4.8,
+    "reviewCount": 118,
+    "inStock": true,
+    "stockQty": 5,
+    "badge": "Trending",
+    "description": "Authentic sacred Framed God Photos handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "8 cm x 6 cm",
+      "Net Weight": "1050 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_181",
+      "stock_product_182",
+      "stock_product_183",
+      "stock_product_184"
+    ]
+  },
+  {
+    "id": "stock_product_181",
+    "title": "Product 181 / Product 181",
+    "english_title": "Product 181",
+    "telugu_title": "Product 181",
+    "original_title": "Product 181",
+    "image": "IMAGE (181).JPG",
+    "images": [
+      "IMAGE (181).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 379,
+    "mrp": 480,
+    "discount": 21,
+    "rating": 4.9,
+    "reviewCount": 131,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted God Photos (Framed Set) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "9 cm x 7 cm",
+      "Net Weight": "1075 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_182",
+      "stock_product_183",
+      "stock_product_184",
+      "stock_product_185"
+    ]
+  },
+  {
+    "id": "stock_product_182",
+    "title": "Product 182 / Product 182",
+    "english_title": "Product 182",
+    "telugu_title": "Product 182",
+    "original_title": "Product 182",
+    "image": "IMAGE (182).JPG",
+    "images": [
+      "IMAGE (182).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 429,
+    "mrp": 550,
+    "discount": 22,
+    "rating": 4.3,
+    "reviewCount": 144,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine God Photos (Framed Set). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "10 cm x 8 cm",
+      "Net Weight": "1100 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_183",
+      "stock_product_184",
+      "stock_product_185",
+      "stock_product_186"
+    ]
+  },
+  {
+    "id": "stock_product_183",
+    "title": "Product 183 / Product 183",
+    "english_title": "Product 183",
+    "telugu_title": "Product 183",
+    "original_title": "Product 183",
+    "image": "IMAGE (183).JPG",
+    "images": [
+      "IMAGE (183).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 479,
+    "mrp": 620,
+    "discount": 23,
+    "rating": 4.4,
+    "reviewCount": 157,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Authentic",
+    "description": "Hand-finished God Photos (Framed Set) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "11 cm x 9 cm",
+      "Net Weight": "1125 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_184",
+      "stock_product_185",
+      "stock_product_186",
+      "stock_product_187"
+    ]
+  },
+  {
+    "id": "stock_product_184",
+    "title": "Product 184 / Product 184",
+    "english_title": "Product 184",
+    "telugu_title": "Product 184",
+    "original_title": "Product 184",
+    "image": "IMAGE (184).JPG",
+    "images": [
+      "IMAGE (184).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 529,
+    "mrp": 700,
+    "discount": 24,
+    "rating": 4.5,
+    "reviewCount": 170,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Authentic",
+    "description": "Authentic sacred Framed God Photos handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "12 cm x 10 cm",
+      "Net Weight": "1150 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_185",
+      "stock_product_186",
+      "stock_product_187",
+      "stock_product_188"
+    ]
+  },
+  {
+    "id": "stock_product_185",
+    "title": "Product 185 / Product 185",
+    "english_title": "Product 185",
+    "telugu_title": "Product 185",
+    "original_title": "Product 185",
+    "image": "IMAGE (185).JPG",
+    "images": [
+      "IMAGE (185).JPG"
+    ],
+    "category": "Sacred Photo Frames",
+    "categoryId": "photo-frames",
+    "categoryIcon": "frames",
+    "price": 579,
+    "mrp": 770,
+    "discount": 25,
+    "rating": 4.6,
+    "reviewCount": 183,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Framed God Photos created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Teak Finish Frame & Gold Foil",
+      "Dimensions (approx)": "13 cm x 11 cm",
+      "Net Weight": "1175 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_186",
+      "stock_product_187",
+      "stock_product_188",
+      "stock_product_189"
+    ]
+  },
+  {
+    "id": "stock_product_186",
+    "title": "Product 186 / Product 186",
+    "english_title": "Product 186",
+    "telugu_title": "Product 186",
+    "original_title": "Product 186",
+    "image": "IMAGE (186).JPG",
+    "images": [
+      "IMAGE (186).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 479,
+    "mrp": 650,
+    "discount": 26,
+    "rating": 4.7,
+    "reviewCount": 196,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Hanging Mala Garlands. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "14 cm x 12 cm",
+      "Net Weight": "1200 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_187",
+      "stock_product_188",
+      "stock_product_189",
+      "stock_product_190"
+    ]
+  },
+  {
+    "id": "stock_product_187",
+    "title": "Product 187 / Product 187",
+    "english_title": "Product 187",
+    "telugu_title": "Product 187",
+    "original_title": "Product 187",
+    "image": "IMAGE (187).JPG",
+    "images": [
+      "IMAGE (187).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 519,
+    "mrp": 710,
+    "discount": 27,
+    "rating": 4.8,
+    "reviewCount": 209,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Hanging Mala Garlands with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "15 cm x 13 cm",
+      "Net Weight": "1225 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_188",
+      "stock_product_189",
+      "stock_product_190",
+      "stock_product_191"
+    ]
+  },
+  {
+    "id": "stock_product_188",
+    "title": "Product 188 / Product 188",
+    "english_title": "Product 188",
+    "telugu_title": "Product 188",
+    "original_title": "Product 188",
+    "image": "IMAGE (188).JPG",
+    "images": [
+      "IMAGE (188).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 299,
+    "mrp": 420,
+    "discount": 28,
+    "rating": 4.9,
+    "reviewCount": 222,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Trending",
+    "description": "Authentic sacred Shop Display Shelf (Puja Items) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "16 cm x 14 cm",
+      "Net Weight": "1250 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_189",
+      "stock_product_190",
+      "stock_product_191",
+      "stock_product_192"
+    ]
+  },
+  {
+    "id": "stock_product_189",
+    "title": "Product 189 / Product 189",
+    "english_title": "Product 189",
+    "telugu_title": "Product 189",
+    "original_title": "Product 189",
+    "image": "IMAGE (189).JPG",
+    "images": [
+      "IMAGE (189).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 329,
+    "mrp": 460,
+    "discount": 29,
+    "rating": 4.3,
+    "reviewCount": 235,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Shop Display Shelf (Puja Items) created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "17 cm x 15 cm",
+      "Net Weight": "1275 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_190",
+      "stock_product_191",
+      "stock_product_192",
+      "stock_product_193"
+    ]
+  },
+  {
+    "id": "stock_product_190",
+    "title": "Product 190 / Product 190",
+    "english_title": "Product 190",
+    "telugu_title": "Product 190",
+    "original_title": "Product 190",
+    "image": "IMAGE (190).JPG",
+    "images": [
+      "IMAGE (190).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 359,
+    "mrp": 510,
+    "discount": 30,
+    "rating": 4.4,
+    "reviewCount": 248,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Shop Display Shelf (Puja Items). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "18 cm x 6 cm",
+      "Net Weight": "1300 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_191",
+      "stock_product_192",
+      "stock_product_193",
+      "stock_product_194"
+    ]
+  },
+  {
+    "id": "stock_product_191",
+    "title": "Product 191 / Product 191",
+    "english_title": "Product 191",
+    "telugu_title": "Product 191",
+    "original_title": "Product 191",
+    "image": "IMAGE (191).JPG",
+    "images": [
+      "IMAGE (191).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 389,
+    "mrp": 560,
+    "discount": 31,
+    "rating": 4.5,
+    "reviewCount": 261,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Authentic",
+    "description": "Hand-finished Shop Display Shelf (Puja Items) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "19 cm x 7 cm",
+      "Net Weight": "1325 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_192",
+      "stock_product_193",
+      "stock_product_194",
+      "stock_product_195"
+    ]
+  },
+  {
+    "id": "stock_product_192",
+    "title": "Product 192 / Product 192",
+    "english_title": "Product 192",
+    "telugu_title": "Product 192",
+    "original_title": "Product 192",
+    "image": "IMAGE (192).JPG",
+    "images": [
+      "IMAGE (192).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 419,
+    "mrp": 620,
+    "discount": 32,
+    "rating": 4.6,
+    "reviewCount": 274,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Authentic",
+    "description": "Authentic sacred Shop Display Shelf (Puja Items) handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "20 cm x 8 cm",
+      "Net Weight": "150 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_193",
+      "stock_product_194",
+      "stock_product_195",
+      "stock_product_196"
+    ]
+  },
+  {
+    "id": "stock_product_193",
+    "title": "Product 193 / Product 193",
+    "english_title": "Product 193",
+    "telugu_title": "Product 193",
+    "original_title": "Product 193",
+    "image": "IMAGE (193).JPG",
+    "images": [
+      "IMAGE (193).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 739,
+    "mrp": 1100,
+    "discount": 33,
+    "rating": 4.7,
+    "reviewCount": 287,
+    "inStock": true,
+    "stockQty": 18,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Hanging Mala Garlands created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "21 cm x 9 cm",
+      "Net Weight": "175 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_194",
+      "stock_product_195",
+      "stock_product_196",
+      "stock_product_197"
+    ]
+  },
+  {
+    "id": "stock_product_194",
+    "title": "Product 194 / Product 194",
+    "english_title": "Product 194",
+    "telugu_title": "Product 194",
+    "original_title": "Product 194",
+    "image": "IMAGE (194).JPG",
+    "images": [
+      "IMAGE (194).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 779,
+    "mrp": 1180,
+    "discount": 34,
+    "rating": 4.8,
+    "reviewCount": 20,
+    "inStock": true,
+    "stockQty": 19,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Hanging Mala Garlands. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "22 cm x 10 cm",
+      "Net Weight": "200 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_195",
+      "stock_product_196",
+      "stock_product_197",
+      "stock_product_198"
+    ]
+  },
+  {
+    "id": "stock_product_195",
+    "title": "Product 195 / Product 195",
+    "english_title": "Product 195",
+    "telugu_title": "Product 195",
+    "original_title": "Product 195",
+    "image": "IMAGE (195).JPG",
+    "images": [
+      "IMAGE (195).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 209,
+    "mrp": 320,
+    "discount": 35,
+    "rating": 4.9,
+    "reviewCount": 33,
+    "inStock": true,
+    "stockQty": 20,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Mala Garlands and Beads with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "8 cm x 11 cm",
+      "Net Weight": "225 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_196",
+      "stock_product_197",
+      "stock_product_198",
+      "stock_product_199"
+    ]
+  },
+  {
+    "id": "stock_product_196",
+    "title": "Product 196 / Product 196",
+    "english_title": "Product 196",
+    "telugu_title": "Product 196",
+    "original_title": "Product 196",
+    "image": "IMAGE (196).JPG",
+    "images": [
+      "IMAGE (196).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3549,
+    "mrp": 5550,
+    "discount": 36,
+    "rating": 4.3,
+    "reviewCount": 46,
+    "inStock": true,
+    "stockQty": 21,
+    "badge": "Trending",
+    "description": "Authentic sacred Decorated Ganesha Idol handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "9 cm x 12 cm",
+      "Net Weight": "250 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_197",
+      "stock_product_198",
+      "stock_product_199",
+      "stock_product_200"
+    ]
+  },
+  {
+    "id": "stock_product_197",
+    "title": "Product 197 / Product 197",
+    "english_title": "Product 197",
+    "telugu_title": "Product 197",
+    "original_title": "Product 197",
+    "image": "IMAGE (197).JPG",
+    "images": [
+      "IMAGE (197).JPG"
+    ],
+    "category": "God Idols & Murti",
+    "categoryId": "god-idols",
+    "categoryIcon": "idols",
+    "price": 3639,
+    "mrp": 5780,
+    "discount": 37,
+    "rating": 4.4,
+    "reviewCount": 59,
+    "inStock": true,
+    "stockQty": 22,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Decorated Ganesha Idol created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Pure Solid Brass",
+      "Dimensions (approx)": "10 cm x 13 cm",
+      "Net Weight": "275 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_198",
+      "stock_product_199",
+      "stock_product_200",
+      "stock_product_201"
+    ]
+  },
+  {
+    "id": "stock_product_198",
+    "title": "Product 198 / Product 198",
+    "english_title": "Product 198",
+    "telugu_title": "Product 198",
+    "original_title": "Product 198",
+    "image": "IMAGE (198).JPG",
+    "images": [
+      "IMAGE (198).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 239,
+    "mrp": 390,
+    "discount": 38,
+    "rating": 4.5,
+    "reviewCount": 72,
+    "inStock": true,
+    "stockQty": 23,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Shop Display Shelf (Puja Items). Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "11 cm x 14 cm",
+      "Net Weight": "300 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_199",
+      "stock_product_200",
+      "stock_product_201",
+      "stock_product_202"
+    ]
+  },
+  {
+    "id": "stock_product_199",
+    "title": "Product 199 / Product 199",
+    "english_title": "Product 199",
+    "telugu_title": "Product 199",
+    "original_title": "Product 199",
+    "image": "IMAGE (199).JPG",
+    "images": [
+      "IMAGE (199).JPG"
+    ],
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "categoryIcon": "samagri",
+    "price": 269,
+    "mrp": 440,
+    "discount": 39,
+    "rating": 4.6,
+    "reviewCount": 85,
+    "inStock": true,
+    "stockQty": 24,
+    "badge": "Authentic",
+    "description": "Hand-finished Shop Display Shelf (Puja Items) with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "100% Pure & Natural Sacred Ingredients",
+      "Dimensions (approx)": "12 cm x 15 cm",
+      "Net Weight": "325 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_200",
+      "stock_product_201",
+      "stock_product_202",
+      "stock_product_203"
+    ]
+  },
+  {
+    "id": "stock_product_200",
+    "title": "Product 200 / Product 200",
+    "english_title": "Product 200",
+    "telugu_title": "Product 200",
+    "original_title": "Product 200",
+    "image": "IMAGE (200).JPG",
+    "images": [
+      "IMAGE (200).JPG"
+    ],
+    "category": "Decor & Garlands",
+    "categoryId": "decor-garlands",
+    "categoryIcon": "garlands",
+    "price": 499,
+    "mrp": 590,
+    "discount": 15,
+    "rating": 4.7,
+    "reviewCount": 98,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Authentic",
+    "description": "Authentic sacred Saffron Religious Flag handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "High Grade Silk & Marigold Fibers",
+      "Dimensions (approx)": "13 cm x 6 cm",
+      "Net Weight": "350 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_201",
+      "stock_product_202",
+      "stock_product_203",
+      "stock_product_204"
+    ]
+  },
+  {
+    "id": "stock_product_201",
+    "title": "Product 201 / Product 201",
+    "english_title": "Product 201",
+    "telugu_title": "Product 201",
+    "original_title": "Product 201",
+    "image": "IMAGE (201).JPG",
+    "images": [
+      "IMAGE (201).JPG",
+      "IMAGE (201)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 439,
+    "mrp": 520,
+    "discount": 16,
+    "rating": 4.8,
+    "reviewCount": 111,
+    "inStock": true,
+    "stockQty": 6,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Orange Tulsi Mala created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Sacred Holy Tulsi Wood",
+      "Dimensions (approx)": "14 cm x 7 cm",
+      "Net Weight": "375 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_202",
+      "stock_product_203",
+      "stock_product_204",
+      "stock_product_205"
+    ]
+  },
+  {
+    "id": "stock_product_202",
+    "title": "Product 202 / Product 202",
+    "english_title": "Product 202",
+    "telugu_title": "Product 202",
+    "original_title": "Product 202",
+    "image": "IMAGE (202).JPG",
+    "images": [
+      "IMAGE (202).JPG",
+      "IMAGE (202)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 469,
+    "mrp": 570,
+    "discount": 17,
+    "rating": 4.9,
+    "reviewCount": 124,
+    "inStock": true,
+    "stockQty": 7,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Orange Tulsi Mala. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Sacred Holy Tulsi Wood",
+      "Dimensions (approx)": "15 cm x 8 cm",
+      "Net Weight": "400 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_203",
+      "stock_product_204",
+      "stock_product_205",
+      "stock_product_206"
+    ]
+  },
+  {
+    "id": "stock_product_203",
+    "title": "Product 203 / Product 203",
+    "english_title": "Product 203",
+    "telugu_title": "Product 203",
+    "original_title": "Product 203",
+    "image": "IMAGE (203).JPG",
+    "images": [
+      "IMAGE (203).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 509,
+    "mrp": 620,
+    "discount": 18,
+    "rating": 4.3,
+    "reviewCount": 137,
+    "inStock": true,
+    "stockQty": 8,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Orange Tulsi Mala with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Sacred Holy Tulsi Wood",
+      "Dimensions (approx)": "16 cm x 9 cm",
+      "Net Weight": "425 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_204",
+      "stock_product_205",
+      "stock_product_206",
+      "stock_product_207"
+    ]
+  },
+  {
+    "id": "stock_product_204",
+    "title": "Product 204 / Product 204",
+    "english_title": "Product 204",
+    "telugu_title": "Product 204",
+    "original_title": "Product 204",
+    "image": "IMAGE (204).JPG",
+    "images": [
+      "IMAGE (204).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 549,
+    "mrp": 680,
+    "discount": 19,
+    "rating": 4.4,
+    "reviewCount": 150,
+    "inStock": true,
+    "stockQty": 9,
+    "badge": "Trending",
+    "description": "Authentic sacred Orange Tulsi Mala handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Sacred Holy Tulsi Wood",
+      "Dimensions (approx)": "17 cm x 10 cm",
+      "Net Weight": "450 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_205",
+      "stock_product_206",
+      "stock_product_207",
+      "stock_product_208"
+    ]
+  },
+  {
+    "id": "stock_product_205",
+    "title": "Product 205 / Product 205",
+    "english_title": "Product 205",
+    "telugu_title": "Product 205",
+    "original_title": "Product 205",
+    "image": "IMAGE (205).JPG",
+    "images": [
+      "IMAGE (205).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 579,
+    "mrp": 720,
+    "discount": 20,
+    "rating": 4.5,
+    "reviewCount": 163,
+    "inStock": true,
+    "stockQty": 10,
+    "badge": "Authentic",
+    "description": "Exquisitely crafted Orange Tulsi Mala created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Sacred Holy Tulsi Wood",
+      "Dimensions (approx)": "18 cm x 11 cm",
+      "Net Weight": "475 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_206",
+      "stock_product_207",
+      "stock_product_208",
+      "stock_product_209"
+    ]
+  },
+  {
+    "id": "stock_product_206",
+    "title": "Product 206 / Product 206",
+    "english_title": "Product 206",
+    "telugu_title": "Product 206",
+    "original_title": "Product 206",
+    "image": "IMAGE (206).JPG",
+    "images": [
+      "IMAGE (206).JPG",
+      "IMAGE (206)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 619,
+    "mrp": 780,
+    "discount": 21,
+    "rating": 4.6,
+    "reviewCount": 176,
+    "inStock": true,
+    "stockQty": 11,
+    "badge": "Authentic",
+    "description": "Bring home the divine blessings of Tirumala with this genuine White Tulsi Mala. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Sacred Holy Tulsi Wood",
+      "Dimensions (approx)": "19 cm x 12 cm",
+      "Net Weight": "500 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_207",
+      "stock_product_208",
+      "stock_product_209",
+      "stock_product_210"
+    ]
+  },
+  {
+    "id": "stock_product_207",
+    "title": "Product 207 / Product 207",
+    "english_title": "Product 207",
+    "telugu_title": "Product 207",
+    "original_title": "Product 207",
+    "image": "IMAGE (207).JPG",
+    "images": [
+      "IMAGE (207).JPG",
+      "IMAGE (207)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 659,
+    "mrp": 840,
+    "discount": 22,
+    "rating": 4.7,
+    "reviewCount": 189,
+    "inStock": true,
+    "stockQty": 12,
+    "badge": "Authentic",
+    "description": "Hand-finished White Tulsi Mala with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Sacred Holy Tulsi Wood",
+      "Dimensions (approx)": "20 cm x 13 cm",
+      "Net Weight": "525 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_208",
+      "stock_product_209",
+      "stock_product_210",
+      "stock_product_211"
+    ]
+  },
+  {
+    "id": "stock_product_208",
+    "title": "Product 208 / Product 208",
+    "english_title": "Product 208",
+    "telugu_title": "Product 208",
+    "original_title": "Product 208",
+    "image": "IMAGE (208).JPG",
+    "images": [
+      "IMAGE (208).JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 699,
+    "mrp": 910,
+    "discount": 23,
+    "rating": 4.8,
+    "reviewCount": 202,
+    "inStock": true,
+    "stockQty": 13,
+    "badge": "Authentic",
+    "description": "Authentic sacred White Tulsi Mala handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Sacred Holy Tulsi Wood",
+      "Dimensions (approx)": "21 cm x 14 cm",
+      "Net Weight": "550 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
+    "relatedIds": [
+      "stock_product_209",
+      "stock_product_210",
+      "stock_product_211",
+      "stock_product_212"
+    ]
+  },
+  {
+    "id": "stock_product_209",
+    "title": "Product 209 / Product 209",
+    "english_title": "Product 209",
+    "telugu_title": "Product 209",
+    "original_title": "Product 209",
+    "image": "IMAGE (209).JPG",
+    "images": [
+      "IMAGE (209).JPG",
+      "IMAGE (209)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 729,
+    "mrp": 960,
+    "discount": 24,
+    "rating": 4.9,
+    "reviewCount": 215,
+    "inStock": true,
+    "stockQty": 14,
+    "badge": "Bestseller",
+    "description": "Exquisitely crafted Rudraksha Mala created following traditional Agamic and Vedic artisan techniques. Designed for enduring divine beauty and longevity during sacred worship.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "22 cm x 15 cm",
+      "Net Weight": "575 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Place upon an elevated wooden chowki facing East or North for maximum spiritual harmony.",
+    "relatedIds": [
+      "stock_product_210",
+      "stock_product_211",
+      "stock_product_212",
+      "matti_pramidalu"
+    ]
+  },
+  {
+    "id": "stock_product_210",
+    "title": "Product 210 / Product 210",
+    "english_title": "Product 210",
+    "telugu_title": "Product 210",
+    "original_title": "Product 210",
+    "image": "IMAGE (210).JPG",
+    "images": [
+      "IMAGE (210).JPG",
+      "IMAGE (210)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 769,
+    "mrp": 1030,
+    "discount": 25,
+    "rating": 4.3,
+    "reviewCount": 228,
+    "inStock": false,
+    "stockQty": 0,
+    "badge": "Festive Deal",
+    "description": "Bring home the divine blessings of Tirumala with this genuine Rudraksha Mala. Blessed and prepared in accordance with traditional spiritual practices.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "8 cm x 6 cm",
+      "Net Weight": "600 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Apply sacred sandal paste (chandanam) and kumkum prior to chanting auspicious mantras.",
+    "relatedIds": [
+      "stock_product_211",
+      "stock_product_212",
+      "matti_pramidalu",
+      "product_1"
+    ]
+  },
+  {
+    "id": "stock_product_211",
+    "title": "Product 211 / Product 211",
+    "english_title": "Product 211",
+    "telugu_title": "Product 211",
+    "original_title": "Product 211",
+    "image": "IMAGE (211).JPG",
+    "images": [
+      "IMAGE (211).JPG",
+      "IMAGE (211)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 209,
+    "mrp": 280,
+    "discount": 26,
+    "rating": 4.4,
+    "reviewCount": 241,
+    "inStock": true,
+    "stockQty": 16,
+    "badge": "Temple Grade",
+    "description": "Hand-finished Rudraksha Mala with rich detailing. Ideal for housewarming ceremonies (Gruhapravesam), wedding return gifts, Diwali, and festive poojas.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "9 cm x 7 cm",
+      "Net Weight": "625 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Clean with brasso or natural pitambari powder for everlasting radiant golden shine.",
+    "relatedIds": [
+      "stock_product_212",
+      "matti_pramidalu",
+      "product_1",
+      "product_2"
+    ]
+  },
+  {
+    "id": "stock_product_212",
+    "title": "Product 212 / Product 212",
+    "english_title": "Product 212",
+    "telugu_title": "Product 212",
+    "original_title": "Product 212",
+    "image": "IMAGE (212).JPG",
+    "images": [
+      "IMAGE (212).JPG",
+      "IMAGE (212)-DESKTOP-D38NNBU.JPG"
+    ],
+    "category": "Malas & Rudraksha",
+    "categoryId": "malas-rudraksha",
+    "categoryIcon": "malas",
+    "price": 239,
+    "mrp": 330,
+    "discount": 27,
+    "rating": 4.5,
+    "reviewCount": 254,
+    "inStock": true,
+    "stockQty": 17,
+    "badge": "Trending",
+    "description": "Authentic sacred Rudraksha Mala handpicked for daily temple rituals and home mandirs. Brings auspicious positive energy, prosperity, and peace into your living spaces. Sourced directly with quality assurance by 7 Hills Pooja Store, LB Nagar.",
+    "specifications": {
+      "Material": "Natural Panchamukhi Rudraksha",
+      "Dimensions (approx)": "10 cm x 8 cm",
+      "Net Weight": "650 grams",
+      "Country of Origin": "India (Handcrafted)",
+      "Spiritual Significance": "Positive Energy & Auspicious Harmony",
+      "Recommended Care": "Clean with dry soft cotton cloth; avoid harsh detergents."
+    },
+    "ritualUsage": "Light with pure cow ghee or sesame oil during morning and evening sandhya pooja.",
     "relatedIds": [
       "matti_pramidalu",
       "product_1",

@@ -676,13 +676,99 @@ function toggleWishlist(productId) {
 }
 
 // ==========================================
-// 4. REUSABLE PRODUCT CARD COMPONENT
+// 4. REUSABLE PRODUCT CARD COMPONENT & SLIDER
 // ==========================================
+const cardTouchState = {};
+
+function handleCardTouchStart(e, prodId) {
+  if (!e.touches || e.touches.length === 0) return;
+  const touch = e.touches[0];
+  cardTouchState[prodId] = {
+    startX: touch.clientX,
+    startY: touch.clientY
+  };
+}
+
+function handleCardTouchEnd(e, prodId) {
+  const state = cardTouchState[prodId];
+  if (!state || !e.changedTouches || e.changedTouches.length === 0) return;
+  const touch = e.changedTouches[0];
+  const deltaX = touch.clientX - state.startX;
+  const deltaY = touch.clientY - state.startY;
+  delete cardTouchState[prodId];
+
+  // Horizontal swipe detection (> 26px)
+  if (Math.abs(deltaX) > 26 && Math.abs(deltaX) > Math.abs(deltaY)) {
+    if (deltaX < 0) {
+      slideCardImage(e, prodId, 1); // Swipe left -> 2nd pic (detailed description)
+    } else {
+      slideCardImage(e, prodId, -1); // Swipe right -> 1st pic (front)
+    }
+  }
+}
+
+function handleCardImageWrapperClick(e, prodId) {
+  if (e.target.closest('.card-slider-btn') || e.target.closest('.card-slider-dot')) {
+    return;
+  }
+  window.location.hash = `#/product/${prodId}`;
+}
+
+function slideCardImage(e, prodId, delta) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  const wrap = document.getElementById(`card-img-wrap-${prodId}`);
+  if (!wrap) return;
+  const total = parseInt(wrap.getAttribute('data-slide-count') || '1', 10);
+  if (total <= 1) return;
+  const current = parseInt(wrap.getAttribute('data-slide-index') || '0', 10);
+  const next = (current + delta + total) % total;
+  setCardSlide(e, prodId, next);
+}
+
+function setCardSlide(e, prodId, slideIndex) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  const wrap = document.getElementById(`card-img-wrap-${prodId}`);
+  if (!wrap) return;
+  const total = parseInt(wrap.getAttribute('data-slide-count') || '1', 10);
+  wrap.setAttribute('data-slide-index', slideIndex);
+
+  const track = document.getElementById(`card-slider-track-${prodId}`);
+  if (track) {
+    track.style.transform = `translateX(-${slideIndex * 100}%)`;
+  }
+
+  const dotsContainer = document.getElementById(`card-slider-dots-${prodId}`);
+  if (dotsContainer) {
+    const dots = dotsContainer.querySelectorAll('.card-slider-dot');
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('active', idx === slideIndex);
+    });
+  }
+
+  const badge = document.getElementById(`card-slide-badge-${prodId}`);
+  if (badge) {
+    if (slideIndex === 0) {
+      badge.textContent = `Front View (1/${total})`;
+    } else if (slideIndex === 1) {
+      badge.textContent = `Detailed Description (2/${total})`;
+    } else {
+      badge.textContent = `Photo ${slideIndex + 1}/${total}`;
+    }
+  }
+}
+
 function renderProductCard(product) {
   const isWishlisted = STORE.wishlist.includes(product.id);
   const cartItem = STORE.cart.find(item => item.product.id === product.id);
   const inCartQty = cartItem ? cartItem.quantity : 0;
-  const imgUrl = getProductImageUrl(product.images[0]);
+  const cardImages = Array.isArray(product.images) && product.images.length > 0 ? product.images : (product.image ? [product.image] : ['image-coming-soon.svg']);
+  const hasMultipleImages = cardImages.length > 1;
 
   const sellingPrice = Number(product.price) || 0;
   const rawMrp = Number(product.mrp);
@@ -707,14 +793,67 @@ function renderProductCard(product) {
         ${isWishlisted ? (typeof getIcon !== 'undefined' ? getIcon('heart-filled', 15) : 'Saved') : (typeof getIcon !== 'undefined' ? getIcon('heart', 15) : 'Save')}
       </button>
 
-      <a href="#/product/${product.id}" class="product-card-img-wrapper" aria-label="${product.title}">
-        <img 
-          src="${imgUrl}" 
-          alt="${product.title}" 
-          loading="lazy"
-          onerror="this.src='image-coming-soon.svg'"
-        >
-      </a>
+      <div 
+        class="product-card-img-wrapper ${hasMultipleImages ? 'has-slider' : ''}" 
+        id="card-img-wrap-${product.id}"
+        data-prod-id="${product.id}"
+        data-slide-index="0"
+        data-slide-count="${cardImages.length}"
+        onclick="handleCardImageWrapperClick(event, '${product.id}')"
+        ontouchstart="handleCardTouchStart(event, '${product.id}')"
+        ontouchend="handleCardTouchEnd(event, '${product.id}')"
+        title="Tap to view product details; swipe or tap arrows to view 2nd picture"
+      >
+        ${hasMultipleImages ? `
+          <div class="card-slider-track" id="card-slider-track-${product.id}">
+            ${cardImages.map((img, i) => `
+              <img 
+                src="${getProductImageUrl(img)}" 
+                alt="${escapeHtml(product.title)} - ${i === 0 ? 'Front View' : (i === 1 ? 'Detailed Description' : 'Photo ' + (i+1))}" 
+                loading="lazy"
+                onerror="this.src='image-coming-soon.svg'"
+              >
+            `).join('')}
+          </div>
+          
+          <button 
+            type="button" 
+            class="card-slider-btn prev" 
+            onclick="slideCardImage(event, '${product.id}', -1)"
+            aria-label="Previous photo"
+            title="Front photo"
+          >&#8249;</button>
+
+          <button 
+            type="button" 
+            class="card-slider-btn next" 
+            onclick="slideCardImage(event, '${product.id}', 1)"
+            aria-label="Next photo"
+            title="Slide for detailed description"
+          >&#8250;</button>
+
+          <span class="card-slide-badge" id="card-slide-badge-${product.id}">
+            Slide for details (1/${cardImages.length})
+          </span>
+
+          <div class="card-slider-dots" id="card-slider-dots-${product.id}">
+            ${cardImages.map((_, i) => `
+              <span 
+                class="card-slider-dot ${i === 0 ? 'active' : ''}" 
+                onclick="setCardSlide(event, '${product.id}', ${i})"
+                title="Photo ${i + 1}"
+              ></span>
+            `).join('')}
+          </div>
+        ` : `
+          <img 
+            src="${getProductImageUrl(cardImages[0])}" 
+            alt="${escapeHtml(product.title)}" 
+            loading="lazy"
+            onerror="this.src='image-coming-soon.svg'"
+          >
+        `}
+      </div>
 
       <div class="product-card-body">
         <span class="product-card-category">${product.category}</span>
@@ -1915,10 +2054,14 @@ function renderProductDetailsView(prodId) {
   const product = STORE.products.find(p => p.id === prodId) || STORE.products[0];
   if (!product) return;
 
+  const pdpImages = Array.isArray(product.images) && product.images.length > 0 ? product.images : (product.image ? [product.image] : ['image-coming-soon.svg']);
+  currentPdpImages = pdpImages;
+  currentPdpIndex = 0;
+
   const isWishlisted = STORE.wishlist.includes(product.id);
   const cartItem = STORE.cart.find(i => i.product.id === product.id);
   const inCartQty = cartItem ? cartItem.quantity : 1;
-  const mainImg = getProductImageUrl(product.images[0]);
+  const mainImg = getProductImageUrl(pdpImages[0]);
 
   // Frequently bought bundle: product + 2 related items
   const bundleItems = product.relatedIds
@@ -1939,25 +2082,40 @@ function renderProductDetailsView(prodId) {
         
         <!-- Gallery Column -->
         <div class="pdp-gallery-column">
-          <div class="pdp-main-image-box">
+          <div 
+            class="pdp-main-image-box" 
+            id="pdp-main-box"
+            ontouchstart="handlePdpTouchStart(event)"
+            ontouchend="handlePdpTouchEnd(event)"
+          >
             ${product.badge ? `<span class="card-badge">${product.badge}</span>` : ''}
             <img 
               id="pdp-main-preview" 
               src="${mainImg}" 
-              alt="${product.title}"
+              alt="${escapeHtml(product.title)}"
               onerror="this.src='https://placehold.co/500x500?text=7+Hills+Pooja+Store'"
             >
+            ${pdpImages.length > 1 ? `
+              <button type="button" class="pdp-nav-btn prev" onclick="slidePdpImage(-1)" aria-label="Previous photo" title="Previous photo">&#8249;</button>
+              <button type="button" class="pdp-nav-btn next" onclick="slidePdpImage(1)" aria-label="Next photo" title="Slide to detailed description">&#8250;</button>
+            ` : ''}
           </div>
 
-          <!-- Thumbnails -->
-          ${product.images.length > 1 ? `
-            <div class="pdp-thumbnails-strip">
-              ${product.images.map((img, idx) => `
+          ${pdpImages.length > 1 ? `
+            <div class="pdp-slide-caption-bar" id="pdp-slide-caption">
+              <span>📸 <strong>Photo <span id="pdp-slide-num">1</span> of ${pdpImages.length}</strong>: <span id="pdp-slide-label">Front View (Sacred Packaging)</span></span>
+              <span style="color: var(--primary-saffron); font-weight: 600; font-size: 11px;">Swipe or tap &#8249; &#8250; to slide</span>
+            </div>
+
+            <!-- Thumbnails -->
+            <div class="pdp-thumbnails-strip" id="pdp-thumbnails">
+              ${pdpImages.map((img, idx) => `
                 <img 
                   src="${getProductImageUrl(img)}" 
                   class="pdp-thumb ${idx === 0 ? 'active' : ''}" 
-                  alt="Thumbnail ${idx + 1}"
-                  onclick="switchPdpImage(this, '${getProductImageUrl(img)}')"
+                  alt="${idx === 0 ? 'Front View' : (idx === 1 ? 'Detailed Description' : 'Angle ' + (idx + 1))}"
+                  onclick="switchPdpImage(this, '${getProductImageUrl(img)}', ${idx})"
+                  title="${idx === 0 ? 'Photo 1: Front' : (idx === 1 ? 'Photo 2: Detailed Description' : 'Photo ' + (idx + 1))}"
                 >
               `).join('')}
             </div>
@@ -2163,11 +2321,66 @@ function renderProductDetailsView(prodId) {
   `;
 }
 
-function switchPdpImage(el, src) {
-  document.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
-  el.classList.add('active');
+let currentPdpImages = [];
+let currentPdpIndex = 0;
+let pdpTouchStartX = 0;
+let pdpTouchStartY = 0;
+
+function switchPdpImage(el, src, index) {
+  currentPdpIndex = typeof index === 'number' ? index : 0;
+  document.querySelectorAll('.pdp-thumb').forEach((t, i) => {
+    t.classList.toggle('active', i === currentPdpIndex);
+  });
   const preview = document.getElementById('pdp-main-preview');
-  if (preview) preview.src = src;
+  if (preview) {
+    preview.style.opacity = '0.35';
+    preview.src = src;
+    setTimeout(() => { preview.style.opacity = '1'; }, 80);
+  }
+  updatePdpSlideCaption();
+}
+
+function slidePdpImage(delta) {
+  if (!currentPdpImages || currentPdpImages.length <= 1) return;
+  const nextIdx = (currentPdpIndex + delta + currentPdpImages.length) % currentPdpImages.length;
+  const thumbs = document.querySelectorAll('.pdp-thumb');
+  const targetThumb = thumbs && thumbs[nextIdx] ? thumbs[nextIdx] : null;
+  const src = getProductImageUrl(currentPdpImages[nextIdx]);
+  switchPdpImage(targetThumb, src, nextIdx);
+}
+
+function handlePdpTouchStart(e) {
+  if (!e.touches || e.touches.length === 0) return;
+  pdpTouchStartX = e.touches[0].clientX;
+  pdpTouchStartY = e.touches[0].clientY;
+}
+
+function handlePdpTouchEnd(e) {
+  if (!e.changedTouches || e.changedTouches.length === 0) return;
+  const deltaX = e.changedTouches[0].clientX - pdpTouchStartX;
+  const deltaY = e.changedTouches[0].clientY - pdpTouchStartY;
+  if (Math.abs(deltaX) > 28 && Math.abs(deltaX) > Math.abs(deltaY)) {
+    if (deltaX < 0) {
+      slidePdpImage(1); // Swipe left -> Next photo (detailed description)
+    } else {
+      slidePdpImage(-1); // Swipe right -> Previous photo (front)
+    }
+  }
+}
+
+function updatePdpSlideCaption() {
+  const num = document.getElementById('pdp-slide-num');
+  const label = document.getElementById('pdp-slide-label');
+  if (num) num.textContent = currentPdpIndex + 1;
+  if (label) {
+    if (currentPdpIndex === 0) {
+      label.textContent = 'Front View (Sacred Packaging)';
+    } else if (currentPdpIndex === 1) {
+      label.textContent = 'Detailed Description, Ingredients & Shastra Specs (Back View)';
+    } else {
+      label.textContent = `Photo ${currentPdpIndex + 1} of ${currentPdpImages.length}`;
+    }
+  }
 }
 
 function changePdpQty(delta) {
@@ -6117,6 +6330,14 @@ if (typeof window !== 'undefined') {
   window.addBundleToCart = addBundleToCart;
   window.checkPdpPincode = checkPdpPincode;
   window.switchPdpImage = switchPdpImage;
+  window.slidePdpImage = slidePdpImage;
+  window.handlePdpTouchStart = handlePdpTouchStart;
+  window.handlePdpTouchEnd = handlePdpTouchEnd;
+  window.slideCardImage = slideCardImage;
+  window.setCardSlide = setCardSlide;
+  window.handleCardImageWrapperClick = handleCardImageWrapperClick;
+  window.handleCardTouchStart = handleCardTouchStart;
+  window.handleCardTouchEnd = handleCardTouchEnd;
   window.applyCoupon = applyCoupon;
   window.removeCoupon = removeCoupon;
   window.changeDeliveryMethod = changeDeliveryMethod;

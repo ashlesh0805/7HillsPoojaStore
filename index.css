@@ -804,17 +804,136 @@ img {
   aspect-ratio: 1;
   background-color: var(--bg-surface-secondary);
   overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  touch-action: pan-y;
 }
 
-.product-card-img-wrapper img {
+.card-slider-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.32s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.card-slider-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.product-card-img-wrapper > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform var(--transition-slow);
 }
 
-.product-card:hover .product-card-img-wrapper img {
-  transform: scale(1.06);
+.product-card:hover .product-card-img-wrapper > img,
+.product-card:hover .card-slider-track img {
+  transform: scale(1.05);
+}
+
+.card-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-maroon);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.15s ease, background 0.15s ease;
+}
+
+.product-card:hover .card-slider-btn,
+.product-card:focus-within .card-slider-btn,
+.product-card-img-wrapper:hover .card-slider-btn {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .card-slider-btn {
+    opacity: 0.92;
+  }
+}
+
+.card-slider-btn.prev {
+  left: 6px;
+}
+
+.card-slider-btn.next {
+  right: 6px;
+}
+
+.card-slider-btn:hover {
+  background: #FFFFFF;
+  color: var(--primary-saffron);
+  transform: translateY(-50%) scale(1.12);
+}
+
+.card-slider-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 4;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 3px 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  pointer-events: auto;
+}
+
+.card-slider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.card-slider-dot.active {
+  background: #FDE68A;
+  width: 14px;
+  border-radius: 4px;
+}
+
+.card-slide-badge {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(122, 12, 26, 0.88);
+  color: #FDE68A;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 4;
+  white-space: nowrap;
+  letter-spacing: 0.2px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease;
 }
 
 .card-badge {
@@ -1339,16 +1458,73 @@ img {
   width: 100%;
   aspect-ratio: 1;
   background-color: var(--bg-surface-secondary);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   position: relative;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .pdp-main-image-box img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: opacity 0.25s ease;
+}
+
+.pdp-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-maroon);
+  border: 1.5px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 6;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.18);
+  transition: all 0.2s ease;
+}
+
+.pdp-nav-btn:hover {
+  background: var(--primary-maroon);
+  color: #FFF;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.pdp-nav-btn.prev {
+  left: 10px;
+}
+
+.pdp-nav-btn.next {
+  right: 10px;
+}
+
+.pdp-slide-caption-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: #FFFDF9;
+  border: 1px solid var(--border-subtle);
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.pdp-slide-caption-bar strong {
+  color: var(--primary-maroon);
 }
 
 .pdp-thumbnails-strip {
