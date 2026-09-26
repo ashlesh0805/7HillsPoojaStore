@@ -3,8 +3,8 @@
   "short_name": "7H Partner",
   "start_url": "./partner",
   "display": "standalone",
-  "background_color": "#7A0C1A",
-  "theme_color": "#7A0C1A",
+  "background_color": "#581C4F",
+  "theme_color": "#581C4F",
   "description": "7 Hills Pooja Store Partner Portal — Real-time Order Alerts, Live Inventory Management, and Dispatch Engine.",
   "orientation": "portrait-primary",
   "icons": [

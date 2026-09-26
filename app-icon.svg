@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
-    <!-- Background Velvet Maroon Gradient -->
+    <!-- Background Sunset Twilight Purple to Warm Sunset Glow Gradient -->
     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4A040D"/>
-      <stop offset="50%" stop-color="#7A0C1A"/>
-      <stop offset="100%" stop-color="#2D0206"/>
+      <stop offset="0%" stop-color="#320C2D"/>
+      <stop offset="50%" stop-color="#581C4F"/>
+      <stop offset="85%" stop-color="#B83A64"/>
+      <stop offset="100%" stop-color="#E86024"/>
     </linearGradient>
 
     <!-- Rich Divine Gold Gradient -->
@@ -49,7 +50,7 @@
   <!-- THE 7 SACRED HILLS OF TIRUMALA (Base Mountain) -->
   <!-- ============================================== -->
   <!-- Hills Background Silhouette Base -->
-  <path d="M70 330 Q95 295 125 310 Q155 285 185 300 Q215 270 240 288 Q256 265 272 288 Q297 270 327 300 Q357 285 387 310 Q417 295 442 330 L442 342 L70 342 Z" fill="#5C0612" opacity="0.6"/>
+  <path d="M70 330 Q95 295 125 310 Q155 285 185 300 Q215 270 240 288 Q256 265 272 288 Q297 270 327 300 Q357 285 387 310 Q417 295 442 330 L442 342 L70 342 Z" fill="#320C2D" opacity="0.6"/>
 
   <!-- Contoured Peaks of the 7 Hills -->
   <!-- Peak 1 (Seshadri - Far Left) -->
@@ -88,12 +89,12 @@
   <line x1="206" y1="142" x2="306" y2="142" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round"/>
 
   <!-- Gopuram Tier 1 (Upper Tala) -->
-  <path d="M218 146 L210 178 L302 178 L294 146 Z" fill="#5C0612" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <path d="M218 146 L210 178 L302 178 L294 146 Z" fill="#581C4F" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2.5"/>
   <rect x="249" y="152" width="14" height="18" rx="2" fill="url(#goldGrad)"/>
   <line x1="198" y1="182" x2="314" y2="182" stroke="url(#goldGrad)" stroke-width="3.5" stroke-linecap="round"/>
 
   <!-- Gopuram Tier 2 (Middle Tala) -->
-  <path d="M206 186 L194 226 L318 226 L306 186 Z" fill="#5C0612" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <path d="M206 186 L194 226 L318 226 L306 186 Z" fill="#581C4F" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2.5"/>
   <!-- Decorative Pilasters / Niches -->
   <line x1="226" y1="190" x2="226" y2="222" stroke="url(#goldGrad)" stroke-width="2"/>
   <rect x="248" y="192" width="16" height="22" rx="2" fill="url(#goldGrad)"/>
@@ -101,7 +102,7 @@
   <line x1="184" y1="230" x2="328" y2="230" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round"/>
 
   <!-- Gopuram Tier 3 (Lower Tala) -->
-  <path d="M192 234 L178 280 L334 280 L320 234 Z" fill="#5C0612" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2.5"/>
+  <path d="M192 234 L178 280 L334 280 L320 234 Z" fill="#581C4F" fill-opacity="0.4" stroke="url(#goldGrad)" stroke-width="2.5"/>
   <line x1="214" y1="238" x2="214" y2="276" stroke="url(#goldGrad)" stroke-width="2"/>
   <rect x="246" y="240" width="20" height="26" rx="2" fill="url(#goldGrad)"/>
   <line x1="298" y1="238" x2="298" y2="276" stroke="url(#goldGrad)" stroke-width="2"/>
