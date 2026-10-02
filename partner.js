@@ -41,6 +41,21 @@ function setLocalJSON(key, val) {
   }
 }
 
+function broadcastCatalogSync(action, detail) {
+  try {
+    if (typeof window !== 'undefined' && window.BroadcastChannel) {
+      const channel = new BroadcastChannel('7hills_catalog_sync');
+      channel.postMessage({ action, detail, timestamp: Date.now() });
+      channel.close();
+    }
+  } catch (e) {}
+  try {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('7hills:catalog-updated', { detail: { action, detail } }));
+    }
+  } catch (e) {}
+}
+
 // ===================================================
 // 1. PIN AUTHENTICATION
 // ===================================================
@@ -709,6 +724,7 @@ async function quickAdjustStock(id, delta) {
 
   renderCatalog();
   showToast(`${prod.title} stock updated: ${newStock} Units`, 'info');
+  broadcastCatalogSync('STOCK_UPDATED', { id, inStock: prod.inStock, stockQty: prod.stockQty });
 
   try {
     await fetch('/api/products', {
@@ -746,6 +762,7 @@ async function toggleProductStock(id) {
 
   renderCatalog();
   showToast(`${prod.title} marked as ${updatedStock ? 'In Stock' : 'Out of Stock'}`, 'info');
+  broadcastCatalogSync('STOCK_UPDATED', { id, inStock: prod.inStock, stockQty: prod.stockQty });
 
   try {
     await fetch('/api/products', {
@@ -1237,8 +1254,7 @@ async function saveQuickPhotosModal() {
   const customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
   const cIdx = customProducts.findIndex(p => p.id === quickEditingProdId);
   if (cIdx >= 0) {
-    customProducts[cIdx].images = newImages;
-    customProducts[cIdx].image = mainImage;
+    customProducts[cIdx] = { ...prod, ...customProducts[cIdx], image: mainImage, images: newImages };
   } else {
     customProducts.unshift({ ...prod, image: mainImage, images: newImages });
   }
@@ -1248,6 +1264,7 @@ async function saveQuickPhotosModal() {
   if (qOverlay) qOverlay.style.display = 'none';
   renderCatalog();
   showToast(`Saved ${newImages.length} photo${newImages.length === 1 ? '' : 's'} for "${prod.title}"!`, 'success');
+  broadcastCatalogSync('PHOTOS_UPDATED', prod);
 
   // Background server sync
   try {
@@ -1371,9 +1388,15 @@ async function saveProductModal() {
   const catObj = appState.categories.find(c => c.name === category || c.id === category);
   const categoryId = catObj ? catObj.id : category.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
+  const existing = appState.products.find(p => p.id === id) || {};
+
   const payload = {
+    ...existing,
     id,
     title,
+    english_title: existing.english_title || title,
+    telugu_title: existing.telugu_title || title,
+    original_title: existing.original_title || title,
     category,
     categoryId,
     inStock,
@@ -1420,6 +1443,7 @@ async function saveProductModal() {
   renderCatalog();
   updateStats();
   showToast(`Product "${title}" saved! Available Stock: ${stockQty} Units`, 'success');
+  broadcastCatalogSync('PRODUCT_SAVED', payload);
 
   // 4. Background server sync (never fails user flow)
   try {
@@ -1457,6 +1481,7 @@ async function deleteProduct(id) {
   renderCatalog();
   updateStats();
   showToast(`Deleted "${title}" from catalog`, 'info');
+  broadcastCatalogSync('PRODUCT_DELETED', { id });
 
   try {
     await fetch('/api/products', {
@@ -1701,6 +1726,7 @@ async function saveCategoryModal() {
   renderCategories();
   populateCategoryDropdowns();
   showToast(`Category "${name}" saved! Active in catalog.`, 'success');
+  broadcastCatalogSync('CATEGORY_SAVED', payload);
 
   // 4. Background server sync
   try {
@@ -1738,6 +1764,7 @@ async function deleteCategory(id) {
   renderCategories();
   populateCategoryDropdowns();
   showToast(`Deleted category "${name}"`, 'info');
+  broadcastCatalogSync('CATEGORY_DELETED', { id });
 
   try {
     await fetch('/api/categories', {

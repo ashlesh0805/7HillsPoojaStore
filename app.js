@@ -34,20 +34,243 @@ const STORE = {
 // ==========================================
 // 1. STATE INITIALIZATION & LOCALSTORAGE
 // ==========================================
-function initStore() {
-  // Load products & categories from enriched data.js
-  if (typeof window.getEnrichedProducts === 'function') {
-    STORE.products = window.getEnrichedProducts();
-  } else {
-    STORE.products = [];
+const KEY_CUSTOM_PRODUCTS = '7hills_custom_products';
+const KEY_STOCK_OVERRIDES = '7hills_stock_overrides';
+const KEY_DELETED_PRODUCTS = '7hills_deleted_products';
+const KEY_CUSTOM_CATEGORIES = '7hills_custom_categories';
+const KEY_DELETED_CATEGORIES = '7hills_deleted_categories';
+const KEY_ALL_PRODUCTS_CACHE = '7hills_all_products_cache';
+const KEY_ALL_CATEGORIES_CACHE = '7hills_all_categories_cache';
+
+function mergeCatalogData(baseProducts, baseCategories) {
+  // 1. Categories
+  let categories = Array.isArray(baseCategories) && baseCategories.length > 0 
+    ? [...baseCategories] 
+    : (window.CATEGORIES_DATA || []);
+    
+  try {
+    const delCats = JSON.parse(localStorage.getItem(KEY_DELETED_CATEGORIES) || '[]');
+    const customCats = JSON.parse(localStorage.getItem(KEY_CUSTOM_CATEGORIES) || '[]');
+    if (Array.isArray(delCats) && delCats.length > 0) {
+      categories = categories.filter(c => !delCats.includes(c.id));
+    }
+    if (Array.isArray(customCats) && customCats.length > 0) {
+      customCats.forEach(cc => {
+        if (delCats.includes(cc.id)) return;
+        const idx = categories.findIndex(c => c.id === cc.id);
+        if (idx >= 0) categories[idx] = { ...categories[idx], ...cc };
+        else categories.push(cc);
+      });
+    }
+  } catch (e) {}
+
+  // 2. Base Products
+  let products = Array.isArray(baseProducts) && baseProducts.length > 0 ? [...baseProducts] : [];
+  if (products.length === 0) {
+    try {
+      const cached = JSON.parse(localStorage.getItem(KEY_ALL_PRODUCTS_CACHE) || '[]');
+      if (Array.isArray(cached) && cached.length > 0) {
+        products = cached;
+      }
+    } catch (e) {}
   }
-  STORE.categories = window.CATEGORIES_DATA || [];
+  if (products.length === 0 && typeof window.getEnrichedProducts === 'function') {
+    products = window.getEnrichedProducts();
+  }
+
+  // 3. Apply custom products, stock overrides, deleted products
+  try {
+    const delProds = new Set(JSON.parse(localStorage.getItem(KEY_DELETED_PRODUCTS) || '[]'));
+    const customProds = JSON.parse(localStorage.getItem(KEY_CUSTOM_PRODUCTS) || '[]');
+    const stockOv = JSON.parse(localStorage.getItem(KEY_STOCK_OVERRIDES) || '{}');
+
+    // Filter out deleted items
+    products = products.filter(p => !delProds.has(p.id));
+
+    // Merge in custom / edited items
+    if (Array.isArray(customProds) && customProds.length > 0) {
+      customProds.forEach(cp => {
+        if (delProds.has(cp.id)) return;
+        const idx = products.findIndex(p => p.id === cp.id);
+        if (idx >= 0) {
+          products[idx] = { ...products[idx], ...cp };
+        } else {
+          products.unshift(cp);
+        }
+      });
+    }
+
+    // Apply stock overrides
+    products = products.map(p => {
+      if (stockOv[p.id]) {
+        const ov = stockOv[p.id];
+        return {
+          ...p,
+          inStock: ov.inStock !== undefined ? ov.inStock : p.inStock,
+          stockQty: ov.stockQty !== undefined ? ov.stockQty : p.stockQty
+        };
+      }
+      return p;
+    });
+  } catch (e) {}
+
+  // 4. Normalize product schema without stripping any rich metadata
+  products = products.map((p, idx) => {
+    let catId = p.categoryId;
+    if (!catId) {
+      const matchedCat = categories.find(c => c.name === p.category || c.id === p.category);
+      catId = matchedCat ? matchedCat.id : (p.category === 'idols' ? 'god-idols' : p.category === 'lamps' ? 'diyas-lamps' : p.category === 'frames' ? 'photo-frames' : p.category === 'samagri' ? 'pooja-samagri' : p.category === 'malas' ? 'rudraksha-malas' : p.category === 'garlands' ? 'garlands-vastram' : p.category === 'mandirs' ? 'pooja-mandirs' : p.category === 'incense' ? 'dhoop-incense' : p.category === 'kits' ? 'pooja-kits' : 'pooja-samagri');
+    }
+
+    const price = Number(p.price) || 299;
+    const mrp = Number(p.mrp) || Math.round(price * 1.3);
+    const discount = p.discount !== undefined ? Number(p.discount) : (mrp > price ? Math.round(((mrp - price) / mrp) * 100) : 0);
+    const inStock = p.inStock !== false && (p.stockQty === undefined || Number(p.stockQty) > 0);
+
+    // Multi-photo slider support: preserve array of all photos
+    let images = [];
+    if (Array.isArray(p.images) && p.images.length > 0) {
+      images = p.images.filter(Boolean);
+    } else if (p.image) {
+      images = [p.image];
+    } else {
+      images = ['image-coming-soon.svg'];
+    }
+
+    const image = images[0] || p.image || 'image-coming-soon.svg';
+
+    return {
+      ...p,
+      id: p.id || `product_${idx + 1}`,
+      title: p.title || 'Sacred Pooja Item',
+      english_title: p.english_title || p.title || 'Sacred Pooja Item',
+      telugu_title: p.telugu_title || p.title || 'Sacred Pooja Item',
+      original_title: p.original_title || p.title || 'Sacred Pooja Item',
+      category: p.category || (categories.find(c => c.id === catId)?.name || 'Pooja Samagri & Essentials'),
+      categoryId: catId,
+      price,
+      mrp,
+      discount,
+      rating: parseFloat(p.rating || 4.8),
+      reviewCount: p.reviewCount !== undefined ? Number(p.reviewCount) : (p.reviewsCount !== undefined ? Number(p.reviewsCount) : 42),
+      reviewsCount: p.reviewCount !== undefined ? Number(p.reviewCount) : (p.reviewsCount !== undefined ? Number(p.reviewsCount) : 42),
+      inStock,
+      stockQty: p.stockQty !== undefined ? Number(p.stockQty) : (inStock ? 10 : 0),
+      badge: p.badge || null,
+      description: p.description || 'Authentic temple-grade item for sacred rituals.',
+      image,
+      images,
+      specifications: p.specifications || {
+        "Material": "Sacred & Pure Devotional Quality",
+        "Ideal For": "Temple & Daily Home Worship",
+        "Authenticity": "100% Genuine 7 Hills Pooja Store",
+        "Recommended Care": "Keep in clean, sacred space"
+      },
+      ritualUsage: p.ritualUsage || "Use with devotion during morning or evening prayers.",
+      highlights: p.highlights || ['100% Temple Grade', 'Consecrated & Pure', 'Fast LB Nagar Dispatch']
+    };
+  });
+
+  return { products, categories };
+}
+
+function refreshActiveCatalogView() {
+  const hash = window.location.hash || '#/';
+  if (
+    hash === '#/' ||
+    hash === '' ||
+    hash.startsWith('#/category/') ||
+    hash.startsWith('#/categories') ||
+    hash.startsWith('#/product/') ||
+    hash.startsWith('#/search') ||
+    hash.startsWith('#/deals')
+  ) {
+    if (typeof handleRouting === 'function') {
+      handleRouting();
+    }
+  }
+  if (typeof updateHeaderBadges === 'function') {
+    updateHeaderBadges();
+  }
+}
+
+function initCatalogSyncListeners() {
+  if (window._7hills_catalog_listeners_attached) return;
+  window._7hills_catalog_listeners_attached = true;
+
+  // 1. Cross-tab BroadcastChannel
+  if (typeof window !== 'undefined' && window.BroadcastChannel) {
+    try {
+      const syncChannel = new BroadcastChannel('7hills_catalog_sync');
+      syncChannel.onmessage = (event) => {
+        console.log('[Store] Live catalog sync event from partner portal:', event.data);
+        const merged = mergeCatalogData(null, null);
+        STORE.products = merged.products;
+        STORE.categories = merged.categories;
+        if (typeof Fuse !== 'undefined') {
+          STORE.fuse = new Fuse(STORE.products, {
+            keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
+            threshold: 0.35,
+            ignoreLocation: true
+          });
+        }
+        refreshActiveCatalogView();
+      };
+    } catch (e) {}
+  }
+
+  // 2. Storage event listener (fires across tabs on same origin when localStorage is modified)
+  window.addEventListener('storage', (e) => {
+    if (
+      e.key === KEY_CUSTOM_PRODUCTS ||
+      e.key === KEY_STOCK_OVERRIDES ||
+      e.key === KEY_DELETED_PRODUCTS ||
+      e.key === KEY_CUSTOM_CATEGORIES ||
+      e.key === KEY_DELETED_CATEGORIES ||
+      e.key === KEY_ALL_PRODUCTS_CACHE
+    ) {
+      console.log('[Store] Detected localStorage catalog change:', e.key);
+      const merged = mergeCatalogData(null, null);
+      STORE.products = merged.products;
+      STORE.categories = merged.categories;
+      if (typeof Fuse !== 'undefined') {
+        STORE.fuse = new Fuse(STORE.products, {
+          keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
+          threshold: 0.35,
+          ignoreLocation: true
+        });
+      }
+      refreshActiveCatalogView();
+    }
+  });
+
+  // 3. Custom event for same-page updates
+  window.addEventListener('7hills:catalog-updated', () => {
+    const merged = mergeCatalogData(null, null);
+    STORE.products = merged.products;
+    STORE.categories = merged.categories;
+    if (typeof Fuse !== 'undefined') {
+      STORE.fuse = new Fuse(STORE.products, {
+        keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
+        threshold: 0.35,
+        ignoreLocation: true
+      });
+    }
+    refreshActiveCatalogView();
+  });
+}
+
+function initStore() {
+  // Synchronously load & merge products from data.js and any saved custom items in localStorage
+  const merged = mergeCatalogData(null, null);
+  STORE.products = merged.products;
+  STORE.categories = merged.categories;
   STORE.coupons = window.PROMO_COUPONS || [];
 
-  // Initialize Fuse.js for search
+  // Initialize Fuse.js for search with full fields
   if (typeof Fuse !== 'undefined') {
     STORE.fuse = new Fuse(STORE.products, {
-      keys: ['title', 'category', 'description'],
+      keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
       threshold: 0.35,
       ignoreLocation: true
     });
@@ -149,10 +372,11 @@ function getProductImageUrl(imgName) {
       return imgName;
     }
     if (imgName.startsWith('uploads/') || imgName.startsWith('/uploads/')) {
-      return imgName.startsWith('/') ? imgName : `/${imgName}`;
+      const cleanUpload = imgName.replace(/^\/+/, '');
+      return (typeof window !== 'undefined' && window.location.protocol === 'file:') ? cleanUpload : `/${cleanUpload}`;
     }
     if (imgName.startsWith('7HILLS') || imgName.startsWith('/7HILLS')) {
-      return imgName;
+      return imgName.replace(/^\/+/, '');
     }
     return (STORE.imageBasePath || '7HILLS WEBSITE FOR STOCK ITEMS/') + imgName;
   }
@@ -5242,142 +5466,79 @@ function renderStotramView() {
 // 5.17C BACKEND CATALOG & CATEGORIES SYNCHRONIZATION
 // ==========================================
 async function syncProductsFromBackend() {
+  let backendProducts = null;
+  let backendCategories = null;
+
   try {
-    let [prodRes, catRes] = await Promise.all([
+    const [prodRes, catRes] = await Promise.all([
       fetch('/api/products').catch(() => null),
       fetch('/api/categories').catch(() => null)
     ]);
 
-    let backendCategories = null;
-    if (catRes && catRes.ok) {
-      try { backendCategories = await catRes.json(); } catch (e) {}
-    }
-    if (!Array.isArray(backendCategories) || backendCategories.length === 0) {
-      const fallbackCat = await fetch('/categories.json').catch(() => null);
-      if (fallbackCat && fallbackCat.ok) {
-        try { backendCategories = await fallbackCat.json(); } catch (e) {}
-      }
-    }
-    if (Array.isArray(backendCategories) && backendCategories.length > 0) {
-      STORE.categories = backendCategories;
-    }
-
-    // Overlay localStorage custom categories & deletions
-    try {
-      const delCats = JSON.parse(localStorage.getItem('7hills_deleted_categories') || '[]');
-      const customCats = JSON.parse(localStorage.getItem('7hills_custom_categories') || '[]');
-      if (Array.isArray(delCats) && delCats.length > 0) {
-        STORE.categories = STORE.categories.filter(c => !delCats.includes(c.id));
-      }
-      if (Array.isArray(customCats) && customCats.length > 0) {
-        customCats.forEach(cc => {
-          if (delCats.includes(cc.id)) return;
-          const idx = STORE.categories.findIndex(c => c.id === cc.id);
-          if (idx >= 0) STORE.categories[idx] = { ...STORE.categories[idx], ...cc };
-          else STORE.categories.push(cc);
-        });
-      }
-    } catch (e) {}
-
-    // 2. Sync Products dynamically
-    let backendProducts = null;
     if (prodRes && prodRes.ok) {
       try { backendProducts = await prodRes.json(); } catch (e) {}
     }
     if (!Array.isArray(backendProducts) || backendProducts.length === 0) {
-      const fallbackProd = await fetch('/products.json').catch(() => null);
-      if (fallbackProd && fallbackProd.ok) {
-        try { backendProducts = await fallbackProd.json(); } catch (e) {}
+      const fbProd = await fetch('/products.json').catch(() => null);
+      if (fbProd && fbProd.ok) {
+        try { backendProducts = await fbProd.json(); } catch (e) {}
       }
     }
 
-    // Merge with localStorage custom products, deletions, and stock overrides
-    let workingProducts = Array.isArray(backendProducts) && backendProducts.length > 0 ? backendProducts : (STORE.products || []);
-    try {
-      const delProds = new Set(JSON.parse(localStorage.getItem('7hills_deleted_products') || '[]'));
-      const customProds = JSON.parse(localStorage.getItem('7hills_custom_products') || '[]');
-      const stockOv = JSON.parse(localStorage.getItem('7hills_stock_overrides') || '{}');
-
-      workingProducts = workingProducts.filter(p => !delProds.has(p.id));
-
-      if (Array.isArray(customProds)) {
-        customProds.forEach(cp => {
-          if (delProds.has(cp.id)) return;
-          const idx = workingProducts.findIndex(p => p.id === cp.id);
-          if (idx >= 0) workingProducts[idx] = { ...workingProducts[idx], ...cp };
-          else workingProducts.unshift(cp);
-        });
-      }
-
-      workingProducts = workingProducts.map(p => {
-        if (stockOv[p.id]) {
-          return {
-            ...p,
-            inStock: stockOv[p.id].inStock !== undefined ? stockOv[p.id].inStock : p.inStock,
-            stockQty: stockOv[p.id].stockQty !== undefined ? stockOv[p.id].stockQty : p.stockQty
-          };
-        }
-        return p;
-      });
-    } catch (e) {}
-
-    if (Array.isArray(workingProducts) && workingProducts.length > 0) {
-      STORE.products = workingProducts.map(p => {
-        let catId = p.categoryId;
-        if (!catId) {
-          const matchedCat = STORE.categories.find(c => c.name === p.category || c.id === p.category);
-          catId = matchedCat ? matchedCat.id : (p.category === 'idols' ? 'god-idols' : p.category === 'lamps' ? 'diyas-lamps' : p.category === 'frames' ? 'photo-frames' : p.category === 'samagri' ? 'pooja-samagri' : p.category === 'malas' ? 'rudraksha-malas' : p.category === 'garlands' ? 'garlands-vastram' : p.category === 'mandirs' ? 'pooja-mandirs' : p.category === 'incense' ? 'dhoop-incense' : p.category === 'kits' ? 'pooja-kits' : 'pooja-samagri');
-        }
-
-        const isItemInStock = p.inStock !== false && (p.stockQty === undefined || Number(p.stockQty) > 0);
-
-        return {
-          id: p.id,
-          title: p.title,
-          category: p.category || 'Pooja Samagri',
-          categoryId: catId,
-          price: Number(p.price) || 299,
-          mrp: Number(p.mrp) || Math.round(Number(p.price) * 1.3),
-          discount: Math.round(((Number(p.mrp || p.price * 1.3) - Number(p.price)) / Number(p.mrp || p.price * 1.3)) * 100) || 15,
-          rating: p.rating || 4.8,
-          reviewsCount: p.reviewsCount || 42,
-          inStock: isItemInStock,
-          weight: p.weight || '500g',
-          description: p.description || 'Authentic temple-grade item for sacred rituals.',
-          images: [p.image || (Array.isArray(p.images) && p.images[0] ? p.images[0] : (typeof p.images === 'string' ? p.images : 'image-coming-soon.svg'))],
-          highlights: p.highlights || ['100% Temple Grade', 'Consecrated & Pure', 'Fast LB Nagar Dispatch']
-        };
-      });
-
-      if (typeof Fuse !== 'undefined') {
-        STORE.fuse = new Fuse(STORE.products, {
-          keys: ['title', 'category', 'description'],
-          threshold: 0.35,
-          ignoreLocation: true
-        });
+    if (catRes && catRes.ok) {
+      try { backendCategories = await catRes.json(); } catch (e) {}
+    }
+    if (!Array.isArray(backendCategories) || backendCategories.length === 0) {
+      const fbCat = await fetch('/categories.json').catch(() => null);
+      if (fbCat && fbCat.ok) {
+        try { backendCategories = await fbCat.json(); } catch (e) {}
       }
     }
-  } catch (e) {
-    // Offline or fallback to data.js
+  } catch (e) {}
+
+  const merged = mergeCatalogData(backendProducts, backendCategories);
+  STORE.products = merged.products;
+  STORE.categories = merged.categories;
+
+  try {
+    if (STORE.products && STORE.products.length > 0) {
+      localStorage.setItem(KEY_ALL_PRODUCTS_CACHE, JSON.stringify(STORE.products));
+    }
+    if (STORE.categories && STORE.categories.length > 0) {
+      localStorage.setItem(KEY_ALL_CATEGORIES_CACHE, JSON.stringify(STORE.categories));
+    }
+  } catch (e) {}
+
+  if (typeof Fuse !== 'undefined') {
+    STORE.fuse = new Fuse(STORE.products, {
+      keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
+      threshold: 0.35,
+      ignoreLocation: true
+    });
   }
+
+  // Refresh active view so any changes from backend or partner appear immediately
+  refreshActiveCatalogView();
 
   // Real-time SSE catalog & category update listener
   if (typeof window !== 'undefined' && window.EventSource && !window._7hills_sse_active) {
     window._7hills_sse_active = true;
-    const sse = new EventSource('/api/events');
-    sse.onmessage = (event) => {
-      try {
-        const data = JSON.parse(event.data);
-        if (data.type === 'PRODUCT_UPDATED' || data.type === 'PRODUCT_DELETED' || data.type === 'CATEGORY_UPDATED' || data.type === 'CATEGORY_DELETED') {
-          syncProductsFromBackend().then(() => {
-            const h = window.location.hash || '#/';
-            if (h === '#/' || h.startsWith('#/category/') || h.startsWith('#/categories')) {
-              handleRouting();
-            }
-          });
-        }
-      } catch (err) {}
-    };
+    try {
+      const sse = new EventSource('/api/events');
+      sse.onmessage = (event) => {
+        try {
+          const data = JSON.parse(event.data);
+          if (
+            data.type === 'PRODUCT_UPDATED' ||
+            data.type === 'PRODUCT_DELETED' ||
+            data.type === 'CATEGORY_UPDATED' ||
+            data.type === 'CATEGORY_DELETED'
+          ) {
+            syncProductsFromBackend();
+          }
+        } catch (err) {}
+      };
+    } catch (e) {}
   }
 }
 
@@ -6292,6 +6453,7 @@ async function submitPreRegistration() {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
   initStore();
+  initCatalogSyncListeners();
   syncProductsFromBackend();
   setupSearchHandlers();
   setupVoiceAndImageSearch();
@@ -6319,6 +6481,9 @@ if (typeof window !== 'undefined') {
   window.handleRouting = handleRouting;
   window.initStore = initStore;
   window.syncProductsFromBackend = syncProductsFromBackend;
+  window.initCatalogSyncListeners = initCatalogSyncListeners;
+  window.refreshActiveCatalogView = refreshActiveCatalogView;
+  window.mergeCatalogData = mergeCatalogData;
   window.showToast = showToast;
   window.addToCart = addToCart;
   window.updateCartQuantity = updateCartQuantity;
