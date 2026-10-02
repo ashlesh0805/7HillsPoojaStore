@@ -42,7 +42,61 @@ const KEY_DELETED_CATEGORIES = '7hills_deleted_categories';
 const KEY_ALL_PRODUCTS_CACHE = '7hills_all_products_cache';
 const KEY_ALL_CATEGORIES_CACHE = '7hills_all_categories_cache';
 
-function mergeCatalogData(baseProducts, baseCategories) {
+const DB_NAME = '7HillsPoojaStoreDB';
+const DB_STORE = 'catalog_store';
+
+function open7HillsDB() {
+  return new Promise((resolve) => {
+    if (typeof indexedDB === 'undefined') return resolve(null);
+    try {
+      const req = indexedDB.open(DB_NAME, 1);
+      req.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(DB_STORE)) {
+          db.createObjectStore(DB_STORE);
+        }
+      };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => resolve(null);
+    } catch (e) {
+      resolve(null);
+    }
+  });
+}
+
+async function idbGet(key, fallback = null) {
+  try {
+    const db = await open7HillsDB();
+    if (!db) return fallback;
+    return new Promise((resolve) => {
+      const tx = db.transaction(DB_STORE, 'readonly');
+      const store = tx.objectStore(DB_STORE);
+      const req = store.get(key);
+      req.onsuccess = () => resolve(req.result !== undefined ? req.result : fallback);
+      req.onerror = () => resolve(fallback);
+    });
+  } catch (e) {
+    return fallback;
+  }
+}
+
+async function idbSet(key, val) {
+  try {
+    const db = await open7HillsDB();
+    if (!db) return false;
+    return new Promise((resolve) => {
+      const tx = db.transaction(DB_STORE, 'readwrite');
+      const store = tx.objectStore(DB_STORE);
+      store.put(val, key);
+      tx.oncomplete = () => resolve(true);
+      tx.onerror = () => resolve(false);
+    });
+  } catch (e) {
+    return false;
+  }
+}
+
+function mergeCatalogData(baseProducts, baseCategories, extraCustomProducts = []) {
   // 1. Categories
   let categories = Array.isArray(baseCategories) && baseCategories.length > 0 
     ? [...baseCategories] 
@@ -87,9 +141,20 @@ function mergeCatalogData(baseProducts, baseCategories) {
     // Filter out deleted items
     products = products.filter(p => !delProds.has(p.id));
 
-    // Merge in custom / edited items
-    if (Array.isArray(customProds) && customProds.length > 0) {
-      customProds.forEach(cp => {
+    // Merge in custom / edited items from localStorage + IndexedDB
+    const customMap = new Map();
+    if (Array.isArray(customProds)) {
+      customProds.forEach(cp => { if (cp && cp.id) customMap.set(cp.id, cp); });
+    }
+    if (Array.isArray(extraCustomProducts)) {
+      extraCustomProducts.forEach(cp => {
+        if (cp && cp.id) customMap.set(cp.id, { ...(customMap.get(cp.id) || {}), ...cp });
+      });
+    }
+
+    const mergedCustom = Array.from(customMap.values());
+    if (mergedCustom.length > 0) {
+      mergedCustom.forEach(cp => {
         if (delProds.has(cp.id)) return;
         const idx = products.findIndex(p => p.id === cp.id);
         if (idx >= 0) {
@@ -198,23 +263,30 @@ function initCatalogSyncListeners() {
   if (window._7hills_catalog_listeners_attached) return;
   window._7hills_catalog_listeners_attached = true;
 
+  async function reloadCatalogFromAllSources() {
+    try {
+      const idbCustom = await idbGet(KEY_CUSTOM_PRODUCTS, []);
+      const merged = mergeCatalogData(null, null, idbCustom);
+      STORE.products = merged.products;
+      STORE.categories = merged.categories;
+      if (typeof Fuse !== 'undefined') {
+        STORE.fuse = new Fuse(STORE.products, {
+          keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
+          threshold: 0.35,
+          ignoreLocation: true
+        });
+      }
+      refreshActiveCatalogView();
+    } catch (e) {}
+  }
+
   // 1. Cross-tab BroadcastChannel
   if (typeof window !== 'undefined' && window.BroadcastChannel) {
     try {
       const syncChannel = new BroadcastChannel('7hills_catalog_sync');
       syncChannel.onmessage = (event) => {
         console.log('[Store] Live catalog sync event from partner portal:', event.data);
-        const merged = mergeCatalogData(null, null);
-        STORE.products = merged.products;
-        STORE.categories = merged.categories;
-        if (typeof Fuse !== 'undefined') {
-          STORE.fuse = new Fuse(STORE.products, {
-            keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
-            threshold: 0.35,
-            ignoreLocation: true
-          });
-        }
-        refreshActiveCatalogView();
+        reloadCatalogFromAllSources();
       };
     } catch (e) {}
   }
@@ -230,38 +302,18 @@ function initCatalogSyncListeners() {
       e.key === KEY_ALL_PRODUCTS_CACHE
     ) {
       console.log('[Store] Detected localStorage catalog change:', e.key);
-      const merged = mergeCatalogData(null, null);
-      STORE.products = merged.products;
-      STORE.categories = merged.categories;
-      if (typeof Fuse !== 'undefined') {
-        STORE.fuse = new Fuse(STORE.products, {
-          keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
-          threshold: 0.35,
-          ignoreLocation: true
-        });
-      }
-      refreshActiveCatalogView();
+      reloadCatalogFromAllSources();
     }
   });
 
   // 3. Custom event for same-page updates
   window.addEventListener('7hills:catalog-updated', () => {
-    const merged = mergeCatalogData(null, null);
-    STORE.products = merged.products;
-    STORE.categories = merged.categories;
-    if (typeof Fuse !== 'undefined') {
-      STORE.fuse = new Fuse(STORE.products, {
-        keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
-        threshold: 0.35,
-        ignoreLocation: true
-      });
-    }
-    refreshActiveCatalogView();
+    reloadCatalogFromAllSources();
   });
 }
 
 function initStore() {
-  // Synchronously load & merge products from data.js and any saved custom items in localStorage
+  // 1. Synchronously load & merge products from data.js and any saved custom items in localStorage
   const merged = mergeCatalogData(null, null);
   STORE.products = merged.products;
   STORE.categories = merged.categories;
@@ -275,6 +327,23 @@ function initStore() {
       ignoreLocation: true
     });
   }
+
+  // 2. Asynchronously hydrate from IndexedDB to seamlessly load items that exceeded localStorage
+  idbGet(KEY_CUSTOM_PRODUCTS, []).then((idbCustom) => {
+    if (Array.isArray(idbCustom) && idbCustom.length > 0) {
+      const mergedIdb = mergeCatalogData(null, null, idbCustom);
+      STORE.products = mergedIdb.products;
+      STORE.categories = mergedIdb.categories;
+      if (typeof Fuse !== 'undefined') {
+        STORE.fuse = new Fuse(STORE.products, {
+          keys: ['title', 'category', 'description', 'english_title', 'telugu_title'],
+          threshold: 0.35,
+          ignoreLocation: true
+        });
+      }
+      refreshActiveCatalogView();
+    }
+  });
 
   // Load Persisted Cart
   try {
@@ -5496,7 +5565,12 @@ async function syncProductsFromBackend() {
     }
   } catch (e) {}
 
-  const merged = mergeCatalogData(backendProducts, backendCategories);
+  let idbCustom = [];
+  try {
+    idbCustom = await idbGet(KEY_CUSTOM_PRODUCTS, []);
+  } catch (e) {}
+
+  const merged = mergeCatalogData(backendProducts, backendCategories, idbCustom);
   STORE.products = merged.products;
   STORE.categories = merged.categories;
 

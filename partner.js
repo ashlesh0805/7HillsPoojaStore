@@ -41,6 +41,60 @@ function setLocalJSON(key, val) {
   }
 }
 
+const DB_NAME = '7HillsPoojaStoreDB';
+const DB_STORE = 'catalog_store';
+
+function open7HillsDB() {
+  return new Promise((resolve) => {
+    if (typeof indexedDB === 'undefined') return resolve(null);
+    try {
+      const req = indexedDB.open(DB_NAME, 1);
+      req.onupgradeneeded = (e) => {
+        const db = e.target.result;
+        if (!db.objectStoreNames.contains(DB_STORE)) {
+          db.createObjectStore(DB_STORE);
+        }
+      };
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = () => resolve(null);
+    } catch (e) {
+      resolve(null);
+    }
+  });
+}
+
+async function idbGet(key, fallback = null) {
+  try {
+    const db = await open7HillsDB();
+    if (!db) return fallback;
+    return new Promise((resolve) => {
+      const tx = db.transaction(DB_STORE, 'readonly');
+      const store = tx.objectStore(DB_STORE);
+      const req = store.get(key);
+      req.onsuccess = () => resolve(req.result !== undefined ? req.result : fallback);
+      req.onerror = () => resolve(fallback);
+    });
+  } catch (e) {
+    return fallback;
+  }
+}
+
+async function idbSet(key, val) {
+  try {
+    const db = await open7HillsDB();
+    if (!db) return false;
+    return new Promise((resolve) => {
+      const tx = db.transaction(DB_STORE, 'readwrite');
+      const store = tx.objectStore(DB_STORE);
+      store.put(val, key);
+      tx.oncomplete = () => resolve(true);
+      tx.onerror = () => resolve(false);
+    });
+  } catch (e) {
+    return false;
+  }
+}
+
 function broadcastCatalogSync(action, detail) {
   try {
     if (typeof window !== 'undefined' && window.BroadcastChannel) {
@@ -583,9 +637,20 @@ async function fetchProducts() {
     setLocalJSON(KEY_ALL_PRODUCTS_CACHE, serverProducts);
   }
 
-  const deletedIds = new Set(getLocalJSON(KEY_DELETED_PRODUCTS, []));
-  const customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
-  const stockOverrides = getLocalJSON(KEY_STOCK_OVERRIDES, {});
+  const idbCustom = await idbGet(KEY_CUSTOM_PRODUCTS, []);
+  const localCustom = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
+  const customMap = new Map();
+  (localCustom || []).forEach(p => { if (p && p.id) customMap.set(p.id, p); });
+  (idbCustom || []).forEach(p => { if (p && p.id) customMap.set(p.id, { ...(customMap.get(p.id) || {}), ...p }); });
+  const customProducts = Array.from(customMap.values());
+
+  const idbDeleted = await idbGet(KEY_DELETED_PRODUCTS, []);
+  const localDeleted = getLocalJSON(KEY_DELETED_PRODUCTS, []);
+  const deletedIds = new Set([...(localDeleted || []), ...(idbDeleted || [])]);
+
+  const idbStock = await idbGet(KEY_STOCK_OVERRIDES, {});
+  const localStock = getLocalJSON(KEY_STOCK_OVERRIDES, {});
+  const stockOverrides = { ...(localStock || {}), ...(idbStock || {}) };
 
   let merged = serverProducts.filter(p => !deletedIds.has(p.id));
 
@@ -842,7 +907,7 @@ let modalEditingImages = [];
 let quickEditingImages = [];
 let quickEditingProdId = null;
 
-function compressPhoto(file, maxDimension = 1200, quality = 0.82) {
+function compressPhoto(file, maxDimension = 850, quality = 0.74) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -887,7 +952,7 @@ async function uploadPhotoFiles(fileList, targetArray, scope, onProgress) {
     const file = files[i];
     if (onProgress) onProgress(true, `Optimizing photo ${i + 1} of ${files.length}...`);
     try {
-      const dataUrl = await compressPhoto(file, 1200, 0.82);
+      const dataUrl = await compressPhoto(file, 850, 0.74);
       targetArray.push(dataUrl);
       refreshPhotosUI(scope);
 
@@ -1259,6 +1324,7 @@ async function saveQuickPhotosModal() {
     customProducts.unshift({ ...prod, image: mainImage, images: newImages });
   }
   setLocalJSON(KEY_CUSTOM_PRODUCTS, customProducts);
+  await idbSet(KEY_CUSTOM_PRODUCTS, customProducts);
 
   const qOverlay = document.getElementById('quick-photo-modal-overlay');
   if (qOverlay) qOverlay.style.display = 'none';
@@ -1416,7 +1482,7 @@ async function saveProductModal() {
     appState.products.unshift(payload);
   }
 
-  // 2. Persist to localStorage
+  // 2. Persist to localStorage and IndexedDB
   const customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
   const cIdx = customProducts.findIndex(p => p.id === id);
   if (cIdx >= 0) {
@@ -1425,17 +1491,20 @@ async function saveProductModal() {
     customProducts.unshift(payload);
   }
   setLocalJSON(KEY_CUSTOM_PRODUCTS, customProducts);
+  await idbSet(KEY_CUSTOM_PRODUCTS, customProducts);
 
   // Update stock overrides
   const stockOverrides = getLocalJSON(KEY_STOCK_OVERRIDES, {});
   stockOverrides[id] = { inStock, stockQty };
   setLocalJSON(KEY_STOCK_OVERRIDES, stockOverrides);
+  await idbSet(KEY_STOCK_OVERRIDES, stockOverrides);
 
   // Remove from deleted list if present
   let deletedIds = getLocalJSON(KEY_DELETED_PRODUCTS, []);
   if (deletedIds.includes(id)) {
     deletedIds = deletedIds.filter(d => d !== id);
     setLocalJSON(KEY_DELETED_PRODUCTS, deletedIds);
+    await idbSet(KEY_DELETED_PRODUCTS, deletedIds);
   }
 
   // 3. Close modal & re-render immediately
@@ -1471,12 +1540,14 @@ async function deleteProduct(id) {
   if (!deletedIds.includes(id)) {
     deletedIds.push(id);
     setLocalJSON(KEY_DELETED_PRODUCTS, deletedIds);
+    await idbSet(KEY_DELETED_PRODUCTS, deletedIds);
   }
 
   // 3. Remove from custom products
   let customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
   customProducts = customProducts.filter(p => p.id !== id);
   setLocalJSON(KEY_CUSTOM_PRODUCTS, customProducts);
+  await idbSet(KEY_CUSTOM_PRODUCTS, customProducts);
 
   renderCatalog();
   updateStats();

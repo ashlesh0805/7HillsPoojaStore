@@ -12,6 +12,17 @@ module.exports = async (req, res) => {
     if (typeof body === 'string') {
       try { body = JSON.parse(body); } catch (e) {}
     }
+
+    // Support batch files: { files: [{ filename, data }, ...] }
+    if (body && Array.isArray(body.files) && body.files.length > 0) {
+      const urls = body.files.map(f => f.data).filter(Boolean);
+      return res.status(200).json({
+        success: true,
+        urls,
+        count: urls.length
+      });
+    }
+
     const { filename, data } = body || {};
     if (!data) {
       return res.status(400).json({ error: 'No image data provided' });
@@ -20,6 +31,7 @@ module.exports = async (req, res) => {
     return res.status(200).json({
       success: true,
       url: data,
+      urls: [data],
       filename: filename || 'photo.jpg'
     });
   }
