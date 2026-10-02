@@ -1,5 +1,37 @@
 [
   {
+    "id": "prod_demo1",
+    "title": "demo1",
+    "english_title": "demo1",
+    "telugu_title": "డెమో 1 (demo1)",
+    "original_title": "demo1",
+    "category": "Pooja Samagri & Essentials",
+    "categoryId": "pooja-samagri",
+    "price": 199,
+    "mrp": 299,
+    "discount": 33,
+    "rating": 5,
+    "reviewCount": 18,
+    "reviewsCount": 12,
+    "inStock": true,
+    "stockQty": 25,
+    "badge": "New Arrival",
+    "description": "Authentic temple-grade demo item from partner app.",
+    "image": "image-coming-soon.svg",
+    "images": [
+      "image-coming-soon.svg"
+    ],
+    "ritualUsage": "Sacred pooja rituals and home worship.",
+    "specifications": {
+      "Type": "Partner Catalog Item",
+      "Quality": "100% Devotional"
+    },
+    "highlights": [
+      "100% Temple Grade",
+      "Fast Hyderabad Dispatch"
+    ]
+  },
+  {
     "id": "matti_pramidalu",
     "title": "Matti Pramidalu (Traditional Clay Diyas) / మట్టి ప్రమిదలు",
     "english_title": "Matti Pramidalu (Traditional Clay Diyas)",

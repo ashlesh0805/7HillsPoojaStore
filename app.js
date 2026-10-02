@@ -49,7 +49,7 @@ function open7HillsDB() {
   return new Promise((resolve) => {
     if (typeof indexedDB === 'undefined') return resolve(null);
     try {
-      const req = indexedDB.open(DB_NAME, 1);
+      const req = indexedDB.open(DB_NAME, 2);
       req.onupgradeneeded = (e) => {
         const db = e.target.result;
         if (!db.objectStoreNames.contains(DB_STORE)) {
@@ -2726,22 +2726,133 @@ function checkPdpPincode() {
 }
 
 // ------------------------------------------
+// 5.4B COMPREHENSIVE SEARCH MATCHING ENGINE
+// Deterministic token, substring, bilingual, compact, and fuzzy search
+// ------------------------------------------
+function searchCatalogProducts(query, categoryFilter = 'all') {
+  const products = STORE.products || [];
+  if (!query || !query.trim()) {
+    return categoryFilter && categoryFilter !== 'all'
+      ? products.filter(p => p.categoryId === categoryFilter)
+      : products;
+  }
+
+  const qRaw = query.trim().toLowerCase();
+  const qClean = qRaw.replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  const qTokens = qClean.split(' ').filter(tok => tok.length > 0);
+  const qCompact = qClean.replace(/\s+/g, '');
+
+  const tier1Direct = [];
+  const tier2Tokens = [];
+  const tier3DescCat = [];
+  const seenIds = new Set();
+
+  for (const p of products) {
+    if (categoryFilter && categoryFilter !== 'all' && p.categoryId !== categoryFilter) {
+      continue;
+    }
+
+    const title = (p.title || '').toLowerCase();
+    const engTitle = (p.english_title || '').toLowerCase();
+    const telTitle = (p.telugu_title || '').toLowerCase();
+    const origTitle = (p.original_title || '').toLowerCase();
+    const cat = (p.category || '').toLowerCase();
+    const desc = (p.description || '').toLowerCase();
+    const id = (p.id || '').toLowerCase();
+
+    const titleCompact = title.replace(/[^a-z0-9]/g, '');
+    const engCompact = engTitle.replace(/[^a-z0-9]/g, '');
+
+    // 1. Direct or Compact Match (handles "demo 1" <-> "demo1" <-> "demo")
+    const isExactOrPrefix = 
+      title === qRaw ||
+      engTitle === qRaw ||
+      titleCompact === qCompact ||
+      engCompact === qCompact ||
+      title.startsWith(qRaw) ||
+      engTitle.startsWith(qRaw);
+
+    const isDirectSubstring = 
+      title.includes(qRaw) ||
+      engTitle.includes(qRaw) ||
+      telTitle.includes(qRaw) ||
+      origTitle.includes(qRaw) ||
+      id.includes(qRaw) ||
+      (qCompact.length >= 2 && (titleCompact.includes(qCompact) || qCompact.includes(titleCompact)));
+
+    if (isExactOrPrefix || isDirectSubstring) {
+      tier1Direct.push({ product: p, exact: isExactOrPrefix });
+      seenIds.add(p.id);
+      continue;
+    }
+
+    // 2. Token-level title match (e.g. searching "demo 1" matches product "demo")
+    const hasTokenTitleMatch = qTokens.length > 0 && qTokens.some(tok => {
+      if (tok.length < 2) return false;
+      return title.includes(tok) || engTitle.includes(tok) || telTitle.includes(tok);
+    });
+
+    if (hasTokenTitleMatch) {
+      tier2Tokens.push(p);
+      seenIds.add(p.id);
+      continue;
+    }
+
+    // 3. Category & Description match
+    const isCatOrDesc = 
+      cat.includes(qRaw) ||
+      desc.includes(qRaw) ||
+      (qTokens.length > 0 && qTokens.every(tok => cat.includes(tok) || desc.includes(tok)));
+
+    if (isCatOrDesc) {
+      tier3DescCat.push(p);
+      seenIds.add(p.id);
+    }
+  }
+
+  // Tier 4: Fuzzy matches via Fuse.js for minor typos
+  const tier4Fuzzy = [];
+  if (STORE.fuse) {
+    try {
+      const fuzzyResults = STORE.fuse.search(query);
+      for (const res of fuzzyResults) {
+        if (!seenIds.has(res.item.id)) {
+          if (categoryFilter && categoryFilter !== 'all' && res.item.categoryId !== categoryFilter) {
+            continue;
+          }
+          tier4Fuzzy.push(res.item);
+          seenIds.add(res.item.id);
+        }
+      }
+    } catch (e) {}
+  }
+
+  // Sort Tier 1: exact matches first, then shorter titles
+  tier1Direct.sort((a, b) => {
+    if (a.exact && !b.exact) return -1;
+    if (!a.exact && b.exact) return 1;
+    return (a.product.title || '').length - (b.product.title || '').length;
+  });
+
+  return [
+    ...tier1Direct.map(x => x.product),
+    ...tier2Tokens,
+    ...tier3DescCat,
+    ...tier4Fuzzy
+  ];
+}
+
+// ------------------------------------------
 // 5.5 SEARCH RESULTS VIEW
 // ------------------------------------------
 function renderSearchView(query, cat) {
   const root = document.getElementById('app-root');
-  let results = STORE.products;
+  const results = searchCatalogProducts(query, cat);
 
-  if (query.trim()) {
-    if (STORE.fuse) {
-      results = STORE.fuse.search(query).map(r => r.item);
-    } else {
-      results = STORE.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
-    }
-  }
-
-  if (cat && cat !== 'all') {
-    results = results.filter(p => p.categoryId === cat);
+  // Sync search input value in header
+  const searchInput = document.getElementById('mobile-search-input') || document.getElementById('main-search-input');
+  if (searchInput && query) {
+    searchInput.value = query;
   }
 
   root.innerHTML = `
@@ -2753,7 +2864,7 @@ function renderSearchView(query, cat) {
 
       <div style="margin-bottom: 24px;">
         <h1 style="font-family: var(--font-heading); font-size: 24px; color: var(--primary-maroon);">
-          Search: "${query || 'All Items'}"
+          Search: "${escapeHtml(query || 'All Items')}"
         </h1>
         <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
           Found <strong>${results.length}</strong> matching sacred items in 7 Hills Pooja Store
@@ -2766,9 +2877,9 @@ function renderSearchView(query, cat) {
         </div>
       ` : `
         <div style="background: #FFF; border-radius: var(--radius-md); padding: 80px 20px; text-align: center; border: 1px solid var(--border-subtle); max-width: 600px; margin: 40px auto;">
-          <span style="font-size: 52px;"></span>
+          <span style="font-size: 52px;">🔍</span>
           <h3 style="font-family: var(--font-heading); font-size: 20px; color: var(--primary-maroon); margin: 16px 0 8px 0;">
-            No Devotional Items Found for "${query}"
+            No Devotional Items Found for "${escapeHtml(query)}"
           </h3>
           <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 24px;">
             Check your spelling, or browse our popular categories like Ganesha Idols, Peacock Diyas, Photo Frames, or Camphor.
@@ -5570,6 +5681,22 @@ async function syncProductsFromBackend() {
     idbCustom = await idbGet(KEY_CUSTOM_PRODUCTS, []);
   } catch (e) {}
 
+  // Direct Cloud Storage Bin Fallback & Merge (guarantees cross-device availability on Vercel)
+  try {
+    const cloudRes = await fetch('https://extendsclass.com/api/json-storage/bin/beddeef').catch(() => null);
+    if (cloudRes && cloudRes.ok) {
+      const cloudData = await cloudRes.json();
+      if (cloudData && Array.isArray(cloudData.customProducts)) {
+        if (!Array.isArray(idbCustom)) idbCustom = [];
+        cloudData.customProducts.forEach(cp => {
+          if (cp && cp.id && !idbCustom.some(x => x.id === cp.id)) {
+            idbCustom.unshift(cp);
+          }
+        });
+      }
+    }
+  } catch (e) {}
+
   const merged = mergeCatalogData(backendProducts, backendCategories, idbCustom);
   STORE.products = merged.products;
   STORE.categories = merged.categories;
@@ -6058,83 +6185,97 @@ function closeNotificationBanner() {
 // 6. GLOBAL SEARCH & AUTOCOMPLETE ENGINE
 // ==========================================
 function setupSearchHandlers() {
-  const desktopInput = document.getElementById('main-search-input');
-  const desktopCat = document.getElementById('header-search-category');
+  const searchInput = document.getElementById('mobile-search-input') || document.getElementById('main-search-input');
+  const searchForm = document.getElementById('header-search-form');
   const submitBtn = document.getElementById('btn-submit-search');
   const suggestionsBox = document.getElementById('search-suggestions-panel');
 
-  const mobileInput = document.getElementById('mobile-search-input');
-  const mobileSubmit = document.getElementById('mobile-btn-submit-search');
-
-  function triggerSearch(term, cat) {
+  function triggerSearch(term, cat = 'all') {
+    const cleanTerm = (term || '').trim();
     if (suggestionsBox) suggestionsBox.style.display = 'none';
-    window.location.hash = `#/search?q=${encodeURIComponent(term)}&cat=${encodeURIComponent(cat || 'all')}`;
+    if (!cleanTerm) return;
+    window.location.hash = `#/search?q=${encodeURIComponent(cleanTerm)}&cat=${encodeURIComponent(cat || 'all')}`;
   }
 
-  // Desktop search input listeners
-  if (desktopInput) {
-    desktopInput.addEventListener('input', (e) => {
-      const val = e.target.value.trim();
-      if (val.length < 2) {
-        if (suggestionsBox) suggestionsBox.style.display = 'none';
-        return;
-      }
+  function renderSuggestions(val) {
+    if (!suggestionsBox) return;
+    const term = (val || '').trim();
+    if (term.length < 1) {
+      suggestionsBox.style.display = 'none';
+      suggestionsBox.innerHTML = '';
+      return;
+    }
 
-      // Query Fuse.js
-      let matches = [];
-      if (STORE.fuse) {
-        matches = STORE.fuse.search(val).slice(0, 5).map(r => r.item);
-      } else {
-        matches = STORE.products.filter(p => p.title.toLowerCase().includes(val.toLowerCase())).slice(0, 5);
-      }
-
-      if (matches.length > 0 && suggestionsBox) {
-        suggestionsBox.innerHTML = matches.map(p => `
+    const matches = searchCatalogProducts(term, 'all').slice(0, 6);
+    if (matches.length > 0) {
+      suggestionsBox.innerHTML = matches.map(p => {
+        const thumbImg = p.images && p.images.length > 0 ? p.images[0] : (p.image || 'image-coming-soon.svg');
+        return `
           <div class="suggestion-row" onclick="selectSuggestion('${p.id}')">
-            <img src="${getProductImageUrl(p.images[0])}" class="suggestion-thumb" alt="${p.title}">
-            <div>
-              <div class="suggestion-title">${p.title}</div>
-              <span style="font-size: 12px; color: var(--primary-saffron); font-weight: 700;">₹${p.price}</span>
+            <img src="${getProductImageUrl(thumbImg)}" class="suggestion-thumb" alt="${escapeHtml(p.title)}" onerror="this.src='image-coming-soon.svg'">
+            <div style="flex: 1; min-width: 0;">
+              <div class="suggestion-title">${escapeHtml(p.title)}</div>
+              <div style="display: flex; gap: 8px; align-items: baseline; margin-top: 2px;">
+                <span style="font-size: 13px; color: var(--primary-saffron); font-weight: 700;">₹${p.price}</span>
+                ${p.mrp > p.price ? `<span style="font-size: 11px; text-decoration: line-through; color: var(--text-muted);">₹${p.mrp}</span>` : ''}
+                ${p.inStock ? '<span style="font-size: 10.5px; color: var(--success); font-weight: 600;">In Stock</span>' : '<span style="font-size: 10.5px; color: var(--danger); font-weight: 600;">Out of Stock</span>'}
+              </div>
             </div>
-            <span class="suggestion-cat">${p.category}</span>
+            <span class="suggestion-cat">${escapeHtml(p.category)}</span>
           </div>
-        `).join('');
-        suggestionsBox.style.display = 'block';
-      } else if (suggestionsBox) {
-        suggestionsBox.style.display = 'none';
+        `;
+      }).join('') + `
+        <div class="suggestion-row" style="background: var(--bg-cream); justify-content: center; font-weight: 600; color: var(--primary-maroon); font-size: 12.5px; border-top: 1px solid var(--border-medium); cursor: pointer;" onclick="window.location.hash='#/search?q=${encodeURIComponent(term)}&cat=all'; document.getElementById('search-suggestions-panel').style.display='none';">
+          <span>Search all results for "<strong>${escapeHtml(term)}</strong>" &rarr;</span>
+        </div>
+      `;
+      suggestionsBox.style.display = 'block';
+    } else {
+      suggestionsBox.innerHTML = `
+        <div style="padding: 14px 16px; text-align: center; color: var(--text-muted); font-size: 13px;">
+          No exact matches for "${escapeHtml(term)}". <a href="#/search?q=${encodeURIComponent(term)}&cat=all" style="color: var(--primary-saffron); font-weight: 600; text-decoration: underline;" onclick="document.getElementById('search-suggestions-panel').style.display='none';">Press Enter to view catalog search</a>
+        </div>
+      `;
+      suggestionsBox.style.display = 'block';
+    }
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      renderSuggestions(e.target.value);
+    });
+
+    searchInput.addEventListener('focus', (e) => {
+      if (e.target.value.trim().length >= 1) {
+        renderSuggestions(e.target.value);
       }
     });
 
-    desktopInput.addEventListener('keydown', (e) => {
+    searchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
-        triggerSearch(desktopInput.value.trim(), desktopCat?.value || 'all');
+        e.preventDefault();
+        triggerSearch(searchInput.value, 'all');
       }
+    });
+  }
+
+  if (searchForm) {
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      triggerSearch(searchInput ? searchInput.value : '', 'all');
     });
   }
 
   if (submitBtn) {
-    submitBtn.addEventListener('click', () => {
-      triggerSearch(desktopInput?.value.trim() || '', desktopCat?.value || 'all');
-    });
-  }
-
-  if (mobileInput) {
-    mobileInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        triggerSearch(mobileInput.value.trim(), 'all');
-      }
-    });
-  }
-
-  if (mobileSubmit) {
-    mobileSubmit.addEventListener('click', () => {
-      triggerSearch(mobileInput?.value.trim() || '', 'all');
+    submitBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      triggerSearch(searchInput ? searchInput.value : '', 'all');
     });
   }
 
   // Close suggestions on outside click
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.header-search-wrapper') && suggestionsBox) {
+    if (suggestionsBox && !e.target.closest('#app-search-wrapper') && !e.target.closest('.app-search-wrapper')) {
       suggestionsBox.style.display = 'none';
     }
   });

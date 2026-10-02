@@ -2545,9 +2545,26 @@ img {
   box-shadow: 0 0 0 3px rgba(92, 6, 18, 0.08);
 }
 
+.search-lens-btn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.search-lens-btn:hover .search-lens-icon {
+  color: var(--primary-saffron);
+}
+
 .search-lens-icon {
   color: var(--text-muted);
   flex-shrink: 0;
+  transition: color var(--transition-fast);
 }
 
 .app-search-input {

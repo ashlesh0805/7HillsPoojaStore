@@ -235,6 +235,26 @@ const server = http.createServer(async (req, res) => {
         }
         writeJsonFile(PRODUCTS_FILE, products);
         broadcastEvent('PRODUCT_UPDATED', item);
+
+        // Background sync to cloud storage bins
+        [
+          'https://extendsclass.com/api/json-storage/bin/beddeef',
+          'https://extendsclass.com/api/json-storage/bin/afdaaec'
+        ].forEach(async (cUrl) => {
+          try {
+            const cRes = await fetch(cUrl);
+            if (cRes.ok) {
+              const cData = await cRes.json();
+              cData.customProducts = cData.customProducts || [];
+              const cIdx = cData.customProducts.findIndex(p => p.id === item.id);
+              if (cIdx >= 0) cData.customProducts[cIdx] = { ...cData.customProducts[cIdx], ...item };
+              else cData.customProducts.unshift(item);
+              cData.lastUpdated = new Date().toISOString();
+              await fetch(cUrl, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(cData) });
+            }
+          } catch (e) {}
+        });
+
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
         res.end(JSON.stringify({ success: true, product: item }));
       } catch (err) {
@@ -258,6 +278,24 @@ const server = http.createServer(async (req, res) => {
         products = products.filter(p => p.id !== id);
         writeJsonFile(PRODUCTS_FILE, products);
         broadcastEvent('PRODUCT_DELETED', { id });
+
+        // Background cloud deletion
+        [
+          'https://extendsclass.com/api/json-storage/bin/beddeef',
+          'https://extendsclass.com/api/json-storage/bin/afdaaec'
+        ].forEach(async (cUrl) => {
+          try {
+            const cRes = await fetch(cUrl);
+            if (cRes.ok) {
+              const cData = await cRes.json();
+              cData.customProducts = (cData.customProducts || []).filter(p => p.id !== id);
+              cData.deletedProductIds = cData.deletedProductIds || [];
+              if (!cData.deletedProductIds.includes(id)) cData.deletedProductIds.push(id);
+              cData.lastUpdated = new Date().toISOString();
+              await fetch(cUrl, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(cData) });
+            }
+          } catch (e) {}
+        });
         res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
         res.end(JSON.stringify({ success: true, id }));
       } catch (err) {

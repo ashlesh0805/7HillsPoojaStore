@@ -45,7 +45,7 @@
   </script>
 
   <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="index.css?v=2.4">
+  <link rel="stylesheet" href="index.css?v=2.5">
   <!-- Fuse.js for fuzzy search -->
   <script src="https://unpkg.com/fuse.js@6.6.2/dist/fuse.min.js"></script>
 
@@ -257,14 +257,17 @@
 
       <!-- 3. Integrated Mobile Quick-Search Pill -->
       <div class="app-search-wrapper" id="app-search-wrapper">
-        <div class="search-pill-box">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="search-lens-icon"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <form class="search-pill-box" id="header-search-form" onsubmit="return false;">
+          <button type="submit" class="search-lens-btn" id="btn-submit-search" aria-label="Search" title="Search items">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="search-lens-icon"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </button>
           <input 
             type="text" 
             id="mobile-search-input" 
             class="app-search-input" 
             placeholder="Search pooja samagri, brass idols, diyas..."
             autocomplete="off"
+            enterkeyhint="search"
           >
           <button type="button" class="search-inline-btn" id="mobile-btn-voice-search" aria-label="Voice Search" title="Voice Search">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
@@ -272,7 +275,7 @@
           <button type="button" class="search-inline-btn" id="mobile-btn-image-search" aria-label="Image Search" title="Photo Search">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
           </button>
-        </div>
+        </form>
 
         <!-- Autocomplete Suggestions Panel -->
         <div class="search-suggestions-panel" id="search-suggestions-panel" style="display: none;"></div>
@@ -744,8 +747,8 @@
   <div class="toast-container" id="toast-container" aria-live="polite"></div>
 
   <!-- Loading Core Scripts -->
-  <script src="icons.js?v=2.4"></script>
-  <script src="data.js?v=2.4"></script>
-  <script src="app.js?v=2.4"></script>
+  <script src="icons.js?v=2.5"></script>
+  <script src="data.js?v=2.5"></script>
+  <script src="app.js?v=2.5"></script>
 </body>
 </html>

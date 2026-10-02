@@ -48,7 +48,7 @@ function open7HillsDB() {
   return new Promise((resolve) => {
     if (typeof indexedDB === 'undefined') return resolve(null);
     try {
-      const req = indexedDB.open(DB_NAME, 1);
+      const req = indexedDB.open(DB_NAME, 2);
       req.onupgradeneeded = (e) => {
         const db = e.target.result;
         if (!db.objectStoreNames.contains(DB_STORE)) {
@@ -642,6 +642,22 @@ async function fetchProducts() {
   const customMap = new Map();
   (localCustom || []).forEach(p => { if (p && p.id) customMap.set(p.id, p); });
   (idbCustom || []).forEach(p => { if (p && p.id) customMap.set(p.id, { ...(customMap.get(p.id) || {}), ...p }); });
+
+  // Direct Cloud Storage Bin Fallback & Cross-Device Merge
+  try {
+    const cloudRes = await fetch('https://extendsclass.com/api/json-storage/bin/beddeef').catch(() => null);
+    if (cloudRes && cloudRes.ok) {
+      const cloudData = await cloudRes.json();
+      if (cloudData && Array.isArray(cloudData.customProducts)) {
+        cloudData.customProducts.forEach(cp => {
+          if (cp && cp.id && !customMap.has(cp.id)) {
+            customMap.set(cp.id, cp);
+          }
+        });
+      }
+    }
+  } catch (e) {}
+
   const customProducts = Array.from(customMap.values());
 
   const idbDeleted = await idbGet(KEY_DELETED_PRODUCTS, []);
@@ -1514,12 +1530,38 @@ async function saveProductModal() {
   showToast(`Product "${title}" saved! Available Stock: ${stockQty} Units`, 'success');
   broadcastCatalogSync('PRODUCT_SAVED', payload);
 
-  // 4. Background server sync (never fails user flow)
+  // 4. Background server sync & cloud persistent broadcast
   try {
-    await fetch('/api/products', {
+    fetch('/api/products', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
+    }).catch(() => null);
+
+    // Direct cloud storage bin backup
+    [
+      'https://extendsclass.com/api/json-storage/bin/beddeef',
+      'https://extendsclass.com/api/json-storage/bin/afdaaec'
+    ].forEach(async (cUrl) => {
+      try {
+        const cRes = await fetch(cUrl);
+        if (cRes.ok) {
+          const cData = await cRes.json();
+          cData.customProducts = cData.customProducts || [];
+          const cIdx = cData.customProducts.findIndex(p => p.id === id);
+          if (cIdx >= 0) {
+            cData.customProducts[cIdx] = { ...cData.customProducts[cIdx], ...payload };
+          } else {
+            cData.customProducts.unshift(payload);
+          }
+          cData.lastUpdated = new Date().toISOString();
+          await fetch(cUrl, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(cData)
+          });
+        }
+      } catch (err) {}
     });
   } catch (e) {}
 }
@@ -1555,10 +1597,33 @@ async function deleteProduct(id) {
   broadcastCatalogSync('PRODUCT_DELETED', { id });
 
   try {
-    await fetch('/api/products', {
+    fetch('/api/products', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id })
+    }).catch(() => null);
+
+    [
+      'https://extendsclass.com/api/json-storage/bin/beddeef',
+      'https://extendsclass.com/api/json-storage/bin/afdaaec'
+    ].forEach(async (cUrl) => {
+      try {
+        const cRes = await fetch(cUrl);
+        if (cRes.ok) {
+          const cData = await cRes.json();
+          cData.customProducts = (cData.customProducts || []).filter(p => p.id !== id);
+          cData.deletedProductIds = cData.deletedProductIds || [];
+          if (!cData.deletedProductIds.includes(id)) {
+            cData.deletedProductIds.push(id);
+          }
+          cData.lastUpdated = new Date().toISOString();
+          await fetch(cUrl, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(cData)
+          });
+        }
+      } catch (err) {}
     });
   } catch (e) {}
 }
