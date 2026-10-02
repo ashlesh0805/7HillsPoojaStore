@@ -336,14 +336,34 @@ const server = http.createServer(async (req, res) => {
   // ==========================================
   if (urlPath === '/api/upload' && req.method === 'POST') {
     try {
-      const { filename, data } = await parseJsonBody(req);
+      const body = await parseJsonBody(req);
+
+      // Support batch uploads: { files: [{ filename, data }, ...] }
+      if (Array.isArray(body.files) && body.files.length > 0) {
+        const uploaded = [];
+        for (const item of body.files) {
+          if (!item.data) continue;
+          const ext = path.extname(item.filename || '.jpg') || '.jpg';
+          const safeName = `photo_${Date.now()}_${Math.floor(Math.random() * 100000)}${ext.toLowerCase()}`;
+          const base64Data = item.data.replace(/^data:image\/\w+;base64,/, '');
+          const filePath = path.join(UPLOADS_DIR, safeName);
+          fs.writeFileSync(filePath, Buffer.from(base64Data, 'base64'));
+          uploaded.push({ url: `uploads/${safeName}`, filename: `uploads/${safeName}` });
+        }
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ success: true, files: uploaded, urls: uploaded.map(u => u.url) }));
+        return;
+      }
+
+      // Single file upload
+      const { filename, data } = body;
       if (!data) {
         res.writeHead(400, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ error: 'No image data provided' }));
         return;
       }
       const ext = path.extname(filename || '.jpg') || '.jpg';
-      const safeName = `photo_${Date.now()}${ext.toLowerCase()}`;
+      const safeName = `photo_${Date.now()}_${Math.floor(Math.random() * 100000)}${ext.toLowerCase()}`;
       const base64Data = data.replace(/^data:image\/\w+;base64,/, '');
       const filePath = path.join(UPLOADS_DIR, safeName);
       fs.writeFileSync(filePath, Buffer.from(base64Data, 'base64'));

@@ -44,19 +44,17 @@ function setLocalJSON(key, val) {
 // ===================================================
 // 1. PIN AUTHENTICATION
 // ===================================================
-const DEFAULT_PIN = '7777';
+const DEFAULT_PIN = '7hills@7777';
 
 function initPinAuth() {
   const pinOverlay = document.getElementById('pin-lock-overlay');
-  const d1 = document.getElementById('pin-d1');
-  const d2 = document.getElementById('pin-d2');
-  const d3 = document.getElementById('pin-d3');
-  const d4 = document.getElementById('pin-d4');
+  const pinInput = document.getElementById('partner-pin-input');
+  const btnToggleEye = document.getElementById('btn-toggle-pin-visibility');
+  const eyeIconShow = document.getElementById('eye-icon-show');
+  const eyeIconHide = document.getElementById('eye-icon-hide');
   const errorMsg = document.getElementById('pin-error-msg');
   const btnSubmit = document.getElementById('btn-submit-pin');
   const btnLock = document.getElementById('btn-lock-portal');
-
-  const digits = [d1, d2, d3, d4];
 
   // Check existing session
   if (sessionStorage.getItem('partner_auth') === 'true') {
@@ -64,36 +62,39 @@ function initPinAuth() {
     loadAllData();
   } else {
     pinOverlay.style.display = 'flex';
-    setTimeout(() => d1.focus(), 100);
+    if (pinInput) setTimeout(() => pinInput.focus(), 150);
   }
 
-  digits.forEach((digit, index) => {
-    digit.addEventListener('input', (e) => {
-      errorMsg.textContent = '';
-      if (digit.value.length === 1) {
-        if (index < 3) {
-          digits[index + 1].focus();
-        } else {
-          // Auto check on 4th digit
-          verifyPin();
-        }
+  // Toggle eye visibility
+  if (btnToggleEye && pinInput) {
+    btnToggleEye.addEventListener('click', () => {
+      const isPass = pinInput.type === 'password';
+      pinInput.type = isPass ? 'text' : 'password';
+      if (eyeIconShow && eyeIconHide) {
+        eyeIconShow.style.display = isPass ? 'none' : 'block';
+        eyeIconHide.style.display = isPass ? 'block' : 'none';
       }
+      pinInput.focus();
+    });
+  }
+
+  if (pinInput) {
+    pinInput.addEventListener('input', () => {
+      if (errorMsg) errorMsg.textContent = '';
     });
 
-    digit.addEventListener('keydown', (e) => {
-      if (e.key === 'Backspace' && !digit.value && index > 0) {
-        digits[index - 1].focus();
-      }
+    pinInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         verifyPin();
       }
     });
-  });
+  }
 
   function verifyPin() {
-    const enteredPin = digits.map(d => d.value).join('');
-    if (enteredPin.length < 4) {
-      errorMsg.textContent = 'Please enter all 4 digits.';
+    const enteredPin = (pinInput ? pinInput.value : '').trim();
+    if (!enteredPin) {
+      if (errorMsg) errorMsg.textContent = 'Please enter the Store PIN.';
+      if (pinInput) pinInput.focus();
       return;
     }
 
@@ -104,22 +105,26 @@ function initPinAuth() {
       loadAllData();
       initAudioOnFirstInteraction();
     } else {
-      errorMsg.textContent = 'Incorrect PIN. Try 7777';
-      digits.forEach(d => d.value = '');
-      d1.focus();
+      if (errorMsg) errorMsg.textContent = 'Incorrect Store PIN. Please try again.';
+      if (pinInput) {
+        pinInput.value = '';
+        pinInput.focus();
+      }
     }
   }
 
-  btnSubmit.addEventListener('click', verifyPin);
+  if (btnSubmit) btnSubmit.addEventListener('click', verifyPin);
 
-  btnLock.addEventListener('click', () => {
-    sessionStorage.removeItem('partner_auth');
-    digits.forEach(d => d.value = '');
-    errorMsg.textContent = '';
-    pinOverlay.style.display = 'flex';
-    d1.focus();
-    stopLoudBuzzer();
-  });
+  if (btnLock) {
+    btnLock.addEventListener('click', () => {
+      sessionStorage.removeItem('partner_auth');
+      if (pinInput) pinInput.value = '';
+      if (errorMsg) errorMsg.textContent = '';
+      pinOverlay.style.display = 'flex';
+      if (pinInput) setTimeout(() => pinInput.focus(), 100);
+      stopLoudBuzzer();
+    });
+  }
 }
 
 // ===================================================
@@ -662,8 +667,12 @@ function renderCatalog() {
           </button>
         </td>
         <td>
-          <div style="display:flex; gap:6px;">
-            <button type="button" class="action-icon-btn" onclick="openEditProductModal('${prod.id}')" title="Edit Product">
+          <div style="display:flex; gap:6px; align-items:center;">
+            <button type="button" class="action-btn-photos ${Array.isArray(prod.images) && prod.images.length > 1 ? 'has-slider' : ''}" onclick="openQuickPhotosModal('${prod.id}')" title="Manage Photos & Add Second Slide Photo">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+              <span>Photos (${Array.isArray(prod.images) ? prod.images.length : (prod.image ? 1 : 0)})</span>
+            </button>
+            <button type="button" class="action-icon-btn" onclick="openEditProductModal('${prod.id}')" title="Edit Product Details">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
             </button>
             <button type="button" class="action-icon-btn delete" onclick="deleteProduct('${prod.id}')" title="Delete Product">
@@ -809,49 +818,463 @@ function compressPhoto(file, maxDimension = 800, quality = 0.75) {
   });
 }
 
+// ===================================================
+// MULTI-PHOTO MANAGEMENT ENGINE (CAMERA, GALLERY, DRAG & DROP)
+// ===================================================
+let modalEditingImages = [];
+let quickEditingImages = [];
+let quickEditingProdId = null;
+
+function compressPhoto(file, maxDimension = 1200, quality = 0.82) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const img = new Image();
+      img.onload = () => {
+        let width = img.width;
+        let height = img.height;
+        if (width > height) {
+          if (width > maxDimension) {
+            height = Math.round((height * maxDimension) / width);
+            width = maxDimension;
+          }
+        } else {
+          if (height > maxDimension) {
+            width = Math.round((width * maxDimension) / height);
+            height = maxDimension;
+          }
+        }
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.onerror = reject;
+      img.src = e.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function uploadPhotoFiles(fileList, targetArray, scope, onProgress) {
+  const files = Array.from(fileList || []).filter(f => f.type.startsWith('image/'));
+  if (files.length === 0) return;
+
+  if (onProgress) onProgress(true, `Optimizing ${files.length} photo${files.length > 1 ? 's' : ''}...`);
+
+  const prepared = [];
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (onProgress) onProgress(true, `Optimizing photo ${i + 1} of ${files.length}...`);
+    try {
+      const dataUrl = await compressPhoto(file, 1200, 0.82);
+      targetArray.push(dataUrl);
+      refreshPhotosUI(scope);
+
+      prepared.push({
+        indexInTarget: targetArray.length - 1,
+        filename: file.name,
+        data: dataUrl
+      });
+    } catch (err) {
+      console.error('Photo optimization error:', err);
+    }
+  }
+
+  if (prepared.length === 0) {
+    if (onProgress) onProgress(false);
+    return;
+  }
+
+  if (onProgress) onProgress(true, `Uploading ${prepared.length} photo${prepared.length > 1 ? 's' : ''} to server...`);
+
+  try {
+    const res = await fetch('/api/upload', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        files: prepared.map(p => ({ filename: p.filename, data: p.data }))
+      })
+    });
+    const json = await res.json();
+    if (json && json.success && Array.isArray(json.urls)) {
+      json.urls.forEach((url, i) => {
+        const targetIdx = prepared[i]?.indexInTarget;
+        if (typeof targetIdx === 'number' && targetArray[targetIdx]) {
+          targetArray[targetIdx] = url;
+        }
+      });
+      refreshPhotosUI(scope);
+    }
+  } catch (err) {
+    console.warn('Background upload failed, keeping optimized photo:', err);
+  }
+
+  if (onProgress) onProgress(false);
+  showToast(`Added ${prepared.length} photo${prepared.length > 1 ? 's' : ''}! Remember to save.`, 'success');
+}
+
+function renderPhotoGrid(gridId, emptyStateId, countBadgeId, imagesArray, isQuick) {
+  const grid = document.getElementById(gridId);
+  const empty = document.getElementById(emptyStateId);
+  const badge = document.getElementById(countBadgeId);
+
+  if (badge) {
+    badge.textContent = `${imagesArray.length} Photo${imagesArray.length === 1 ? '' : 's'} Attached`;
+  }
+
+  if (!grid || !empty) return;
+
+  if (imagesArray.length === 0) {
+    empty.style.display = 'flex';
+    grid.style.display = 'none';
+    grid.innerHTML = '';
+    return;
+  }
+
+  empty.style.display = 'none';
+  grid.style.display = 'grid';
+
+  const scope = isQuick ? 'quick' : 'modal';
+
+  grid.innerHTML = imagesArray.map((img, idx) => {
+    const resolvedSrc = img ? (img.startsWith('http') || img.startsWith('uploads/') || img.startsWith('/uploads/') || img.startsWith('data:') ? img : `7HILLS WEBSITE FOR STOCK ITEMS/${img}`) : 'image-coming-soon.svg';
+    const isCover = idx === 0;
+    const isSlide2 = idx === 1;
+
+    let badgeHtml = '';
+    if (isCover) {
+      badgeHtml = `<span class="photo-card-badge badge-cover">⭐ 1. Main Cover</span>`;
+    } else if (isSlide2) {
+      badgeHtml = `<span class="photo-card-badge badge-slide2">📱 2. Slide Detail</span>`;
+    } else {
+      badgeHtml = `<span class="photo-card-badge badge-extra">Photo ${idx + 1}</span>`;
+    }
+
+    return `
+      <div class="photo-card-item ${isCover ? 'is-cover' : ''}">
+        <div class="photo-thumb-wrapper" onclick="openPhotoLightbox('${resolvedSrc.replace(/'/g, "\\'")}', '${isCover ? 'Main Cover Photo' : (isSlide2 ? 'Slide 2: Detailed View' : `Photo ${idx + 1}`)}')">
+          ${badgeHtml}
+          <img src="${resolvedSrc}" alt="Product Photo ${idx + 1}" onerror="this.src='image-coming-soon.svg'">
+        </div>
+        <div class="photo-card-actions">
+          ${!isCover ? `
+            <button type="button" class="btn-photo-mini primary" onclick="makePhotoCover('${scope}', ${idx})" title="Set as Main Cover Photo">
+              Cover
+            </button>
+          ` : '<span style="font-size:10px; color:var(--partner-gold); font-weight:700; padding:2px 4px;">Cover</span>'}
+
+          <div style="display:flex; gap:3px;">
+            ${idx > 0 ? `
+              <button type="button" class="btn-photo-mini" onclick="movePhoto('${scope}', ${idx}, -1)" title="Move earlier in slider">◀</button>
+            ` : ''}
+            ${idx < imagesArray.length - 1 ? `
+              <button type="button" class="btn-photo-mini" onclick="movePhoto('${scope}', ${idx}, 1)" title="Move later in slider">▶</button>
+            ` : ''}
+            <button type="button" class="btn-photo-mini danger" onclick="removePhoto('${scope}', ${idx})" title="Remove photo">✕</button>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function makePhotoCover(scope, idx) {
+  const arr = scope === 'quick' ? quickEditingImages : modalEditingImages;
+  if (idx > 0 && idx < arr.length) {
+    const item = arr.splice(idx, 1)[0];
+    arr.unshift(item);
+    refreshPhotosUI(scope);
+    showToast('Set as Main Cover Photo ⭐', 'info');
+  }
+}
+
+function movePhoto(scope, idx, delta) {
+  const arr = scope === 'quick' ? quickEditingImages : modalEditingImages;
+  const target = idx + delta;
+  if (target >= 0 && target < arr.length) {
+    const temp = arr[idx];
+    arr[idx] = arr[target];
+    arr[target] = temp;
+    refreshPhotosUI(scope);
+  }
+}
+
+function removePhoto(scope, idx) {
+  const arr = scope === 'quick' ? quickEditingImages : modalEditingImages;
+  if (idx >= 0 && idx < arr.length) {
+    arr.splice(idx, 1);
+    refreshPhotosUI(scope);
+    showToast('Photo removed', 'info');
+  }
+}
+
+function refreshPhotosUI(scope) {
+  if (scope === 'quick') {
+    renderPhotoGrid('quick-photos-grid', 'quick-photo-empty-state', 'quick-photo-prod-meta', quickEditingImages, true);
+  } else {
+    renderPhotoGrid('modal-photos-grid', 'photo-empty-state', 'modal-photo-count-badge', modalEditingImages, false);
+    const imgInput = document.getElementById('edit-prod-image');
+    if (imgInput) imgInput.value = modalEditingImages[0] || '';
+  }
+}
+
 function initMediaUploadHandlers() {
+  // 1. Main Product Modal Controls
   const btnCamera = document.getElementById('btn-trigger-camera');
   const btnGallery = document.getElementById('btn-trigger-gallery');
   const cameraInput = document.getElementById('camera-file-input');
   const galleryInput = document.getElementById('gallery-file-input');
-  const previewImg = document.getElementById('edit-prod-preview');
-  const imageInput = document.getElementById('edit-prod-image');
+  const btnToggleUrl = document.getElementById('btn-toggle-url-input');
+  const btnAddUrl = document.getElementById('btn-add-url-photo');
+  const urlRow = document.getElementById('photo-url-row');
+  const urlInput = document.getElementById('edit-prod-url-input');
+  const dropzone = document.getElementById('photo-dropzone');
+  const uploadStatus = document.getElementById('photo-upload-status');
+  const uploadStatusText = document.getElementById('photo-upload-status-text');
+
+  function setModalStatus(show, text) {
+    if (!uploadStatus) return;
+    uploadStatus.style.display = show ? 'flex' : 'none';
+    if (uploadStatusText && text) uploadStatusText.textContent = text;
+  }
 
   if (btnCamera && cameraInput) {
     btnCamera.onclick = () => cameraInput.click();
-    cameraInput.onchange = (e) => handleImageSelected(e.target.files[0]);
+    cameraInput.onchange = (e) => {
+      uploadPhotoFiles(e.target.files, modalEditingImages, 'modal', setModalStatus);
+      cameraInput.value = '';
+    };
   }
 
   if (btnGallery && galleryInput) {
     btnGallery.onclick = () => galleryInput.click();
-    galleryInput.onchange = (e) => handleImageSelected(e.target.files[0]);
+    galleryInput.onchange = (e) => {
+      uploadPhotoFiles(e.target.files, modalEditingImages, 'modal', setModalStatus);
+      galleryInput.value = '';
+    };
   }
 
-  async function handleImageSelected(file) {
-    if (!file) return;
-
-    showToast('Optimizing photo...', 'info');
-    try {
-      // Compress to lightweight JPEG (<50KB) so it saves instantly in localStorage without quota errors
-      const compressedDataUrl = await compressPhoto(file, 800, 0.75);
-      if (previewImg) previewImg.src = compressedDataUrl;
-      if (imageInput) imageInput.value = compressedDataUrl;
-      showToast('Photo attached & ready to save!', 'success');
-
-      // Attempt background upload to API
-      fetch('/api/upload', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ filename: file.name, data: compressedDataUrl })
-      }).then(r => r.json()).then(json => {
-        if (json && json.url && !json.url.startsWith('data:')) {
-          if (imageInput) imageInput.value = json.url;
-        }
-      }).catch(() => {});
-    } catch (err) {
-      showToast('Could not process photo', 'error');
-    }
+  if (btnToggleUrl && urlRow) {
+    btnToggleUrl.onclick = () => {
+      urlRow.style.display = urlRow.style.display === 'none' ? 'flex' : 'none';
+      if (urlRow.style.display === 'flex' && urlInput) urlInput.focus();
+    };
   }
+
+  if (btnAddUrl && urlInput) {
+    btnAddUrl.onclick = () => {
+      const val = urlInput.value.trim();
+      if (!val) return;
+      modalEditingImages.push(val);
+      urlInput.value = '';
+      urlRow.style.display = 'none';
+      refreshPhotosUI('modal');
+      showToast('Photo URL added!', 'success');
+    };
+  }
+
+  // Drag & drop on main modal dropzone
+  if (dropzone) {
+    ['dragenter', 'dragover'].forEach(name => {
+      dropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.add('drag-over');
+      });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      dropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove('drag-over');
+      });
+    });
+    dropzone.addEventListener('drop', (e) => {
+      const dt = e.dataTransfer;
+      if (dt && dt.files && dt.files.length > 0) {
+        uploadPhotoFiles(dt.files, modalEditingImages, 'modal', setModalStatus);
+      }
+    });
+  }
+
+  // 2. Quick Photo Modal Controls
+  const btnQuickCamera = document.getElementById('btn-quick-trigger-camera');
+  const btnQuickGallery = document.getElementById('btn-quick-trigger-gallery');
+  const quickCameraInput = document.getElementById('quick-camera-file-input');
+  const quickGalleryInput = document.getElementById('quick-gallery-file-input');
+  const btnQuickToggleUrl = document.getElementById('btn-quick-toggle-url');
+  const btnQuickAddUrl = document.getElementById('btn-quick-add-url');
+  const quickUrlRow = document.getElementById('quick-photo-url-row');
+  const quickUrlInput = document.getElementById('quick-prod-url-input');
+  const quickDropzone = document.getElementById('quick-photo-dropzone');
+  const quickUploadStatus = document.getElementById('quick-photo-upload-status');
+  const quickUploadStatusText = document.getElementById('quick-photo-upload-status-text');
+  const btnCloseQuick = document.getElementById('btn-close-quick-photo-modal');
+  const btnCancelQuick = document.getElementById('btn-cancel-quick-photo-modal');
+  const btnSaveQuick = document.getElementById('btn-save-quick-photos');
+
+  function setQuickStatus(show, text) {
+    if (!quickUploadStatus) return;
+    quickUploadStatus.style.display = show ? 'flex' : 'none';
+    if (quickUploadStatusText && text) quickUploadStatusText.textContent = text;
+  }
+
+  if (btnQuickCamera && quickCameraInput) {
+    btnQuickCamera.onclick = () => quickCameraInput.click();
+    quickCameraInput.onchange = (e) => {
+      uploadPhotoFiles(e.target.files, quickEditingImages, 'quick', setQuickStatus);
+      quickCameraInput.value = '';
+    };
+  }
+
+  if (btnQuickGallery && quickGalleryInput) {
+    btnQuickGallery.onclick = () => quickGalleryInput.click();
+    quickGalleryInput.onchange = (e) => {
+      uploadPhotoFiles(e.target.files, quickEditingImages, 'quick', setQuickStatus);
+      quickGalleryInput.value = '';
+    };
+  }
+
+  if (btnQuickToggleUrl && quickUrlRow) {
+    btnQuickToggleUrl.onclick = () => {
+      quickUrlRow.style.display = quickUrlRow.style.display === 'none' ? 'flex' : 'none';
+      if (quickUrlRow.style.display === 'flex' && quickUrlInput) quickUrlInput.focus();
+    };
+  }
+
+  if (btnQuickAddUrl && quickUrlInput) {
+    btnQuickAddUrl.onclick = () => {
+      const val = quickUrlInput.value.trim();
+      if (!val) return;
+      quickEditingImages.push(val);
+      quickUrlInput.value = '';
+      quickUrlRow.style.display = 'none';
+      refreshPhotosUI('quick');
+      showToast('Photo URL added!', 'success');
+    };
+  }
+
+  if (quickDropzone) {
+    ['dragenter', 'dragover'].forEach(name => {
+      quickDropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        quickDropzone.classList.add('drag-over');
+      });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      quickDropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        quickDropzone.classList.remove('drag-over');
+      });
+    });
+    quickDropzone.addEventListener('drop', (e) => {
+      const dt = e.dataTransfer;
+      if (dt && dt.files && dt.files.length > 0) {
+        uploadPhotoFiles(dt.files, quickEditingImages, 'quick', setQuickStatus);
+      }
+    });
+  }
+
+  const closeQuickModal = () => {
+    const qModal = document.getElementById('quick-photo-modal-overlay');
+    if (qModal) qModal.style.display = 'none';
+    quickEditingProdId = null;
+    quickEditingImages = [];
+  };
+
+  if (btnCloseQuick) btnCloseQuick.onclick = closeQuickModal;
+  if (btnCancelQuick) btnCancelQuick.onclick = closeQuickModal;
+  if (btnSaveQuick) btnSaveQuick.onclick = saveQuickPhotosModal;
+}
+
+function openQuickPhotosModal(id) {
+  const prod = appState.products.find(p => p.id === id);
+  if (!prod) return;
+
+  quickEditingProdId = id;
+  const idInput = document.getElementById('quick-photo-prod-id');
+  if (idInput) idInput.value = id;
+  const titleEl = document.getElementById('quick-photo-prod-title');
+  if (titleEl) titleEl.textContent = `Manage Photos: ${prod.title}`;
+
+  if (Array.isArray(prod.images) && prod.images.length > 0) {
+    quickEditingImages = [...prod.images];
+  } else if (prod.image) {
+    quickEditingImages = [prod.image];
+  } else {
+    quickEditingImages = [];
+  }
+
+  renderPhotoGrid('quick-photos-grid', 'quick-photo-empty-state', 'quick-photo-prod-meta', quickEditingImages, true);
+
+  const urlRow = document.getElementById('quick-photo-url-row');
+  if (urlRow) urlRow.style.display = 'none';
+  const urlInput = document.getElementById('quick-prod-url-input');
+  if (urlInput) urlInput.value = '';
+
+  const qOverlay = document.getElementById('quick-photo-modal-overlay');
+  if (qOverlay) qOverlay.style.display = 'flex';
+}
+
+async function saveQuickPhotosModal() {
+  if (!quickEditingProdId) return;
+  const prod = appState.products.find(p => p.id === quickEditingProdId);
+  if (!prod) return;
+
+  const newImages = [...quickEditingImages];
+  const mainImage = newImages[0] || '';
+
+  prod.images = newImages;
+  prod.image = mainImage;
+
+  // Persist to localStorage
+  const customProducts = getLocalJSON(KEY_CUSTOM_PRODUCTS, []);
+  const cIdx = customProducts.findIndex(p => p.id === quickEditingProdId);
+  if (cIdx >= 0) {
+    customProducts[cIdx].images = newImages;
+    customProducts[cIdx].image = mainImage;
+  } else {
+    customProducts.unshift({ ...prod, image: mainImage, images: newImages });
+  }
+  setLocalJSON(KEY_CUSTOM_PRODUCTS, customProducts);
+
+  const qOverlay = document.getElementById('quick-photo-modal-overlay');
+  if (qOverlay) qOverlay.style.display = 'none';
+  renderCatalog();
+  showToast(`Saved ${newImages.length} photo${newImages.length === 1 ? '' : 's'} for "${prod.title}"!`, 'success');
+
+  // Background server sync
+  try {
+    await fetch('/api/products', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(prod)
+    });
+  } catch (e) {
+    console.warn('Server product sync error:', e);
+  }
+}
+
+function openPhotoLightbox(src, caption) {
+  const modal = document.getElementById('photo-lightbox-modal');
+  const img = document.getElementById('lightbox-full-img');
+  const cap = document.getElementById('lightbox-caption');
+  if (!modal || !img) return;
+
+  img.src = src;
+  if (cap) cap.textContent = caption || '';
+  modal.style.display = 'flex';
+}
+
+function closePhotoLightbox() {
+  const modal = document.getElementById('photo-lightbox-modal');
+  if (modal) modal.style.display = 'none';
 }
 
 function openEditProductModal(id) {
@@ -869,16 +1292,24 @@ function openEditProductModal(id) {
   document.getElementById('edit-prod-stock-qty').value = stockUnits;
   document.getElementById('edit-prod-price').value = prod.price || '';
   document.getElementById('edit-prod-mrp').value = prod.mrp || Math.round((prod.price || 100) * 1.3);
-  const currentImg = prod.image || (Array.isArray(prod.images) && prod.images[0] ? prod.images[0] : '');
-  document.getElementById('edit-prod-image').value = currentImg;
   document.getElementById('edit-prod-desc').value = prod.description || '';
 
-  // Update preview image
-  const previewImg = document.getElementById('edit-prod-preview');
-  if (previewImg) {
-    const imgSrc = currentImg ? (currentImg.startsWith('http') || currentImg.startsWith('uploads/') || currentImg.startsWith('/uploads/') || currentImg.startsWith('data:') ? currentImg : `7HILLS WEBSITE FOR STOCK ITEMS/${currentImg}`) : 'image-coming-soon.svg';
-    previewImg.src = imgSrc;
+  // Initialize multi-photos array
+  if (Array.isArray(prod.images) && prod.images.length > 0) {
+    modalEditingImages = [...prod.images];
+  } else if (prod.image) {
+    modalEditingImages = [prod.image];
+  } else {
+    modalEditingImages = [];
   }
+
+  const imageInput = document.getElementById('edit-prod-image');
+  if (imageInput) imageInput.value = modalEditingImages[0] || '';
+
+  renderPhotoGrid('modal-photos-grid', 'photo-empty-state', 'modal-photo-count-badge', modalEditingImages, false);
+
+  const urlRow = document.getElementById('photo-url-row');
+  if (urlRow) urlRow.style.display = 'none';
 
   calculateDiscountPreview();
   document.getElementById('product-modal-overlay').style.display = 'flex';
@@ -895,11 +1326,16 @@ function openAddProductModal() {
   document.getElementById('edit-prod-stock-qty').value = 15;
   document.getElementById('edit-prod-price').value = '';
   document.getElementById('edit-prod-mrp').value = '';
-  document.getElementById('edit-prod-image').value = '';
   document.getElementById('edit-prod-desc').value = '';
 
-  const previewImg = document.getElementById('edit-prod-preview');
-  if (previewImg) previewImg.src = 'image-coming-soon.svg';
+  modalEditingImages = [];
+  const imageInput = document.getElementById('edit-prod-image');
+  if (imageInput) imageInput.value = '';
+
+  renderPhotoGrid('modal-photos-grid', 'photo-empty-state', 'modal-photo-count-badge', modalEditingImages, false);
+
+  const urlRow = document.getElementById('photo-url-row');
+  if (urlRow) urlRow.style.display = 'none';
 
   calculateDiscountPreview();
   document.getElementById('product-modal-overlay').style.display = 'flex';
@@ -916,8 +1352,11 @@ async function saveProductModal() {
 
   const price = parseFloat(document.getElementById('edit-prod-price').value);
   const mrp = parseFloat(document.getElementById('edit-prod-mrp').value) || price;
-  const image = document.getElementById('edit-prod-image').value.trim();
   const description = document.getElementById('edit-prod-desc').value.trim();
+
+  // Multi-photos
+  const images = [...modalEditingImages];
+  const image = images[0] || (document.getElementById('edit-prod-image')?.value.trim() || '');
 
   if (!title || isNaN(price)) {
     showToast('Please enter title and valid selling price.', 'error');
@@ -942,6 +1381,7 @@ async function saveProductModal() {
     price,
     mrp,
     image,
+    images: images.length > 0 ? images : (image ? [image] : []),
     description
   };
 
@@ -1521,6 +1961,13 @@ window.quickAdjustStock = quickAdjustStock;
 window.openEditProductModal = openEditProductModal;
 window.openAddProductModal = openAddProductModal;
 window.deleteProduct = deleteProduct;
+window.openQuickPhotosModal = openQuickPhotosModal;
+window.saveQuickPhotosModal = saveQuickPhotosModal;
+window.makePhotoCover = makePhotoCover;
+window.movePhoto = movePhoto;
+window.removePhoto = removePhoto;
+window.openPhotoLightbox = openPhotoLightbox;
+window.closePhotoLightbox = closePhotoLightbox;
 window.openAddCategoryModal = openAddCategoryModal;
 window.openEditCategoryModal = openEditCategoryModal;
 window.saveCategoryModal = saveCategoryModal;
