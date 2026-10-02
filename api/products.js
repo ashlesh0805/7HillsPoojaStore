@@ -48,17 +48,18 @@ async function saveCloudData(data) {
     lastUpdated: new Date().toISOString()
   });
 
-  const promises = CLOUD_BINS.map(url => {
-    return fetch(url, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: payload
-    }).catch(() => null);
-  });
-
-  try {
-    await Promise.race(promises);
-  } catch (e) {}
+  for (const url of CLOUD_BINS) {
+    try {
+      const res = await fetch(url, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload
+      });
+      if (res && res.ok) {
+        break; // Successfully persisted!
+      }
+    } catch (e) {}
+  }
 }
 
 module.exports = async (req, res) => {
