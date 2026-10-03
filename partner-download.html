@@ -849,13 +849,13 @@
 
         <!-- CTA Action Buttons -->
         <div class="cta-group">
-          <button type="button" class="btn-primary-install" id="btn-partner-install" onclick="startPartnerInstall()">
+          <a href="/7HillsPoojaStore-Partner.apk" download="7HillsPoojaStore-Partner.apk" class="btn-primary-install" id="btn-partner-install" onclick="startPartnerInstall(event)">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <div class="btn-meta">
-              <span class="btn-meta-main">Install Partner App on Phone</span>
-              <span class="btn-meta-sub">1-Tap Direct Install • Standalone Mode</span>
+              <span class="btn-meta-main">Download &amp; Install Partner App</span>
+              <span class="btn-meta-sub">1-Tap Direct Download • Official Android APK</span>
             </div>
-          </button>
+          </a>
 
           <a href="/partner" class="btn-secondary-launch">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -1002,12 +1002,13 @@
       alert('7 Hills Partner App has been successfully installed on your phone!');
     });
 
-    function startPartnerInstall() {
+    function startPartnerInstall(e) {
       if (deferredPrompt) {
+        if (e) e.preventDefault();
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choice) => {
-          if (choice.outcome === 'accepted') {
-            console.log('User installed 7 Hills Partner app');
+          if (choice.outcome !== 'accepted') {
+            window.location.href = '/7HillsPoojaStore-Partner.apk';
           }
           deferredPrompt = null;
         });
@@ -1015,19 +1016,18 @@
       }
 
       const isIos = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      const isAndroid = /Android/.test(navigator.userAgent);
-      const modal = document.getElementById('install-modal');
-      const steps = document.getElementById('modal-steps-box');
-
       if (isIos) {
+        if (e) e.preventDefault();
+        const modal = document.getElementById('install-modal');
+        const steps = document.getElementById('modal-steps-box');
         steps.innerHTML = '1. Tap the <strong>Share</strong> button (square with arrow ↑) at the bottom of Safari.<br>2. Scroll down and select <strong>Add to Home Screen (⊞)</strong>.<br>3. Tap <strong>Add</strong> in the top-right corner to finish.';
         modal.style.display = 'flex';
-      } else if (isAndroid) {
-        steps.innerHTML = '1. Tap the <strong>3 dots (⋮)</strong> menu in Chrome at the top-right.<br>2. Select <strong>Install app</strong> or <strong>Add to Home screen</strong>.<br>3. The official <strong>7 Hills Partner</strong> app icon will be added to your home screen!';
-        modal.style.display = 'flex';
-      } else {
-        // Desktop / Laptop
-        window.location.href = '/partner';
+        return;
+      }
+
+      // Android & Desktop: No modal, let native download link run or initiate download
+      if (!e) {
+        window.location.href = '/7HillsPoojaStore-Partner.apk';
       }
     }
   </script>

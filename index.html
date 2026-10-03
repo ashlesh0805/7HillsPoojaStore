@@ -52,11 +52,24 @@
   <!-- PWA Early Install Prompt Capture & SW Registration -->
   <script>
     window.deferredInstallPrompt = null;
+    window.dismissTopBanner = function() {
+      localStorage.setItem('7hills_top_banner_dismissed', 'true');
+      var b = document.getElementById('prelaunch-banner');
+      if (b) b.style.display = 'none';
+    };
+    window.addEventListener('DOMContentLoaded', function() {
+      if (localStorage.getItem('7hills_top_banner_dismissed') === 'true' || localStorage.getItem('7hills_app_installed') === 'true' || window.matchMedia('(display-mode: standalone)').matches) {
+        var b = document.getElementById('prelaunch-banner');
+        if (b) b.style.display = 'none';
+      }
+    });
     window.addEventListener('beforeinstallprompt', function(e) {
       e.preventDefault();
       window.deferredInstallPrompt = e;
+      // Never show floater if top banner is visible or cart has items
+      var topBannerVisible = document.getElementById('prelaunch-banner') && document.getElementById('prelaunch-banner').style.display !== 'none';
       var floater = document.getElementById('sticky-app-floater');
-      if (floater && localStorage.getItem('7hills_floater_dismissed') !== 'true' && localStorage.getItem('7hills_app_installed') !== 'true') {
+      if (floater && !topBannerVisible && localStorage.getItem('7hills_floater_dismissed') !== 'true' && localStorage.getItem('7hills_app_installed') !== 'true' && !document.body.classList.contains('cart-has-items')) {
         floater.style.display = 'block';
       }
     });
@@ -124,6 +137,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span>Install App</span>
           </button>
+          <button type="button" class="btn-prelaunch-close" onclick="dismissTopBanner()" title="Dismiss" aria-label="Dismiss install banner">&times;</button>
         </div>
       </div>
     </aside>

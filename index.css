@@ -5135,9 +5135,9 @@ body.mobile-app-body {
 
 /* 1. Top Pre-Launch Banner */
 .prelaunch-banner {
-  background: linear-gradient(135deg, var(--primary-maroon-dark) 0%, var(--primary-maroon) 45%, var(--primary-maroon-light) 75%, var(--primary-saffron) 100%);
+  background: linear-gradient(135deg, var(--primary-maroon-dark) 0%, var(--primary-maroon) 55%, var(--primary-saffron) 100%);
   color: #FFFFFF;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-bottom: 1.5px solid #F59E0B;
   position: relative;
   z-index: 99;
@@ -5146,22 +5146,21 @@ body.mobile-app-body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
   max-width: 1200px;
   margin: 0 auto;
-  flex-wrap: wrap;
 }
 .prelaunch-pill {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: rgba(245, 158, 11, 0.2);
   border: 1px solid #F59E0B;
-  padding: 3px 10px;
+  padding: 3px 8px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 800;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.6px;
   color: #FDE68A;
   text-transform: uppercase;
   flex-shrink: 0;
@@ -5181,44 +5180,64 @@ body.mobile-app-body {
 }
 .prelaunch-msg {
   flex: 1;
-  font-size: 12.5px;
+  font-size: 12px;
   color: #FFFBEB;
   display: flex;
   align-items: center;
   gap: 6px;
-  flex-wrap: wrap;
+  min-width: 0;
 }
 .prelaunch-msg strong {
   color: #FDE68A;
+  white-space: nowrap;
 }
 .prelaunch-subtext {
   color: #FEF3C7;
   opacity: 0.9;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .prelaunch-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-shrink: 0;
 }
 .btn-prelaunch-install {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   color: #1F2937;
   font-weight: 800;
-  font-size: 12px;
-  padding: 6px 14px;
+  font-size: 11.5px;
+  padding: 5px 12px;
   border-radius: 6px;
   border: 1px solid #FDE68A;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   transition: transform 0.15s ease, opacity 0.15s ease;
+  white-space: nowrap;
 }
 .btn-prelaunch-install:hover {
   transform: translateY(-1px);
   filter: brightness(1.05);
+}
+.btn-prelaunch-close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
+  line-height: 1;
+  padding: 2px 6px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.btn-prelaunch-close:hover {
+  color: #FFF;
+  background: rgba(255, 255, 255, 0.15);
 }
 .btn-prelaunch-download {
   display: inline-flex;
@@ -5239,10 +5258,30 @@ body.mobile-app-body {
   background: rgba(255, 255, 255, 0.22);
 }
 
+@media (max-width: 600px) {
+  .prelaunch-banner {
+    padding: 5px 10px;
+  }
+  .prelaunch-container {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+  .prelaunch-subtext {
+    display: none !important;
+  }
+  .prelaunch-msg {
+    font-size: 11.5px;
+  }
+  .prelaunch-msg strong {
+    font-size: 11.5px;
+  }
+}
+
 /* 2. Floating App Install Bar */
 .sticky-app-floater {
+  display: none; /* Never show on initial load if top banner exists; controlled via JS */
   position: fixed;
-  bottom: 64px;
+  bottom: calc(var(--bottom-nav-height) + var(--safe-bottom) + 8px);
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 24px);
@@ -5624,7 +5663,22 @@ body.app-installed .prelaunch-banner,
 body.app-installed .prelaunch-modal-overlay,
 body.cart-open .sticky-app-floater,
 body.checkout-active .sticky-app-floater,
-.cart-drawer-open .sticky-app-floater {
+.cart-drawer-open .sticky-app-floater,
+body.cart-has-items .sticky-app-floater,
+.floating-cart-bar.visible ~ * .sticky-app-floater,
+.floating-cart-bar.visible ~ .sticky-app-floater {
+  display: none !important;
+}
+
+/* Ensure bottom content is fully scrollable and not blocked when cart has items */
+body.cart-has-items .mobile-app-shell {
+  padding-bottom: calc(var(--bottom-nav-height) + var(--floating-cart-height) + var(--safe-bottom) + 36px) !important;
+}
+
+/* Hide floating support bubble when on support, cart, or checkout pages to prevent clumsy overlap */
+body.page-support .floating-support-bubble,
+body.page-cart .floating-support-bubble,
+body.page-checkout .floating-support-bubble {
   display: none !important;
 }
 

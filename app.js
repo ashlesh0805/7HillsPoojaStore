@@ -535,14 +535,30 @@ function updateFloatingCartBar() {
   const overlay = document.getElementById('cart-drawer-overlay');
   const isDrawerOpen = overlay && overlay.classList.contains('active');
 
+  const floater = document.getElementById('sticky-app-floater');
+  const supportBubble = document.getElementById('floating-support-bubble');
+
   if (count > 0 && isBrowseRoute && !isDrawerOpen) {
     bar.classList.add('visible');
+    document.body.classList.add('cart-has-items');
     const countEl = document.getElementById('floating-cart-count');
     const totalEl = document.getElementById('floating-cart-total');
     if (countEl) countEl.textContent = `${count} Item${count === 1 ? '' : 's'}`;
     if (totalEl) totalEl.textContent = `₹${total.toLocaleString('en-IN')}`;
+
+    // Hide bottom install floater so it NEVER overlaps with floating cart!
+    if (floater) floater.style.display = 'none';
+
+    // Position support bubble safely above floating cart
+    if (supportBubble) {
+      supportBubble.style.bottom = 'calc(var(--bottom-nav-height) + var(--floating-cart-height) + var(--safe-bottom) + 16px)';
+    }
   } else {
     bar.classList.remove('visible');
+    document.body.classList.remove('cart-has-items');
+    if (supportBubble) {
+      supportBubble.style.bottom = '';
+    }
   }
 }
 
@@ -1283,6 +1299,24 @@ function handleRouting() {
 
   // Update floating cart bar state on route change
   updateFloatingCartBar();
+
+  // Control floating support bubble visibility per route to avoid screen clutter
+  const supportBubble = document.getElementById('floating-support-bubble');
+  if (supportBubble) {
+    if (hash === '#/support' || hash === '#/chat' || hash === '#/cart' || hash === '#/checkout') {
+      supportBubble.style.display = 'none';
+    } else {
+      supportBubble.style.display = 'flex';
+    }
+  }
+
+  // Update page data-route attribute on body for scoped styling
+  const cleanRoute = (hash.replace(/^#\//, '').split('/')[0] || 'home').toLowerCase();
+  document.body.setAttribute('data-route', cleanRoute);
+  document.body.classList.remove('page-support', 'page-cart', 'page-checkout');
+  if (cleanRoute === 'support' || cleanRoute === 'chat') document.body.classList.add('page-support');
+  else if (cleanRoute === 'cart') document.body.classList.add('page-cart');
+  else if (cleanRoute === 'checkout') document.body.classList.add('page-checkout');
 
   // Scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -6539,7 +6573,22 @@ function checkAppInstalled() {
     if (banner) banner.style.display = 'none';
     const modal = document.getElementById('prelaunch-modal-overlay');
     if (modal) modal.style.display = 'none';
+    return;
   }
+  if (localStorage.getItem('7hills_top_banner_dismissed') === 'true') {
+    const banner = document.getElementById('prelaunch-banner');
+    if (banner) banner.style.display = 'none';
+  }
+  if (localStorage.getItem('7hills_floater_dismissed') === 'true') {
+    const floater = document.getElementById('sticky-app-floater');
+    if (floater) floater.style.display = 'none';
+  }
+}
+
+function dismissTopBanner() {
+  localStorage.setItem('7hills_top_banner_dismissed', 'true');
+  const banner = document.getElementById('prelaunch-banner');
+  if (banner) banner.style.display = 'none';
 }
 
 function dismissAppFloater() {
@@ -6551,11 +6600,16 @@ function dismissAppFloater() {
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredInstallPrompt = e;
-  if (isRunningStandaloneOrInstalled() || localStorage.getItem('7hills_floater_dismissed') === 'true') {
+  if (isRunningStandaloneOrInstalled() || localStorage.getItem('7hills_floater_dismissed') === 'true' || document.body.classList.contains('cart-has-items')) {
     return;
   }
-  const floater = document.getElementById('sticky-app-floater');
-  if (floater) floater.style.display = 'block';
+  // Only show floater if top banner is closed
+  const topBanner = document.getElementById('prelaunch-banner');
+  const topBannerVisible = topBanner && topBanner.style.display !== 'none';
+  if (!topBannerVisible) {
+    const floater = document.getElementById('sticky-app-floater');
+    if (floater) floater.style.display = 'block';
+  }
 });
 
 window.addEventListener('appinstalled', () => {
@@ -6593,6 +6647,9 @@ function triggerAppInstall() {
         if (floater) floater.style.display = 'none';
         const banner = document.getElementById('prelaunch-banner');
         if (banner) banner.style.display = 'none';
+      } else {
+        // Direct download fallback
+        window.location.href = '/7HillsPoojaStore-App.apk';
       }
       window.deferredInstallPrompt = null;
       deferredInstallPrompt = null;
@@ -6602,7 +6659,9 @@ function triggerAppInstall() {
     if (isIos) {
       showToast('📲 To install on iPhone: Tap Share (↑) in Safari > "Add to Home Screen"');
     } else {
-      showToast('📲 To install: Tap 3 dots (⋮) at top-right of Chrome > "Install app"');
+      // Direct APK download for Android / Mobile without manual instructions modal
+      showToast('📥 Downloading 7 Hills Pooja Store APK...');
+      window.location.href = '/7HillsPoojaStore-App.apk';
     }
   }
 }
@@ -6806,6 +6865,7 @@ if (typeof window !== 'undefined') {
   window.closePrelaunchModal = closePrelaunchModal;
   window.submitPreRegistration = submitPreRegistration;
   window.dismissAppFloater = dismissAppFloater;
+  window.dismissTopBanner = dismissTopBanner;
   window.checkAppInstalled = checkAppInstalled;
   // 24/7 AI Support & Live Agent
   window.renderSupportView = renderSupportView;
